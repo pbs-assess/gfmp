@@ -18,7 +18,7 @@ The Regional Peer Review committee will typically be comprised of the technical 
 The simulation framework tests the performance of specific MPs and ultimately a single catch limit from the final selected MP.
 The framework does not test posthoc adjustments to the catch limit recommended by an MP.
 This is in contrast to the decision tables presented in most Pacific Region groundfish stock assessments, where a range of possible catch limits with forecast of future stock status under each catch limit is provided for decision-making.
-Regardless of the framework used for advice, we note that it remains the purview of the Fisheries Minister to make posthoc adjustments to catch limits, based on cultural, social, or economic considerations, in accordance with the *Fisheries Act* (Sections 6.1 (2) and 6.2(2))
+Regardless of the framework used for advice, we note that it remains the purview of the Fisheries Minister to make posthoc adjustments to catch limits, based on cultural, social, or economic considerations, in accordance with the *Fisheries Act* (Sections 2 and 6).
 
 ## STEP 2: SELECTION OF OBJECTIVES AND PERFORMANCE METRICS  {#sec:approach2}
 

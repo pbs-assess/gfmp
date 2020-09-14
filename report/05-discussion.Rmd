@@ -108,7 +108,7 @@ The effects of ageing imprecision and bias on assessment performance could also 
 We note that simulating age- and length-composition data with sufficiently realistic "noise" can be challenging.
 Evaluating the performance of MPs with composition data that represent the underlying true composition more closely than real data may overestimate the performance of MPs that rely on composition data.
 
-We suggest that expanding the framework to include VoI considerations may also require development of new objectives and performance metrics associated with the costs of expanding research programs, collecting more data, or benefits such as marginal improvements in accuracy of advice and improvements in catch accessibility. 
+We suggest that expanding the framework to include VoI considerations may also require development of new objectives and performance metrics associated with the costs of expanding research programs, collecting more data, or benefits such as marginal improvements in accuracy of advice and improvements in catch accessibility.
 
 ## REBUILDING PLANS {#sec:discussion-rebuilding}
 
@@ -156,7 +156,7 @@ For some species, especially those with low monetary value, catch data prior to 
 
 Finally, the success of this framework and any MSE process will depend on adequate engagement by fishery managers, First Nations, and stakeholders.
 For some species, different user groups may have diverse objectives, creating large tradeoffs and a complex decision-making environment.
-In these cases, careful governance of the process and attention to Steps 1 and 2 (Section \@ref(sec:best-practices)) will be especially critical. 
+In these cases, careful governance of the process and attention to Steps 1 and 2 (Section \@ref(sec:best-practices)) will be especially critical.
 
 <!-- We recommend separate review processes for extensions to the framework to evaluate data-moderate and/or data-rich MPs, as there will be additional considerations and sources of uncertainty. -->
 <!-- We also recommend separate review processes for extensions that include consideration of environmental effects, assessing the value of information and rebuilding plans.  -->
