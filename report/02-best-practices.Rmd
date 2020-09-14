@@ -78,7 +78,7 @@ Other uncertainties in past reliability or future availability of data may also 
 Reference and robustness sets may be selected through an iterative process examining the impact of uncertainties on the MSE performance.
 For example, @rademeyer2006b evaluated 28 preliminary robustness tests for a South African hake case study but discontinued tests that produced results very similar to the reference set trials.
 OMs may be weighted, where weightings may be based on qualitative plausibility criteria [@butterworth1996], or may be quantitative based on model-selection criteria based on fits to data (e.g., AIC [Akaike information criterion]).
-However, @punt2016 urged caution in using model-selection critera to weight OMs unless there was very high confidence in the reliability of the likelihood function, which is unlikely to be the case in data-limited situations.
+However, @punt2016 urged caution in using model-selection criteria to weight OMs unless there was very high confidence in the reliability of the likelihood function, which is unlikely to be the case in data-limited situations.
 Placing less plausible OMs into the reference set may somewhat alleviate the need to consider weighting of OMs.
 
 Ideally, OMs should be conditioned on real data to ensure they can reproduce historical observations [e.g., @cox2008a; @forrest2018].
