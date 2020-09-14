@@ -25,11 +25,11 @@ Regardless of the framework used for advice, we note that it remains the purview
 Here we describe a set of provisional objectives and associated performance metrics, refined after discussions with our technical advisory group.
 In applications of the framework, objectives and performance metrics should be refined on a stock-by-stock basis, with advice from Fisheries Management, First Nations, commercial and recreational fishing representatives, NGOs and other affected parties.
 Other objectives and performance metrics could be added (e.g., cultural objectives), decided on a stock-by-stock basis.
-The time-frame of interest for setting objectives and calculating performance metrics may also be determined on a stock-by-stock basis, as trade-offs change over time [@cox2008a]. 
+The time-frame of interest for setting objectives and calculating performance metrics may also be determined on a stock-by-stock basis, as trade-offs change over time [@cox2008a].
 
 Key provisional conservation objectives are guided by the Precautionary Approach Framework [@dfo2006; @dfo2009], elements of which are incorporated into the Fish Stocks provisions of the *Fisheries Act* (see Section \@ref(sec:intro-motivation)).
 Additional objectives related to fisheries catch and variability in annual fisheries catch are based on precedents in other DFO Pacific Region analyses [e.g., @cox2008a; @forrest2018; @cox2019].
- 
+
 We propose the following provisional tactical conservation and fisheries objectives:
 
 1. Maintain stock status above the LRP in the long term with high probability.
@@ -107,7 +107,7 @@ For example, we calculated the *F*~MSY~ performance metric across all replicates
 Alternative calculations would include calculating the performance statistics for a specific year of interest, calculating the proportion of years in which the performance metric was met [@australian_government2018], ensuring that the performance metric threshold is met in each and every year [@ices2016criteria], or each and every replicate.
 Best practices for these calculations vary across jurisdictions [@marentette2020a] and different methods may imply different risk tolerances.
 For example, requiring that a threshold is met in each and every year [@ices2016criteria] is a stricter requirement than requiring a threshold to be met on average over replicates and years.
-Therefore, the method for calculating the performance metrics may need to be determined iteratively, in consultation with managers, stakeholders and First Nations. 
+Therefore, the method for calculating the performance metrics may need to be determined iteratively, in consultation with managers, stakeholders and First Nations.
 
 ## STEP 3: SELECTION OF UNCERTAINTIES/SPECIFICATION OF OPERATING MODELS {#sec:approach3}
 
@@ -313,7 +313,7 @@ This facilitates visualization of performance of MPs that perform well in the re
 
 ### Visual presentation of performance metrics
 
-Here we focus on developing a set of provisional visualizations that facilitate comparison of performance metrics across MPs and evaluation of trade-offs amongst them. We have developed an R package gfdlm [@gfdlm] (Appendix \@ref(app:gfdlm)) for generating these visualizations. We expect that some or all of the visualizations will be refined over time as users gain familiarity and specific needs arise. 
+Here we focus on developing a set of provisional visualizations that facilitate comparison of performance metrics across MPs and evaluation of trade-offs amongst them. We have developed an R package gfdlm [@gfdlm] (Appendix \@ref(app:gfdlm)) for generating these visualizations. We expect that some or all of the visualizations will be refined over time as users gain familiarity and specific needs arise.
 
 First, we suggest a graphical representation of a probability table (Figure \@ref(fig:methods-tigure)) to visualize performance metric results.
 This visualization lends itself to a large number of MPs and so works well for displaying results for *all* MPs---not necessarily just satisficed MPs.
@@ -333,7 +333,7 @@ Radar plots lend themselves to comparing across many performance metrics, but be
 To understand the processes leading to the performance metrics, we recommend that the results from the application of this framework should include visualizations of historical and projected *B*/*B*~MSY~, *F*/*F*~MSY~, and catch.
 We suggest two versions: one that lends itself to careful inspection of individual OM scenarios and an understanding of individual replicate behaviour (Figure \@ref(fig:methods-proj)) and another that lends itself to comparing the time series across OM scenarios (Figure \@ref(fig:methods-proj-sens)).
 Inspection of these time series can provide a diagnostic check that the parameter space is being adequately sampled among replicates.
-For example, a bifurcated time series could indicate that a boundary condition is being reached in some replicates and would indicate that one or more parameters may need to be sampled from a broader distribution. 
+For example, a bifurcated time series could indicate that a boundary condition is being reached in some replicates and would indicate that one or more parameters may need to be sampled from a broader distribution.
 Inspection of these time series can also improve understanding of the performance of MPs, and may lead to addition of new performance metrics if the existing set fails to capture some important behaviour that becomes apparent in the time series.
 For example, if some MPs are creating variable TAC recommendations in the initial implementation years this may suggest the need to specify a short-term TAC variability objective and performance metric.
 Alternatively, if some MPs are resulting in short-term declines in *B*/*B*~MSY~ that eventually recover by the long-term window, this may suggest the need for a short-term conservation objective and performance metric or the calculation of performance metric probabilities via the minimum probability in any year [e.g., @ices2016criteria].
@@ -356,7 +356,7 @@ This visualization highlights the parameter space with the highest probability d
 The other visualization shows the trajectory of *F*/*F*~MSY~ vs. *B*/*B*~MSY~ through time (Figure \@ref(fig:methods-worm)).
 The final year of Figure \@ref(fig:methods-worm) is an alternative representation of Figure \@ref(fig:methods-kobe).
 Figure \@ref(fig:methods-worm) also presents another diagnostic check of the behaviour of MPs over time, for example by indicating how often the stock falls within the critical zone.
-While some MPs may meet long-term conservation metrics, they may cause conservation problems in the shorter term, possibly indicating the need to consider aditional short-term conservation metrics.  
+While some MPs may meet long-term conservation metrics, they may cause conservation problems in the shorter term, possibly indicating the need to consider aditional short-term conservation metrics.
 
 
 (ref:fig-methods-tigure) This probability table illustrates performance metric values across a number of MPs.
@@ -408,7 +408,7 @@ In applications of the framework, all satisficed MPs would be shown as separate 
 Dark lines indicate the median value and the darker and lighter shaded ribbons indicate the 50% and 90% quantiles.
 Thin gray lines represent illustrative simulation replicates.
 The vertical dashed line indicates the last year of the historical period.
-The horizontal dashed lines indicate B/B~MSY~ = 1, 0.8, and 0.4 and F/F~MSY~ = 1.
+The horizontal dashed lines indicate B/B~MSY~ = 0.8 and 0.4 and F/F~MSY~ = 1.
 Note that the simulations are mean-unbiased and so the median B/B~MSY~ and F/F~MSY~ are not expected to lie perfectly on the 1 line even if fishing perfectly at F~MSY~.
 
 ```{r methods-proj, fig.cap="(ref:fig-methods-proj)", out.width="\\textwidth"}
@@ -416,7 +416,7 @@ knitr::include_graphics(here("report/figure/framework-main-projections.png"))
 ```
 
 (ref:fig-methods-proj-sens)
-This visualization highlights sensitivity of the historical conditioned and projected time series across OM scenarios for two hypothetical OM scenarios. 
+This visualization highlights sensitivity of the historical conditioned and projected time series across OM scenarios for two hypothetical OM scenarios.
 In applications of the framework with more than two OM scenarios, more lines would be shown.
 Only one MP is shown here.
 In applications of the framework, all satisficed MPs would be shown as separate panels.
@@ -446,7 +446,7 @@ knitr::include_graphics(here("report/figure/framework-index-projections.png"))
 (ref:fig-methods-kobe) Kobe (B/B~MSY~ vs. F/F~MSY~) plots for the final year of the projections across all replicates.
 Dots represent individual replicates.
 The contour lines indicate two-dimensional kernel-density-smoothed quantiles, calculated in log space.
-For example, the 0.50 contour lines encompass approximately 50% of the replicates. 
+For example, the 0.50 contour lines encompass approximately 50% of the replicates.
 The vertical dashed lines show B/B~MSY~ = 0.4 (left) and 0.8 (right).
 The horizontal dashed line shows F/F~MSY~ = 1.
 Replicates with values beyond the outer axis limits are shown on the axis limit with an open circle (e.g., bottom right corner).
