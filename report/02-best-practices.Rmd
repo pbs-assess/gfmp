@@ -26,6 +26,8 @@ Key questions to guide defining the decision context for MSE include:
 
 * What are the boundaries on the project and decision?
 
+* What are the legislative and policy requirements?
+
 * What are specific roles and responsibilities of parties involved? Parties include Science, Management, First Nations, industry, academia, and/or non-governmental organizations (NGOs).
 
 * How will the final decision be made? For example, it may be necessary to rank or weight objectives if there are large trade-offs with respect to performance for different objectives.
