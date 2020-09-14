@@ -32,9 +32,9 @@ Additional objectives related to fisheries catch and variability in annual fishe
 
 We propose the following provisional tactical conservation and fisheries objectives:
 
-1. Maintain stock status above the LRP in the long term with high probability.
-2. Maintain stock status above the USR in the long term with some probability.
-3. Maintain a fishing exploitation rate below the rate at maximum sustainable yield with some probability.
+1. Maintain stock status above the LRP in the long term with an agreed upon probability.
+2. Maintain stock status above the upper stock reference (USR) in the long term with an agreed upon probability.
+3. Maintain a fishing exploitation rate below the rate at maximum sustainable yield with an agreed upon probability.
 4. Given the above conservation objectives are achieved, maximize short- and long-term fisheries catch.
 5. Given the above conservation objectives are achieved, minimize variability in fisheries catch from year to year.
 
