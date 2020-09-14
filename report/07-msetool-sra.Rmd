@@ -106,7 +106,7 @@ See Section \@ref(sec:dlmtool-fleet-dynamics).
 
 ### Vulnerability-at-age and mortality
 
-Fleet-specific selectivity-at-age (or vulnerability-at-age) ($v_{a,f}$) is length-based and modeled in the same way as in the DLMtool OM (Appendix \@ref(app:dlmtool-om)), with the only difference being that multiple fleets ($f$) can be accommodated.
+Fleet-specific selectivity-at-age (or vulnerability-at-age) ($v_{a,f}$) is length-based and modelled in the same way as in the DLMtool OM (Appendix \@ref(app:dlmtool-om)), with the only difference being that multiple fleets ($f$) can be accommodated.
 For fleet $f$ with asymptotic selectivity, a two-parameter logistic function is used, with parameters defining the length-of-5%-selectivity ($L^5_f$) and the length-of-full-selectivity $L^{\textrm{FS}}_f$.
 For dome-shaped selectivity, a third parameter, the selectivity at $L_{\infty}$, $v^{L_{\infty}}_f$ is also used.
 Length-based selectivity is converted to age-based selectivity as:
@@ -157,7 +157,7 @@ Z^{\textrm{eq}}_a = M + \Sigma_f v_{a,f} F^{\textrm{eq}}_f.
 (\#eq:sra-om-zeq)
 $$
 
-If the stock is assumed to be unfished in the first year of the historical period ($y= t_1$), unfished conditions are modeled by setting $F^{\textrm{eq}}_f = 0$. In practical terms, this is done by the user setting the equilibrium catch for each fleet to zero ($C^\textrm{eq}_f = 0$).
+If the stock is assumed to be unfished in the first year of the historical period ($y= t_1$), unfished conditions are modelled by setting $F^{\textrm{eq}}_f = 0$. In practical terms, this is done by the user setting the equilibrium catch for each fleet to zero ($C^\textrm{eq}_f = 0$).
 
 If the stock was not unfished in year $t_1$, the population is assumed to be in an equilibrium state with catch equal to a user-defined equilibrium catch ($C^\textrm{eq}_f$), defined as a fraction of the observed catch in year $t_1$. In this case the SRA estimates predicted equilibrium catch ($C^{\textrm{eq,pred}}_f$), which is fit to $C^\textrm{eq}_f$, with very low standard deviation (0.01) in the likelihood function (Equation \@ref(eq:sra-om-like-eqcatch)). Equilibrium catch is predicted by the Baranov equation, summed across fleets ($f=1:nf$) and ages ($a=1:A$):
 

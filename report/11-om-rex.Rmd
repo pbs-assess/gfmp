@@ -187,7 +187,7 @@ ggplot(data.frame(h = h, Density = hd), aes(h, Density)) +
 *Process error, the CV of lognormal recruitment deviations.*
 
 @thorson2014 found the mean standard deviation of log recruitment deviations for Pleuronectiformes to be about 0.64. @mcgilliard2017 used 0.6 for Gulf of Alaska stocks.
-We will use a normal distribution centred around this value of 0.6 with a bit of variation represented by an SD of 0.1:
+We will use a normal distribution centered around this value of 0.6 with a bit of variation represented by an SD of 0.1:
 
 <!-- stock_rex@Perr <- c(0.4, 0.9) -->
 

@@ -12,7 +12,7 @@ Rex Sole (*Glyptocephalus zachirus*) occur from central Baja California to the w
 
 Rex Sole are caught in BC at depths between 20 m and greater than 1000 m, with most captured between 75 m and 450 m. Rex Sole as large as 58 cm and weighing up to 1.44 kg have been caught in BC waters. The oldest aged individual was a 34 cm female aged 15 years; however, there is very little available ageing data for this species, with the only data coming from the Hecate Strait Multispecies Assemblage Bottom Trawl survey in 1998. Otoliths have been collected on BC surveys from 2000--present although they have not been aged. Rex Sole have been aged up to 29 years (female) in the Gulf of Alaska [@abookire2006].
 
-Rex Sole are commonly caught in the West Coast Vancouver Island (WCVI) synoptic groundfish bottom trawl survey (Figure \@ref(fig:rex-surv-set-plot)). While they are caught in the commercial mixed-species bottom trawl fishery (Figures \@ref(fig:rex-catch-plot) and \@ref(fig:rex-cpue-map)), there is no directed fishery or assigned quota for them.
+Rex Sole are commonly caught in the West Coast Vancouver Island (WCVI) synoptic groundfish bottom trawl survey (Figure \@ref(fig:rex-surv-set-plot) and \@ref(fig:rex-surv-index-plot)). While they are caught in the commercial mixed-species bottom trawl fishery (Figures \@ref(fig:rex-catch-plot) and \@ref(fig:rex-cpue-map)), there is no directed fishery or assigned quota for them.
 They are commonly caught with Pacific Cod (*Gadus macrocephalus*), Dover Sole (*Microstomus pacificus*), English Sole (*Parophrys vetulus*) and Arrowtooth Flounder (*Atheresthes stomias*). Rex Sole have never been formally assessed in BC.
 However, biomass of Rex Sole in Hecate Strait was estimated in 2012 using research survey data collected between 1984 and 2003 [@fargo2012].
 The WCVI synoptic bottom trawl survey has shown a moderate decline in biomass density from ~2008 to 2012 and an increase from 2014 to 2018 (Figures \@ref(fig:rex-surv-set-plot) and \@ref(fig:rex-surv-index-plot)).
@@ -90,7 +90,7 @@ plot_multiyear_survey_sets(dsurv, "SYN WCVI")
 ```
 
 (ref:fig-rex-indexes)
-West Coast Vancouver Island synoptic bottom trawl survey and standardized commercial bottom trawl CPUE for Rex Sole standardized according to the methods in @anderson2019synopsis. Each index is centred by its geometric mean for years 2004--2019 for visualization purposes. Dots represent mean estimates and line segments represent 95% confidence intervals. The index in the top panel is derived from the data shown in Figure \@ref(fig:rex-surv-set-plot) with confidence intervals generated via a stratified bootstrap procedure [for details, see, for example, @anderson2019synopsis].
+West Coast Vancouver Island synoptic bottom trawl survey and standardized commercial bottom trawl CPUE for Rex Sole standardized according to the methods in @anderson2019synopsis. Each index is divided by its geometric mean for years 2004--2019 for visualization purposes. Dots represent mean estimates and line segments represent 95% confidence intervals. The index in the top panel is derived from the data shown in Figure \@ref(fig:rex-surv-set-plot) with confidence intervals generated via a stratified bootstrap procedure [for details, see, for example, @anderson2019synopsis].
 
 ```{r rex-surv-index-plot, fig.cap="(ref:fig-rex-indexes)", fig.width = 5, out.width = "4.3in", fig.asp=1.15}
 # survey_cols <- c(RColorBrewer::brewer.pal(5L, "Set1"),
@@ -127,7 +127,7 @@ ggplot(d3, aes(year, est)) +
   facet_wrap(~index, ncol = 1) +
   geom_pointrange(aes(ymin = exp(log(est) - 2 * .sd), ymax = exp(log(est) + 2 * .sd)), na.rm = TRUE) + #, position = position_dodge(width = 0.3)
   theme_pbs() +
-  ylab("Index (centred by its geometric mean)")+
+  ylab("Index (divided by its geometric mean)")+
   xlab("Year") +
  geom_linerange(aes(ymin = exp(log(est) - 2 * .sd), ymax = exp(log(est) + 2 * .sd)), na.rm = TRUE) +
   geom_point(pch = 21, size = 2, fill = "white", na.rm = TRUE)
@@ -213,7 +213,7 @@ We measured the performance metrics as probabilities integrated over years and r
 We considered the major axes of uncertainty for Rex Sole to be:
 
 1. The magnitude of the commercial catch prior to 1996 (influencing initial depletion in 1996)
-2. The importance of the commercial CPUE index
+2. The influence of the commercial CPUE index
 3. The value of the steepness parameter (*h*) of the stock-recruit relationship
 4. The value of natural mortality (*M*)
 5. The age selectivity pattern of the commercial fleet and survey gear
@@ -225,7 +225,7 @@ sc <- readRDS(here("generated-data/rex-scenarios.rds"))
 sc <- sc %>%
   select(-order) %>%
   mutate(scenario_human = gsub("inc\\.", "increasing", scenario_human)) %>%
-  mutate(scenario_human = gsub("\\\n", " ", scenario_human)) %>% 
+  mutate(scenario_human = gsub("\\\n", " ", scenario_human)) %>%
   mutate(scenario_human = gsub("Ceq.", "C^eq^", scenario_human))
 sc %>% select(-scenario) %>%
   csasdown::csas_table(caption = "Rex Sole OM scenarios. \"C^eq^\" refers to \"catch equilibrium\" in 1995 and is used to parameterize the level of biomass depletion at the beginning of the recorded catch history. Unless otherwise specified, \"C^eq^\" was set at 200% in all scenarios.",
@@ -358,7 +358,7 @@ The implied spawning stock biomass depletion trajectories during the historical 
 rex_converged <- readRDS(here("generated-data/rex-converged.rds"))
 rex_converged %>%
   mutate(fraction_converged = sprintf("%.2f",round(nsim / 650, 2))) %>%
-  mutate(scenario = gsub("\\n", " ", scenario)) %>% 
+  mutate(scenario = gsub("\\n", " ", scenario)) %>%
   mutate(scenario = gsub("Ceq.", "C^eq^", scenario))%>%
   select(-nsim) %>%
   csasdown::csas_table(col_names = c("OM Scenario", "Fraction retained"),

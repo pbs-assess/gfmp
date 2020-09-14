@@ -234,7 +234,7 @@ where $\widetilde{L}^5$ is the user-defined length-at-5%-selectivity.
 The standard deviation of the descending limb is given by
 
 $$
-\sigma_{\textrm{des}} = \frac{\widetilde{L}_\infty - \widetilde{L}^\textrm{FS}}{{\sqrt{- \log_{2^{\widetilde{V}_{L_\infty}}}}}},
+\sigma_{\textrm{des}} = \frac{\widetilde{L}_\infty - \widetilde{L}^\textrm{FS}}{{\sqrt{- \log_{2} {\widetilde{V}_{L_\infty}}}}},
 (\#eq:dlm-om-sigldes)
 $$
 
@@ -243,7 +243,7 @@ where $\widetilde{V}_{L_\infty}$ is the user-defined selectivity-at-maximum-leng
 DLMtool currently models all catch as coming from a single fleet.
 However, if the OM is conditioned using the SRA model (Appendix \@ref(app:sra)), the SRA can accommodate multiple fleets, and selectivity is fleet-specific.
 Fleet-specific selectivity in the SRA is calculated using Equation \@ref(eq:sra-om-vaf) with fleet-specific user-defined settings for $\widetilde{L}^5$, $\widetilde{L}^{FS}$ and $\widetilde{V}_{L_\infty}$, or is estimated if age- or length-composition data are provided.
-In this case, selectivity in the DLMtool OM in the projection period is replaced in Equation \@ref(eq:dlm-om-zya) with the SRA-conditioned estimate of fishing mortality-at-age in the final year ($t_c$) of the historical period ($\Sigma_f v_{a,f} F_{t_c,f}$), normalized by dividing by apical $F$ in that year.
+In this case, selectivity in the DLMtool OM in the projection period is replaced in Equation \@ref(eq:dlm-om-zya) with the SRA-conditioned estimate of fishing mortality-at-age in the final year ($t_c$) of the historical period ($\Sigma_f v_{a,f} F_{t_c,f}$), normalized by dividing by apical $F$ (maximum $F$ across ages) in that year.
 This provides fractions of $F$-at-age derived from the relative selectivity-at-age across fleets (i.e., catch-weighted selectivity-at-age).
 The closed-loop simulation projections therefore assume that the relative selectivities across fleets remains constant in the projection period.
 
@@ -284,14 +284,14 @@ where $\widetilde{L}_\textrm{rmax}$ is the length at maximum retention.
 The standard deviation parameter of the ascending limb is given by the length at 5% retention $\widetilde{L}_{r5}$:
 
 $$
-\sigma_{\textrm{rasc}} = \frac{{\widetilde{L}}_{r5} - \widetilde{L}_{\textrm{rmax}}}{\sqrt{- \log_{2^{0.05}}}}
+\sigma_{\textrm{rasc}} = \frac{{\widetilde{L}}_{r5} - \widetilde{L}_{\textrm{rmax}}}{\sqrt{- \log_2 {0.05}}}
 (\#eq:dlm-om-sigrasc)
 $$
 
 while the standard deviation of the descending limb is given by retention $\widetilde{r}_{L_\infty}$ of fish of length $\widetilde{L}_\infty$:
 
 $$
-\sigma_{\textrm{rdesc}} = \frac{\widetilde{L}_\infty - \widetilde{{L}}_{\textrm{rmax}}}{\sqrt{- \log_{2^{\widetilde{{r}}_{L_\infty}}}}}.
+\sigma_{\textrm{rdesc}} = \frac{\widetilde{L}_\infty - \widetilde{{L}}_{\textrm{rmax}}}{\sqrt{- \log_2 {\widetilde{{r}}_{L_\infty}}}}.
 (\#eq:dlm-om-sigrdec)
 $$
 
