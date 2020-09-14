@@ -230,7 +230,7 @@ R_y =
 (\#eq:sra-om-rya)
 $$
 
-where $\varepsilon_y$ are recruitment deviates and $\tau$ is the standard deviation of the deviates, and $B_y$ is annual spawning biomass, given by:
+where $\varepsilon_y$ are recruitment deviates (here in log space vs. in natural space in Appendix \@ref(app:dlmtool-om)) and $\tau$ is the standard deviation of the deviates, and $B_y$ is annual spawning biomass, given by:
 
 $$
 B_y = \sum_a^A w_{a} m_{a} N_{y,a},
