@@ -47,7 +47,7 @@ However, having too many performance metrics can make the final decision process
 Objectives should be developed with the participation of managers, stakeholders, First Nations, and other interested parties [e.g., @smith1999; @mapstone2008; @plaganyi2007; @cox2008a].
 @hilborn2007 identified four categories of fishery objectives: biological, economic, social and political, noting that many conflicts in fisheries in fact arise from conflicting objectives.
 Within each of these categories, different resource users and interest groups will place value on different components, leading to inevitable trade-offs.
-For example, while most resource users may place higher value on increased biological production, specific resource user groups, such aboriginal users, may prefer more stable access to yields and increased participation [@plaganyi2013] or have spatial objectives [@okamoto2020]. Recreational users may prefer lower yields and larger trophy fish [@hilborn2007].
+For example, while most resource users may place higher value on increased biological production, specific resource user groups, such as aboriginal users, may prefer more stable access to yields and increased participation [@plaganyi2013] or have spatial objectives [@okamoto2020]. Recreational users may prefer lower yields and larger trophy fish [@hilborn2007].
 Achieving agreement on the list of objectives and performance metrics, especially with multiple user groups is critical, can be time-consuming and should be iterative, as participants build familiarity with each other and the process.
 Incorporating social and cultural objectives may be particularly important and is lacking in many decision making processes [@stephenson2017; @benson2018; @okamoto2020; but see, for example, @plaganyi2013; @dfo2019; @dfo2020].
 During Step 1 (Section \@ref(sec:best1)), attention should be given to governance of the process to ensure that there is meaningful participation by different groups and that participants can agree on a final set of objectives to adequately represent their interests and characterize the main trade-offs [@stephenson2017; @okamoto2020]. An overview of possible approaches is provided in @benson2018.
@@ -67,7 +67,7 @@ Where available, stock assessments can be consulted for the major sources of unc
 For example, the initial reference set may be based on the set of sensitivity analyses presented in the stock assessment (possibly with additional scenarios), while the robustness set may include a broader, more exploratory set of uncertainties [e.g., Atlantic Bluefin Tuna (*Thunnus thynnus*), T. Carruthers, personal communication, May 12 2020].
 
 Interactions among uncertainties may be considered by evaluating all combinations of uncertainty factors [e.g., @rademeyer2006a]. This may be presented in grid format [e.g., @carruthers2020].
-However, this may not always be computationally possible, and it is more common to select ‘base’ levels for each factor and then  develop alternative OMs which vary one (or more than one) factor in turn [@punt2016].
+However, this may not always be computationally possible, and it is more common to select 'base' levels for each factor and then  develop alternative OMs which vary one (or more than one) factor in turn [@punt2016].
 An iterative approach may be required, where sensitivity tests are run to determine which combinations produce the largest differences in results [e.g., @rademeyer2006b; @carruthers2020].
 
 Once an agreed-upon reference set of OMs has been determined, a wider range of OMs (the robustness set) should be developed to capture a wider range of uncertainties that may be less plausible but should nonetheless be explored [@rademeyer2007].
@@ -77,7 +77,7 @@ Other uncertainties in past reliability or future availability of data may also 
 
 Reference and robustness sets may be selected through an iterative process examining the impact of uncertainties on the MSE performance.
 For example, @rademeyer2006b evaluated 28 preliminary robustness tests for a South African hake case study but discontinued tests that produced results very similar to the reference set trials.
-OMs may be weighted, where weightings may be based on qualitative plausibility criteria [@butterworth1996], or may be quantitative based on model-selection criteria based on fits to data (e.g., AIC).
+OMs may be weighted, where weightings may be based on qualitative plausibility criteria [@butterworth1996], or may be quantitative based on model-selection criteria based on fits to data (e.g., AIC [Akaike information criterion]).
 However, @punt2016 urged caution in using model-selection critera to weight OMs unless there was very high confidence in the reliability of the likelihood function, which is unlikely to be the case in data-limited situations.
 Placing less plausible OMs into the reference set may somewhat alleviate the need to consider weighting of OMs.
 

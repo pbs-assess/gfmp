@@ -104,9 +104,9 @@ Performance metrics for applications of the framework may, for example, reflect 
 In cases where performance metrics are calculated over a range of years, care needs to be taken to clearly report how summary statistics are calculated.
 Provisionally, we suggest calculating performance statistics across replicates and the entire time window as defined for the performance metric.
 For example, we calculated the *F*~MSY~ performance metric across all replicates and years simultaneously.
-Alternative calculations would include calculating the performance statistics for a specific year of interest, calculating the proportion of years in which the performance metric was met [@australian_government2018], ensuring that the performance metric threshold is met in each and every year [@ices2016criteria], or each and every replicate
+Alternative calculations would include calculating the performance statistics for a specific year of interest, calculating the proportion of years in which the performance metric was met [@australian_government2018], ensuring that the performance metric threshold is met in each and every year [@ices2016criteria], or each and every replicate.
 Best practices for these calculations vary across jurisdictions [@marentette2020a] and different methods may imply different risk tolerances.
-For example, requiring that a threshold is met in each and every year as in [@ices2016criteria] is a stricter requirement than requiring a threshold to be met on average over replicates and years.
+For example, requiring that a threshold is met in each and every year [@ices2016criteria] is a stricter requirement than requiring a threshold to be met on average over replicates and years.
 Therefore, the method for calculating the performance metrics may need to be determined iteratively, in consultation with managers, stakeholders and First Nations. 
 
 ## STEP 3: SELECTION OF UNCERTAINTIES/SPECIFICATION OF OPERATING MODELS {#sec:approach3}
@@ -455,7 +455,7 @@ Replicates with values beyond the outer axis limits are shown on the axis limit 
 knitr::include_graphics(here("report/figure/framework-kobe.png"))
 ```
 
-(ref:fig-methods-worm) This visualization illustrates the time trajectory of B/B~MSY~ and F/F~MSY~ values summarized across replicates.
+(ref:fig-methods-worm) This visualization illustrates the time trajectory of F/F~MSY~ vs. B/B~MSY~  values summarized across replicates for a single MP.
 The solid line corresponds to the median value.
 The vertical dashed lines show B/B~MSY~ = 0.4 (left) and 0.8 (right).
 The horizontal dashed line shows F/F~MSY~ = 1.

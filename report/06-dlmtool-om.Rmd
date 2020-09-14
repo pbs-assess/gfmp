@@ -22,17 +22,17 @@ There are two distinct time-periods in the simulation framework:
 (1) the historical period, which includes the years from the first year of the catch time-series $t_1$ to the final year of the catch time series $t_c$ (where "c" represents the "current" year); and
 (2) the projection period, which covers the period from the first year after $t_c$ to the final projection year $t_N$.
 The historical period is conditioned to historical observations using an age-structured stock-reduction analysis [SRA; @kimura1982; @walters2006], described in Appendix \@ref(app:sra).
-The closed-loop simulation, with application of the MPs and calculation of performance metrics, begins in the first year of the projection period (year $t_{c+1}$).
+The closed-loop simulation, with application of the MPs and calculation of performance metrics, begins in the first year of the projection period (year $t_{c}+1$).
 
 OM development in the MP Framework follows three steps:
-
-1. Set parameter values and ranges in the OM (OM equations are provided in this appendix; default parameter settings are provided in Appendix \@ref(app:default-slots). Parameter values may be drawn from biological and fishery data, local stock assessments, the scientific literature, meta-analyses from similar species, stock assessments from other regions, expert judgement, or other sources where relevant. Examples of user-defined parameter settings drawn from a range of sources are provided in Appendix \@ref(app:desc-om-rex)), and in @haggarty2020yelloweye.
+                                 
+1. Set parameter values and ranges in the OM---OM equations are provided in this appendix; main parameters are defined in Table \@ref(tab:tab-om-par); default parameter settings are provided in Appendix \@ref(app:default-slots). Parameter values may be drawn from biological and fishery data, local stock assessments, the scientific literature, meta-analyses from similar species, stock assessments from other regions, expert judgement, or other sources where relevant. Examples of user-defined parameter settings drawn from a range of sources are provided in Appendix \@ref(app:desc-om-rex), and in @haggarty2020yelloweye.
 
 2. Pass the OM parameters to the SRA model, which conditions the OM by fitting an age-structured SRA to historical observed catches and indices of abundance (with options to fit to age- and/or length-composition data if available).
 This results in conditioned estimates of model parameters and estimates of historical biomass and historical fishing mortality (in years $t_1$ to $t_c$), which are consistent with historical observations.
 Equations for the SRA model are provided in Appendix \@ref(app:sra).
 
-3. Pass the conditioned parameter values back to the OM (now the "conditioned" OM) for use in the closed-loop simulation projections, starting in year $t_{c+1}$.
+3. Pass the conditioned parameter values back to the OM (now the "conditioned" OM) for use in the closed-loop simulation projections, starting in year $t_{c}+1$.
 
 The SRA updates one or more of the following OM parameters, depending on data availability (see Appendix \@ref(app:sra) for details):
 
@@ -63,16 +63,18 @@ L_{a} = \widetilde{L}_{\infty}\left( 1 - \exp( - \widetilde{\kappa}(a - \widetil
 (\#eq:dlm-om-vonb)
 $$
 
-where $\widetilde{\kappa}$ represents the growth rate, $\widetilde{L}_{\infty}$ represents the maximum length and $\widetilde{t}_0$ represents the theoretical age where length is zero.
+where $L_a$ represents length at age $a$, $\widetilde{\kappa}$ represents the growth rate, $\widetilde{L}_{\infty}$ represents the maximum length and $\widetilde{t}_0$ represents the theoretical age where length is zero.
 
 Weight-at-age ($w_a$) is assumed to be related to length-at-age ($L_a$) by:
 
 $$
-w_{a} = \widetilde{\alpha}_{W}\ {L_{a}}^{\widetilde{\beta}_{W}}.
+w_{a} = \widetilde{\alpha}_{W}\ {L_{a}}^{\widetilde{\beta}_{W}},
 (\#eq:dlm-om-wta)
 $$
 
-Maturity is specified according to length, using a logistic model with parameters describing length-at-50% maturity ($\widetilde{\theta}_{l50}$) and the length increment from 50% to 95% maturity ($\widetilde{\theta}_{l50-95}$). Maturity ($m$) at length ($l$) is then calculated as:
+
+where $\alpha_W$ and $\beta_W$ are species-specific length-weight coefficients.
+Maturity is specified according to length, using a logistic model with parameters describing length-at-50% maturity ($\widetilde{\theta}_{l50}$) and the length increment from 50% to 95% maturity ($\widetilde{\theta}_{l50-95}$). Maturity ($m_l$) at length ($l$) is then calculated as:
 
 $$
 m_{l} = \frac{1}{1 + e^{{- \ln}19\left( \frac{l - \widetilde{\theta}_{l50}}{{\widetilde{\theta}}_{l50-95}} \right)}},
@@ -112,7 +114,7 @@ $$
 
 Leading parameters of the population dynamics model, defined as fixed values or ranges by the user, are: unfished recruitment $R_0$, the steepness parameter of the stock-recruit relationship ($h$) [@mace1988], and natural mortality ($M$).
 Recruitment and numbers-at-age are initialized in the first historical year using the SRA model (Appendix \@ref(app:sra), Equations \@ref(eq:sra-om-numinit) to \@ref(eq:sra-om-recinit)).
-During the projection period (years $y = t_{c+1}$ to $y = t_N$), the number of fish recruited to the first age group in each year $N_{y,a=1}$ is calculated as a function of the previous year's spawning biomass $B_{y-1}$. The framework assumes a Beverton-Holt stock-recruit relationship [@beverton1957] with annual lognormal recruitment deviations $\varepsilon_{R,y-1}$, but analysts can alternatively choose a Ricker function [@ricker1954]:
+During the projection period (years $y = t_{c}+1$ to $y = t_N$), the number of fish recruited to the first age group at the beginning of each year $N_{y,a=1}$ is calculated as a function of the previous year's spawning biomass $B_{y-1}$. The framework assumes a Beverton-Holt stock-recruit relationship [@beverton1957] with annual lognormal recruitment deviations $\varepsilon_{R,y-1}$, but analysts can alternatively choose a Ricker function [@ricker1954]:
 
 $$
 N_{y, a = 1} = R_y =
@@ -188,7 +190,7 @@ Z_{y,a} = \widetilde{M} + v_{a}F_{y,a},
 (\#eq:dlm-om-zya)
 $$
 
-where $F_{y,a}$ is fishing mortality-at-age, defined in Equation \@ref(eq:dlm-om-Fay)), and $v_{a}$ is selectivity-at-age, defined in Equation \@ref(eq:dlm-om-va).
+where $F_{y,a}$ is fishing mortality-at-age during year $y$, defined in Equation \@ref(eq:dlm-om-Fay)), and $v_{a}$ is selectivity-at-age, defined in Equation \@ref(eq:dlm-om-va).
 
 Note that Equation \@ref(eq:dlm-om-nya) treats the maximum age class $A$ as a plus group (i.e., the age class $A$ includes all fish of age $A$ and older).
 This is not the default in DLMtool, which usually makes the assumption that $A$ is large enough to include all age classes (i.e., $N_{y,a} = N_{y-1,a-1}e^{-Z_{y-1,a-1}}$ is used for all age classes including $a = A$).
@@ -223,7 +225,7 @@ where $\widetilde{L}^\textrm{FS}$ represents the user-defined length-at-full-sel
 The standard deviation of the ascending limb ($\widetilde{\sigma}_{\textrm{asc}}^{2}$) is given by
 
 $$
-\sigma_{\textrm{asc}} = \frac{{\widetilde{L}}^{5} - \widetilde{L}^\textrm{FS}}{\sqrt{- \log_{2^{0.05}}}}
+\sigma_{\textrm{asc}} = \frac{{\widetilde{L}}^{5} - \widetilde{L}^\textrm{FS}}{\sqrt{- \log_{2} 0.05}}
 (\#eq:dlm-om-siglasc)
 $$
 
