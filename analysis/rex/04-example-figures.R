@@ -134,14 +134,16 @@ pm_df %>%
 
 x <- DLMtool::Sub(mse, MPs = c(".Itarget_base"))
 x@MPs <- paste0("MP-", seq_along(x@MPs))
-gfdlm::plot_kobe_grid(list("Scenario 1" = x))
-.ggsave("kobe", 4.5, 4.5)
+gfdlm::plot_kobe_grid(list("Scenario 1" = x)) +
+  coord_equal(xlim = c(0, 3.2), ylim = c(0, 2.1), expand = FALSE)
+.ggsave("kobe", 4.5, 2.7)
 
 # Worm plot -------------------------------------------------------------------
 
 # worm
-gfdlm::plot_worms_grid(list("Scenario 1" = x), include_historical = TRUE)
-.ggsave("worm", 4.5, 4.5)
+gfdlm::plot_worms_grid(list("Scenario 1" = x), include_historical = TRUE) +
+  coord_equal(xlim = c(0, 2.5), ylim = c(0, 1.5), expand = FALSE)
+.ggsave("worm", 4.5, 2.5)
 
 # Scenario projection sensitivities -------------------------------------------
 
