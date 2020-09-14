@@ -131,8 +131,8 @@ Feedback from managers, stakeholders and First Nations should be sought througho
 
 ## STEP 6: PRESENTATION OF RESULTS AND SELECTION OF MANAGEMENT PROCEDURE {#sec:best6}
 
-Selection of the "best" MP involves addressing trade-offs (e.g., between conservation and economic performance metrics), and therefore is the purview of managers, stakeholders, First Nations, and interested parties [@punt2016].
-Ultimately, selection of the best MP may be a subjective process, depending on the magnitude of trade-offs.
+Selection of an MP involves addressing trade-offs (e.g., between conservation and economic performance metrics), and therefore is the purview of managers, stakeholders, First Nations, and interested parties [@punt2016].
+Ultimately, selection of an MP may be a subjective process, depending on the magnitude of trade-offs.
 It may be necessary to rank performance metrics in order of priority before the process starts.
 The role of Science in this step is to ensure that results are clearly presented to decision-makers.
 Ideally this should include presentation of graphical outputs that enable clear comparison of MPs with respect to performance metrics and trade-offs [@punt2017].
