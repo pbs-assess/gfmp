@@ -159,7 +159,7 @@ fit_scenario <- function(scenario, mp_vec, id = "", sp = "rex") {
   mse
 }
 
-fo <- furrr::future_options(
+fo <- furrr::furrr_options(
   packages = c("gfdlm", "DLMtool", "MSEtool", "here"),
   globals = c("ref_catch", "om", mp$mp)
 )
