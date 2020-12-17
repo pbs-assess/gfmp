@@ -67,7 +67,7 @@ if (!FRENCH) {
 } else {
   `LT PRL` <- gfdlm::pm_factory("SBMSY", 0.4, c(36, 50))
   `LT RSS` <- gfdlm::pm_factory("SBMSY", 0.8, c(36, 50))
-  FRMS <- DLMtool::PNOF
+  FRMD <- DLMtool::PNOF
 }
 
 if (!FRENCH) {
