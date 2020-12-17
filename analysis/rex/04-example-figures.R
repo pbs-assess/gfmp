@@ -7,6 +7,7 @@ library("rosettafish")
 
 FRENCH <- TRUE
 options(french = TRUE)
+if (FRENCH) options(OutDec = ",")
 
 if (!FRENCH) {
   fig_dir <- here("report", "figure")
@@ -72,7 +73,7 @@ if (!FRENCH) {
 if (!FRENCH) {
   PM <- c("LT LRP", "LT USR", "FMSY", "STC", "LTC", "AADC")
 } else {
-  PM <- c("LT PRL", "LT RSS", "FRMS", "STC", "LTC", "AADC")
+  PM <- c("LT PRL", "LT RSS", "FRMD", "STC", "LTC", "AADC")
 }
 
 mse2@OM$RefY <- ref_catch
