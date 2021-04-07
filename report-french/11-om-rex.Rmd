@@ -176,7 +176,8 @@ h <- seq(0, 1, length.out = 200)
 hd <- dbeta(h, 13.4, 2.4)
 ggplot(data.frame(h = h, Density = hd), aes(h, Density)) +
   geom_line() +
-  theme_pbs()
+  theme_pbs() +
+  ylab(en2fr("Density"))
 ```
 
 <!-- slot-chunk-end -->
@@ -272,15 +273,7 @@ ggplot(.dp, aes(ages, length, group = id)) +
   ) +
   geom_line(alpha = 0.1) +
   gfdlm::theme_pbs() +
-  xlab("Age (years)") + ylab("Length (cm)")
-```
-
-```{r desc-stock-vbpost-rex, eval=FALSE, echo=TRUE}
-msa <- gfdata::get_survey_samples("rex sole", ssid = 2)
-vb_model <- gfplot::fit_vb(msa, sex = "all", method = "mcmc", iter = 8000)
-vb_post <- rstan::extract(vb_model$model)
-set.seed(3829)
-i <- sample(seq_along(vb_post$k), nsim)
+  xlab(en2fr("Age (years)")) + ylab(paste(en2fr("Length"), "(cm)"))
 ```
 
 ```{r desc-stock-linf-rex, results = knitr_results, echo = knitr_echo}
@@ -322,7 +315,8 @@ vbd <- data.frame(t0 = vb_post$t0, k = vb_post$k, linf = vb_post$linf) %>%
   tidyr::pivot_longer(tidyr::everything(), names_to = "variable", values_to = "value")
 ggplot(vbd, aes(value)) + geom_histogram() +
   facet_wrap(~variable, scales = "free_x", ncol = 3) +
-  theme_pbs() + xlab("Parameter value") + ylab("Samples") +
+  theme_pbs() + xlab(en2fr("Parameter value")) + ylab("") +
+  theme(axis.text.y.left = element_blank()) +
   coord_cartesian(expand = FALSE)
 ```
 
@@ -341,7 +335,7 @@ We sampled 2000 iterations for each of four chains from the posterior and check 
 
 ```{r desc-stock-mat-plot, fig.width=6, out.width="4in", fig.cap="Predicted maturity by length for males and females separately. \"Rug lines\" along the top and bottom indicate individual sampled fish with some overlap. Curved lines represent predictions from a logistic regression. Vertical line represents the length at 50\\% maturity."}
 m_mat <- gfplot::fit_mat_ogive(drex$survey_samples, type = "length")
-gfplot::plot_mat_ogive(m_mat)
+gfplot::plot_mat_ogive(m_mat, french = TRUE)
 
 .d <- m_mat$data
 .d$sex <- .d$female - mean(.d$female)
@@ -382,25 +376,9 @@ mat_prob <- function(x, intercept, slope) {
   geom_line(alpha = 0.04) +
   labs(colour = "Type", y = "Probability", x = "Length (cm)") +
   theme_pbs() +
+  xlab(paste(rosettafish::en2fr("Length"), "(cm)")) +
+  ylab(rosettafish::en2fr("Probability"))+
   coord_cartesian(expand = FALSE, ylim = c(-0.005, 1.005))
-```
-
-```{r, eval=FALSE, echo=TRUE}
-m_mat <- gfplot::fit_mat_ogive(drex$survey_samples, type = "length")
-d <- m_mat$data
-d$sex <- d$female - mean(d$female)
-d$length <- d$age_or_length
-mat_bayes <- rstanarm::stan_glm(mature ~ length * sex,
-  data = d, family = binomial(link = "logit"),
-  cores = parallel::detectCores(), iter = 2000,
-  prior_intercept = rstanarm::normal(0, scale = 50, autoscale = FALSE),
-  prior = rstanarm::normal(0, scale = 10, autoscale = FALSE),
-  seed = 8983
-)
-post_mat <- as.data.frame(mat_bayes)
-logit_perc <- function(a, b, perc) -(log((1 / perc) - 1) + a) / b
-L50 <- logit_perc(a = post_mat$`(Intercept)`, b = post_mat$length, perc = 0.5)
-i <- sample(seq_along(post_mat$length), nsim)
 ```
 
 ```{r desc-stock-l50-rex, results = knitr_results, echo = knitr_echo, message=FALSE, warning=FALSE}
@@ -415,7 +393,8 @@ lwd <- data.frame(L50 = L50, L95=L95, L50_95=L50_95) %>%
   reshape2::melt()
 ggplot(lwd, aes(value)) + geom_histogram() +
   facet_wrap(~variable, scales = "free_x", ncol = 3) +
-  theme_pbs() + xlab("Parameter value") + ylab("Samples") +
+  theme_pbs() + xlab(en2fr("Parameter value")) + ylab("") +
+  theme(axis.text.y.left = element_blank()) +
   coord_cartesian(expand = FALSE)
 L95 <- logit_perc(a = post_mat$`(Intercept)`, b = post_mat$length, perc = 0.95)
 ```
@@ -465,12 +444,12 @@ We have sufficient length and weight data to fit a model to our data for both se
 <!-- Suppressing a Makevars R message: -->
 ```{r desc-stock-a-rex1, message=FALSE, warning=FALSE, echo=FALSE, fig.width=6, out.width="4in", results='hide', fig.cap="(ref:desc-stock-a-rex)"}
 mlw <- gfplot::fit_length_weight(drex$survey_samples, sex = "all")
-gfplot::plot_length_weight(object_all = mlw, col = c("All" = "black"))
+gfplot::plot_length_weight(object_all = mlw, col = c("All" = "black"), french = french)
 ```
 
 ```{r desc-stock-a-rex2, echo=TRUE, eval=FALSE, message=FALSE, warning=FALSE}
 mlw <- gfplot::fit_length_weight(drex$survey_samples, sex = "all")
-gfplot::plot_length_weight(object_all = mlw, col = c("All" = "black"))
+gfplot::plot_length_weight(object_all = mlw, col = c("All" = "black"), french = french)
 ```
 
 ```{r desc-stock-a-rex, results = knitr_results, echo = knitr_echo, message=FALSE, warning=FALSE, fig.width=6, out.width="4in", message=FALSE}
@@ -576,9 +555,10 @@ vulnerable2 <- data.frame(length = La, prob = v(La, L5 = 17, LFS = 28)) %>%
 
 bind_rows(.dm, vulnerable1) %>%
   bind_rows(vulnerable2) %>%
+  mutate(type = en2fr(type, french, allow_missing = TRUE)) %>% 
   ggplot(aes(length, prob, colour = type, group = id)) +
   geom_line(lwd = 1) +
-  labs(colour = "Type", y = "Probability", x = "Length (cm)") +
+  labs(colour = en2fr("Type", french), y = en2fr("Probability", french), x = en2fr("Length (cm)", french)) +
   theme_pbs() +
   coord_cartesian(expand = FALSE, ylim = c(-0.005, 1.005)) +
   scale_colour_manual(values = c("#00000006", RColorBrewer::brewer.pal(3, "Dark2")[1:2])) +

@@ -29,7 +29,7 @@ abstract: |
 header: "Draft working paper --- Do not cite or circulate" # or "" to omit
 output:
  csasdown::resdoc_pdf:
-   french: false
+   french: true
 # ------------
 # End of options to set
 knit: bookdown::render_book
@@ -63,6 +63,20 @@ options(kableExtra.latex.load_packages = FALSE)
 ```
 
 ```{r load-libraries, cache=FALSE}
+# rstanarm loading MUST COME BEFORE THE OutDec OPTION!!!!!!!!!!!!
+# much time wasted on 2021-04-07
+library(rstanarm)
+french <- TRUE
+
+if (french){
+  csl <- "csl/csas-french.csl"
+  options(OutDec =  ",")
+  options(french = TRUE)
+} else {
+  options(french = FALSE)
+  csl <- "csl/csas.csl"
+}
+
 # add other packages here:
 library(gfplot)
 library(gfutilities)
@@ -74,6 +88,7 @@ library(rfishbase)
 library(RColorBrewer)
 library(tidyverse)
 library(here)
+library(rosettafish)
 filter <- dplyr::filter
 options(tinytex.verbose = TRUE)
 knitr::opts_chunk$set(crop = NULL)
