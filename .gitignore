@@ -36,7 +36,6 @@ sra/knitr-cache*
 sra/knitr-figs*
 nodejs/
 *.sublime*
-
 report/gfmp-outline.mindnode/QuickLook/Preview.jpg
 report/resdoc.toc
 *.docx
@@ -45,3 +44,6 @@ report/resdoc.toc
 *.so
 *.xlsx
 report/lw_gfplot.cpp
+lw_gfplot.cpp
+vb.stan
+R-package-archive/
