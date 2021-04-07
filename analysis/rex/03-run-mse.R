@@ -242,7 +242,6 @@ if (FRENCH) {
     "8 - M\ncroissante")
 }
 
-
 plots <- gfdlm::plot_factory(
   mse_list = mse,
   pm = PM,

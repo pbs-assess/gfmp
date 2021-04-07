@@ -612,8 +612,10 @@ make_hcr_fig <- function(dat, xlab = expression(~B/B[0])) {
 }
 
 g1 <- make_hcr_fig(filter(pars, type == "HCR-4010")) + ggtitle("HCR-4010")
-g2 <- make_hcr_fig(filter(pars, type == "HCR-8040"), expression(Estimated~B/B[MSY])) + ggtitle("HCR-8040")
-g3 <- make_hcr_fig(filter(pars, type == "HCR-6040"), expression(Estimated~B/B[MSY])) + ggtitle("HCR-6040")
+g2 <- make_hcr_fig(filter(pars, type == "HCR-8040"), expression(Estimated~B/B[MSY])) + ggtitle("HCR-8040") +
+  xlab(paste("B/BMSY", en2fr("Estimated")))
+g3 <- make_hcr_fig(filter(pars, type == "HCR-6040"), expression(Estimated~B/B[MSY])) + ggtitle("HCR-6040") +
+  xlab(paste("B/BMSY", en2fr("Estimated")))
 
 cowplot::plot_grid(g1, g2, g3, nrow = 1)
 ```

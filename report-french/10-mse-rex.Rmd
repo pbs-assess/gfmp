@@ -70,7 +70,8 @@ plot_multiyear_survey_sets <- function(dat, survey_abbrev,
       fill = "grey87", col = "grey70", lwd = 0.2, inherit.aes = FALSE) +
     scale_fill_viridis_c(trans = "sqrt") +
     labs(fill = density_lab,
-      size = density_lab, x = "Abscisses",
+      size = density_lab, 
+      x = "Abscisses",
       y = "Ordonnées") +
     guides(
       size = guide_legend(order = 1),
@@ -118,7 +119,7 @@ ggplot(d3, aes(year, est)) +
 ```{r rex-catch-plot, fig.cap="Prises commerciales de plie royale. Il est à noter que les prises limitées au début des années 1990 sont considérées comme non fiables et ne sont pas représentées. La région ombrée avant 1996 indique la période précédant la mise en œuvre du programme des observateurs en mer pour les flottilles de chalutiers de fond et de chalutiers pélagiques.", fig.asp = 0.8, fig.width = 5, out.width = "4.5in"}
 suppressWarnings({g <- drex$catch %>%
   gfplot::tidy_catch(areas = "3[CD]+") %>%
-  gfplot::plot_catch(xlim = c(1954, 2019), unreliable = c(1996))})
+  gfplot::plot_catch(xlim = c(1954, 2019), unreliable = c(1996), french = TRUE)})
 g + labs(title = "")
 ```
 
@@ -127,19 +128,21 @@ drex$cpue_spatial %>%
   dplyr::filter(year >= 2013, year <= 2019) %>%
   dplyr::filter(major_stat_area_code %in% c("03", "04")) %>%
   gfplot::plot_cpue_spatial(xlim = c(500, 890), ylim = c(5353, 5700),
-    percent_excluded_xy = c(0, 0), bin_width = 4)
+    percent_excluded_xy = c(0, 0), bin_width = 4, french = TRUE,
+    percent_excluded_text = en2fr("Fishing events excluded due to Privacy Act", TRUE)) +
+  labs(x = "Abscisses", y = "Ordonnées")
 ```
 
 ```{r rex-samples, fig.cap="Disponibilité des spécimens de plie royale. Le nombre de spécimens disponibles dont la longueur a été mesurée, qui ont été pesés, dont la maturité a été évaluée, dont l’âge a été évalué et pour lesquels des structures de détermination de l’âge sont disponibles est présenté. Les panneaux vides indiquent les combinaisons année-mesure sans données. L’ombrage de ces cellules reflète le nombre relatif de spécimens disponibles, avec le nombre réel de spécimens indiqué dans les cellules au nombre arrondi le plus proche.", fig.asp = 0.6, fig.width = 7, out.width = "6in"}
 # viridis::scale_fill_viridis(option = "D", end = 0.82, na.value = na_colour)}
 g1 <- drex$survey_samples %>%
   gfplot::tidy_sample_avail(year_range = c(1996, 2019)) %>%
-  gfplot::plot_sample_avail(title = "Spécimens biologiques") +
+  gfplot::plot_sample_avail(title = "Spécimens biologiques", french = TRUE) +
   scale_fill_viridis_c(option = "C", na.value = "white", end = 0.82)
 
 g2 <- drex$commercial_samples %>%
   gfplot::tidy_sample_avail(year_range = c(1996, 2019)) %>%
-  gfplot::plot_sample_avail(title = "Spécimens commerciaux") +
+  gfplot::plot_sample_avail(title = "Spécimens commerciaux", french = TRUE) +
   scale_fill_viridis_c(option = "D", na.value = "white", end = 0.82)
 
 cowplot::plot_grid(g1, g2, nrow = 2)
@@ -188,9 +191,19 @@ Nous avons réparti les scénarios de modèles opérationnels en un ensemble de 
 
 ```{r rex-scen, results='asis'}
 sc <- readRDS(here("generated-data/rex-scenarios.rds"))
+sc$scenario_human <- c(
+    "1 - Ceq. 200%",
+    "2 - Ceq. 250%",
+    "3 - M plus\nélevée",
+    "4 - Taux de variation\nplus élevé",
+    "5 - Plus faible\nsélectivité",
+    "6 - Pas de CPUE\nCeq. 250%",
+    "7 - Pas de CPUE\nCeq. 50%",
+    "8 - M\ncroissante")
+
 sc <- sc %>%
   select(-order) %>%
-  mutate(scenario_human = gsub("inc\\.", "increasing", scenario_human)) %>%
+  # mutate(scenario_human = gsub("inc\\.", "increasing", scenario_human)) %>%
   mutate(scenario_human = gsub("\\\n", " ", scenario_human)) %>%
   mutate(scenario_human = gsub("Ceq.", "C^eq^", scenario_human))
 sc %>% select(-scenario) %>%
@@ -292,7 +305,7 @@ Les points représentent la moyenne de l’indice et les segments de lignes repr
 Pour les CPUE dans les pêches commerciales, ces erreurs types ont été multipliées par 1,5 à partir des erreurs types ajustées afin de pondérer à la baisse l’indice des CPUE dans les pêches commerciales par rapport à l’indice de relevé.
 
 ```{r rex-survey-fits, fig.cap="(ref:fig-rex-survey-fits)", out.width="0.65\\textwidth"}
-knitr::include_graphics(here("report/figure/rex-index-fits.png"))
+knitr::include_graphics(here("report-french/figure/rex-index-fits.png"))
 ```
 
 Nous avons utilisé l’analyse de la réduction des stocks pour remplir les paramètres suivants dans les modèles opérationnels conditionnés :
@@ -323,14 +336,14 @@ rex_converged %>%
 (ref:fig-rex-sra-conditioned-parameters) Histogrammes des paramètres estimés par l’analyse de réduction du stock. La mortalité par pêche selon l’âge, la trajectoire de l’épuisement historique et les écarts historiques du recrutement sont également dérivés du modèle d’analyse de la réduction des stocks. Les trajectoires de l’épuisement historique sont illustrées sur la figure \@ref(fig:rex-depletion-om), la mortalité apicale par pêche par année sur la figure \@ref(fig:rex-F-om) et les écarts historiques du recrutement sur la figure \@ref(fig:rex-recdev-om). D fait référence à l’épuisement. AC fait référence à $\theta_\textrm{AC}$.
 
 ```{r rex-sra-conditioned-parameters, out.width="0.85\\textwidth", fig.cap="(ref:fig-rex-sra-conditioned-parameters)"}
-knitr::include_graphics(here("report/figure/rex-sra-estimated.png"))
+knitr::include_graphics(here("report-french/figure/rex-sra-estimated.png"))
 ```
 
 (ref:fig-rex-sra-conditioned-parameters2)
 Polygones de fréquence pour les paramètres d’entrée dans l’analyse de la réduction des stocks. Les paramètres ont été échantillonnés de façon stochastique en tant que paramètres d’entrée dans l’analyse de la réduction des stocks (voir l’annexe \@ref(app:desc-om-rex) for ranges). Tous les échantillons associés aux modèles d’analyse de la réduction des stocks qui ne convergeaient pas ont été rejetés. Étant donné que la plupart des modèles d’analyse de la réduction des stocks convergeaient, ces distributions sont semblables dans tous les scénarios du modèle opérationnel, à moins qu’elles n’aient été spécifiées différemment dans le modèle opérationnel. Les pics importants représentent des valeurs de paramètres fixes dans le modèle opérationnel. sigma_R fait référence à $\sigma_R$.
 
 ```{r rex-sra-conditioned-parameters2, out.width="\\textwidth", fig.asp=0.85, fig.width=7, fig.cap="(ref:fig-rex-sra-conditioned-parameters2)"}
-knitr::include_graphics(here("report/figure/rex-sra-filtered.png"))
+knitr::include_graphics(here("report-french/figure/rex-sra-filtered.png"))
 ```
 
 \clearpage
@@ -342,7 +355,7 @@ Il convient de noter que le scénario du modèle opérationnel « M croissante �
 Les lignes représentent les médianes, et les ombres gris foncé et gris pâle représentent les quantiles de 50 % et 95 % entre les répétitions.
 
 ```{r rex-depletion-om, fig.cap="(ref:fig-rex-depletion-om)", out.width="\\textwidth"}
-knitr::include_graphics(here("report/figure/rex-compare-SRA-depletion-panel.png"))
+knitr::include_graphics(here("report-french/figure/rex-compare-SRA-depletion-panel.png"))
 ```
 
 (ref:fig-rex-F-om)
