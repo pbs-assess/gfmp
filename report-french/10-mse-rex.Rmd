@@ -4,33 +4,27 @@
 round2 <- function(x) sprintf("%.2f",round(x, 2))
 ```
 
-# WEST COAST VANCOUVER ISLAND REX SOLE CASE STUDY {#app:mse-rex}
+# ÉTUDE DE CAS DE LA PLIE ROYALE SUR LA CÔTE OUEST DE L’ÎLE DE VANCOUVER {#app:mse-rex}
 
-## BACKGROUND
+## CONTEXTE
 
-Rex Sole (*Glyptocephalus zachirus*) occur from central Baja California to the western Bering Sea, and are generally distributed throughout coastal BC. They are sometimes referred to as "Witch Sole". Rex Sole are primarily caught in the groundfish bottom-trawl fishery in BC, which implemented 100% at-sea observer coverage and 100% dockside monitoring in 1996.
+La plie royale (*Glyptocephalus zachirus*) est présente du centre de la Basse-Californie jusqu’à l’ouest de la mer de Béring et est généralement répartie dans toute la région côtière de la Colombie-Britannique. Elle est parfois appelée « sole américaine ». La plie royale est principalement capturée dans la pêche au chalut de fond du poisson de fond en Colombie-Britannique, pour laquelle un niveau de 100 % de présence des observateurs en mer et de vérification à quai a été instauré en 1996.
 
-Rex Sole are caught in BC at depths between 20 m and greater than 1000 m, with most captured between 75 m and 450 m. Rex Sole as large as 58 cm and weighing up to 1.44 kg have been caught in BC waters. The oldest aged individual was a 34 cm female aged 15 years; however, there is very little available ageing data for this species, with the only data coming from the Hecate Strait Multispecies Assemblage Bottom Trawl survey in 1998. Otoliths have been collected on BC surveys from 2000--present although they have not been aged. Rex Sole have been aged up to 29 years (female) in the Gulf of Alaska [@abookire2006].
+En Colombie-Britannique, les captures de plie royale ont lieu à des profondeurs comprises entre 20 m et plus de 1 000 m, le plus souvent entre 75 et 450 m. Des plies royales allant jusqu’à 58 cm de longueur et pesant jusqu’à 1,44 kg ont été pêchées dans les eaux de la Colombie-Britannique. L’individu le plus âgé dont l’âge a été déterminé était une femelle de 34 cm âgée de 15 ans; cependant, il existe très peu de données sur la détermination de l’âge pour cette espèce, les seules données provenant du relevé au chalut de fond de la communauté plurispécifique du détroit d’Hécate en 1998. Des otolithes sont prélevés dans le cadre de relevés menés en Colombie-Britannique depuis 2000, mais leur âge n’a pas été déterminé. L’âge maximal relevé dans le golfe d’Alaska pour la plie royale est de 29 ans (femelle) [@abookire2006].
 
-Rex Sole are commonly caught in the West Coast Vancouver Island (WCVI) synoptic groundfish bottom trawl survey (Figure \@ref(fig:rex-surv-set-plot) and \@ref(fig:rex-surv-index-plot)). While they are caught in the commercial mixed-species bottom trawl fishery (Figures \@ref(fig:rex-catch-plot) and \@ref(fig:rex-cpue-map)), there is no directed fishery or assigned quota for them.
-They are commonly caught with Pacific Cod (*Gadus macrocephalus*), Dover Sole (*Microstomus pacificus*), English Sole (*Parophrys vetulus*) and Arrowtooth Flounder (*Atheresthes stomias*). Rex Sole have never been formally assessed in BC.
-However, biomass of Rex Sole in Hecate Strait was estimated in 2012 using research survey data collected between 1984 and 2003 [@fargo2012].
-The WCVI synoptic bottom trawl survey has shown a moderate decline in biomass density from ~2008 to 2012 and an increase from 2014 to 2018 (Figures \@ref(fig:rex-surv-set-plot) and \@ref(fig:rex-surv-index-plot)).
-Standardized commercial trawl CPUE (catch per unit effort) increased in the late 1990s, showing a moderate decline from ~2004 to 2010, and a moderate increase until about 2016 (Figure \@ref(fig:rex-surv-index-plot)).
-There are many samples of length, weight, otoliths, and maturity of Rex Sole from the WCVI synoptic survey, but no aged fish (Figure \@ref(fig:rex-samples)).
-There are limited biological samples of any kind from the commercial fleet (Figure \@ref(fig:rex-samples)).
+Le relevé synoptique au chalut de fond de la côte ouest de l’île de Vancouver (COIV) capture fréquemment des plies royales (figure\@ref(fig:rex-surv-set-plot) et \@ref(fig:rex-surv-index-plot)). Bien qu’elle soit capturée dans le cadre de la pêche commerciale d’espèces mélangées au chalut de fond (figures \@ref(fig:rex-catch-plot) et \@ref(fig:rex-cpue-map)), elle ne fait pas l’objet d’une pêche dirigée ni de quotas.
+Elle est couramment pêchée avec la morue du Pacifique (*Gadus macrocephalus*), la limande-sole (*Microstomus pacificus*), le carlottin anglais (*Parophrys vetulus*) et la plie à grande bouche (*Atheresthes stomias*). La plie royale n’a jamais été officiellement évaluée en Colombie-Britannique.
+Cependant, on a estimé la biomasse de la plie royale dans le détroit d’Hécate en 2012 à l’aide des données des relevés de recherche recueillies entre 1984 et 2003 [@fargo2012].
+Le relevé synoptique au chalut de fond sur la côte ouest de l’île de Vancouver a révélé une diminution modérée de la densité de la biomasse de ~2008 à 2012 et une augmentation de 2014 à 2018 (figures \@ref(fig:rex-surv-set-plot) et \@ref(fig:rex-surv-index-plot)).
+Les CPUE (captures par unité d’effort) normalisées des pêches commerciales au chalut ont augmenté à la fin des années 1990, diminué modérément de ~2004 à 2010 et augmenté modérément jusqu’à environ 2016 (figure \@ref(fig:rex-surv-index-plot)).
+Il existe de nombreux échantillons de longueur, de poids, d’otolithes et de maturité de plie royale provenant du relevé synoptique sur la côte ouest de l’île de Vancouver, mais aucun âge n’a été déterminé (figure \@ref(fig:rex-samples)).
+Il existe peu d’échantillons biologiques de quelque sorte que ce soit provenant de la flottille commerciale (figure \@ref(fig:rex-samples)).
 
-<!-- Commercial and research catch, effort, and biological data (lengths, weights, ages, maturity) are archived by the Groundfish Data Unit (Fisheries and Oceans Canada, Science Branch, Pacific Region) and housed in a number of relational databases.  Historical commercial catch and effort data from 1954--2006/2007 are housed in GFCatch, PacHarvTrawl, PacHarvHL, and PacHarvSable depending on the fishery and time period. Modern (2006/2007 to present) commercial catch data are housed in GFFOS, a groundfish-specific view of the Fishery Operations System (FOS) database (Fisheries and Oceans Canada, Fisheries and Aquaculture Management, Pacific Region). -->
+Aux États-Unis, la plie royale est pêchée au chalut de fond et est considérée comme formant trois stocks distincts : le stock du golfe d’Alaska [@mcgilliard2017], le stock de la mer de Béring et des îles Aléoutiennes [@wilderbuer2015], et le stock de la côte Ouest de Washington à la Californie [@cope2015].
 
-<!-- In each commercial database there is an official catch table that provides the best available estimate of landed catch per location by applying the proportion of catch per set or area to trip-level landing data. Since 2015, the official catch tables from the various databases have been merged together into one master catch table in GFFOS (`GF_MERGED_CATCH`) to facilitate and standardize commercial data extraction. Catch proportions are calculated from the most spatially detailed information available on how much of each species was harvested per fishing tow/set or per area. In most cases this is the catch reported in observer logs or fisher logs. Older data contain records where set-level information was rolled up, for example, by area (see Rutherford (1999) for details on how catch was recorded in databases). These proportions are applied to the best available information on how much of each species was harvested on a trip. In most cases this will be the landed weight as recorded by the Dockside Monitoring Program. Earlier harvest data are recorded from sales slips or observer or fisher logs ([see @rutherford1999] for details on data sources). In 1996, mandatory 100% observer coverage was implemented for the commercial trawl fishery (and in 2006 for the hook and line sectors) improving the reliability of fishery data. -->
-
-<!-- Research survey data and commercial biological data from the 1940s to present are housed in GFBio, the Groundfish Biological Samples database. In order to improve data on BC groundfish stocks, fishery-independent synoptic bottom trawl surveys were established in 2003 that are conducted in four areas: the west coast of Vancouver Island, Hecate Strait, Queen Charlotte Sound and the west coast of Haida Gwaii. The surveys alternately cover two areas each year. These survey and observer data are available to provide important time-series and biological data for stock assessment of a broad range of BC groundfish species. -->
-
-In the US, Rex Sole are caught in the bottom trawl fishery and are considered to form three separate stocks: the Gulf of Alaska stock  [@mcgilliard2017], the Bering Sea/Aleutian Islands stock [@wilderbuer2015], and the West Coast stock from Washington to California [@cope2015].
-
-We demonstrate the MP Framework here, through a case study of the Rex Sole stock in the WCVI groundfish management area (Area 3CD).
-This detailed case study is illustrative and is not intended for catch advice at this time.
-We frame our case study according to the steps outlined in Section \@ref(sec:approach).
+Nous faisons ici la démonstration du Cadre des procédures de gestion, au moyen d’une étude de cas portant sur le stock de plie royale dans la zone de gestion du poisson de fond de la côte ouest de l’île de Vancouver (zone 3CD).
+Cette étude de cas détaillée est présentée à titre indicatif et ne vise pas à produire un avis sur les prises pour le moment.
+Nous avons réalisé notre étude de cas en suivant les étapes décrites dans la section \@ref(sec:approach).
 
 ```{r rex-survey-plotting-functions}
 library(ggplot2)
@@ -55,7 +49,7 @@ drex$survey_sets <- dsurv
 drex$cpue_spatial <- dcomm
 plot_multiyear_survey_sets <- function(dat, survey_abbrev,
   density_column = "density_kgpm2",
-  density_lab = expression(Density~(kg/km^2)), density_multiplier = 1e6) {
+  density_lab = expression(Densité~(kg/km^2)), density_multiplier = 1e6) {
   dd <- gfplot::tidy_survey_sets(dat, survey_abbrev, years = seq(0, 1e6),
     density_column = density_column)
   coast <- gfplot:::load_coastline(range(dd$lon) + c(-1, 1),
@@ -76,8 +70,8 @@ plot_multiyear_survey_sets <- function(dat, survey_abbrev,
       fill = "grey87", col = "grey70", lwd = 0.2, inherit.aes = FALSE) +
     scale_fill_viridis_c(trans = "sqrt") +
     labs(fill = density_lab,
-      size = density_lab, x = "Easting",
-      y = "Northing") +
+      size = density_lab, x = "Abscisses",
+      y = "Ordonnées") +
     guides(
       size = guide_legend(order = 1),
       fill = guide_colourbar(order = 0)) +
@@ -85,25 +79,14 @@ plot_multiyear_survey_sets <- function(dat, survey_abbrev,
 }
 ```
 
-```{r rex-surv-set-plot, fig.cap="Individual survey tows for the West Coast Vancouver Island synoptic bottom trawl survey. Light gray crosses indicate survey sets that did not catch Rex Sole. The area and colour of the circles are proportional to the density of Rex Sole for that survey set. Eastings and Northings are for UTM zone 9.", fig.asp=1, fig.width = 9, out.width = "\\textwidth"}
+```{r rex-surv-set-plot, fig.cap="Traits individuels du relevé synoptique au chalut de fond sur la côte ouest de l’île de Vancouver. Les croix gris pâle indiquent les traits du relevé qui n’ont pas capturé de plie royale. La superficie et la couleur des cercles sont proportionnelles à la densité de la plie royale pour cette calée du relevé. Les coordonnées en abscisse et en ordonnée sont indiquées pour la zone 9 UTM.", fig.asp=1, fig.width = 9, out.width = "\\textwidth"}
 plot_multiyear_survey_sets(dsurv, "SYN WCVI")
 ```
 
 (ref:fig-rex-indexes)
-West Coast Vancouver Island synoptic bottom trawl survey and standardized commercial bottom trawl CPUE for Rex Sole standardized according to the methods in @anderson2019synopsis. Each index is divided by its geometric mean for years 2004--2019 for visualization purposes. Dots represent mean estimates and line segments represent 95% confidence intervals. The index in the top panel is derived from the data shown in Figure \@ref(fig:rex-surv-set-plot) with confidence intervals generated via a stratified bootstrap procedure [for details, see, for example, @anderson2019synopsis].
+Relevé synoptique au chalut de fond sur la côte ouest de l’île de Vancouver et CPUE normalisées des pêches commerciales au chalut de fond de la plie royale, normalisés selon les méthodes décrites dans @anderson2019synopsis. Chaque indice est divisé par sa moyenne géométrique pour les années 2004--2019 à des fins de visualisation. Les points représentent les estimations moyennes et les segments linéaires représentent les intervalles de confiance de 95 %. L’indice du graphique supérieur est dérivé des données de la figure \@ref(fig:rex-surv-set-plot) avec des intervalles de confiance générés par une procédure d’auto-amorçage stratifié [pour plus de détails, voir, par exemple, @anderson2019synopsis].
 
 ```{r rex-surv-index-plot, fig.cap="(ref:fig-rex-indexes)", fig.width = 5, out.width = "4.3in", fig.asp=1.15}
-# survey_cols <- c(RColorBrewer::brewer.pal(5L, "Set1"),
-#       RColorBrewer::brewer.pal(8L, "Set1")[7:8],
-#       "#303030", "#a8a8a8", "#a8a8a8", "#a8a8a8")
-# survey_col_names <- c("SYN WCHG", "SYN HS", "SYN QCS", "SYN WCVI",
-#     "HBLL OUT N", "HBLL OUT S", "IPHC FISS", "Commercial",
-#     "HBLL INS N", "HBLL INS S", "MSA HS")
-# survey_cols <- stats::setNames(survey_cols, survey_col_names)
-# drex$survey_index %>%
-#   gfplot::tidy_survey_index(survey = "SYN WCVI") %>%
-#   gfplot::plot_survey_index(col = c("grey60", "grey20"), survey_cols = survey_cols) +
-#   ylab("Survey relative biomass index")
 rex_indexes <- readRDS(here("generated-data/rex-indexes.rds"))
 
 d1 <- reshape2::melt(rex_indexes, id.vars = c("year"),
@@ -123,24 +106,23 @@ d3 <- group_by(d3, index) %>%
   mutate(est = est / exp(mean(log(est[year >= 2004]), na.rm = TRUE)))
 
 ggplot(d3, aes(year, est)) +
-  # geom_line(na.rm = TRUE) +
   facet_wrap(~index, ncol = 1) +
   geom_pointrange(aes(ymin = exp(log(est) - 2 * .sd), ymax = exp(log(est) + 2 * .sd)), na.rm = TRUE) + #, position = position_dodge(width = 0.3)
   theme_pbs() +
-  ylab("Index (divided by its geometric mean)")+
-  xlab("Year") +
+  ylab("Indice (divisé par sa moyenne géométrique)")+
+  xlab("Année") +
  geom_linerange(aes(ymin = exp(log(est) - 2 * .sd), ymax = exp(log(est) + 2 * .sd)), na.rm = TRUE) +
   geom_point(pch = 21, size = 2, fill = "white", na.rm = TRUE)
 ```
 
-```{r rex-catch-plot, fig.cap="Commercial catch for Rex Sole. Note that limited catch in the early 1990s is considered unreliable and is not shown. The shaded region prior to 1996 indicates the time period before the at-sea observer program was implemented for bottom and midwater trawl fleets.", fig.asp = 0.8, fig.width = 5, out.width = "4.5in"}
+```{r rex-catch-plot, fig.cap="Prises commerciales de plie royale. Il est à noter que les prises limitées au début des années 1990 sont considérées comme non fiables et ne sont pas représentées. La région ombrée avant 1996 indique la période précédant la mise en œuvre du programme des observateurs en mer pour les flottilles de chalutiers de fond et de chalutiers pélagiques.", fig.asp = 0.8, fig.width = 5, out.width = "4.5in"}
 suppressWarnings({g <- drex$catch %>%
   gfplot::tidy_catch(areas = "3[CD]+") %>%
   gfplot::plot_catch(xlim = c(1954, 2019), unreliable = c(1996))})
 g + labs(title = "")
 ```
 
-```{r rex-cpue-map, fig.cap="Spatial commercial trawl CPUE for Rex Sole for tows that caught any Rex Sole from 2013--2019. Cells are 4 km wide and are only shown in cases where there are at least three unique vessels in a given cell to meet federal privacy requirements. CPUE is calculated as the weight of catch (landings plus discards) divided by hours fished for all positive tows from the groundfish trawl sector. Trawl data are shown from 2013 onwards after the trawl footprint was frozen.", fig.width = 7.75, out.width = "\\textwidth"}
+```{r rex-cpue-map, fig.cap="CPUE spatiales de la pêche commerciale au chalut de la plie royale pour les traits qui ont capturé des plies royales de 2013 à 2019. Les cellules mesurent 4 km de largeur et ne sont indiquées que dans les cas où il y a au moins trois bateaux uniques dans une cellule donnée pour satisfaire aux exigences en matière de confidentialité. Les CPUE sont calculées en divisant le poids des prises (débarquements plus rejets) par le nombre d’heures de pêche pour tous les traits positifs du secteur de la pêche au chalut au poisson de fond. Les données relatives au chalutage sont présentées à partir de 2013, après le gel de l’empreinte du chalut.", fig.width = 7.75, out.width = "\\textwidth"}
 drex$cpue_spatial %>%
   dplyr::filter(year >= 2013, year <= 2019) %>%
   dplyr::filter(major_stat_area_code %in% c("03", "04")) %>%
@@ -148,77 +130,61 @@ drex$cpue_spatial %>%
     percent_excluded_xy = c(0, 0), bin_width = 4)
 ```
 
-```{r rex-samples, fig.cap="Specimen availability for Rex Sole. Shown are the number of available fish specimens that have had their length measured, have been weighed, had their maturity assessed, had their age assessed, and for which ageing structures are available for ageing. Blank panels indicate year-measurement combinations without any data. Shading of these cells reflects the relative number of specimens available with the actual number of specimens indicated in the cells to the nearest round number.", fig.asp = 0.6, fig.width = 7, out.width = "6in"}
+```{r rex-samples, fig.cap="Disponibilité des spécimens de plie royale. Le nombre de spécimens disponibles dont la longueur a été mesurée, qui ont été pesés, dont la maturité a été évaluée, dont l’âge a été évalué et pour lesquels des structures de détermination de l’âge sont disponibles est présenté. Les panneaux vides indiquent les combinaisons année-mesure sans données. L’ombrage de ces cellules reflète le nombre relatif de spécimens disponibles, avec le nombre réel de spécimens indiqué dans les cellules au nombre arrondi le plus proche.", fig.asp = 0.6, fig.width = 7, out.width = "6in"}
 # viridis::scale_fill_viridis(option = "D", end = 0.82, na.value = na_colour)}
 g1 <- drex$survey_samples %>%
   gfplot::tidy_sample_avail(year_range = c(1996, 2019)) %>%
-  gfplot::plot_sample_avail(title = "Biological specimens") +
+  gfplot::plot_sample_avail(title = "Spécimens biologiques") +
   scale_fill_viridis_c(option = "C", na.value = "white", end = 0.82)
 
 g2 <- drex$commercial_samples %>%
   gfplot::tidy_sample_avail(year_range = c(1996, 2019)) %>%
-  gfplot::plot_sample_avail(title = "Commercial specimens") +
+  gfplot::plot_sample_avail(title = "Spécimens commerciaux") +
   scale_fill_viridis_c(option = "D", na.value = "white", end = 0.82)
 
 cowplot::plot_grid(g1, g2, nrow = 2)
 ```
 
-(ref:fig-rex-syn1)
-First Rex Sole page from @anderson2019synopsis. (Temporary placeholder until we properly plot out just the relevant data.)
-
-```{r rex-syn1, fig.cap="(ref:fig-rex-syn1)", out.width="6in"}
-# knitr::include_graphics(here("images/rex-sole-1.png"))
-```
-
-(ref:fig-rex-syn2)
-Second Rex Sole page from @anderson2019synopsis. (Temporary placeholder until we properly plot out just the relevant data.)
-
-```{r rex-syn2, fig.cap="(ref:fig-rex-syn2)", out.width="6in"}
-# knitr::include_graphics(here("images/rex-sole-2.png"))
-```
-
 \clearpage
 
-## STEP 1: DEFINE THE DECISION CONTEXT {#sec:results-rex1}
+## ÉTAPE 1 : DÉFINIR LE CONTEXTE DÉCISIONNEL {#sec:results-rex1}
 
-The decision to be made is which MP to use to determine catch limits for the period until the next available catch advice. The time-frame for making the decision would be stated in the Request for Science Advice. In applications of the MP Framework, additional aspects of the decision context would be established through a technical committee. See Section \@ref(sec:approach1).
+La décision à prendre consiste à déterminer la procédure de gestion à utiliser pour déterminer les limites de prises pour la période jusqu’au prochain avis disponible sur les prises. Le délai pour prendre la décision serait précisé dans la demande d’avis scientifique. Dans les applications du Cadre des procédures de gestion, d’autres aspects du contexte décisionnel seraient établis par un comité technique. Voir la section \@ref(sec:approach1).
 
-## STEP 2: SELECTION OF OBJECTIVES AND PERFORMANCE METRICS  {#sec:results-rex2}
+## ÉTAPE 2 : CHOIX DES OBJECTIFS ET DES PARAMÈTRES DE RENDEMENT {#sec:results-rex2}
 
-We defined the objectives for Rex Sole based on the provisional objectives presented in Section \@ref(sec:approach2). These objectives are guided by the Precautionary Approach Framework, elements of which are incorporated into the Fish Stocks provisions of the *Fisheries Act*.
+Nous avons défini les objectifs pour la plie royale en fonction des objectifs provisoires présentés à la section \@ref(sec:approach2). Ces objectifs sont guidés par le Cadre de l’approche de précaution, dont les éléments sont intégrés aux dispositions sur les stocks de poissons de la *Loi sur les pêches*.
 
-1. Maintain stock status above the LRP in the long term with high probability.
-2. Maintain stock status above the USR in the long term with moderately high probability.
-3. Maintain a fishing exploitation rate below the rate at maximum sustainable yield with some probability.
-4. Given the above conservation objectives are achieved, maximize short- and long-term fisheries catch.
-5. Given the above conservation objectives are achieved, minimize variability in fisheries catch from year to year.
+1. Maintenir l’état des stocks au-dessus du PRL à long terme avec une probabilité élevée;
+2. Maintenir l’état des stocks au-dessus du PRL à long terme avec une probabilité modérément élevée;
+3. Maintenir un taux d’exploitation de la pêche inférieur au taux du rendement maximal durable avec une certaine probabilité;
+4. Si les objectifs de conservation ci-dessus sont atteints, augmenter au maximum les captures à court et à long terme;
+5. Si les objectifs de conservation ci-dessus sont atteints, réduire au minimum la variabilité des captures d’une année à l’autre.
 
-Our estimated length-at-50% maturity (25.8 cm), coupled with our estimated growth parameters, imply an age-at-50% maturity of approximately 4--5 years.
-Since 1.5 to 2 generations would be less than 50 years, we chose to base our long-term performance metrics on a 50-year projection.
+Notre estimation de la longueur à 50 % de maturité (25,8 cm), associée à nos paramètres de croissance estimés, se traduit par un âge à 50 % de maturité d’environ 4 à 5 ans. Étant donné que 1,5 à 2 générations correspondraient à moins de 50 ans, nous avons choisi de fonder nos paramètres de rendement à long terme sur une projection de 50 ans.
 
-The performance metrics measuring the objectives were:
+Les paramètres de rendement qui mesuraient les objectifs étaient les suivants :
 
-1. LT LRP: Probability *B* > 0.4 *B*~MSY~ (years 35--50).
-2. LT USR: Probability *B* > 0.8 *B*~MSY~ (years 35--50).
-3. FMSY: P(*F* < *F*~MSY~) (years 1--50).
-4. STC: Probability catch > reference catch (years 1--10).
-5. LTC: Probability catch > reference catch (years 35--50).
-6. AADC: Probability AADC (average absolute interannual difference in catch) < historical AADC (years 1--50).
+1. LT LRP : Probabilité que *B* > 0,8*B*~MSY~ (années 35--50).
+2. LT USR : Probabilité que *B* > 0,8*B*~MSY~ (années 35--50).
+3. FMSY : P(*F* < *F*~MSY~) (années 35--50).
+4. STC : Probabilité que les prises > prises de référence (années 1--10).
+5. LTC : Probabilité que les prises > prises de référence (années 35--50).
+6. AADC : Probabilité que l’AADC (différence interannuelle absolue moyenne des prises) < AADC historique (années 1--50).
 
-Reference catch was defined as the average catch from the last five years.
-We measured the performance metrics as probabilities integrated over years and replicates simultaneously.
+Les prises de référence ont été définies comme étant les prises moyennes des cinq dernières années. Nous avons mesuré les paramètres de rendement à mesure que les probabilités étaient intégrées dans les années et les répétitions simultanément.
 
-## STEP 3: SELECTION OF UNCERTAINTIES AND SPECIFICATION OF OPERATING MODELS {#sec:results-rex3}
+## ÉTAPE 3 : CHOIX DES INCERTITUDES ET SPÉCIFICATION DES MODÈLES OPÉRATIONNELS {#sec:results-rex3}
 
-We considered the major axes of uncertainty for Rex Sole to be:
+Nous avons considéré que les principaux axes d’incertitude pour la plie royale étaient les suivants :
 
-1. The magnitude of the commercial catch prior to 1996 (influencing initial depletion in 1996)
-2. The influence of the commercial CPUE index
-3. The value of the steepness parameter (*h*) of the stock-recruit relationship
-4. The value of natural mortality (*M*)
-5. The age selectivity pattern of the commercial fleet and survey gear
+1. L’ampleur des prises commerciales avant 1996 (influence sur l’épuisement initial en 1996).
+2. L’influence de l’indice des CPUE dans les pêches commerciales.
+3. La valeur du paramètre du taux de variation (*h*) de la relation stock-recrue.
+4. La valeur de la mortalité naturelle (*M*).
+5. Le profil de sélectivité selon l’âge des engins de la flottille commerciale et des relevés.
 
-We divided OM scenarios into a reference set and a robustness set (Section \@ref(sec:best3)). We defined six OM reference-set scenarios that differed from each other in these respects and two OM robustness-set scenarios (Table \@ref(tab:rex-scen)), with parameter values provided in Appendix \@ref(app:desc-om-rex). We describe each of the OM scenarios below.
+Nous avons réparti les scénarios de modèles opérationnels en un ensemble de référence et un ensemble de robustesse (section \@ref(sec:best3)). Nous avons défini six scénarios de l’ensemble de référence de modèles opérationnels qui différaient l’un de l’autre à ces égards et deux scénarios de l’ensemble de robustesse de modèles opérationnels (tableau \@ref(tab:rex-scen)), avec les valeurs des paramètres fournis à l’annexe \@ref(app:desc-om-rex). Nous décrivons chacun des scénarios de modèles opérationnels ci-après.
 
 ```{r rex-scen, results='asis'}
 sc <- readRDS(here("generated-data/rex-scenarios.rds"))
@@ -228,131 +194,120 @@ sc <- sc %>%
   mutate(scenario_human = gsub("\\\n", " ", scenario_human)) %>%
   mutate(scenario_human = gsub("Ceq.", "C^eq^", scenario_human))
 sc %>% select(-scenario) %>%
-  csasdown::csas_table(caption = "Rex Sole OM scenarios. \"C^eq^\" refers to \"catch equilibrium\" in 1995 and is used to parameterize the level of biomass depletion at the beginning of the recorded catch history. Unless otherwise specified, \"C^eq^\" was set at 200% in all scenarios.",
-    col_names = c("OM scenario name", "Set type")) %>%
+  csasdown::csas_table(caption = "Scénarios du modèle opérationnel de la plie royale. \"C^eq^\" fait référence à \"l’équilibre des prises\" en 1995 et sert à paramétrer le niveau d’épuisement de la biomasse au début de l’historique des prises enregistrées. Sauf indication contraire, \"C^eq^\" a été réglé à 200 % dans tous les scénarios.",
+    col_names = c("Nom du scénario de modèle opérationnel", " Type d’ensemble")) %>%
   kableExtra::kable_styling(latex_options = c("hold_position"))
 ```
 
-### Reference set {#sec:results-reference-set}
+### Ensemble de référence {#sec:results-reference-set}
 
-#### Magnitude of pre-1996 commercial catch and importance of commercial CPUE
+#### Ampleur des prises commerciales avant 1996 et importance des CPUE dans les pêches commerciales
 
-Prior to 1996, reported catches for WCVI Rex Sole were much lower than post-1995 and there were no reported discards.
-We have removed these catches from Figure \@ref(fig:rex-catch-plot) because these data are considered unreliable due to a lack of reporting requirements and at-sea observer coverage prior to 1996.
-Assumptions about pre-1996 catch levels affect the SRA model's estimates of the depletion level in 1996 (Appendix \@ref(app:sra)).
-The SRA model parameter $C^{\textrm{eq}}$, describes the equilibrium catch in weight prior to the first year of the model (1996 for Rex Sole), which is used to estimate equilibrium fishing mortality $F^{\textrm{eq}}$ prior to the first year of the model, which in turn is used to calculate total mortality $Z^{\textrm{eq}}$ needed to calculate recruits and numbers in the first year of the model (Equation \@ref(eq:sra-om-ceqpred)).
-We note that the use of $F^{\textrm{eq}}$ and $C^{\textrm{eq}}$ make the assumption that the population biomass and fishery were in equilibrium prior to 1996.
-While this is likely an unrealistic assumption, it is a convenient means of initializing a population model in the presence of fishing.
-For this reason, we treated the value of $C^{\textrm{eq}}$ as a major axis of uncertainty.
+Avant 1996, les prises déclarées de plie royale sur la côte ouest de l’île de Vancouver étaient beaucoup plus faibles qu’après 1995, et aucun rejet n’a été signalé.
+Nous avons retiré ces prises de la figure \@ref(fig:rex-catch-plot) parce que ces données sont considérées comme non fiables en raison du manque d’exigences en matière de déclaration et de niveau de présence des observateurs en mer avant 1996.
+Les hypothèses sur les niveaux de prises avant 1996 influencent les estimations du niveau d’épuisement en 1996 par le modèle d’analyse de la réduction des stocks (annexe \@ref(app:sra)).
+Le paramètre $C^{\textrm{eq}}$ du modèle d’analyse de la réduction des stocks décrit les prises à l’équilibre, en poids, avant la première année du modèle (1996 pour la plie royale), qui sont utilisées pour estimer la mortalité par pêche à l’équilibre $F^{\textrm{eq}}$ avant la première année du modèle qui, à son tour, sert à calculer la mortalité totale $Z^{\textrm{eq}}$ nécessaire pour calculer les recrues et les nombres au cours de la première année du modèle (équation \@ref(eq:sra-om-ceqpred)).
+Nous constatons que l’utilisation de $F^{\textrm{eq}}$ et de $C^{\textrm{eq}}$ présume que la biomasse de la population et la pêche étaient à l’équilibre avant 1996.
+Bien qu’il s’agisse probablement d’une hypothèse irréaliste, c’est un moyen pratique d’initialiser un modèle de population en présence de pêche.
+C’est pourquoi nous avons traité la valeur de $C^{\textrm{eq}}$ comme un axe majeur d’incertitude.
 
-We attempted to fit $C^{\textrm{eq}}$ values ranging from 0 to 2.5 times the 1996 catch, which imply that equilibrium catch in 1995 was 0% to 250% of the 1996 catch, respectively.
-The SRA model estimated implausibly high values of fishing mortality ($F_{a,y} > 3$) for values of $C^{\textrm{eq}} < 200\%$ of 1996 catch, suggesting that there may have been considerable unrecorded, possibly discarded, catch prior to 1996, also implying that the stock was unlikely to have been close to $B_0$ in 1995.
-Therefore, our reference set includes only two levels of $C^{\textrm{eq}}$ that we thought rendered plausible OM conditioning.
-We include an additional OM scenario with the 1995 stock closer to $B_0$ in the robustness set (Section \@ref(sec:results-robustness-set)).
+Nous avons tenté d’ajuster les valeurs de $C^{\textrm{eq}}$ de 0 à 2,5 fois les prises de 1996, ce qui signifie que les prises à l’équilibre en 1995 représentaient de 0 à 250 % des prises de 1996, respectivement.
+Le modèle d’analyse de la réduction des stocks a estimé des valeurs de mortalité par pêche invraisemblablement élevées ($F_{a,y} > 3$) pour les prises de $C^{\textrm{eq}} < 200\%$ de 1996, ce qui donne à penser qu’il y a peut-être eu beaucoup de prises non enregistrées, peut-être rejetées, avant 1996, ce qui laisse également entendre qu’il est peu probable que le stock ait été proche de $B_0$ en 1995.
+Par conséquent, notre ensemble de référence ne comprend que deux niveaux de $C^{\textrm{eq}}$ qui, selon nous, ont donné un conditionnement plausible du modèle opérationnel.
+Nous incluons un scénario supplémentaire de modèle opérationnel avec le stock de 1995 plus près de $B_0$ dans l’ensemble de robustesse (section \@ref(sec:results-robustness-set)).
 
-We believe the assumption of unrecorded catch prior to 1996 is consistent with the data and knowledge of the multispecies groundfish fishery for three reasons.
-First, the standardized commercial CPUE index shows an increasing trend from 1996 to 2003 before the SYN WCVI survey began (Figure \@ref(fig:rex-surv-index-plot)).
-Given that Rex Sole were not a targeted species, it seems unlikely that the fishery began catching Rex Sole coincident with the introduction of 100% at-sea observer coverage and dockside monitoring.
-Increasing CPUE is also consistent with (but not necessarily indicative of) a stock rebuilding from a depleted state.
-While there are many caveats associated with commercial CPUE time series, two factors suggest this trend is plausible: (a) commercial CPUE has somewhat mirrored the broad patterns seen in the SYN WCVI survey index since the survey began (Figure \@ref(fig:rex-surv-index-plot)); and (b) Rex Sole have not been a targeted species by the commercial trawl fleet.
-The absence of targeting removes some of the reasons why CPUE trends may not reflect abundance trends.
-Second, the SYN WCVI survey has approximately doubled its relative index value for Rex Sole since the early 2000s, which would be consistent with the stock starting in a somewhat depleted state in 1996.
-Third, other species that are commonly caught with Rex Sole in catch records since 1996 were reported to have been caught in substantial quantities before 1996 [@anderson2019synopsis].
-It therefore seems reasonable to assume that there was considerable unrecorded catch prior to 1996.
+Nous croyons que l’hypothèse des prises non enregistrées avant 1996 correspond aux données et aux connaissances sur la pêche plurispécifique du poisson de fond pour trois raisons.
+Tout d’abord, l’indice normalisé des CPUE dans les pêches commerciales affiche une tendance à la hausse de 1996 à 2003 avant le début du relevé synoptique sur la côte ouest de l’île de Vancouver (figure \@ref(fig:rex-surv-index-plot)).
+Étant donné que la plie royale n’était pas une espèce ciblée, il semble peu probable que la pêche ait commencé à la capturer au moment même de l’introduction d’une couverture de 100 % des observateurs en mer et de la surveillance à quai.
+L’augmentation des CPUE est également compatible (mais sans nécessairement en être indicatrice) avec le rétablissement d’un stock à partir d’un état d’épuisement.
+Bien que de nombreuses mises en garde soient associées aux séries chronologiques des CPUE dans les pêches commerciales, deux facteurs laissent croire que cette tendance est plausible : a) les CPUE dans les pêches commerciales ont en quelque sorte reflété les grandes tendances observées dans l’indice du relevé synoptique sur la côte ouest de l’île de Vancouver depuis son début (figure \@ref(fig:rex-surv-index-plot)); b) la plie royale n’était pas ciblée par la flottille de chalutiers commerciaux.
+L’absence de ciblage élimine certaines des raisons pour lesquelles les tendances des CPUE peuvent ne pas refléter celles de l’abondance.
+Ensuite, la valeur de l’indice relatif pour la plie royale dans le relevé synoptique sur la côte ouest de l’île de Vancouver a à peu près doublé depuis le début des années 2000, ce qui correspondrait au stock commençant dans un état quelque peu épuisé en 1996.
+Enfin, d’autres espèces qui sont couramment capturées avec la plie royale dans les registres des prises depuis 1996 ont été déclarées comme ayant été pêchées en quantités importantes avant 1996 [@anderson2019synopsis].
+Il semble donc raisonnable de supposer que les prises non enregistrées étaient très importantes avant 1996.
 
-We considered three OM reference-set scenarios and one OM robustness-set scenario that varied in the assumed value of $C^{\textrm{eq}}$ (Table \@ref(tab:rex-scen)).
-For the reference set:
+Nous avons examiné trois scénarios de l’ensemble de référence de modèles opérationnels et un scénario de l’ensemble de robustesse de modèles opérationnels dont la valeur présumée de $C^{\textrm{eq}}$ variait (tableau \@ref(tab:rex-scen)).
+Pour l’ensemble de référence :
 
-* The OM scenario "C^eq^ 200%" assumes that equilibrium catch prior to 1996 was twice that in 1996.
+* Le scénario « C^eq^ 200% » du modèle opérationnel suppose que les prises à l’équilibre avant 1996 étaient deux fois plus élevées qu’en 1996.
 
-* The OM scenario "C^eq^ 250%" assumes that equilibrium catch prior to 1996 was 2.5 times that in 1996.
+* Le scénario « C^eq^ 250% » du modèle opérationnel suppose que les prises à l’équilibre avant 1996 étaient 2,5 fois plus élevées qu’en 1996.
 
-* The OM scenario "No CPUE C^eq^ 250%" excludes the commercial CPUE index from the SRA model (Figure \@ref(fig:rex-surv-index-plot)). When the commercial CPUE data were excluded, values of $C^{\textrm{eq}} < 2.5$ rendered implausible SRA model fits ($F_{a,y} > 3$) without other changes to the model such as shifting length selectivity.
+* Le scénario « Pas de CPUE C^eq^ 250% » du modèle opérationnel exclut l’indice des CPUE dans les pêches commerciales du modèle d’analyse de la réduction des stocks (figure \@ref(fig:rex-surv-index-plot)). Lorsqu’on a exclu les données des CPUE dans les pêches commerciales, les valeurs de $C^{\textrm{eq}} < 2,5$ ont rendu les ajustements ($F_{a,y} > 3$) du modèle d’analyse de la réduction des stocks invraisemblables sans d’autres changements au modèle, comme le décalage de la sélectivité selon la longueur.
 
-For all other OM scenarios $C^{\textrm{eq}}$ was set at 200%.
-We did explore some OM scenarios with $C^{\textrm{eq}} > 250\%$ (not shown).
-These OM scenarios did not provide greater contrast in terms of the ranking of MPs and we chose to cap $C^{\textrm{eq}}$ at 250% in this case study.
+Pour tous les autres scénarios de modèles opérationnels, la valeur de $C^{\textrm{eq}}$ a été fixée à 200 %.
+Nous avons exploré certains scénarios de modèles opérationnels avec $C^{\textrm{eq}} > 250\%$ (non illustrés).
+Ces scénarios de modèles opérationnels n’ont pas donné un plus grand contraste en ce qui concerne le classement des procédures de gestion et nous avons choisi de plafonner $C^{\textrm{eq}}$ à 250 % dans cette étude de cas.
 
-#### Steepness of the stock-recruit relationship (*h*)
+#### Taux de variation de la relation stock-recrue (*h*)
 
-We considered one alternative OM scenario that differed in terms of the value of *h* (Table \@ref(tab:rex-scen)).
-Unless otherwise stated, all other OM scenarios drew from a baseline beta distribution $h \sim \textrm{beta}(13.4, 2.4)$, which results in a mean and standard deviation of 0.85 and 0.09 (see Section \@ref(app:desc-stock-h-rex)).
+Nous avons envisagé un autre scénario du modèle opérationnel qui différait de par la valeur de *h* (tableau \@ref(tab:rex-scen)). Sauf indication contraire, tous les autres scénarios du modèle opérationnel ont été établis à partir d’une distribution bêta de référence $h \sim \textrm{beta}(13.4, 2.4)$, qui donne une moyenne et un écart-type de 0,85 et 0,09 (voir la section \@ref(app:desc-stock-h-rex)).
 
-* The OM scenario "Higher steepness" uses the value $h = 0.95$.
+* Le scénario « Taux de variation plus élevé » du modèle opérationnel utilise la valeur $h = 0,95$.
 
-#### Natural mortality (*M*)
+#### Mortalité naturelle (*M*)
 
-We considered one alternative OM scenario that differed in terms of the value of *M* (Table \@ref(tab:rex-scen)).
-Unless otherwise stated, all other OM scenarios drew from a baseline uniform distribution *M* = 0.17--0.25 *y*^-1^, which starts at the value of 0.17 *y*^-1^ used for the Gulf of Alaska stock assessment of Rex Sole (@mcgilliard2017, see Section \@ref(app:desc-stock-m-rex)) and explores a slightly higher range since *M* is likely to be somewhat greater at a lower latitude.
+Nous avons envisagé un autre scénario du modèle opérationnel qui différait de par la valeur de *M* (tableau \@ref(tab:rex-scen)).
+Sauf indication contraire, tous les autres scénarios du modèle opérationnel ont été établis à partir d’une distribution uniforme de référence *M* = 0,17--0,25 *y*^-1^, qui commence à la valeur de 0,17 *y*^-1^ utilisée pour l’évaluation des stocks de plie royale dans le golfe d’Alaska (@mcgilliard2017, voir la section \@ref(app:desc-stock-m-rex)) et explore une fourchette légèrement plus élevée, car *M* sera probablement un peu plus élevée à une latitude plus basse.
 
-* The OM scenario "Higher M" considers that *M* could be latitude-dependent and may be substantially higher for stocks in warmer BC waters (*M* = 0.3 *y*^-1^).
+* Le scénario « M plus élevée » du modèle opérationnel considère que *M* pourrait dépendre de la latitude et être beaucoup plus élevée pour les stocks des eaux plus chaudes de la Colombie-Britannique (*M* = 0,3 *y*^-1^).
 
-#### Selectivity
+#### Sélectivité
 
-We considered one alternative OM scenario that differed in terms of the length- and age-selectivity of the commercial fleet and the WCVI synoptic survey (Table \@ref(tab:rex-scen)).
-Unless otherwise stated, all other OM scenarios drew from a length selectivity curve that approximately matched the maturity ogive ($L^5 = 22$, $L^\textrm{FS} = 32$).
+Nous avons envisagé un autre scénario du modèle opérationnel qui différait de par la sélectivité selon la longueur et l’âge dans la flottille commerciale le relevé synoptique sur la côte ouest de l’île de Vancouver (tableau \@ref(tab:rex-scen)).
+Sauf indication contraire, tous les autres scénarios du modèle opérationnel ont été établis à partir d’une courbe de sélectivité selon la longueur qui correspondait approximativement à l’ogive de maturité ($L^5 = 22$, $L^\textrm{FS} = 32$).
 
-* The OM scenario "Lower selectivity" considers that the selectivity curve could be shifted to the left resulting in both the survey and the commercial fleet capturing younger fish ($L^5 = 17$, $L^\textrm{FS} = 28$).
+* Le scénario « Sélectivité plus basse » du modèle opérationnel considère que la courbe de sélectivité pourrait être décalée vers la gauche, de sorte que le relevé et la flottille commerciale capturent des poissons plus jeunes ($L^5 = 17$, $L^\textrm{FS} = 28$).
 
-We considered the above six OM scenarios to represent the most plausible uncertainty OM scenarios for Rex Sole and grouped them into the "reference set" of OMs (see Section \@ref(sec:best3)).
+Nous avons envisagé les six scénarios du modèle opérationnel ci-dessus pour représenter les scénarios du modèle opérationnel d’incertitude les plus plausibles pour la plie royale et les avons regroupés dans « l’ensemble de référence » des modèles opérationnels (voir la section \@ref(sec:best3)).
 
-### Robustness set {#sec:results-robustness-set}
+### Ensemble de robustesse {#sec:results-robustness-set}
 
-To illustrate application of the framework in the presence of additional sources of structural uncertainty, we included two OM robustness scenarios (Table \@ref(tab:rex-scen)):
+Pour illustrer l’application du Cadre en présence de sources supplémentaires d’incertitude structurelle, nous avons inclus deux scénarios de robustesse du modèle opérationnel (tableau \@ref(tab:rex-scen)):
 
-* The "No CPUE C^eq^ 50%" OM scenario assumes that catch at equilibrium in year 1995 was 50% of the catch in 1996 ($C^{\textrm{eq}} = 0.5$). In other words, this OM scenario assumes that the stock started in a much less depleted state than the other OM scenarios. In order to fit the SRA model with plausible $F_{a,y}$ values, we also had to omit the commercial CPUE and use the selectivity curve described in the "Lower selectivity" OM scenario.
+* Le scénario « Pas de CPUE C^eq^ 50% » du modèle opérationnel suppose que les prises à l’équilibre en 1995 représentaient 50 % des prises en 1996 ($C^{\textrm{eq}} = 0,5$). Autrement dit, ce scénario du modèle opérationnel présume que le stock a commencé dans un état beaucoup moins épuisé que les autres scénarios du modèle opérationnel. Afin d’ajuster le modèle d’analyse de la réduction des stocks à des valeurs plausibles de $F_{a,y}$, nous avons également dû omettre les CPUE dans les pêches commerciales et utiliser la courbe de sélectivité décrite dans le scénario du modèle opérationnel « Sélectivité plus basse ».
 
-* The "M increasing" OM scenario assumes that *M* was fixed at 0.2 *y*^-1^ in the historical period and increases monotonically from 0.2 to 0.4 *y*^-1^ over the projection period. This could represent increasing natural mortality due to a process such as climate change or shifts in predator abundance. We include this OM scenario simply to illustrate including a time-varying parameter in the OM projection period that reflects an underlying environmental process, and to assess robustness of MPs to such a scenario.
+* Le scénario « M croissante » du modèle opérationnel suppose que *M* a été fixée à 0,2 *y*^-1^ dans la période historique et qu’elle augmente de façon monotone de 0,2 à 0,4 *y*^-1^ pendant la période de projection. Cela pourrait représenter une augmentation de la mortalité naturelle due à un processus comme les changements climatiques ou des changements dans l’abondance des prédateurs. Nous incluons ce scénario du modèle opérationnel simplement pour illustrer l’inclusion d’un paramètre variable dans le temps dans la période de projection du modèle opérationnel qui reflète un processus environnemental sous-jacent, ainsi que pour évaluer la robustesse des procédures de gestion à un tel scénario.
 
-Results from the Robustness Set will be presented separately in Section \@ref(sec:results-rex6) and will be used to show whether performance of MPs is significantly affected by these other sources of uncertainty.
+Les résultats de l’ensemble de robustesse seront présentés séparément dans la section \@ref(sec:results-rex6) et serviront à montrer si ces autres sources d’incertitude ont une grande influence sur le rendement des procédures de gestion.
 
-<!-- Maturity
-Abookire 2006 - GOA ML50 females = 352 mm, ML100 = 420 mm) significantly larger size than in Oregon
-MA50 = 5.1 years, all mature at age 9 except for two still immature at 9 and 10 years (n=557)
-Hosie and Horton 1977 - Oregon female ML50 24 cm, ML100 = 30 cm
-MA50 = 5 years, MA100 = 9 years (212 females, 45 unsexed age 1 fish)
+Nous incluons une explication détaillée de la spécification initiale du modèle opérationnel à l’annexe \@ref(app:desc-om-rex).
 
-Mortality
-natural mortality used in GOA assessment 0.17-->
+### Conditionnement du modèle opérationnel {#sec:results-om-conditioning}
 
-We include a detailed explanation of the initial OM specification in Appendix \@ref(app:desc-om-rex).
+Après avoir spécifié la plupart des paramètres des modèles opérationnels (annexe \@ref(app:desc-om-rex)), nous avons conditionné les modèles opérationnels en utilisant le modèle d’analyse de la réduction des stocks (avec 250 répétitions) décrit à l’annexe \@ref(app:sra).
+Nous avons conditionné les modèles en utilisant : 1) les données sur les prises commerciales de 1996--2019; 2) l’indice du relevé synoptique au chalut de la biomasse relative sur la côte ouest de l’île de Vancouver (SYN COIV) (un relevé à stratification aléatoire de la profondeur); 3) les CPUE dans les pêches commerciales au chalut de fond.
+Nous avons pondéré à la baisse l’indice des CPUE dans les pêches commerciales en gonflant les erreurs types 1,5 fois, puisque nous jugeons plus fiables les données du relevé synoptique de la côte ouest de l’île de Vancouver qui reflètent les tendances sous-jacentes de la biomasse.
+Nous avons spécifié une plage de valeurs de $C^{\textrm{eq}}$, comme nous l’avons décrit ci-dessus, pour tenir compte de l’incertitude liée à l’épuisement initial du stock.
 
-### OM conditioning {#sec:results-om-conditioning}
-
-After specifying most of the OM parameters (Appendix \@ref(app:desc-om-rex)), we conditioned the OMs using the SRA model (with 250 replicates) described in Appendix \@ref(app:sra).
-We conditioned the models using: (1) commercial catch data from 1996--2019; (2) the synoptic WCVI (SYN WCVI) trawl relative biomass index (a depth-stratified random survey); and (3) commercial bottom trawl CPUE.
-We down-weighted the commercial CPUE index by inflating the standard errors 1.5 times since we have greater confidence in the SYN WCVI data reflecting underlying biomass trends.
-We specified a range of $C^{\textrm{eq}}$ values as described above to reflect uncertainty in initial stock depletion.
-
-The SRA was able to fit to the WCVI synoptic trawl survey relative biomass index and commercial bottom trawl CPUE reasonably well for all OM scenarios (Figure \@ref(fig:rex-survey-fits)).
-The SYN WCVI survey was better fit than the commercial CPUE, likely due to the smaller standard errors (Figure \@ref(fig:rex-survey-fits)).
-The SRA models fit the catch data almost perfectly by design, via setting the standard deviations of the observation error to a value of 0.01 (Equation \@ref(eq:sra-om-like-catch)).
+L’analyse de la réduction des stocks a permis d’ajuster raisonnablement bien l’indice de la biomasse relative du relevé synoptique au chalut sur la côte ouest de l’île de Vancouver et les CPUE dans les pêches commerciales au chalut de fond pour tous les scénarios de modèle opérationnel (figure \@ref(fig:rex-survey-fits)).
+Le relevé synoptique sur la côte ouest de l’île de Vancouver était mieux ajusté que les CPUE dans les pêches commerciales, probablement en raison des erreurs types plus petites (figure \@ref(fig:rex-survey-fits)).
+Les modèles d’analyse de la réduction des stocks ajustent presque parfaitement les données sur les prises, en fixant les écarts-types de l’erreur d’observation à une valeur de 0,01 (équation \@ref(eq:sra-om-like-catch)).
 
 (ref:fig-rex-survey-fits)
-SRA model fits to the SYN WCVI and commercial bottom trawl CPUE relative biomass indices.
-Panels from top to bottom represent OM scenarios.
-Thin lines represent individual SRA model fits across stochastic draws from the various OM parameters.
-Dots represent index mean and line segments represent 2 times the standard errors as entered into the SRA models.
-In the case of the commercial CPUE, these standard errors have been inflated 1.5 times from the fitted standard errors to down-weight the commercial CPUE index relative to the survey index.
+Le modèle d’analyse de la réduction des stocks correspond aux indices de la biomasse relative du relevé synoptique sur la côte ouest de l’île de Vancouver et des CPUE dans les pêches commerciales au chalut de fond.
+Les graphiques de haut en bas représentent les scénarios de modèle opérationnel.
+Les lignes fines représentent les différents ajustements du modèle d’analyse de réduction du stock parmi les tirages stochastiques des divers paramètres du modèle opérationnel.
+Les points représentent la moyenne de l’indice et les segments de lignes représentent deux fois les erreurs types entrées dans les modèles d’analyse de réduction du stock.
+Pour les CPUE dans les pêches commerciales, ces erreurs types ont été multipliées par 1,5 à partir des erreurs types ajustées afin de pondérer à la baisse l’indice des CPUE dans les pêches commerciales par rapport à l’indice de relevé.
 
 ```{r rex-survey-fits, fig.cap="(ref:fig-rex-survey-fits)", out.width="0.65\\textwidth"}
 knitr::include_graphics(here("report/figure/rex-index-fits.png"))
 ```
 
-We used the SRA to populate the following parameters in the conditioned OMs:
+Nous avons utilisé l’analyse de la réduction des stocks pour remplir les paramètres suivants dans les modèles opérationnels conditionnés :
 
-- $B_{t_c}/B_0$ (or "D"; depletion in the last historical year)
-- $R_0$ (unfished recruitment)
-- $\theta_\textrm{AC}$ (or "AC"; first-order autocorrelation of recruitment deviations)
-- $F_{a,y}$ (fishing mortality at age by year)
-- $\varepsilon_{\textrm{R},y}$ for years $t_1$ to $t_c$ (historical recruitment deviations)
+- $B_{t_c}/B_0$ (ou « D »; épuisement au cours de la dernière année historique)
+- $R_0$ (recrutement non exploité)
+- $\theta_\textrm{AC}$ (ou « AC »; autocorrélation de premier ordre des écarts de recrutement)
+- $F_{a,y}$ (mortalité par pêche selon l’âge, par année)
+- $\varepsilon_{\textrm{R},y}$ pour les années $t_1$ à $t_c$ (écarts historiques du recrutement)
 
-The OM reference and robustness scenarios rendered a range of estimated parameter values (Figures \@ref(fig:rex-sra-conditioned-parameters), \@ref(fig:rex-F-om), \@ref(fig:rex-recdev-om)).
-In fitting the SRA across replicate draws from the initial OMs, we discarded any models that did not converge (with convergence defined as a positive-definite covariance matrix) or had $F_{a,y} > 3$.
-The majority of replicates were retained (Table \@ref(tab:rex-sra-fraction)).
-However, by discarding  replicates from non-converged models, the input parameters carried through to the conditioned OMs varied slightly (Figure \@ref(fig:rex-sra-conditioned-parameters2)).
-The discarded parameter values represent implausible parameter combinations according to the SRA model.
-The implied spawning stock biomass depletion trajectories during the historical period from the eight OMs were similar with the exception of the "No CPUE C^eq^ 50%" OM scenario (Figure \@ref(fig:rex-depletion-om)).
+Les scénarios de référence et de robustesse du modèle opérationnel ont donné une plage de valeurs de paramètres estimées (figures \@ref(fig:rex-sra-conditioned-parameters), \@ref(fig:rex-F-om), \@ref(fig:rex-recdev-om)).
+En ajustant l’analyse de la réduction des stocks aux tirages répétés à partir des modèles opérationnels initiaux, nous avons rejeté tous les modèles qui ne convergeaient pas (la convergence étant définie comme une matrice de covariance positive-définie) ou qui avaient $F_{a,y} > 3$. La majorité des répétitions ont été retenues (tableau \@ref(tab:rex-sra-fraction)).
+Cependant, en éliminant les répétitions des modèles qui ne convergeaient pas, les paramètres d’entrée transmis aux modèles opérationnels conditionnés ont légèrement varié (figure \@ref(fig:rex-sra-conditioned-parameters2)).
+Les valeurs des paramètres rejetés représentent des combinaisons de paramètres invraisemblables selon le modèle d’analyse de la réduction des stocks.
+Les trajectoires implicites de l’épuisement de la biomasse du stock reproducteur pendant la période historique à partir des huit modèles opérationnels étaient semblables, à l’exception du scénario « Pas de CPUE C^eq^ 50% » du modèle opérationnel (figure \@ref(fig:rex-depletion-om)).
 
 ```{r rex-sra-fraction, results='asis'}
 rex_converged <- readRDS(here("generated-data/rex-converged.rds"))
@@ -362,18 +317,17 @@ rex_converged %>%
   mutate(scenario = gsub("Ceq.", "C^eq^", scenario))%>%
   select(-nsim) %>%
   csasdown::csas_table(col_names = c("OM Scenario", "Fraction retained"),
-    caption = "Fraction of replicates retained after conditioning with the SRA model.")
+    caption = "Fraction des répétitions conservée après le conditionnement avec le modèle d’analyse de la réduction des stocks.")
 ```
 
-(ref:fig-rex-sra-conditioned-parameters) Histograms of parameters estimated by the SRA. Fishing mortality at age, the historical depletion trajectory, and historical recruitment deviations are also derived from the SRA model. Historical depletion trajectories are shown in Figure \@ref(fig:rex-depletion-om), apical fishing mortality by year are shown in Figure \@ref(fig:rex-F-om), and historical recruitment deviations are shown in Figure \@ref(fig:rex-recdev-om).
-D refers to depletion. AC refers to $\theta_\textrm{AC}$.
+(ref:fig-rex-sra-conditioned-parameters) Histogrammes des paramètres estimés par l’analyse de réduction du stock. La mortalité par pêche selon l’âge, la trajectoire de l’épuisement historique et les écarts historiques du recrutement sont également dérivés du modèle d’analyse de la réduction des stocks. Les trajectoires de l’épuisement historique sont illustrées sur la figure \@ref(fig:rex-depletion-om), la mortalité apicale par pêche par année sur la figure \@ref(fig:rex-F-om) et les écarts historiques du recrutement sur la figure \@ref(fig:rex-recdev-om). D fait référence à l’épuisement. AC fait référence à $\theta_\textrm{AC}$.
 
 ```{r rex-sra-conditioned-parameters, out.width="0.85\\textwidth", fig.cap="(ref:fig-rex-sra-conditioned-parameters)"}
 knitr::include_graphics(here("report/figure/rex-sra-estimated.png"))
 ```
 
 (ref:fig-rex-sra-conditioned-parameters2)
-Frequency polygons for parameters input to the SRA. Parameters were sampled stochastically as input into the SRA (see Appendix \@ref(app:desc-om-rex) for ranges). Any samples associated with non-converged SRA models were discarded. Since most SRA models converged, these distributions are similar across OM scenarios unless they were specified differently in the OM. The large spikes represent fixed parameter values in the OM. sigma_R refers to $\sigma_R$.
+Polygones de fréquence pour les paramètres d’entrée dans l’analyse de la réduction des stocks. Les paramètres ont été échantillonnés de façon stochastique en tant que paramètres d’entrée dans l’analyse de la réduction des stocks (voir l’annexe \@ref(app:desc-om-rex) for ranges). Tous les échantillons associés aux modèles d’analyse de la réduction des stocks qui ne convergeaient pas ont été rejetés. Étant donné que la plupart des modèles d’analyse de la réduction des stocks convergeaient, ces distributions sont semblables dans tous les scénarios du modèle opérationnel, à moins qu’elles n’aient été spécifiées différemment dans le modèle opérationnel. Les pics importants représentent des valeurs de paramètres fixes dans le modèle opérationnel. sigma_R fait référence à $\sigma_R$.
 
 ```{r rex-sra-conditioned-parameters2, out.width="\\textwidth", fig.asp=0.85, fig.width=7, fig.cap="(ref:fig-rex-sra-conditioned-parameters2)"}
 knitr::include_graphics(here("report/figure/rex-sra-filtered.png"))
@@ -382,27 +336,27 @@ knitr::include_graphics(here("report/figure/rex-sra-filtered.png"))
 \clearpage
 
 (ref:fig-rex-depletion-om)
-Spawning stock biomass ($B$) depletion trajectories for reference and robustness set OMs.
-Depletion is represented as a fraction of $B_0$ (spawning stock biomass at unfished equilibrium).
-Note that the "M increasing" OM scenario only represents M increasing in the future projections---not the historical time period illustrated here---and uses a fixed value of M in the historical period.
-Lines represent medians, and dark and light-grey shading represent 50% and 95% quantiles across replicates.
+Trajectoires de l’épuisement de la biomasse du stock reproducteur ($B$) pour les modèles opérationnels de l’ensemble de référence et de l’ensemble de robustesse.
+L’épuisement est représenté sous la forme d’une fraction de $B_0$ (biomasse du stock reproducteur à l’équilibre non exploité).
+Il convient de noter que le scénario du modèle opérationnel « M croissante » ne représente que l’augmentation de M dans les projections futures---pas la période historique illustrée ici---et utilise une valeur fixe de M dans la période historique.
+Les lignes représentent les médianes, et les ombres gris foncé et gris pâle représentent les quantiles de 50 % et 95 % entre les répétitions.
 
 ```{r rex-depletion-om, fig.cap="(ref:fig-rex-depletion-om)", out.width="\\textwidth"}
 knitr::include_graphics(here("report/figure/rex-compare-SRA-depletion-panel.png"))
 ```
 
 (ref:fig-rex-F-om)
-Apical fishing mortality ($F_y$) trajectories for reference and robustness set OMs.
-Apical fishing mortality is the maximum $F_{a,f}$ experienced by fish of any age in a given year.
-Lines represent medians, and dark and light grey shading represent 50% and 95% quantiles across replicates.
+Trajectoires de la mortalité apicale par pêche ($F_y$) pour les modèles opérationnels des ensembles de référence et de robustesse.
+La mortalité apicale par pêche est la valeur maximale de $F_{a,f}$ subie par les poissons de tout âge une année donnée.
+Les lignes représentent les médianes, et les ombres gris foncé et gris pâle représentent les quantiles de 50 % et 95 % entre les répétitions.
 
 ```{r rex-F-om, fig.cap="(ref:fig-rex-F-om)", out.width="\\textwidth"}
 knitr::include_graphics(here::here("report/figure/rex-compare-F-panel.png"))
 ```
 
 (ref:fig-rex-recdev-om)
-Historical recruitment deviations estimated by the SRA model (in log space).
-Lines represent 100 random samples from the replicates.
+Écarts historiques de recrutement estimés par le modèle d’analyse de réduction du stock (dans l’espace logarithmique).
+Les lignes représentent 100 échantillons aléatoires des répétitions.
 
 ```{r rex-recdev-om, fig.cap="(ref:fig-rex-recdev-om)", out.width="\\textwidth"}
 knitr::include_graphics(here::here("report/figure/rex-compare-recdev-panel.png"))
@@ -410,24 +364,24 @@ knitr::include_graphics(here::here("report/figure/rex-compare-recdev-panel.png")
 
 \clearpage
 
-## STEP 4: IDENTIFICATION OF CANDIDATE MANAGEMENT PROCEDURES  {#sec:results-rex4}
+## ÉTAPE 4 : DÉTERMINATION DES PROCÉDURES DE GESTION POSSIBLES {#sec:results-rex4}
 
-We started with the full set of provisional candidate MPs described in Appendix \@ref(app:MPs) (Table \@ref(tab:rex-mps)).
-Early explorations with the SP models  suggested little effect of the three alternative harvest control rules (HCRs) described in Section \@ref(sec:mp-sp) (presumably because the projected biomass spent little time on the HCR "ramp").
-There was also very little difference in performance between the Fox and Schaefer production models.
-Therefore, for the SP models we focused mostly on tuning the prior on $r$, the intrinsic population growth rate.
-We evaluated three priors on $r$: $\textrm{Normal}(0.4, 0.1)$, $\textrm{Normal}(0.5, 0.1)$, and $\textrm{Normal}(0.6, 0.1)$.
-With the Schaefer surplus production function, these correspond to $F_\textrm{MSY} = 0.2$, $F_\textrm{MSY} = 0.25$, and $F_\textrm{MSY} = 0.3$, which approximately match the values of *M* explored in the OMs.
-We included the provisional "meta" HCR rules described in Appendix \@ref(app:MPs) Section \@ref(sec:mp-sp) and given that the stock does not have an existing TAC, we set the initial TAC for the purpose of the "meta" rules to the average catch from the last five years of the historical period.
-In applications of the framework, additional tuning of SP models and index-based MPs could be explored if needed.
+Nous avons commencé avec l’ensemble complet des procédures de gestion provisoires possibles décrites à l’annexe \@ref(app:MPs) (tableau \@ref(tab:rex-mps)).
+Les premières explorations avec les modèles de production excédentaire ont montré que les trois autres règles de contrôle des prises (RCP) décrites à la section \@ref(sec:mp-sp) n’avaient pas beaucoup d’effet (probablement parce que la biomasse projetée passait peu de temps sur la « rampe » de la règle de contrôle des prises).
+Il y avait aussi très peu de différence de rendement entre les modèles de production de Fox et de Schaefer.
+C’est pourquoi, pour les modèles de production excédentaire, nous nous sommes surtout intéressés au réglage de la valeur a priori sur $r$, le taux de croissance intrinsèque de la population.
+Nous avons évalué trois valeurs a priori sur $r$: $\textrm{Normal}(0,4, 0,1)$, $\textrm{Normal}(0,5, 0,1)$, et $\textrm{Normal}(0,6, 0,1)$.
+Avec la fonction de production excédentaire de Schaefer, celles-ci correspondent à $F_\textrm{MSY} = 0,2$, $F_\textrm{MSY} = 0,25$ et à $F_\textrm{MSY} = 0,3$, soit approximativement les valeurs de *M* explorées dans les modèles opérationnels.
+Nous avons inclus les règles provisoires de contrôle des prises « méta » décrites dans la section \@ref(sec:mp-sp) de l’annexe \@ref(app:MPs) et, étant donné que le stock n’a pas de TAC existant, nous avons fixé le TAC initial aux fins des règles « méta » aux prises moyennes des cinq dernières années de la période historique.
+Dans les applications du Cadre, on pourrait explorer d’autres réglages des modèles de production excédentaire et des procédures de gestion fondées sur des indices, au besoin.
 
 ```{r rex-mps, results='asis'}
 mp <- readr::read_csv(here("analysis", "rex", "mp.txt"), comment = "#")
 mp_list <- split(mp, mp$type)
-csasdown::csas_table(mp, caption = "Candidate MPs. The '`.`' in front of some MPs denotes versions of the MPs that only observe the survey index every second year to mimic our biennial WCVI synoptic survey. .SP6040_0.4 refers to an SP model with a prior on $r$ of 0.4, etc.", col_names = c("Management procedure", "MP type"))
+csasdown::csas_table(mp, caption = "Procédures de gestion possibles. Le '`.`' devant certaines procédures de gestion indique des versions des procédures de gestion qui n’observent l’indice du relevé qu’une fois tous les deux ans pour imiter notre relevé synoptique biennal sur la côte ouest de l’île de Vancouver. .SP6040_0.4 fait référence à un modèle de production excédentaire avec une valeur a priori sur $r$ de 0,4, etc.", col_names = c("Procédure de gestion", "Type de PG"))
 ```
 
-## STEP 5: SIMULATION OF THE APPLICATION OF THE MANAGEMENT PROCEDURES  {#sec:results-rex5}
+## ÉTAPE 5 : SIMULATION DE L’APPLICATION DES PROCÉDURES DE GESTION {#sec:results-rex5}
 
 ```{r}
 pm_df_list <- readRDS(here("generated-data/rex-pm-all.rds"))
@@ -440,8 +394,6 @@ reference_mp <- c("FMSYref75", "NFref", "FMSYref")
 
 
 satisficed_criteria <- c("LT LRP" = 0.9, "STC" = 0.8)
-# plot_tigure(pm_avg, satisficed = satisficed_criteria)
-# plot_tigure(pm_min, satisficed = satisficed_criteria)
 
 mp_sat <- dplyr::filter(pm_min, `LT LRP` > satisficed_criteria[1], `STC` > satisficed_criteria[2]) %>%
   pull(MP)
@@ -457,48 +409,47 @@ pm_min_sat <- pm_min %>% filter(MP %in% mp_sat)
 rversion <- gsub(" \\([0-9-]+\\)", "", devtools::session_info()$platform$version)
 ```
 
-We ran the closed-loop simulations across 250 stochastic replicates using DLMtool version 5.4.2, `r rversion`, and the simulation random seed set to `1`, with the OMs and MPs described above.
-We assessed convergence of the closed-loop simulation by plotting the cumulative performance metrics as replicates were added (Figure \@ref(fig:rex-converge)).
-We deemed 250 replicates sufficient since the rank order of MPs was consistent for this number of replicates (Figure \@ref(fig:rex-converge)).
+Nous avons effectué des simulations en boucle fermée à l’aide de 250 répétitions stochastiques dans la version 5.4.2 de DLMtool, `r rversion`, et avec la graine aléatoire établie à `1`, avec les modèles opérationnels et les procédures de gestion décrits plus haut.
+Nous avons évalué la convergence de la simulation en boucle fermée en traçant les paramètres de rendement cumulatifs à mesure que des répétitions étaient ajoutées (figure \@ref(fig:rex-converge)).
+Nous avons jugé que 250 répétitions étaient suffisantes puisque l’ordre de classement des procédures de gestion était cohérent pour ce nombre de répétitions (figure \@ref(fig:rex-converge)).
 
-To determine which MPs would be carried forward as satisficed MPs [@miller2010], we began by assessing average and minimum performance across all candidate MPs for the reference set of OMs (Figures \@ref(fig:rex-tigure-avg) and \@ref(fig:rex-tigure-min)).
-To obtain a manageable number of MPs for further consideration, we set satisficing thresholds of `r names(satisficed_criteria)[1]` $>$ `r satisficed_criteria[[1]]` (9 times out of 10) and `r names(satisficed_criteria)[2]` $>$ `r satisficed_criteria[[2]]` (4 times out of 5).
-We could apply these criteria to either the average (Figures \@ref(fig:rex-tigure-avg)) or minimum performance (Figures \@ref(fig:rex-tigure-min)) and such a decision is likely best made by a technical working group or decision-makers coupled with stakeholders in an applied setting.
-In this case study, it made little difference whether we chose the average or minimum performance metrics to apply the satisficing criteria.
-For the purposes of this case study, we chose to apply the satisficing criteria to the minimum performance metrics.
-This implies that the satisficed MPs pass these criteria even in the worst-case OM reference-set scenario.
-Applying these criteria resulted in `r number_to_word(length(mp_sat_b4_cut))` remaining MPs (`r gfutilities::commify(sort(mp_sat_b4_cut))`).
+Pour déterminer les procédures de gestion qui seraient retenues comme procédures de gestion satisfaisantes [@miller2010], nous avons commencé par évaluer le rendement moyen et minimal de toutes les procédures de gestion possibles pour l’ensemble de référence des modèles opérationnels (figures \@ref(fig:rex-tigure-avg) et \@ref(fig:rex-tigure-min)).
+Pour obtenir un nombre gérable de procédures de gestion en vue d’un examen plus poussé, nous avons établi des seuils de satisfaction de `r names(satisficed_criteria)[1]` $>$ `r satisficed_criteria[[1]]` (9 fois sur 10) et `r names(satisficed_criteria)[2]` $>$ `r satisficed_criteria[[2]]` (4 fois sur 5).
+Nous pourrions appliquer ces critères à la moyenne (figures \@ref(fig:rex-tigure-avg)) ou au rendement minimal (figures \@ref(fig:rex-tigure-min)) et il est probablement préférable de laisser une telle décision à un groupe de travail technique ou aux décideurs associés à des intervenants dans un contexte appliqué.
+Dans notre étude de cas, le choix des paramètres de rendement moyens ou minimaux pour appliquer les critères de satisfaction avait peu d’importance.
+Aux fins de la présente étude de cas, nous avons choisi d’appliquer les critères de satisfaction aux paramètres de rendement minimaux.
+Cela signifie que les procédures de gestion satisfaisantes répondent à ces critères même dans le pire des scénarios de l’ensemble de référence de modèles opérationnels.
+L’application de ces critères a laissé `r number_to_word(length(mp_sat_b4_cut))` procédures de gestion (`r gfutilities::commify(sort(mp_sat_b4_cut))`).
 
-We additionally decided to omit four MPs from further consideration.
-First, we chose to retain only one satisficed SP model MP (.SP8040_0.6) since the SP model MPs that differed only in production-function shape (.SP6040_0.6_fox) or HCR (.SP6040_0.6 and .SP4010_0.6) had near identical performance (Figure \@ref(fig:rex-tigure-min)).
-Second, we removed CC_hist20 since it was outperformed by the other constant catch MPs---LT LRP and STC were both exceeded by all other constant-catch MPs (Figure \@ref(fig:rex-tigure-min)).
-This left `r number_to_word(length(mp_sat))` MPs (`r gfutilities::commify(sort(mp_sat))`).
+Nous avons également décidé d’exclure quatre procédures de gestion pour la poursuite de l'examen.
+Tout d’abord, nous avons choisi de ne retenir qu’une seule procédure de gestion satisfaisante du modèle de production excédentaire (.SP8040_0.6) puisque les procédures de gestion du modèle de production excédentaire qui différaient uniquement de par la forme de la fonction de production (.SP6040_0.6_fox) ou la règle de contrôle des prises (.SP6040_0.6 et .SP4010_0.6) affichaient des rendements presque identiques (figure \@ref(fig:rex-tigure-min)).
+Ensuite, nous avons retiré CC_hist20, car elle a été surclassée par les autres procédures de gestion à prises constantes---LT LRP et STC ont toutes deux été dépassées par toutes les autres procédures de gestion à prises constantes (figure \@ref(fig:rex-tigure-min)).
+Il restait donc r number_to_word(length(mp_sat))` procédures de gestion r gfutilities::commify(sort(mp_sat))`).
 
 (ref:fig-rex-converge)
-Assessing convergence of the Rex Sole closed-loop simulations on consistent rank order of MPs within performance metrics.
-Colours represent individual satisficed and reference MPs.
-Lines that do not cross by the final replicates indicate that rank order among replicates had converged.
-Although not shown, we also checked that the satisficing rules had converged (i.e., the selection of satisficed MPs did not change with additional replicates).
-Note that in the "M increasing" OM scenario the LTC and AADC metrics do not appear because they are below the lower y-axis limit (or perfectly at 1 in the case of AADC and NFref).
+Évaluation de la convergence des simulations en boucle fermée pour la plie royale sur le classement uniforme des procédures de gestion dans les paramètres de rendement.
+Les couleurs représentent les différentes procédures de gestion satisfaisantes et de référence.
+Les lignes qui ne se croisent pas avant les répétitions finales indiquent que le classement des répétitions avait convergé.
+Bien que cela ne soit pas illustré, nous avons également vérifié que les règles de satisfaction avaient convergé (c.‑à‑d. que la sélection des procédures de gestion satisfaisantes ne changeait pas avec des répétitions supplémentaires).
+Il convient de noter que dans le scénario « M croissante » du modèle opérationnel, les paramètres LTC et AADC n’apparaissent pas parce qu’ils sont en dessous de la limite inférieure de l’axe des ordonnées (ou parfaitement à 1 dans le cas d’AADC et de NFref).
 
 ```{r rex-converge, fig.cap="(ref:fig-rex-converge)", out.width="\\textwidth"}
 knitr::include_graphics(here("report/figure/rex-convergence.png"))
 ```
 
-(ref:fig-rex-tigure-avg) Average performance of all candidate MPs across the reference set of OMs.
-MPs are ordered by decreasing performance metric values from top to bottom starting with the left-most performance metric (LT LRP) and using columns from left to right to break any ties.
-The colour shading reflects the probabilities.
-Outlined cells represent MPs that met a particular performance metric's satisficing criteria.
-Using this set of criteria, MPs would be "satisficed" if cells in *both* "LT LRP" and "STC" were outlined.
-Light grey MPs indicate reference MPs.
+(ref:fig-rex-tigure-avg) Rendement moyen de toutes les procédures de gestion possibles dans l’ensemble de référence de modèles opérationnels.
+Les procédures de gestion sont classées par valeur décroissante du paramètre de rendement, de haut en bas, en commençant par le paramètre de rendement le plus à gauche (LT LRP) et en utilisant les colonnes de gauche à droite pour départager les égalités.
+L’ombrage de couleur reflète les probabilités.
+Les cellules décrites représentent les procédures de gestion qui répondent aux critères de satisfaction d’un paramètre de rendement donné.
+À l’aide de cet ensemble de critères, les procédures de gestion seraient « satisfaisantes » si les cellules *à la fois* de « LT LRP » et de « STC » étaient mises en évidence. Les procédures de gestion en gris pâle indiquent les procédures de gestion de référence.
 
 ```{r rex-tigure-avg, fig.cap="(ref:fig-rex-tigure-avg)", out.width="3.5in"}
 knitr::include_graphics(here("report/figure/rex-tigure-refset-avg.png"))
 ```
 
-(ref:fig-rex-tigure-min) Minimum performance of all candidate MPs across the reference set of OMs.
-This figure is the same as Figure \@ref(fig:rex-tigure-avg) but shows the **minimum** performance metric across the OMs in the reference set for the purposes of applying satisficing rules.
-In other words, this figure illustrates the worst performance of each MP across the reference set of OMs.
+(ref:fig-rex-tigure-min) Rendement minimal de toutes les procédures de gestion possibles dans l’ensemble de référence de modèles opérationnels.
+Cette figure est la même que la figure\@ref(fig:rex-tigure-avg), mais elle illustre le paramètre de rendement **minimum** dans les modèles opérationnels de l’ensemble de référence aux fins de l’application des règles de satisfaction.
+En d’autres termes, elle montre le pire rendement de chaque procédure de gestion dans l’ensemble de référence de modèles opérationnels.
 
 ```{r rex-tigure-min, fig.cap="(ref:fig-rex-tigure-min)", out.width="3.5in"}
 knitr::include_graphics(here("report/figure/rex-tigure-refset-min.png"))
@@ -506,29 +457,29 @@ knitr::include_graphics(here("report/figure/rex-tigure-refset-min.png"))
 
 \clearpage
 
-## STEP 6: PRESENTATION OF RESULTS AND SELECTION OF MANAGEMENT PROCEDURE  {#sec:results-rex6}
+## ÉTAPE 6 : PRÉSENTATION DES RÉSULTATS ET CHOIX DE LA PROCÉDURE DE GESTION {#sec:results-rex6}
 
-### Reference set results
+### Résultats de l’ensemble de référence
 
-Performance within the reference set of OMs varied across MPs and performance metrics (Figures \@ref(fig:rex-tigure-avg), \@ref(fig:rex-tigure-min), \@ref(fig:rex-tigure-panel), and \@ref(fig:rex-dot-lines)).
-There was variability in performance among the individual OM reference-set scenarios with the most variability in both the long-term and entire projection period performance metrics: LT USR, FMSY, LTC, and AADC (Figure \@ref(fig:rex-tigure-panel)).
-Between the two performance metrics used in the initial satisficing step, *average* LT LRP varied between `r round2(min(pm_avg_sat$"LT LRP"))` and `r round2(max(pm_avg_sat$"LT LRP"))`, and STC varied between `r round2(min(pm_avg_sat$STC))` and `r round2(max(pm_avg_sat$STC))` across MPs within the reference set (Figure \@ref(fig:rex-tigure-avg) and \@ref(fig:rex-tigure-panel)).
-*Minimum* LT LRP varied between `r round2(min(pm_min_sat$"LT LRP"))` and `r round2(max(pm_min_sat$"LT LRP"))`, and STC varied between `r round2(min(pm_min_sat$STC))` and `r round2(max(pm_min_sat$STC))` across MPs within the reference set (Figure \@ref(fig:rex-tigure-min) and \@ref(fig:rex-tigure-panel)).
+Le rendement dans l’ensemble de référence de modèles opérationnels variait entre les procédures de gestion et les paramètres de rendement (figures \@ref(fig:rex-tigure-avg), \@ref(fig:rex-tigure-min), \@ref(fig:rex-tigure-panel) et \@ref(fig:rex-dot-lines)).
+Le rendement variait entre les différents scénarios de l’ensemble de référence de modèles opérationnels, la plus grande variabilité étant observée dans les paramètres de rendement à long terme et pour toute la période de projection : LT USR, FMSY, LTC et AADC (figure \@ref(fig:rex-tigure-panel)).
+Entre les deux paramètres de rendement utilisés à l’étape de la satisfaction initiale, le point de référence limite à long terme (LT PRL) *moyen* variait entre `r round2(min(pm_avg_sat$"LT LRP"))` et `r round2(max(pm_avg_sat$"LT LRP"))`, et les prises à court terme (STC) entre `r round2(min(pm_avg_sat$STC))` et `r round2(max(pm_avg_sat$STC))` parmi les procédures de gestion de l’ensemble de référence (figure \@ref(fig:rex-tigure-avg) et \@ref(fig:rex-tigure-panel)).
+Le point de référence limite à long terme *minimum* variait entre`r round2(min(pm_min_sat$"LT LRP"))` et `r round2(max(pm_min_sat$"LT LRP"))`, et les prises à court terme entre `r round2(min(pm_min_sat$STC))` et `r round2(max(pm_min_sat$STC))` parmi les procédures de gestion dans l’ensemble de référence (figure \@ref(fig:rex-tigure-min) et \@ref(fig:rex-tigure-panel)).
 
-A dot-and-line plot of the performance metrics aggregated across OM scenarios helps compare performance across satisficed MPs (Figure \@ref(fig:rex-dot-lines)).
-Long-term catch (LTC) was roughly comparable between a fishing strategy of fishing at *F*/*F*~MSY~ and the satisficed Itarget or .SP8040_0.6 MPs (Figure \@ref(fig:rex-dot-lines)).
-Short-term catch (STC) of all satisficed MPs exceeded these reference MPs (Figure \@ref(fig:rex-dot-lines)).
-Fixed-catch MPs of 1.1- or 1.2-times average catch from the last five years rendered similar performance to other satisficed MPs across most performance metrics within the OM reference-set scenarios, with somewhat higher LTC and AADC metrics (Figure \@ref(fig:rex-dot-lines)).
-These fixed-catch MPs do not incorporate feedback between the management and biological systems.
+Une représentation graphique par des points et des lignes des paramètres de rendement regroupés des scénarios de modèles opérationnels aide à comparer le rendement entre les procédures de gestion satisfaisantes (figure \@ref(fig:rex-tigure-min).
+Les prises à long terme (LTC) étaient à peu près comparables entre une stratégie de pêche à *F*/*F*~MSY~ et les procédures de gestion satisfaisantes Itarget ou .SP8040_0.6 (figure \@ref(fig:rex-dot-lines)).
+Les prises à court terme (STC) de toutes les procédures de gestion satisfaisantes dépassaient ces procédures de gestion de référence (figure \@ref(fig:rex-dot-lines)).
+Les procédures de gestion à prises fixes de 1,1 ou 1,2 fois la moyenne des prises des cinq dernières années donnaient un rendement semblable à celui d’autres procédures de gestion satisfaisantes pour la plupart des paramètres de rendement dans les scénarios de l’ensemble de référence de modèles opérationnels, avec des paramètres un peu plus élevés pour les prises à long terme et la différence interannuelle absolue moyenne des prises (AADC) (figure \@ref(fig:rex-dot-lines)).
+Ces procédures de gestion à prises fixes ne tiennent pas compte de la rétroaction entre la gestion et les systèmes biologiques.
 
-Trade-offs among performance metrics for most of the satisficed MPs were relatively minor within the OM reference-set scenarios (Figures \@ref(fig:rex-tradeoff-reference) and \@ref(fig:rex-spider-satisficed-mps-avg)).
-Within the "C^eq^ 200%" OM scenario, there was a slight trade-off between STC and LT LRP (Figure \@ref(fig:rex-tradeoff-reference)).
-The time series trajectories of the projected survey index (Figure \@ref(fig:rex-proj-index)), *B*/*B*~MSY~, *F*/*F*~MSY~, and catch (Figures \@ref(fig:rex-proj-ceq200)--\@ref(fig:rex-proj-no-cpue)) further demonstrate performance across the various MPs and reference-set OMs.
-Kobe plots demonstrate either the final *B*/*B*~MSY~ vs. *F*/*F*~MSY~ status among replicates (Figure \@ref(fig:rex-kobe)) or the trajectory of these stock status values through time (Figure \@ref(fig:rex-worm)).
+Les compromis entre les paramètres de rendement pour la plupart des procédures de gestion satisfaisantes étaient relativement mineurs dans les scénarios de l’ensemble de référence de modèles opérationnels (figures \@ref(fig:rex-tradeoff-reference) et \@ref(fig:rex-spider-satisficed-mps-avg)).
+Dans le scénario du modèle opérationnel « C^eq^ 200 % » , il y avait un léger compromis entre les prises à court terme et le point de référence limite à long terme (figure \@ref(fig:rex-tradeoff-reference)).
+Les trajectoires des séries chronologiques de l’indice de relevé projeté (figure \@ref(fig:rex-proj-index)), *B*/*B*~MSY~, *F*/*F*~MSY~, et des prises (figures \@ref(fig:rex-proj-ceq200)--\@ref(fig:rex-proj-no-cpue)) illustrent en outre le rendement des diverses procédures de gestion et des modèles opérationnels de l’ensemble de référence.
+Les graphiques de Kobe montrent l’état final *B*/*B*~MSY~ par rapport à *F*/*F*~MSY~ dans les répétitions (figure \@ref(fig:rex-kobe)) ou la trajectoire de ces valeurs de l’état du stock dans le temps (figure \@ref(fig:rex-worm)).
 
-(ref:fig-rex-tigure-panel) Performance of satisficed MPs for the reference-set OMs.
-MPs are ordered by decreasing performance metric values from the averaged reference set (Figure \@ref(fig:rex-tigure-avg)).
-These are the same data underlying Figure \@ref(fig:rex-tigure-avg) and Figure \@ref(fig:rex-tigure-min) but shown for individual OM reference-set scenarios and only for satisficed MPs.
+(ref:fig-rex-tigure-panel) Rendement des procédures de gestion satisfaisantes pour les modèles opérationnels de l’ensemble de référence.
+Les procédures de gestion sont classées par valeur décroissante du paramètre de rendement à partir de l’ensemble de référence moyenné (figure \@ref(fig:rex-tigure-avg)).
+Il s’agit des mêmes données qui sous-tendent la figure \@ref(fig:rex-tigure-avg) et la figure \@ref(fig:rex-tigure-min), mais elles sont indiquées pour les différents scénarios de l’ensemble de référence de modèles opérationnels, et seulement pour les procédures de gestion satisfaisantes.
 
 ```{r rex-tigure-panel, fig.cap="(ref:fig-rex-tigure-panel)", out.width="0.8\\textwidth"}
 knitr::include_graphics(here("report/figure/rex-tigure-refset.png"))
@@ -537,11 +488,11 @@ knitr::include_graphics(here("report/figure/rex-tigure-refset.png"))
 \clearpage
 
 (ref:fig-rex-dot-lines)
-Dot-and-line plot of performance metrics averaged across OM scenarios.
-Dots represent average performance metric values and thin lines represent the range of values across OM scenarios.
-Thick lines represent the range of values across OM scenarios after dropping the high and low values.
-Reference MPs are indicated by open circles (True).
-Non-reference MPs are indicated by closed circles (False).
+Représentation graphique par des points et des lignes des paramètres de rendement moyennés dans les scénarios de modèles opérationnels.
+Les points représentent les valeurs moyennes des paramètres de rendement et les lignes fines représentent la plage de valeurs dans les scénarios de modèles opérationnels.
+Les lignes épaisses représentent la plage de valeurs dans les scénarios de modèles opérationnels après avoir écarté les valeurs les plus élevées et les plus faibles.
+Les procédures de gestion de référence sont indiquées par des cercles ouverts (Vrai).
+Les procédures de gestion autres que de référence sont indiquées par des cercles fermés (Faux).
 
 ```{r rex-dot-lines, fig.cap="(ref:fig-rex-dot-lines)", out.width="\\textwidth"}
 knitr::include_graphics(here("report/figure/rex-dot-refset-avg.png"))
@@ -549,59 +500,55 @@ knitr::include_graphics(here("report/figure/rex-dot-refset-avg.png"))
 
 \clearpage
 
-```{r rex-tradeoff-reference, fig.cap="Trade-off between LT LRP and STC average performance metrics across the OM reference-set scenarios. Reference MPs are indicated by open circles (True). Non-reference MPs are indicated by closed circles (False).", out.width="5in"}
+```{r rex-tradeoff-reference, fig.cap="Compromis entre les paramètres de rendement moyen entre LT LRP et STC dans les scénarios de l’ensemble de référence de modèles opérationnels. Les procédures de gestion de référence sont indiquées par des cercles ouverts (Vrai). Les procédures de gestion autres que de référence sont indiquées par des cercles fermés (Faux).", out.width="5in"}
 knitr::include_graphics(here("report/figure/rex-tradeoff-refset-avg.png"))
 ```
 
 \clearpage
 
-```{r rex-spider-satisficed-mps-avg, fig.cap="Radar-plot representation of average performance metric trade-offs for the OM reference-set scenarios. The outside of the hexagon represents a performance metric probability of 1.0; in the middle represents a value of 0. Dashed lines represent reference MPs.", out.width="5in"}
+```{r rex-spider-satisficed-mps-avg, fig.cap="Diagramme en radar des compromis des paramètres de rendement moyens pour les scénarios de l’ensemble de référence de modèles opérationnels. L’extérieur de l’hexagone représente une probabilité de 1,0 du paramètre de rendement et le milieu représente une valeur de 0. Les lignes tiretées représentent les procédures de gestion de référence.", out.width="5in"}
 knitr::include_graphics(here("report/figure/rex-radar-refset-avg.png"))
 ```
 
 \clearpage
 
-```{r rex-proj-index, fig.cap="Historical and projected SYN WCVI relative biomass index values. Vertical dashed line represents 2019. The shaded region represents the 95\\% quantile and individual lines represent four sample replicates.", out.width="\\textwidth"}
+```{r rex-proj-index, fig.cap="Valeurs historiques et projetées de l’indice de la biomasse du relevé synoptique sur la côte ouest de l’île de Vancouver. La ligne verticale tiretée représente 2019. La région ombrée représente le quantile de 95\\% et les lignes individuelles représentent quatre répétitions d’échantillons.", out.width="\\textwidth"}
 knitr::include_graphics(here("report/figure/rex-projections-index.png"))
 ```
 
 \clearpage
 
-(ref:fig-rex-proj-ceq200) B/B~MSY~, F/F~MSY~, and catch from the historical and projected time periods for the "C^eq^ 200%" OM.
-Dark line indicates the median value and the darker and lighter shaded ribbons indicate the 50% and 90% quantiles.
-Thin gray lines represent illustrative simulation replicates.
-The vertical dashed line indicates the last year of the historical period.
-The horizontal dashed lines indicate B/B~MSY~ = 0.8 and 0.4 and F/F~MSY~ = 1.
+(ref:fig-rex-Proj-ceq200) B/B~MSY~, F/F~MSY~, et les prises des périodes historique et projetée pour le modèle opérationnel « C^eq^ 200 % ». La ligne foncée indique la valeur médiane et les rubans ombrés plus foncés et plus pâles indiquent les quantiles de 50 % et 90 %. Les fines lignes grises représentent des répétitions de simulation à titre d’illustration. La ligne verticale tiretée indique la dernière année de la période historique. Les lignes horizontales tiretées indiquent B/B~MSY~ = 0,8 et 0,4, et F/F~MSY~ = 1.
 
 ```{r rex-proj-ceq200, fig.cap="(ref:fig-rex-proj-ceq200)", out.width="6.5in"}
 knitr::include_graphics(here("report/figure/rex-projections-ceq200.png"))
 ```
 
-(ref:fig-rex-proj-ceq250-cpue) Same as Figure \@ref(fig:rex-proj-ceq200) but for the OM "C^eq^ 250%".
+(ref:fig-rex-proj-ceq250-cpue) Identique à la figure \@ref(fig:rex-proj-ceq200), mais pour le modèle opérationnel "C^eq^ 250%".
 
 ```{r rex-proj-ceq250-cpue, fig.cap="(ref:fig-rex-proj-ceq250-cpue)", out.width="6.5in"}
 knitr::include_graphics(here("report/figure/rex-projections-ceq250.png"))
 ```
 
-(ref:fig-rex-proj-high-m) Same as Figure \@ref(fig:rex-proj-ceq200) but for the OM "Higher M".
+(ref:fig-rex-proj-high-m) Identique à la figure \@ref(fig:rex-proj-ceq200), mais pour le modèle opérationnel « M plus élevée ».
 
 ```{r rex-proj-high-m, fig.cap="(ref:fig-rex-proj-high-m)", out.width="6.5in"}
 knitr::include_graphics(here("report/figure/rex-projections-high-m.png"))
 ```
 
-(ref:fig-rex-proj-high-h) Same as Figure \@ref(fig:rex-proj-ceq200) but for the OM "Higher steepness".
+(ref:fig-rex-proj-high-h) Identique à la figure \@ref(fig:rex-proj-ceq200, mais pour le modèle opérationnel « Taux de variation plus élevé ».
 
 ```{r rex-proj-high-h, fig.cap="(ref:fig-rex-proj-high-h)", out.width="6.5in"}
 knitr::include_graphics(here("report/figure/rex-projections-high-h.png"))
 ```
 
-(ref:fig-rex-proj-low-sel) Same as Figure \@ref(fig:rex-proj-ceq200) but for the OM "Lower selectivity".
+(ref:fig-rex-proj-low-sel) Identique à la figure \@ref(fig:rex-proj-ceq200), mais pour le modèle opérationnel « Sélectivité plus basse ».
 
 ```{r rex-proj-low-sel, fig.cap="(ref:fig-rex-proj-low-sel)", out.width="6.5in"}
 knitr::include_graphics(here("report/figure/rex-projections-sel1.png"))
 ```
 
-(ref:fig-rex-proj-no-cpue) Same as Figure \@ref(fig:rex-proj-ceq200) but for the OM "No CPUE C^eq^ 250%".
+(ref:fig-rex-proj-no-cpue) Identique à la figure \@ref(fig:rex-proj-ceq200), mais pour le modèle opérationnel « Pas de CPUE C^eq^ 250 % ».
 
 ```{r rex-proj-no-cpue, fig.cap="(ref:fig-rex-proj-no-cpue)", out.width="6.5in"}
 knitr::include_graphics(here("report/figure/rex-projections-no-cpue.png"))
@@ -609,11 +556,11 @@ knitr::include_graphics(here("report/figure/rex-projections-no-cpue.png"))
 
 \clearpage
 
-(ref:fig-rex-kobe) B/B~MSY~ and F/F~MSY~ values from the final year of the projections across all replicates.
-Dots represent individual replicates.
-Vertical dashed lines show B/B~MSY~ = 0.4 (left) and 0.8 (right).
-Horizontal dashed line shows F/F~MSY~ = 1.
-Contour lines indicate two-dimensional kernel-density-smoothed quantiles at 0.25, 0.50, and 0.75 levels, calculated in log space.
+Valeurs de (ref:fig-rex-kobe) B/B~MSY~ et F/F~MSY~ pour la dernière année des projections pour toutes les répétitions.
+Les points représentent les différentes répétitions.
+Les lignes verticales tiretées représentent B/B~MSY~ = 0,4 (à gauche) et 0,8 (à droite).
+La ligne horizontale tiretée représente F/F~MSY~ = 1.
+Les lignes de contour indiquent les quantiles à 0,25, 0,50 et 0,75 lissés par noyau de densité en deux dimensions, calculés dans l’espace logarithmique.
 
 ```{r rex-kobe, fig.cap="(ref:fig-rex-kobe)", out.width="\\textwidth"}
 knitr::include_graphics(here("report/figure/rex-kobe.png"))
@@ -621,11 +568,11 @@ knitr::include_graphics(here("report/figure/rex-kobe.png"))
 
 \clearpage
 
-(ref:fig-rex-worm) Trajectory of B/B~MSY~ and F/F~MSY~ values summarized across replicates.
-The solid line corresponds to the median value.
-Vertical dashed lines show B/B~MSY~ = 0.4 (left) and 0.8 (right).
-Horizontal dashed line shows F/F~MSY~ = 1.
-Each diamond represents the 50% quantile of B/B~MSY~ (horizontal) and F/F~MSY~ (vertical).
+(ref:fig-rex-worm) Trajectoire des valeurs de B/B~MSY~ et de F/F~MSY~ résumées entre les répétitions.
+La ligne pleine correspond à la valeur médiane.
+Les lignes verticales tiretées représentent B/B~MSY~ = 0,4 (à gauche) et 0,8 (à droite).
+La ligne horizontale tiretée représente F/F~MSY~ = 1.
+Chaque diamant représente le quantile de 50 % de B/B~MSY~ (à l’horizontale) et de F/F~MSY~ (à la verticale).
 
 ```{r rex-worm, fig.cap="(ref:fig-rex-worm)", out.width="\\textwidth"}
 knitr::include_graphics(here("report/figure/rex-worms-proj.png"))
@@ -633,75 +580,64 @@ knitr::include_graphics(here("report/figure/rex-worms-proj.png"))
 
 \clearpage
 
-### Robustness set results
+### Résultats de l’ensemble de robustesse
 
-<!--
-Figure \@ref(fig:rex-tigure-panel-rob)
-Figure \@ref(fig:rex-dots-satisficed-mps-robust)
-Figure \@ref(fig:rex-tradeoff-robust)
-Figure \@ref(fig:rex-spider-satisficed-mps-robust)
+Le scénario de robustesse du modèle opérationnel « Pas de CPUE C^eq^ 50 % » représente des trajectoires historiques de la biomasse et de la mortalité par pêche nettement différentes de celles des scénarios de l’ensemble de référence de modèles opérationnels.
+Ce scénario du modèle opérationnel estime que le stock est plus petit (valeurs de $R_0$ plus faibles sur la figure \@ref(fig:rex-sra-conditioned-parameters)) avec des valeurs élevées de $F_y$ ($F$ apicale par année) vers 2005 (figure \@ref(fig:rex-F-om)).
+Dans ce scénario du modèle opérationnel, les procédures de gestion Itarget sont capables d’atteindre un point de référence limite à long terme $>$ 0,60 (3 fois sur 5), tandis que le modèle de production excédentaire et de prises constantes atteint un point de référence limite à long terme $<$ 0,35 (7 fois sur 20) (figures \@ref(fig:rex-tigure-panel-rob) et \@ref(fig:rex-dots-satisficed-mps-robust)).
+Les autres paramètres de rendement affichent un contraste moins grand entre les procédures de gestion, bien que le point de référence supérieur du stock à long terme (LT USR) demeure également plus élevé pour les procédures de gestion Itarget par rapport aux procédures de gestion à prises constantes ou à production excédentaire (figures \@ref(fig:rex-tigure-panel-rob) et \@ref(fig:rex-dots-satisficed-mps-robust)).
 
-Figure \@ref(fig:rex-proj-no-cpue-light) and Figure \@ref(fig:rex-proj-inc-m)
+Ce scénario de robustesse du modèle opérationnel démontre des compromis plus solides entre les paramètres de rendement que les scénarios de l’ensemble de référence du modèle opérationnel (figures \@ref(fig:rex-tradeoff-robust) et \@ref(fig:rex-spider-satisficed-mps-robust)).
+En particulier, il y a un compromis évident entre les prises à court terme et le point de référence limite à long terme (figures \@ref(fig:rex-tradeoff-robust)).
+Les procédures de gestion à prises constantes ont atteint les valeurs les plus élevées de prises à court terme, mais au détriment de valeurs plus basses du point de référence limite à long terme.
+Les procédures de gestion Itarget parvenaient à un meilleur équilibre entre le point de référence limite à long terme et les prises à court terme (figures \@ref(fig:rex-tradeoff-robust)).
+Les figures de la projection montrent les valeurs sous-jacentes aux paramètres de rendement (figure \@ref(fig:rex-proj-no-cpue-light)).
+Dans ce scénario, au fil du temps, les procédures de gestion SP8040_0.6, CC1.1, et CC1.2 avaient toutes tendance à surpêcher le stock (figure \@ref(fig:rex-proj-no-cpue-light)).
 
-Figure \@ref(fig:rex-proj-scenarios)
--->
+Pour le scénario du modèle opérationnel « M croissante », les procédures de gestion satisfaisantes étaient relativement robustes aux augmentations linéaires de la mortalité naturelle pendant la période de projection, mais elles avaient toutes une probabilité considérablement plus faible d’atteindre le paramètre des prises à long terme (LTC) (figures \@ref(fig:rex-tigure-panel-rob)--\@ref(fig:rex-spider-satisficed-mps-robust)).
+En particulier, les procédures de gestion satisfaisantes Itarget maintenaient un point de référence limite à long terme $>$ 0,9 malgré l’augmentation de *M*, tandis que les procédures de gestion à prises fixes et de production excédentaire donnaient toutes un point de référence limite à long terme $<$ 0,9.
+Les procédures de gestion Itarget ont permis de réduire les prises à mesure que *M* augmentait (figure \@ref(fig:rex-proj-inc-m)) afin de maintenir la plupart des répétitions au-dessus du point de référence limite.
 
-The "No CPUE C^eq^ 50%" OM robustness scenario represents markedly different biomass and fishing mortality historical trajectories to any of the OM reference-set scenarios.
-This OM scenario estimates the stock to be smaller (smaller $R_0$ values in Figure \@ref(fig:rex-sra-conditioned-parameters)) with high $F_y$ (apical $F$ by year) values around 2005 (Figure \@ref(fig:rex-F-om)).
-In this OM scenario, the Itarget MPs are able to achieve LT LRP $>$ 0.60 (3 times out of 5), while the constant catch and surplus production model achieved LT LRP $<$ 0.35 (7 times out of 20) (Figures \@ref(fig:rex-tigure-panel-rob) and \@ref(fig:rex-dots-satisficed-mps-robust)).
-Other performance metrics show less contrast among the MPs, although LT USR also remains higher for the Itarget vs. constant-catch or surplus-production MPs (Figure \@ref(fig:rex-tigure-panel-rob) and \@ref(fig:rex-dots-satisficed-mps-robust)).
+En traçant les projections à partir de tous les scénarios de modèles opérationnels (figures \@ref(fig:rex-proj-ceq200)--\@ref(fig:rex-proj-no-cpue) et \@ref(fig:rex-proj-no-cpue-light)--\@ref(fig:rex-proj-inc-m)) sur les mêmes graphiques, nous pouvons examiner la sensibilité des projections aux diverses conditions du scénario du modèle opérationnel (figure \@ref(fig:rex-proj-scenarios)).
+Les trajectoires historiques étaient les plus sensibles aux hypothèses du scénario du modèle opérationnel « Pas de CPUE C^eq^ 50 % » comparativement aux autres scénarios de modèles opérationnels.
+Les trajectoires projetées étaient relativement semblables dans tous les scénarios de l’ensemble de référence de modèles opérationnels, mais différentes pour les scénarios de robustesse des modèles opérationnels « Pas de CPUE C^eq^ 50 % » et « M croissante ».
+Il est à noter que la sensibilité des projections ne correspond pas nécessairement à la sensibilité de l’ordre de classement des procédures de gestion (figure \@ref(fig:rex-tigure-panel-rob)), qui est en fin de compte la caractéristique importante pour la prise de décisions.
 
-This OM robustness scenario demonstrates stronger trade-offs among performance metrics than the OM reference-set scenarios (Figures \@ref(fig:rex-tradeoff-robust) and \@ref(fig:rex-spider-satisficed-mps-robust)).
-In particular, there is an obvious trade-off between STC and LT LRP (Figures \@ref(fig:rex-tradeoff-robust)).
-The constant catch MPs achieved the highest STC values but at the expense of lower LT LRP values.
-The Itarget MPs struck more of a balance between LT LRP and STC (Figures \@ref(fig:rex-tradeoff-robust)).
-The projection figures show the values underlying the performance metrics (Figure \@ref(fig:rex-proj-no-cpue-light)).
-Within this scenario, over time, the .SP8040_0.6, CC1.1, and CC1.2 MPs all had a tendency to overfish the stock (Figure \@ref(fig:rex-proj-no-cpue-light)).
-
-For the "M increasing" OM scenario, the satisficed MPs were fairly robust to linear increases in natural mortality in the projection period, with the exception that all satisficed MPs had a considerably lower probability of achieving the long-term catch (LTC) metric (Figures \@ref(fig:rex-tigure-panel-rob)--\@ref(fig:rex-spider-satisficed-mps-robust)).
-Notably, the Itarget satisficed MPs maintained LT LRP $>$ 0.9 despite increasing *M*, whereas the fixed-catch and surplus-production MPs all resulted in LT LRP $<$ 0.9.
-The Itarget MPs were able to ramp down catch as *M* increased (Figure \@ref(fig:rex-proj-inc-m)) to maintain most replicates above the LRP.
-
-By plotting the projections from all OM scenarios (Figures \@ref(fig:rex-proj-ceq200)--\@ref(fig:rex-proj-no-cpue) and \@ref(fig:rex-proj-no-cpue-light)--\@ref(fig:rex-proj-inc-m)) on the same panels, we can examine the sensitivity of the projections to the various OM scenario conditions (Figure \@ref(fig:rex-proj-scenarios)).
-The historical trajectories were most sensitive to the assumptions of the "No CPUE C^eq^ 50%" OM scenario compared to the other OM scenarios.
-The projected trajectories were relatively similar across all OM reference-set scenarios, while differing for the "No CPUE C^eq^ 50%" and "M increasing" OM robustness scenarios.
-Note that sensitivity of the projections does not necessarily correspond to sensitivity of the rank order of MPs (Figure \@ref(fig:rex-tigure-panel-rob)), which is ultimately the important characteristic for decision making.
-
-(ref:fig-rex-tigure-panel-rob) Performance of satisficed MPs for the robustness set OMs.
+(ref:fig-rex-tigure-panel-rob) Rendement des procédures de gestion satisfaisantes des modèles opérationnels de l’ensemble de robustesse.
 
 ```{r rex-tigure-panel-rob, fig.cap="(ref:fig-rex-tigure-panel-rob)", out.width="5.5in"}
 knitr::include_graphics(here("report/figure/rex-tigure-robset.png"))
 ```
 
-```{r rex-dots-satisficed-mps-robust, fig.cap="Performance of satisficed MPs for the robustness set OMs.", out.width="0.9\\textwidth"}
+```{r rex-dots-satisficed-mps-robust, fig.cap="Rendement des procédures de gestion satisfaisantes des modèles opérationnels de l’ensemble de robustesse.", out.width="0.9\\textwidth"}
 knitr::include_graphics(here("report/figure/rex-dot-robset.png"))
 ```
 
-```{r rex-tradeoff-robust, fig.cap="Trade-off plot between LT LRP and STC performance metric values for satisficed MPs for the robustness set OMs.", out.width="6in"}
+```{r rex-tradeoff-robust, fig.cap=" Compromis entre les paramètres de rendement de LT LRP et STC pour les procédures de gestion satisfaisantes des modèles opérationnels de l’ensemble de robustesse.", out.width="6in"}
 knitr::include_graphics(here("report/figure/rex-tradeoff-robset.png"))
 ```
 
-```{r rex-spider-satisficed-mps-robust, fig.cap="Radar-plot representation of the trade-off in performance metric values for satisficed MPs for the robustness set OMs.", out.width="\\textwidth"}
+```{r rex-spider-satisficed-mps-robust, fig.cap="Diagramme en radar des compromis des paramètres de rendement pour les procédures de gestion satisfaisantes des modèles opérationnels de l’ensemble de robustesse.", out.width="\\textwidth"}
 knitr::include_graphics(here("report/figure/rex-radar-robset.png"))
 ```
 
-(ref:fig-rex-proj-no-cpue-light) Same as Figure \@ref(fig:rex-proj-ceq200) but for the robustness OM "No CPUE C^eq^ 50%".
+(ref:fig-rex-proj-no-cpue-light) Identique à la figure \@ref(fig:rex-proj-ceq200), mais pour le modèle opérationnel « Pas de CPUE C^eq^ 50 % » de l’ensemble de robustesse.
 
 ```{r rex-proj-no-cpue-light, fig.cap="(ref:fig-rex-proj-no-cpue-light)", out.width="6.5in"}
 knitr::include_graphics(here("report/figure/rex-projections-no-cpue-light.png"))
 ```
 
-(ref:fig-rex-proj-inc-m) Same as Figure \@ref(fig:rex-proj-ceq200) but for the robustness OM "Increasing M".
+(ref:fig-rex-proj-inc-m) Identique à la figure \@ref(fig:rex-proj-ceq200), mais pour le modèle opérationnel « M plus élevée » de l’ensemble de robustesse.
 
 ```{r rex-proj-inc-m, fig.cap="(ref:fig-rex-proj-inc-m)", out.width="6.5in"}
 knitr::include_graphics(here("report/figure/rex-projections-inc-m.png"))
 ```
 
-(ref:fig-rex-proj-scenarios) B/B~MSY~, F/F~MSY~, and catch from the historical and projected time periods.
-Colours represent the reference- and OM robustness-set scenarios.
-Lines represent medians and shaded regions represent 50% quantiles.
-Satisficed and reference MPs are shown from top to bottom.
-Vertical dashed lines represent 2019.
+(ref:fig-rex-proj-scenarios) B/B~MSY~, F/F~MSY~, et prises des périodes historique et projetée.
+Les couleurs représentent les scénarios de l’ensemble de référence et de l’ensemble de robustesse de modèles opérationnels.
+Les lignes représentent les médianes et les régions ombrées représentent les quantiles de 50 %.
+Les procédures de gestion satisfaisantes et de référence apparaissent de haut en bas.
+Les lignes verticales tiretées représentent 2019.
 
 ```{r rex-proj-scenarios, fig.cap="(ref:fig-rex-proj-scenarios)", out.width="\\textwidth"}
 knitr::include_graphics(here("report/figure/rex-projections-scenarios.png"))

@@ -1,59 +1,59 @@
 \clearpage
 
-# R PACKAGE TO SUPPORT THE MP FRAMEWORK {#app:gfdlm}
+# LE PROGICIEL R EN APPUI AU CADRE DES PROCÉDURES DE GESTION {#app:gfdlm}
 
-We developed the R package [gfdlm](https://github.com/pbs-assess/gfdlm) [@gfdlm] to provide a set of tools that facilitate applications of this framework.
-The package includes our provisional library of MPs, a number of plotting functions for summarizing simulation output and model fits, and a variety of other utilities for manipulating DLMtool MPs and performance metrics, and creating reports based on DLMtool simulations (such as Appendix \@ref(app:desc-om-rex) in this document).
+Nous avons élaboré en R le progiciel [gfdlm] (https://github.com/pbs-assess/gfdlm) [@gfdlm] pour fournir un ensemble d’outils qui facilitent les applications de ce Cadre.
+Ce progiciel comprend notre bibliothèque provisoire de procédures de gestion, un certain nombre de fonctions de traçage pour résumer les sorties des simulations et les ajustements du modèle, ainsi qu’une variété d’autres utilitaires pour la manipulation des procédures de gestion et des paramètres de rendement de DLMtool et la création de rapports fondés sur les simulations de DLMtool (comme l’annexe \@ref(app:desc-om-rex) dans ce document).
 
-## PLOTTING FUNCTIONS
+## FONCTIONS DE TRAÇAGE
 
-All plotting functions are set up to take either:
+Toutes les fonctions de traçage sont configurées pour utiliser l’un des éléments suivants :
 
-1. a named list of DLMtool simulations from `DLMtool::runMSE()`,
-2. a named list of SRA model fits from `MSEtool::SRA_scope()`, or
-3. a named list of performance metric data frames from `gfdlm::get_probs()`.
+1. une liste nommée des simulations dans DLMtool de `DLMtool::runMSE()`,
+2. une liste nommée des ajustements du modèle d’analyse de la réduction des stocks de `MSEtool::SRA_scope()`,
+3. une liste nommée des cadres de données des paramètres de rendement de `gfdlm::get_probs()`.
 
-In all cases, the list elements should contain different OM scenarios from the reference and/or robustness sets and the names should reflect the OM scenario names.
+Dans tous les cas, les éléments de la liste doivent contenir différents scénarios de modèles opérationnels des ensembles de référence ou de robustesse et les noms doivent refléter ceux des scénarios de modèles opérationnels.
 
-Note that the `pkg::f()` syntax refers to a function `f()` within the package `pkg` without loading the package via the `library()` function.
-We have written code in this appendix using this syntax so that it is clear where various functions originate.
+La syntaxe `pkg::f()` fait référence à une fonction `f()` dans le progiciel `pkg` sans charger le progiciel via la fonction `library()`.
+Nous avons écrit un code dans cette annexe en utilisant cette syntaxe afin de bien montrer d’où proviennent les diverses fonctions.
 
-The following are the main plotting functions:
+Voici les principales fonctions de traçage :
 
-* `plot_index_fits()` takes a named list of SRA model fits and creates a plot of historical population index data and model fits. For example, Figure \@ref(fig:rex-survey-fits).
+* `plot_index_fits()` prend une liste nommée des ajustements du modèle d’analyse de la réduction des stocks et crée un graphique des données historiques de l’indice de la population et des ajustements du modèle. Par exemple, figure \@ref(fig:rex-survey-fits).
 
-* `plot_convergence()` takes a named list of DLMtool simulations and creates a plot to assess replicate convergence. For example, Figure \@ref(fig:rex-converge).
+* `plot_convergence()` prend une liste nommée de simulations dans DLMtool et crée un graphique pour évaluer la convergence des répétitions. Par exemple, figure \@ref(fig:rex-converge).
 
-* `plot_tigure()` takes a named list of performance metric data frames and creates a shaded probability table of performance metrics. For example, Figure \@ref(fig:rex-tigure-avg).
+* `plot_tigure()` prend une liste nommée de cadres de données des paramètres de rendement et crée un tableau de probabilité avec ombrage pour les paramètres de rendement. Par exemple, figure \@ref(fig:rex-tigure-avg).
 
-* `plot_dots()` takes a named list of performance metric data frames and creates a dot or dot-and-line plot of performance metrics. For example, Figure \@ref(fig:rex-dot-lines).
+* `plot_dots()` prend une liste nommée de cadres de données des paramètres de rendement et crée un semis de points ou un graphique par points et lignes pour les paramètres de rendement. Par exemple, figure \@ref(fig:rex-dot-lines).
 
-* `plot_tradeoff()` takes a named list of performance metric data frames and creates a trade-off plot of two selected performance metrics. For example, Figure \@ref(fig:rex-tradeoff-reference).
+* `plot_tradeoff()` prend une liste nommée de cadres de données des paramètres de rendement et crée un tracé des compromis entre deux paramètres de rendement. Par exemple, figure \@ref(fig:rex-tradeoff-reference).
 
-* `plot_radar()` takes a named list of performance metric data frames and creates a radar plot. For example, Figure \@ref(fig:rex-spider-satisficed-mps-avg).
+* `plot_radar()` prend une liste nommée de cadres de données des paramètres de rendement et crée un diagramme en radar. Par exemple, figure \@ref(fig:rex-spider-satisficed-mps-avg).
 
-* `plot_index()` takes a named list of DLMtool simulations and creates a plot showing historical and projected population index values. For example, Figure \@ref(fig:rex-proj-index).
+* `plot_index()` prend une liste nommée de simulations dans DLMtool et crée un graphique montrant les valeurs historique et projetée de l’indice de la population. Par exemple, figure \@ref(fig:rex-proj-index).
 
-* `plot_main_projections()` takes a named list of DLMtool simulations and creates a time-series plot of historical and projected *B*/*B*~MSY~, *F*/*F*~MSY~, and catch. For example, Figure \@ref(fig:rex-proj-ceq200).
+* `plot_main_projections()` prend une liste nommée de simulations dans DLMtool et crée un graphique de la série chronologique des valeurs historiques et projetées de *B*/*B*~MSY~, *F*/*F*~MSY~ et des prises. Par exemple, figure \@ref(fig:rex-proj-ceq200).
 
-* `plot_kobe()` takes a named list of DLMtool simulations and creates a Kobe plot (*F*/*F*~MSY~ vs. *B*/*B*~MSY~) for the last projected year. For example, Figure \@ref(fig:rex-kobe).
+* `plot_kobe()` prend une liste nommée de simulations dans DLMtool et crée un graphique de Kobe (*F*/*F*~MSY~ par rapport à *B*/*B*~MSY~) pour la dernière année de projection. Par exemple, figure \@ref(fig:rex-kobe).
 
-* `plot_worms()` takes a named list of DLMtool simulations and creates a Kobe plot through time. For example, Figure \@ref(fig:rex-worm).
+* `plot_worms()` prend une liste nommée de simulations dans DLMtool et crée un graphique de Kobe dans le temps. Par exemple, figure \@ref(fig:rex-worm).
 
-* `plot_scenario_projections()` takes a named list of DLMtool simulations and creates a time-series plot of historical and projected *B*/*B*~MSY~, *F*/*F*~MSY~, and catch with all OM scenarios overlaid on the same plots using different colours. For example, Figure \@ref(fig:rex-proj-scenarios).
+* `plot_scenario_projections()` prend une liste nommée de simulations dans DLMtool et crée un graphique de la série chronologique de valeurs historiques et projetées de *B*/*B*~MSY~, *F*/*F*~MSY~ et des prises en superposant tous les scénarios de modèles opérationnels sur les mêmes graphiques en utilisant différentes couleurs. Par exemple, figure \@ref(fig:rex-proj-scenarios).
 
-* `plot_factory()` is "the one [plotting function] to rule them all". This function takes a named list of DLMtool simulations along with a number of other arguments specifying characteristics like satisficed MPs and performance metrics and generates common versions of all the figures described above. The output is a named list of ggplot2 [@wickham2016] elements that can be viewed, modified, and/or saved for inclusion in a report. For example, this function was used to create all the main figures in the Rex Sole case study in this document (Figures \@ref(fig:rex-converge)--\@ref(fig:rex-proj-scenarios)).
+* `plot_factory()` est « la [fonction de traçage] pour les gouverner toutes ». Cette fonction prend une liste nommée de simulations dans DLMtool ainsi qu’un certain nombre d’autres arguments spécifiant des caractéristiques comme des procédures de gestion satisfaisantes et des paramètres de rendement et génère des versions communes de toutes les figures décrites ci-dessus. La sortie est une liste nommée d’éléments ggplot2 [@wickham2016] qui peuvent être visualisés, modifiés ou enregistrés pour être inclus dans un rapport. Par exemple, cette fonction a été utilisée pour créer toutes les figures principales de l’étude de cas de la plie royale dans ce document (figures \@ref(fig:rex-converge)--\@ref(fig:rex-proj-scenarios)).
 
-* `pm_factory()` is a function factory that generates a performance metric function. For example, the following creates a performance metric `LT LRP` that is based on spawning biomass, a reference level of 0.4 of B~MSY~, and calculated over years 36--50 in the projection period.
+* `pm_factory()` est une usine à fonctions qui génère une fonction de paramètre de rendement. Par exemple, la fonction qui suit crée un paramètre de rendement `LT LRP` qui est fondé sur la biomasse féconde, un niveau de référence de 0,4 de la B~MSY~, et est calculé sur les années 36--50 de la période de projection.
 
 ```{r, echo=TRUE, eval=FALSE}
 `LT LRP` <- gfdlm::pm_factory("SBMSY", ref = 0.4, yrs = c(36, 50))
 ```
 
-## MP MANIPULATION FUNCTIONS
+## FONCTIONS DE MANIPULATION DES PROCÉDURES DE GESTION
 
-`use_AddInd()` and `reduce_survey()` are function factories that modify MPs to use the DLMtool "additional index" data and discard selected survey years, respectively. The additional index data (as used in this framework) reflects the observed index in the historical period and an index that reflects the survey or fleet selectivity pattern in the projection period.
-For example, the following creates a new MP named `.Itarget_base` by taking the MP `Itarget_base` and (1) modifying it to use the first "additional index" and (2) omitting every even year of the survey to emulate a biennial survey:
+use_AddInd()` et `reduce_survey()` sont des usines à fonctions qui modifient les procédures de gestion pour utiliser les données « d’indice supplémentaire » de l’outil DLMtool et rejeter les années de relevé sélectionnées, respectivement. Les données d’indice supplémentaire (utilisées dans ce cadre) expriment l’indice observé au cours de la période historique et un indice qui reflète le profil de sélectivité du relevé ou de la flottille pendant la période de projection.
+Par exemple, la fonction qui suit crée une nouvelle procédure de gestion nommée `.Itarget_base` en prenant la procédure de gestion `Itarget_base` et en 1) la modifiant pour utiliser le premier « indice supplémentaire » et 2) omettant chaque année paire du relevé pour simuler un relevé biennal :
 
 ```{r, echo=TRUE, eval=FALSE}
 oddify <- function(x) seq(2, x, by = 2)
@@ -62,20 +62,19 @@ oddify <- function(x) seq(2, x, by = 2)
   gfdlm::reduce_survey(index = oddify)
 ```
 
-Note that `%>%` refers to the "pipe" function from the magrittr R package [@magrittr].
-It can be read as "and then".
-Technically, it places the output from the function before the `%>%` into the first argument of the function after the `%>%`.
+Il est à noter que le terme `%>%` fait référence à la fonction « pipe » du progiciel magrittr dans R [@magrittr].
+On peut le lire comme « et ensuite ».
+Techniquement, il place la sortie de la fonction avant la `%>%` dans le premier argument de la fonction après la `%>%`.
 
-## REPORTING UTILITIES
+## UTILITAIRES DE RAPPORT
 
-`create_rmd()` creates or updates a template for specifying a DLMtool OM. For example, it was used to create Appendix \@ref(app:desc-om-rex).
+`create_rmd()` crée ou met à jour un modèle pour spécifier un modèle opérationnel de DLMtool. Par exemple, il a été utilisé pour créer l’annexe \@ref(app:desc-om-rex).
 
 \clearpage
 
-# COMPUTATIONAL ENVIRONMENT
+# ENVIRONNEMENT INFORMATIQUE
 
-This version of the document was generated on `r Sys.time()` with
-`r devtools::session_info()$platform$version` [@r2019] and R package versions:
+Cette version du document a été produite le `r Sys.time()` avec la version `r devtools::session_info()$platform$ [@r2019] et les versions du progiciel R :
 
 ```{r env, echo = FALSE, results='asis', message=FALSE, warning=FALSE, eval=TRUE, cache=FALSE}
 library(TMB, warn.conflicts = FALSE, quietly = TRUE)
@@ -130,12 +129,12 @@ sha_dlm <- "feb23c76"
 sha_csasdown <- get_sha("pbs-assess/csasdown")
 ```
 
-The source code for this document is available at:\
+Le code source pour ce document est disponible à l’adresse suivante :
 <`r paste0("https://github.com/pbs-assess/gfmp/tree/", sha_gfmp)`>.
 
-This document was compiled with the R package csasdown [@csasdown].
+Le document a été compilé avec le progiciel csasdown en R [@csasdown].
 
-The specific versions of the primary packages used to generate this report can be viewed at:
+Les versions particulières des progiciels de base utilisés pour générer ce rapport peuvent être consultées aux adresses :
 
 <`r paste0("https://github.com/DLMtool/DLMtool/tree/", sha_dlm)`>\
 <`r paste0("https://github.com/tcarruth/MSEtool/tree/", sha_mse)`>\
@@ -144,7 +143,7 @@ The specific versions of the primary packages used to generate this report can b
 <`r paste0("https://github.com/pbs-assess/csasdown/tree/", sha_csasdown)`>\
 
 \vspace{4mm}
-or installed via:
+ou installées par l’intermédiaire de :
 
 `# install.packages('devtools')`\
 `devtools::install_github('DLMtool/DLMtool', ref = '`r sha_dlm`')`\
