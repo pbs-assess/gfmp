@@ -1,63 +1,63 @@
 \clearpage
 
-# REX SOLE CASE STUDY SUMMARY
+# SOMMAIRE DE L’ÉTUDE DE CAS DE LA PLIE ROYALE
 
-We undertook a case study of the Rex Sole (*Glyptocephalus zachirus*) stock in the West Coast Vancouver Island (WCVI) groundfish management area (Area 3CD) to demonstrate an application of the MP Framework.
-This stock was selected because it lacks recent ageing data, lacks current assessment advice, and has a contrasting life-history with that of Strait of Georgia Yelloweye Rockfish (*Sebastes ruberrimus*), a fish stock for which this framework has been applied concurrently [@haggarty2020yelloweye].
-We briefly summarize the Rex Sole case study here. Full details are available in Appendix \@ref(app:mse-rex) and Appendix \@ref(app:desc-om-rex).
-The case-study is presented to illustrate the framework and its outputs but *is not intended for the provision of catch advice at this time*.
+Nous avons entrepris une étude de cas du stock de plie royale (*Glyptocephalus zachirus*) dans la zone de gestion du poisson de fond (zone 3CD) de la côte ouest de l’île de Vancouver (COIV) afin de démontrer l’application du Cadre des procédures de gestion.
+Nous avons choisi ce stock parce qu’il n’a pas de données récentes sur la détermination de l’âge, qu’il n’a pas d’avis d’évaluation à jour et qu’il a un cycle biologique contrastant avec celui du sébaste aux yeux jaunes du détroit de Georgie (*Sebastes ruberrimus*), un stock de poisson auquel ce Cadre a été appliqué simultanément [@haggarty2020yelloweye].
+Nous résumons brièvement ici l’étude de cas de la plie royale. Tous les détails sont disponibles dans les annexes \@ref(app:mse-rex) et \@ref(app:desc-om-rex).
+L’étude de cas est présentée pour illustrer le cadre et ses sorties, mais *ne vise pas à fournir des avis sur les prises pour le moment*.
 
-Rex Sole are a flatfish caught primarily in the bottom-trawl fishery in BC.
-They can live as long as 29 years, grow as large as 58 cm, and weigh up to 1.44 kg.
-Otoliths have been collected regularly on BC surveys, but these otoliths have not been aged.
-Rex Sole are caught regularly in the DFO synoptic bottom trawl surveys and relative biomass indexes calculated from these surveys have a relatively low level of observation error (CV [coefficient of variation] = 0.07--0.12) compared to many other groundfish stocks caught in the same survey.
-Rex Sole in WCVI do not have an existing stock assessment or TAC.
+La plie royale est un poisson plat pêché principalement au chalut de fond en Colombie Britannique.
+Elle peut vivre jusqu’à 29 ans, mesurer jusqu’à 58 cm et peser 1,44 kg.
+Des otolithes ont été recueillis régulièrement durant les relevés menés en Colombie Britannique, mais on n’en a pas déterminé l’âge.
+La plie royale est capturée régulièrement dans les relevés synoptiques au chalut de fond du MPO et les indices de la biomasse relative calculés à partir de ces relevés ont un niveau relativement faible d’erreur d’observation (CV [coefficient de variation] = 0,07—0,12) comparativement à de nombreux autres stocks de poisson de fond capturés dans le même relevé.
+Il n’existe pas d’évaluation des stocks ni de TAC pour la plie royale de la côte ouest de l’île de Vancouver.
 
-**Decision context**:
-The decision to be made was which MP to use to determine catch limits for the period until the next available catch advice.
+**Contexte de la décision** :
+La décision à prendre consistait à déterminer la procédure de gestion à utiliser pour définir les limites de prises pour la période allant jusqu’au prochain avis disponible sur les prises.
 
-**Objectives and performance metrics**:
-We defined objectives and performance metrics following the provisional suggestions in Section \@ref(sec:approach2) that are guided by the Precautionary Approach Framework.
-Since 1.5--2 Rex Sole generations would be less than 50 years, we chose to run our projections for 50 years (Section \@ref(sec:approach2)).
+**Objectifs et paramètres de rendement** :
+Nous avons défini des objectifs et des paramètres de rendement selon les suggestions provisoires présentées dans la section @ref(sec:approach2), qui sont guidées par le Cadre de l’approche de précaution.
+Étant donné que la durée de 1,5 à 2 générations de plie royale serait de moins de 50 ans, nous avons choisi d’exécuter nos projections sur 50 ans (section \@ref(sec:approach2)).
 
-We defined the performance metrics as:
+Nous avons défini les paramètres de rendement comme suit :
 
-1. LT LRP: Probability *B* > 0.4 *B*~MSY~ (years 35--50)
-2. LT USR: Probability *B* > 0.8 *B*~MSY~ (years 35--50)
-3. FMSY: P(*F* < *F*~MSY~) (years 1--50)
-4. STC: Probability catch > reference catch (years 1--10)
-5. LTC: Probability catch > reference catch (years 35--50)
-6. AADC: Probability AADC (average absolute interannual difference in catch) < historical AADC (years 1--50)
+1. LT LRP : Probabilité que *B* > 0,4*B*~MSY~ (années 35--50)
+2. LT USR : Probabilité que *B* > 0,8*B*~MSY~ (années 35--50)
+3. FMSY : P(*F* < *F*~MSY~) (années 1--50)
+4. STC : Probabilité que les prises > prises de référence (années 1--10)
+5. LTC : Probabilité que les prises > prises de référence (années 35--50)
+6. AADC : Probabilité que l’AADC (différence interannuelle absolue moyenne des captures) < AADC historique (années 1--50)
 
-where reference catch was defined as the average catch from the last five years.
+où les prises de référence étaient définies comme les prises moyennes des cinq dernières années.
 
-**Operating model specification**:
-We established six reference-set OMs encompassing uncertainty in depletion of the stock prior to 1996, natural mortality (*M*), stock-recruit steepness (*h*), fishery and survey length selectivity, and the inclusion or exclusion of commercial CPUE effort data (Appendix \@ref(app:mse-rex) Section \@ref(sec:results-reference-set)).
-We further established two robustness-set OMs encompassing less plausible but possible additional sources of structural uncertainty: (1) an OM scenario that assumes the stock was lightly fished before 1996 and excludes the CPUE data; and (2) an OM scenario that assesses robustness to future increases in natural mortality (possibly due to climate change or shifts in predator abundance) (Appendix \@ref(app:mse-rex) Section \@ref(sec:results-robustness-set)).
+### Spécification des modèles opérationnels
+Nous avons établi six modèles opérationnels de l’ensemble de référence englobant l’incertitude relative à l’épuisement du stock avant 1996, la mortalité naturelle (*M*), le taux de variation stock-recrue (*h*), la sélectivité selon la longueur dans la pêche et le relevé, ainsi que l’inclusion ou l’exclusion des données sur l’effort de CPUE dans la pêche commercial (annexe \@ref(app:mse-rex) section \@ref(sec:results-reference-set)).
+Nous avons également établi deux modèles opérationnels de l’ensemble de robustesse incluant des sources supplémentaires d’incertitude liées à la structure, moins plausibles mais possibles : 1) un scénario de modèle opérationnel qui suppose que le stock était légèrement exploité avant 1996 et exclut les données sur les CPUE; et 2) un scénario de modèle opérationnel qui évalue la robustesse aux augmentations futures de la mortalité naturelle (pouvant être dues aux changements climatiques ou à des changements dans l’abondance des prédateurs) (annexe \@ref(app:mse-rex), section \@ref(sec:results-robustness-set).
 
-We documented the initial parameterization of the OMs (Appendix \@ref(app:desc-om-rex)) and the conditioning of the OMs using stochastic stock reduction analysis (SRA; Appendix \@ref(app:sra)).
-The conditioning estimated biomass depletion in the last historical year, the magnitude of unfished recruitment, fishing mortality at age by year, and historical recruitment deviations.
-We retained only parameter combinations that had plausible fits to the observed data in the SRA (Appendix \@ref(app:mse-rex) Section \@ref(sec:results-om-conditioning)).
+Nous avons documenté le paramétrage initial des modèles opérationnels (annexe \@ref(app:desc-om-rex)) et le conditionnement des modèles opérationnels à l’aide de l’analyse stochastique de la réduction des stocks (ARS; annexe \@ref(app:sra)).
+Le conditionnement a permis d’estimer l’épuisement de la biomasse durant la dernière année historique, l’ampleur du recrutement non exploité, la mortalité par pêche selon l’âge par année, et les écarts historiques du recrutement.
+Nous n’avons retenu que les combinaisons de paramètres qui présentaient des ajustements plausibles aux données observées dans l’analyse de la réduction des stocks (annexe \@ref(app:mse-rex), section \@ref(sec:results-om-conditioning)).
 
-**Candidate management procedure specification**:
-We worked with the full set of provisional candidate MPs described in Appendix \@ref(app:MPs).
-We modified the MPs to only observe even years of the survey index to reflect the biennial nature of the WCVI synoptic bottom trawl survey.
+**Spécification des procédures de gestion possibles** :
+Nous avons travaillé avec tout l’ensemble des procédures de gestion possibles provisoires décrites à l’annexe \@ref(app:MPs).
+Nous avons modifié les procédures de gestion pour n’observer que les années paires de l’indice de relevé afin de refléter la nature biennale du relevé synoptique du chalut de fond sur la côte ouest de l’île de Vancouver.
 
-**Closed-loop simulation application**:
-We applied satisficing criteria based on the LT LRP and STC performance metrics (minimum LT LRP > 0.9, minimum STC > 0.8). We discarded some MPs with near-identical performance to render a manageable set of seven MPs for further consideration.
-These MPs included index-target MPs, surplus production models paired with a harvest control rule, and two constant-catch MPs.
+**Application de la simulation en boucle fermée** :
+Nous avons appliqué des critères de satisfaction fondés sur le point de référence limite à long terme (LT LRP) et les paramètres de rendement des prises à court terme (STC) (LT LRP minimum > 0,9, STC minimum > 0,8). Nous avons écarté certaines procédures de gestion qui avaient un rendement presque identique pour avoir un groupe gérable de sept procédures de gestion pour poursuivre notre examen.
+Ces procédures de gestion comprenaient des procédures de gestion indice-cible, des modèles de production excédentaires jumelés à une règle de contrôle des prises, et deux procédures de gestion à prises constantes.
 
-**Presentation of results**:
-We presented a number of visualizations featuring the OM reference-set scenarios to aid evaluating trade-offs amongst the seven satisficed MPs for final decision-making.
-We averaged results across OM reference-set scenarios, to integrate across the various uncertainties represented by these OMs.
-We presented probability results in terms of the average (Figures \@ref(fig:rex-tigure-avg)) and minimum performance (Figures \@ref(fig:rex-tigure-min)), where the latter accounts for the worst-case scenario among OM reference-set scenarios.
-We suggest that Figures \@ref(fig:rex-tigure-avg) and \@ref(fig:rex-tigure-min) would be the primary source of information used by decision-makers to reach a final MP-selection decision.
-To aid this decision, we included a number of other visualizations to help decision-makers understand the underlying dynamics and trade-offs of the various OMs across all satisficed MPs.
+**Présentation des résultats** :
+Nous avons présenté un certain nombre de visualisations illustrant les scénarios de l’ensemble de référence de modèles opérationnels pour aider à évaluer les compromis entre les sept procédures de gestion satisfaisantes pour la prise de décision finale.
+Nous avons établi la moyenne des résultats pour les scénarios de l’ensemble de référence de modèles opérationnels, afin d’intégrer les diverses incertitudes représentées par ces modèles opérationnels.
+Nous avons présenté les résultats de probabilité en termes de moyenne (figures \@ref(fig:rex-tigure-avg)) et de rendement minimal (figures \@ref(fig:rex-tigure-min)), où ce dernier représente le pire des scénarios parmi les scénarios de l’ensemble de référence de modèles opérationnels.
+Nous suggérons que les figures \@ref(fig:rex-tigure-avg) et \@ref(fig:rex-tigure-min) constituent la principale source d’information utilisée par les décideurs pour sélectionner la procédure de gestion finale.
+Pour faciliter cette décision, nous avons inclus un certain nombre d’autres visualisations pour aider les décideurs à comprendre la dynamique sous-jacente et les compromis des divers modèles opérationnels parmi toutes les procédures de gestion satisfaisantes.
 
-Finally, we assessed performance of the satisficed MPs under the OM robustness scenarios.
-We present results from the two OM robustness scenarios separately to allow decision-makers to see performance of MPs under these less plausible OM scenarios.
-Poor performance of an MP under one of these OM scenarios may influence a decision-maker to select another MP that performs well under both OM reference and robustness scenarios.
-Four Itarget MPs (Appendix \@ref(app:MPs) Section \@ref(sec:mp-itarget)) were relatively robust to the OM scenario where the stock was lightly fished prior to 1996 and to increasing natural mortality in the future.
-Conversely, the constant catch and surplus production MPs had substantially lower probabilities of achieving the LT LRP objective under the lightly fished OM robustness scenario.
+Enfin, nous avons évalué le rendement des procédures de gestion satisfaisantes selon les scénarios de robustesse de modèles opérationnels.
+Nous présentons séparément les résultats des deux scénarios de robustesse de modèles opérationnels pour permettre aux décideurs de voir le rendement des procédures de gestion dans ces scénarios moins plausibles de modèles opérationnels.
+Un mauvais rendement d’une procédure de gestion dans l’un de ces scénarios de modèles opérationnels peut pousser un décideur à choisir une autre procédure de gestion qui donne de bons résultats dans les scénarios des ensembles de référence et de robustesse de modèles opérationnels.
+Quatre procédures de gestion Itarget (annexe \@ref(app:MPs), section \@ref(sec:mp-itarget)) étaient relativement robustes par rapport au scénario de modèle opérationnel où le stock était peu exploité avant 1996 et la mortalité naturelle augmentait dans le futur.
+À l’inverse, les procédures de gestion à prises constantes et de production excédentaire affichaient des probabilités beaucoup plus faibles d’atteindre l’objectif du point de référence limite à long terme dans le scénario de robustesse de modèle opérationnel avec un faible taux d’exploitation.
 
-We provide a full set of results and interpretation of results in Appendix \@ref(app:mse-rex).
+Un ensemble complet de résultats et l’interprétation des résultats sont fournis à l’annexe \@ref(app:mse-rex).

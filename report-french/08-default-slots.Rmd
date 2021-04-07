@@ -6,11 +6,11 @@ knitr_echo <- TRUE
 
 \clearpage
 
-# DEFAULT SLOTS {#app:default-slots}
+# TIROIRS PAR DÉFAUT {#app:default-slots}
 
-The following are OM values or "slots" that we suggest by default be "turned off" or set to default values for the sake of simplicity. On a case-by-case basis, an analyst might choose to set some of these slots to other values or include other values as part of a robustness set. However, unless specified otherwise, the following slots can be assumed to be specified as follows.
+Voici les valeurs du modèle opérationnel ou « tiroirs » que nous suggérons par défaut de désactiver ou de définir aux valeurs par défaut pour plus de simplicité. Au cas par cas, un analyste pourrait choisir de régler certains de ces tiroirs à d’autres valeurs ou d’inclure d’autres valeurs dans un ensemble de robustesse. Toutefois, sauf indication contraire, on peut supposer que les tiroirs suivants sont spécifiés comme suit.
 
-## DEFAULT STOCK SLOTS {#app:desc-stock-default}
+## TIROIRS PAR DÉFAUT RELATIFS AU STOCK {#app:desc-stock-default}
 
 ```{r warnings = FALSE}
 stock_default <- methods::new('Stock')
@@ -19,9 +19,9 @@ stock_default <- methods::new('Stock')
 <!-- slot-chunk-begin -->
 ### M2 {#app:desc-stock-m2-default}
 
-*(Optional) Natural mortality rate at age. Vector of length maxage. Positive real number*.
+*(Facultatif) Taux de mortalité naturelle selon l’âge. Vecteur de longueur maxage. Nombre réel positif*.
 
-By default, we will not specify natural mortality rate by age.
+Par défaut, nous ne préciserons pas le taux de mortalité naturelle par âge.
 
 ```{r desc-stock-m2-default, results = knitr_results, echo = knitr_echo}
 stock_default@M2
@@ -30,9 +30,9 @@ stock_default@M2
 <!-- slot-chunk-begin -->
 ### Mexp {#app:desc-stock-mexp-default}
 
-*Exponent of the Lorenzen function assuming an inverse relationship between M and weight. Uniform distribution lower and upper bounds. Real numbers <= 0.*
+*Exposant de la fonction de Lorenzen supposant une relation inverse entre M et le poids. Limites inférieure et supérieure de la distribution uniforme. Nombres réels <= 0.*
 
-By default, we will not use this functionality.
+Par défaut, nous n'utiliserons pas cette fonction.
 
 ```{r desc-stock-mexp-default, results = knitr_results, echo = knitr_echo}
 stock_default@Mexp <- c(NA_real_, NA_real_)
@@ -41,9 +41,9 @@ stock_default@Mexp <- c(NA_real_, NA_real_)
 <!-- slot-chunk-begin -->
 ### Msd {#app:desc-stock-msd-default}
 
-*Inter-annual variability in natural mortality rate expressed as a coefficient of variation. Uniform distribution lower and upper bounds. Non-negative real numbers*.
+*Variabilité interannuelle du taux de mortalité naturelle exprimée sous forme de coefficient de variation. Limites inférieure et supérieure de la distribution uniforme. Nombres réels non négatifs*.
 
-By default, we will assume that natural mortality is not time-varying, although this might be an important slot to explore as part of a robustness set for some stocks.
+Par défaut, nous supposerons que la mortalité naturelle ne varie pas dans le temps, bien qu’il pourrait s’agir d’un tiroir important à explorer dans un ensemble de robustesse pour certains stocks.
 
 ```{r desc-stock-msd-default, results = knitr_results, echo = knitr_echo}
 stock_default@Msd
@@ -53,9 +53,9 @@ stock_default@Msd
 <!-- slot-chunk-begin -->
 ### Period {#app:desc-stock-period-default}
 
-*(Optional) Period for cyclical recruitment pattern in years. Uniform distribution lower and upper bounds. Non-negative real numbers*
+*(Facultatif) Période pour le profil de recrutement cyclique en années. Limites inférieure et supérieure de la distribution uniforme. Nombres réels non négatifs*
 
-By default, we will not assume a cyclical recruitment pattern.
+Par défaut, nous ne supposerons pas un profil de recrutement cyclique.
 
 ```{r desc-stock-period-default, results = knitr_results, echo = knitr_echo}
 stock_default@Period
@@ -64,9 +64,9 @@ stock_default@Period
 <!-- slot-chunk-begin -->
 ### Amplitude {#app:desc-stock-amplitude-default}
 
-*(Optional) Amplitude in deviation from long-term average recruitment during recruitment cycle (e.g., a range from 0 to 1 means recruitment decreases or increases by up to 100% each cycle). Uniform distribution lower and upper bounds. 0 < Amplitude < 1*.
+*(Facultatif) Amplitude de l’écart par rapport au recrutement moyen à long terme pendant le cycle de recrutement (p. ex. une plage de 0 à 1 signifie que le recrutement diminue ou augmente de 100 % au maximum à chaque cycle). Limites inférieure et supérieure de la distribution uniforme. 0 < Amplitude < 1*.
 
-By default, we will not assume a cyclical recruitment pattern.
+Par défaut, nous ne supposerons pas un profil de recrutement cyclique.
 
 ```{r desc-stock-amplitude-default, results = knitr_results, echo = knitr_echo}
 stock_default@Amplitude
@@ -75,9 +75,9 @@ stock_default@Amplitude
 <!-- slot-chunk-begin -->
 ### Ksd {#app:desc-stock-ksd-default}
 
-*Inter-annual variability in growth parameter k expressed as coefficient of variation. Uniform distribution lower and upper bounds. Non-negative real numbers.*
+*Variabilité interannuelle du paramètre de croissance k exprimée sous forme de coefficient de variation. Limites inférieure et supérieure de la distribution uniforme. Nombres réels non négatifs.*
 
-By default, we will assume that growth is not time-varying.
+Par défaut, nous supposerons que la croissance ne varie pas dans le temps.
 
 ```{r desc-stock-ksd-default, results = knitr_results, echo = knitr_echo}
 stock_default@Ksd
@@ -86,9 +86,9 @@ stock_default@Ksd
 <!-- slot-chunk-begin -->
 ### Linfsd {#app:desc-stock-linfsd-default}
 
-*Inter-annual variability in maximum length expressed as a coefficient of variation. Uniform distribution lower and upper bounds. Non-negative real numbers.*
+*Variabilité interannuelle de la longueur maximale exprimée sous forme de coefficient de variation. Limites inférieure et supérieure de la distribution uniforme. Nombres réels non négatifs.*
 
-By default, we will assume that growth is not time-varying.
+Par défaut, nous supposerons que la croissance ne varie pas dans le temps.
 
 ```{r desc-stock-linfsd-default, results = knitr_results, echo = knitr_echo}
 stock_default@Linfsd
@@ -98,9 +98,9 @@ stock_default@Linfsd
 <!-- slot-chunk-begin -->
 ### Size_area_1 {#app:desc-stock-size_area_1-default}
 
-*The size of area 1 relative to the total area (area 1 + area 2). Set to 0.5 to approximate single area model. Uniform distribution lower and upper bounds. Positive real numbers.*
+*Taille de la zone 1 par rapport à la zone totale (zone 1 + zone 2). Réglée à 0,5 pour lisser un modèle à une seule zone. Limites inférieure et supérieure de la distribution uniforme. Nombres réels positifs.*
 
-We will set this to 0.5 to mimic a single area model.
+Nous réglerons ce paramètre à 0,5 pour imiter un modèle à une seule zone.
 
 ```{r desc-stock-size_area_1-default, results = knitr_results, echo = knitr_echo}
 stock_default@Size_area_1 <- c(0.5, 0.5)
@@ -109,9 +109,9 @@ stock_default@Size_area_1 <- c(0.5, 0.5)
 <!-- slot-chunk-begin -->
 ### Frac_area_1 {#app:desc-stock-frac_area_1-default}
 
-*The fraction of the unfished biomass in area 1 relative to the total area (area 1 + area 2). Uniform distribution lower and upper bounds. Positive real numbers.*
+*Fraction de la biomasse non exploitée dans la zone 1 par rapport à la zone totale (zone 1 + zone 2). Limites inférieure et supérieure de la distribution uniforme. Nombres réels positifs.*
 
-We will set this to 0.5 to mimic a single area model.
+Nous réglerons ce paramètre à 0,5 pour imiter un modèle à une seule zone.
 
 ```{r desc-stock-frac_area_1-default, results = knitr_results, echo = knitr_echo}
 stock_default@Frac_area_1 <- c(0.5, 0.5)
@@ -120,9 +120,9 @@ stock_default@Frac_area_1 <- c(0.5, 0.5)
 <!-- slot-chunk-begin -->
 ### Prob_staying {#app:desc-stock-prob_staying-default}
 
-*The probability of individuals in area 1 remaining in area 1 over the course of one year. Uniform distribution lower and upper bounds. Positive fraction.*
+*La probabilité que les individus de la zone 1 restent dans la zone 1 au cours d’une année. Limites inférieure et supérieure de la distribution uniforme. Fraction positive.*
 
-We will set this to 0.5 to mimic a single area model.
+Nous réglerons ce paramètre à 0,5 pour imiter un modèle à une seule zone.
 
 ```{r desc-stock-prob_staying-default, results = knitr_results, echo = knitr_echo}
 stock_default@Prob_staying <- c(0.5, 0.5)
@@ -132,9 +132,9 @@ stock_default@Prob_staying <- c(0.5, 0.5)
 <!-- slot-chunk-begin -->
 ### SRrel {#app:desc-stock-srrel-default}
 
-*Type of stock-recruit relationship. Single integer value, switch (1) Beverton-Holt (2) Ricker.*
+*Type de relation stock-recrue. Valeur entière unique, changement (1) Beverton-Holt (2) Ricker.
 
-We will use a Beverton-Holt stock-recruit relationship as has been used in most BC groundfish assessments and is assumed in the estimates of steepness defined in this operating model.
+Nous utiliserons une relation stock-recrue de Beverton-Holt comme dans la plupart des évaluations du poisson de fond en Colombie-Britannique et comme on le suppose dans les estimations du taux de variation définies dans ce modèle opérationnel.
 
 ```{r desc-stock-srrel-default, results = knitr_results, echo = knitr_echo}
 stock_default@SRrel <- 1L
@@ -144,16 +144,16 @@ stock_default@SRrel <- 1L
 <!-- slot-chunk-begin -->
 ### Fdisc {#app:desc-stock-fdisc-default}
 
-*Fraction of discarded fish that die. Uniform distribution lower and upper bounds.*
+*Fraction des poissons rejetés qui meurent. Limites inférieure et supérieure de la distribution uniforme.*
 
-As described below, provisionally, we suggest setting up the OM such that all discards are considered part of the catch. Since the discard rate will be set to zero, this parameter will have no effect. For specific OM scenarios it could be explored.
+Comme décrit ci-après, nous suggérons de configurer provisoirement le modèle opérationnel de sorte que tous les rejets soient considérés comme faisant partie des prises. Comme le taux de rejet sera réglé à zéro, ce paramètre n’aura aucun effet. On pourrait explorer cette option pour certains scénarios de modèles opérationnels.
 
 ```{r desc-stock-fdisc-default, results = knitr_results, echo = knitr_echo}
 stock_default@Fdisc <- c(1, 1)
 ```
 <!-- slot-chunk-end -->
 
-## DEFAULT FLEET SLOTS {#app:desc-fleet-default}
+## TIROIRS PAR DÉFAUT RELATIFS À LA FLOTTILLE {#app:desc-fleet-default}
 
 ```{r warnings = FALSE}
 fleet_default <- methods::new('Fleet')
@@ -162,9 +162,9 @@ fleet_default <- methods::new('Fleet')
 <!-- slot-chunk-begin -->
 ### EffYears {#app:desc-fleet-effyears-default}
 
-*Years representing join-points (vertices) of time-varying effort. Vector. Non-negative real numbers.*
+*Années représentant les points de jonction (sommets) de l’effort variable dans le temps. Vecteur. Nombres réels non négatifs.*
 
-By default, we will populate this from the SRA model.
+Par défaut, nous remplirons ce champ à partir du modèle d’analyse de la réduction des stocks.
 
 ```{r desc-fleet-effyears-default, results = knitr_results, echo = knitr_echo}
 fleet_default@EffYears
@@ -173,9 +173,9 @@ fleet_default@EffYears
 <!-- slot-chunk-begin -->
 ### EffLower {#app:desc-fleet-efflower-default}
 
-*Lower bound on relative effort corresponding to EffYears. Vector. Non-negative real numbers.*
+*Limite inférieure de l’effort relatif correspondant à EffYears. Vecteur. Nombres réels non négatifs.*
 
-By default, we will populate this from the SRA model.
+Par défaut, nous remplirons ce champ à partir du modèle d’analyse de la réduction des stocks.
 
 ```{r desc-fleet-efflower-default, results = knitr_results, echo = knitr_echo}
 fleet_default@EffLower
@@ -184,9 +184,9 @@ fleet_default@EffLower
 <!-- slot-chunk-begin -->
 ### EffUpper {#app:desc-fleet-effupper-default}
 
-*Upper bound on relative effort corresponding to EffYears. Vector. Non-negative real numbers.*
+*Limite supérieure de l’effort relatif correspondant à EffYears. Vecteur. Nombres réels non négatifs.*
 
-By default, we will populate this from the SRA model.
+Par défaut, nous remplirons ce champ à partir du modèle d’analyse de la réduction des stocks.
 
 ```{r desc-fleet-effupper-default, results = knitr_results, echo = knitr_echo}
 fleet_default@EffUpper
@@ -195,9 +195,9 @@ fleet_default@EffUpper
 <!-- slot-chunk-begin -->
 ### Esd {#app:desc-fleet-esd-default}
 
-*Additional inter-annual variability in fishing mortality rate. Uniform distribution lower and upper bounds. Non-negative real numbers.*
+*Variabilité interannuelle supplémentaire du taux de mortalité par pêche. Limites inférieure et supérieure de la distribution uniforme. Nombres réels non négatifs.*
 
-We will assume that fishing mortality is not time-varying by default.
+Nous supposerons que la mortalité par pêche ne varie pas dans le temps par défaut.
 
 ```{r desc-fleet-esd-default, results = knitr_results, echo = knitr_echo}
 fleet_default@Esd <- c(0, 0)
@@ -206,9 +206,9 @@ fleet_default@Esd <- c(0, 0)
 <!-- slot-chunk-begin -->
 ### qinc {#app:desc-fleet-qinc-default}
 
-*Average percentage change in fishing efficiency (applicable only to forward projection and input controls). Uniform distribution lower and upper bounds. Non-negative real numbers.*
+*Variation moyenne en pourcentage de l’efficacité de la pêche (applicable uniquement à la projection prospective et au contrôle des entrées). Limites inférieure et supérieure de la distribution uniforme. Nombres réels non négatifs.*
 
-We will assume that fishing efficiency is not time-varying by default.
+Nous supposerons que l’efficacité de la pêche ne varie pas dans le temps par défaut.
 
 ```{r desc-fleet-qinc-default, results = knitr_results, echo = knitr_echo}
 fleet_default@qinc <- c(0, 0)
@@ -217,9 +217,9 @@ fleet_default@qinc <- c(0, 0)
 <!-- slot-chunk-begin -->
 ### qcv {#app:desc-fleet-qcv-default}
 
-*Inter-annual variability in fishing efficiency (applicable only to forward projection and input controls). Uniform distribution lower and upper bounds. Non-negative real numbers.*
+*Variabilité interannuelle de l’efficacité de la pêche (applicable uniquement à la projection prospective et au contrôle des entrées). Limites inférieure et supérieure de la distribution uniforme. Nombres réels non négatifs.*
 
-We will assume that fishing efficiency is not time-varying by default.
+Nous supposerons que l’efficacité de la pêche ne varie pas dans le temps par défaut.
 
 ```{r desc-fleet-qcv-default, results = knitr_results, echo = knitr_echo}
 fleet_default@qcv <- c(0, 0)
@@ -228,9 +228,9 @@ fleet_default@qcv <- c(0, 0)
 <!-- slot-chunk-begin -->
 ### SelYears {#app:desc-fleet-selyears-default}
 
-*(Optional) Years representing join-points (vertices) at which historical selectivity pattern changes. Vector. Positive real numbers.*
+*(Facultatif) Années représentant les points de jonction (sommets) où le profil de sélectivité historique change. Vecteur. Nombres réels positifs.*
 
-We will not use this functionality by default.
+Nous n'utiliserons pas cette fonction par défaut.
 
 ```{r desc-fleet-selyears-default, results = knitr_results, echo = knitr_echo}
 fleet_default@SelYears
@@ -239,9 +239,9 @@ fleet_default@SelYears
 <!-- slot-chunk-begin -->
 ### AbsSelYears {#app:desc-fleet-absselyears-default}
 
-*(Optional) Calendar years corresponding with SelYears (e.g., 1951, rather than 1), used for plotting only. Vector (of same length as SelYears). Positive real numbers.*
+*(Facultatif) Années civiles correspondant à SelYears (p. ex. 1951, plutôt que 1), utilisées uniquement pour les courbes. Vecteur (de même longueur que SelYears). Nombres réels positifs.*
 
-We will not use this functionality by default.
+Nous n'utiliserons pas cette fonction par défaut.
 
 ```{r desc-fleet-absselyears-default, results = knitr_results, echo = knitr_echo}
 fleet_default@AbsSelYears
@@ -250,9 +250,9 @@ fleet_default@AbsSelYears
 <!-- slot-chunk-begin -->
 ### L5Lower {#app:desc-fleet-l5lower-default}
 
-*(Optional) Lower bound of L5. Vector. Non-negative real numbers.*
+*(Facultatif) Limite inférieure de L5. Vecteur. Nombres réels non négatifs.*
 
-We will not use this functionality by default.
+Nous n'utiliserons pas cette fonction par défaut.
 
 ```{r desc-fleet-l5lower-default, results = knitr_results, echo = knitr_echo}
 fleet_default@L5Lower
@@ -261,9 +261,9 @@ fleet_default@L5Lower
 <!-- slot-chunk-begin -->
 ### L5Upper {#app:desc-fleet-l5upper-default}
 
-*(Optional) Upper bound of L5. Vector. Non-negative real numbers.*
+*(Facultatif) Limite supérieure de L5. Vecteur. Nombres réels non négatifs.*
 
-We will not use this functionality by default.
+Nous n'utiliserons pas cette fonction par défaut.
 
 ```{r desc-fleet-l5upper-default, results = knitr_results, echo = knitr_echo}
 fleet_default@L5Upper
@@ -272,9 +272,9 @@ fleet_default@L5Upper
 <!-- slot-chunk-begin -->
 ### LFSLower {#app:desc-fleet-lfslower-default}
 
-*(Optional) Lower bound of LFS. Vector. Non-negative real numbers.*
+*(Facultatif) Limite inférieure de LFS. Vecteur. Nombres réels non négatifs.*
 
-We will not use this functionality by default.
+Nous n'utiliserons pas cette fonction par défaut.
 
 ```{r desc-fleet-lfslower-default, results = knitr_results, echo = knitr_echo}
 fleet_default@LFSLower
@@ -283,9 +283,9 @@ fleet_default@LFSLower
 <!-- slot-chunk-begin -->
 ### LFSUpper {#app:desc-fleet-lfsupper-default}
 
-*(Optional) Upper bound of LFS. Vector. Non-negative real numbers.*
+*(Facultatif) Limite supérieure de LFS. Vecteur. Nombres réels non négatifs.*
 
-We will not use this functionality by default.
+Nous n'utiliserons pas cette fonction par défaut.
 
 ```{r desc-fleet-lfsupper-default, results = knitr_results, echo = knitr_echo}
 fleet_default@LFSUpper
@@ -294,9 +294,9 @@ fleet_default@LFSUpper
 <!-- slot-chunk-begin -->
 ### VmaxLower {#app:desc-fleet-vmaxlower-default}
 
-*(Optional) Lower bound of Vmaxlen. Vector. Fraction.*
+*(Facultatif) Limite inférieure de Vmaxlen. Vecteur. Fraction.*
 
-We will not use this functionality by default.
+Nous n'utiliserons pas cette fonction par défaut.
 
 ```{r desc-fleet-vmaxlower-default, results = knitr_results, echo = knitr_echo}
 fleet_default@VmaxLower
@@ -305,9 +305,9 @@ fleet_default@VmaxLower
 <!-- slot-chunk-begin -->
 ### VmaxUpper {#app:desc-fleet-vmaxupper-default}
 
-*(Optional) Upper bound of Vmaxlen. Vector. Fraction.*
+*(Facultatif) Limite supérieure de Vmaxlen. Vecteur. Fraction.*
 
-We will not use this functionality by default.
+Nous n'utiliserons pas cette fonction par défaut.
 
 ```{r desc-fleet-vmaxupper-default, results = knitr_results, echo = knitr_echo}
 fleet_default@VmaxUpper
@@ -316,9 +316,9 @@ fleet_default@VmaxUpper
 <!-- slot-chunk-begin -->
 ### MPA {#app:desc-fleet-mpa-default}
 
-*(Optional) Matrix specifying spatial closures for historical years.*
+*(Facultatif) Matrice spécifiant les fermetures spatiales pendant les années historiques.*
 
-We will not use this functionality by default.
+Nous n'utiliserons pas cette fonction par défaut.
 
 ```{r desc-fleet-mpa-default, results = knitr_results, echo = knitr_echo}
 fleet_default@MPA
@@ -328,9 +328,9 @@ fleet_default@MPA
 <!-- slot-chunk-begin -->
 ### DR {#app:desc-fleet-dr-default}
 
-*Discard rate: the fraction of caught fish that are discarded. Uniform distribution lower and upper bounds. Fraction.*
+*Taux de rejet : la fraction des poissons capturés qui sont rejetés. Limites inférieure et supérieure de la distribution uniforme. Fraction.*
 
-Since all the discards are included in the catch, we will set this to 0.
+Comme tous les rejets sont inclus dans les prises, nous le réglerons à 0.
 
 ```{r desc-fleet-dr-default, results = knitr_results, echo = FALSE}
 fleet_default@DR <- 0
@@ -341,9 +341,9 @@ fleet_default@DR <- 0
 <!-- slot-chunk-begin -->
 ### LR5 {#app:desc-fleet-lr5-default}
 
-*Shortest length corresponding to 5% retention. Uniform distribution lower and upper bounds.*
+*Longueur la plus courte correspondant à une rétention de 5 %. Limites inférieure et supérieure de la distribution uniforme.*
 
-This should have no impact on the results because we are assuming 100% discard mortality and reporting of all catch by default.
+Ce paramètre ne devrait pas avoir d’incidence sur les résultats, car nous supposons une mortalité par rejet de 100 % et la déclaration de toutes les prises par défaut.
 
 ```{r desc-fleet-lr5-default, results = knitr_results, echo = knitr_echo}
 fleet_default@LR5
@@ -353,9 +353,9 @@ fleet_default@LR5
 <!-- slot-chunk-begin -->
 ### LFR {#app:desc-fleet-lfr-default}
 
-*Shortest length that is fully retained. Uniform distribution lower and upper bounds.*
+*La longueur la plus courte qui est entièrement conservée. Limites inférieure et supérieure de la distribution uniforme.*
 
-This should have no impact on the results because we are assuming 100% discard mortality and reporting of all catch by default.
+Ce paramètre ne devrait pas avoir d’incidence sur les résultats, car nous supposons une mortalité par rejet de 100 % et la déclaration de toutes les prises par défaut.
 
 ```{r desc-fleet-lfr-default, results = knitr_results, echo = knitr_echo}
 fleet_default@LFR
@@ -365,9 +365,9 @@ fleet_default@LFR
 <!-- slot-chunk-begin -->
 ### Rmaxlen {#app:desc-fleet-rmaxlen-default}
 
-*The retention of fish at `Linf`. Uniform distribution lower and upper bounds.*
+*La rétention du poisson à `Linf`. Limites inférieure et supérieure de la distribution uniforme.*
 
-This should have no impact on the results because we are assuming 100% discard mortality and reporting of all catch by default.
+Ce paramètre ne devrait pas avoir d’incidence sur les résultats, car nous supposons une mortalité par rejet de 100 % et la déclaration de toutes les prises par défaut.
 
 ```{r desc-fleet-rmaxlen-default, results = knitr_results, echo = knitr_echo}
 fleet_default@Rmaxlen <- c(1, 1)
@@ -377,9 +377,9 @@ fleet_default@Rmaxlen <- c(1, 1)
 <!-- slot-chunk-begin -->
 ### Vmaxlen {#app:desc-fleet-vmaxlen-default}
 
-*The vulnerability of fish at `Linf`. Uniform distribution lower and upper bounds. Fraction.*
+*La vulnérabilité des poissons à `Linf`. Limites inférieure et supérieure de la distribution uniforme. Fraction.*
 
-We will set this to 1 by default. Setting this to a value lower than 1 would be assuming dome-shaped selectivity.
+Nous réglerons ce paramètre à 1 par défaut. Si ce paramètre est réglé à une valeur inférieure à 1, cela suppose une sélectivité en forme de dôme.
 
 ```{r desc-fleet-vmaxlen-rex, results = knitr_results, echo = knitr_echo}
 fleet_default@Vmaxlen <- c(1, 1)
@@ -388,7 +388,7 @@ fleet_default@Vmaxlen <- c(1, 1)
 
 
 
-## DEFAULT OBSERVATION SLOTS {#app:desc-obs-default}
+## TIROIRS PAR DÉFAUT RELATIFS AUX OBSERVATIONS {#app:desc-obs-default}
 
 ```{r warnings = FALSE}
 obs_default <- methods::new('Obs')
@@ -397,16 +397,16 @@ obs_default <- methods::new('Obs')
 <!-- slot-chunk-begin -->
 ### Crefbiascv {#app:desc-obs-crefbiascv-default}
 
-*Log-normal CV for sampling persistent bias in MSY. Uniform distribution lower and upper bounds.*
+*Coefficient de variation log-normal pour le biais persistant d’échantillonnage dans MSY. Limites inférieure et supérieure de la distribution uniforme.*
 
-The provisional MPs do not make use of this slot.
+Les procédures de gestion provisoires n’utilisent pas ce tiroir.
 
 ```{r desc-obs-crefbiascv-default, results = knitr_results, echo = knitr_echo}
 obs_default@Crefbiascv
 ```
 <!-- slot-chunk-end -->
 
-## DEFAULT IMPLEMENTATION SLOTS {#app:desc-imp-default}
+## TIROIRS PAR DÉFAUT RELATIFS À LA MISE EN ŒUVRE {#app:desc-imp-default}
 
 ```{r warnings = FALSE}
 imp_default <- methods::new('Imp')
@@ -415,9 +415,9 @@ imp_default <- methods::new('Imp')
 <!-- slot-chunk-begin -->
 ### TACFrac {#app:desc-imp-tacfrac-default}
 
-*Mean fraction of Total Allowable Catch (TAC) taken. Uniform distribution lower and upper bounds. Positive real number.*
+*Fraction moyenne pêchée du total autorisé des captures (TAC). Limites inférieure et supérieure de la distribution uniforme. Nombre réel positif.*
 
-We will not use this functionality by default.
+Nous n'utiliserons pas cette fonction par défaut.
 
 ```{r desc-imp-tacfrac-default, results = knitr_results, echo = knitr_echo}
 imp_default@TACFrac
@@ -426,9 +426,9 @@ imp_default@TACFrac
 <!-- slot-chunk-begin -->
 ### TACSD {#app:desc-imp-tacsd-default}
 
-*Log-normal coefficient of variation in the fraction of TAC taken. Uniform distribution lower and upper bounds. Non-negative real numbers.*
+*Coefficient de variation log-normal dans la fraction pêchée du TAC. Limites inférieure et supérieure de la distribution uniforme. Nombres réels non négatifs.*
 
-We will not use this functionality by default.
+Nous n'utiliserons pas cette fonction par défaut.
 
 ```{r desc-imp-tacsd-default, results = knitr_results, echo = knitr_echo}
 imp_default@TACSD
@@ -437,9 +437,9 @@ imp_default@TACSD
 <!-- slot-chunk-begin -->
 ### SizeLimFrac {#app:desc-imp-sizelimfrac-default}
 
-*The real minimum size that is retained expressed as a fraction of the size. Uniform distribution lower and upper bounds. Positive real number.*
+*La taille minimale réelle qui est conservée, exprimée en fraction de la taille. Limites inférieure et supérieure de la distribution uniforme. Nombre réel positif.*
 
-We will not use this functionality by default.
+Nous n'utiliserons pas cette fonction par défaut.
 
 ```{r desc-imp-sizelimfrac-default, results = knitr_results, echo = knitr_echo}
 imp_default@SizeLimFrac
@@ -448,9 +448,9 @@ imp_default@SizeLimFrac
 <!-- slot-chunk-begin -->
 ### SizeLimSD {#app:desc-imp-sizelimsd-default}
 
-*Log-normal coefficient of variation controlling mismatch between a minimum size limit and the real minimum size retained. Uniform distribution lower and upper bounds. Non-negative real numbers.*
+*Coefficient de variation log-normal contrôlant le décalage entre une limite de taille minimale et la taille minimale réelle conservée. Limites inférieure et supérieure de la distribution uniforme. Nombres réels non négatifs.*
 
-We will not use this functionality by default.
+Nous n'utiliserons pas cette fonction par défaut.
 
 ```{r desc-imp-sizelimsd-default, results = knitr_results, echo = knitr_echo}
 imp_default@SizeLimSD
@@ -460,9 +460,9 @@ imp_default@SizeLimSD
 <!-- slot-chunk-begin -->
 ### CAA_nsamp {#app:desc-obs-caa_nsamp-default}
 
-*Number of catch-at-age observations per time step. Uniform distribution lower and upper bounds.*
+*Nombre d’observations des prises selon l’âge par pas de temps. Limites inférieure et supérieure de la distribution uniforme.*
 
-This slot will not be relevant in the main operating model since none of the proposed MPs make use of age data. It could be re-enabled if evaluating the value of information inherent in ageing fish and using MPs that make use of them.
+Ce tiroir ne sera pas pertinent dans le modèle opérationnel principal puisqu’aucune des procédures de gestion proposées n’utilise les données sur l’âge. Il pourrait être réactivé si on évalue la valeur de l’information inhérente à la détermination de l’âge du poisson et en utilisant les procédures de gestion qui s’en servent.
 
 ```{r desc-obs-caa_nsamp-default, results = knitr_results, echo = knitr_echo}
 obs_default@CAA_nsamp
@@ -472,9 +472,9 @@ obs_default@CAA_nsamp
 <!-- slot-chunk-begin -->
 ### CAA_ESS {#app:desc-obs-caa_ess-default}
 
-*Effective sample size (independent age draws) of the multinomial catch-at-age observation error model. Uniform distribution lower and upper bounds.*
+*Taille effective de l’échantillon (tirages de l’âge indépendants) du modèle multinomial d’erreur d’observation des prises selon l’âge. Limites inférieure et supérieure de la distribution uniforme.*
 
-This slot will not be relevant in operating models unless MPs make use of age-composition data.
+Ce tiroir ne sera pas pertinent dans les modèles opérationnels à moins que les procédures de gestion n’utilisent les données sur la composition selon l’âge.
 
 ```{r desc-obs-caa_ess-default, results = knitr_results, echo = knitr_echo}
 obs_default@CAA_ESS
@@ -484,9 +484,9 @@ obs_default@CAA_ESS
 <!-- slot-chunk-begin -->
 ### CAL_nsamp {#app:desc-obs-cal_nsamp-default}
 
-*Number of catch-at-length observations per time step. Uniform distribution lower and upper bounds.*
+*Nombre d’observations des prises selon la longueur par pas de temps. Limites inférieure et supérieure de la distribution uniforme.*
 
-This slot will not be relevant in operating models unless MPs make use of length-composition data.
+Ce tiroir ne sera pas pertinent dans les modèles opérationnels à moins que les procédures de gestion n’utilisent les données sur la composition selon la longueur.
 
 ```{r desc-obs-cal_nsamp-default, results = knitr_results, echo = knitr_echo}
 obs_default@CAL_nsamp
@@ -496,9 +496,9 @@ obs_default@CAL_nsamp
 <!-- slot-chunk-begin -->
 ### CAL_ESS {#app:desc-obs-cal_ess-default}
 
-*Effective sample size (independent length draws) of the multinomial catch-at-length observation error model. Uniform distribution lower and upper bounds.*
+*Taille effective de l’échantillon (tirages de la longueur indépendants) du modèle multinomial d’erreur d’observation des prises selon la longueur. Limites inférieure et supérieure de la distribution uniforme.*
 
-This slot will not be relevant in operating models unless MPs make use of length-composition data.
+Ce tiroir ne sera pas pertinent dans les modèles opérationnels à moins que les procédures de gestion n’utilisent les données sur la composition selon la longueur.
 
 ```{r desc-obs-cal_ess-default, results = knitr_results, echo = knitr_echo}
 obs_default@CAL_ESS

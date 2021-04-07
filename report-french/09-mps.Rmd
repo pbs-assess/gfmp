@@ -1,75 +1,66 @@
-# DATA-LIMITED MANAGEMENT PROCEDURES {#app:MPs}
+# PROCÉDURES DE GESTION À DONNÉES LIMITÉES {#app:MPs}
 
-Here we include an overview of MPs that may be used as part of this framework.
-The MPs are a combination of those from the literature and ones that have been used in recent assessments for other BC groundfish.
-We focus on "output-controlled" MPs---MPs that recommend a TAC---for consistency with the management approach for BC groundfish.
-The list is not exhaustive and will likely grow or be adapted over time.
+Nous donnons ici un aperçu des procédures de gestion qui peuvent être utilisées dans ce Cadre.
+Les procédures de gestion sont une combinaison de celles qui proviennent de la documentation et de celles qui ont été utilisées dans des évaluations récentes pour d’autres poissons de fond de la Colombie-Britannique.
+Nous nous concentrons sur les procédures de gestion « à production contrôlée »---les procédures de gestion qui recommandent un TAC---pour assurer la cohérence avec l’approche de gestion du poisson de fond en Colombie-Britannique.
+La liste n’est pas exhaustive et s’allongera probablement ou sera adaptée au fil du temps.
 
-We note that the notation between MPs is not always consistent (e.g., different symbols may be used for the slope of a relative abundance index), but we have aimed to maintain consistency with the DLMtool documentation or the primary source publications wherever possible.
+Nous précisons que la notation entre les procédures de gestion n’est pas toujours uniforme (p. ex. différents symboles peuvent être utilisés pour la pente d’un indice de l’abondance relative), mais nous avons cherché à maintenir la cohérence avec la documentation de DLMtool ou les publications de source primaire dans la mesure du possible.
 
-<!--
-We have created alternative versions of the index-based MPs that discard every second year of survey data to mimic the biennial groundfish surveys on which many assessments will be based.
-We indicate these MPs with a "`.`" in front of them.
-For example, "IDX" refers to the full MP and ".IDX" refers to the MP with biennial survey data.
-For brevity, we do not make this distinction in the descriptions below but use the dot notation throughout the case study.
--->
+## PROCÉDURES DE GESTION À PRISES CONSTANTES {#sec:mp-cc-overall}
 
-## CONSTANT-CATCH MANAGEMENT PROCEDURES {#sec:mp-cc-overall}
+Les procédures de gestion de cette catégorie établissent des prises constantes, souvent fondées sur des prises historiques moyennes. Ce type de procédures de gestion est statique et ne tient donc pas compte de la rétroaction entre l’état du stock subséquent et les recommandations de la procédure de gestion.
+Néanmoins, ces procédures de gestion sont simples, peuvent ne constituer qu’une modification mineure du statu quo et, dans certains cas, peuvent satisfaire aux paramètres de rendement.
 
-MPs in this category set a constant catch, often based on some average historical catch.
-This type of MP is static and therefore does not incorporate feedback between subsequent stock status and MP recommendations.
-Nonetheless, these MPs are simple, may represent only a minor modification to the status quo, and in some circumstances, may satisfy performance metrics.
+### CC_hist20 : Prises historiques moyennes {#sec:mp-cc-hist}
 
-### CC_hist20: Average historical catch {#sec:mp-cc-hist}
-
-This is a simple management procedure in which the mean historical catch is calculated and used to set a constant TAC (with "CC" indicating constant catch).
-The TAC in year $y$ is calculated as:
+Il s’agit d’une procédure de gestion simple dans laquelle on calcule les prises historiques moyennes pour les utiliser afin de définir un TAC constant (« CC » indiquant des prises constantes).
+Le TAC de l’année $y$ est calculé comme suit :
 
 $$
 \textrm{TAC}_y = \frac{\sum_{i=1}^{n}C_i}{n},
 $$
 
-where $n$ is the number of historical years, and $C_i$ is the catch in historical year $i$.
-For our purposes in BC, we suggest using average catch from the last 20 years, which encompasses a time period after the implementation of trawl ITQs in 1996.
-We denote this MP "CC_hist20":
+où $n$ est le nombre d’années historiques et $C_i$ les prises dans l’année historique $i$.
+Pour le cas qui nous intéresse en Colombie-Britannique, nous suggérons d’utiliser les prises moyennes des 20 dernières années, ce qui comprend une période après la mise en œuvre des QIT dans la pêche au chalut en 1996.
+Nous appelons cette procédure de gestion « CC_hist20 » :
 
 $$
 \textrm{TAC}_y = \frac{\sum_{i=n-20+1}^{n}C_i}{20}.
 $$
 
-For specific stocks, analysts might consider other starting years that are relevant to that stock.
+Pour des stocks précis, les analystes pourraient envisager d’autres années de départ qui sont pertinentes pour les stocks en question.
 
-### CC: Constant catch {#sec:mp-cc}
+### CC : Prises constantes {#sec:mp-cc}
 
-For these MPs, TAC is calculated as some fraction of the average historical catch over the last 5 years [@geromont2015]:
+Pour ces procédures de gestion, le TAC est calculé comme une fraction de la moyenne des prises historiques des cinq dernières années [@geromont2015] :
 
 $$
 \textrm{TAC}_y = \alpha \frac{\sum_{i=n-5+1}^{n}C_i}{5},
 $$
 
-where $\alpha$ is some value greater than zero.
-The TAC is constant for all future projections.
-We suggest the following provisional "CC" MPs, which differ in their value of $\alpha$:
+où $\alpha$ est une valeur supérieure à zéro.
+Le TAC est constant pour toutes les projections futures.
+Nous suggérons les procédures de gestion « CC » provisoires suivantes, qui diffèrent de par leur valeur de $\alpha$ :
 
-- CC1.2: $\alpha = 1.2$
-- CC1.1: $\alpha = 1.1$
-- CC1.0: $\alpha = 1.0$
-- CC0.9: $\alpha = 0.9$
-- CC0.8: $\alpha = 0.8$
-- CC0.7: $\alpha = 0.7$
-- CC0.6: $\alpha = 0.6$
+- CC1.2: $\alpha = 1,2$
+- CC1.1: $\alpha = 1,1$
+- CC1.0: $\alpha = 1,0$
+- CC0.9: $\alpha = 0,9$
+- CC0.8: $\alpha = 0,8$
+- CC0.7: $\alpha = 0,7$
+- CC0.6: $\alpha = 0,6$
 
-## INDEX-SLOPE AND INDEX-RATIO MANAGEMENT PROCEDURES {#sec:index-slope-ratio}
+## PROCÉDURES DE GESTION INDICE-PENTE ET INDICE-RATIO {#sec:index-slope-ratio}
 
-Management procedures in this category make a TAC recommendation based on the change in a relative abundance index over time.
-The term "slope" is used since many MPs in this category fit a linear regression to the relative abundance index (usually in log space) and make a recommendation that generally decreases the TAC if the slope is negative and increases the TAC if the slope is positive.
-Some of the MPs are based on ratios of relative abundance in certain years.
+Les procédures de gestion de cette catégorie formulent une recommandation de TAC fondée sur la variation d’un indice de l’abondance relative dans le temps.
+Le terme « pente » est utilisé parce que de nombreuses procédures de gestion dans cette catégorie ajustent une régression linéaire à l’indice de l’abondance relative (habituellement dans l’espace logarithmique) et produisent une recommandation qui diminue généralement le TAC si la pente est négative et l’augmente si la pente est positive.
+Certaines procédures de gestion sont fondées sur des ratios de l’abondance relative certaines années.
 
-### Iratio: Mean index ratio {#sec:mp-iratio}
+### Iratio : Ratio de l’indice moyen {#sec:mp-iratio}
 
-This MP adjusts the TAC by a ratio, $\alpha$, with the numerator being the mean index in the most recent two years of the time series and the denominator being the mean index in the three years prior to those in the numerator.
-This MP is based on Method 3.2 used by ICES for data-limited stocks [@ices2012; @jardim2015].
-The TAC is calculated as:
+Cette procédure de gestion ajuste le TAC selon un ratio, $\alpha$, dont le numérateur est l’indice moyen des deux dernières années de la série chronologique et le dénominateur est l’indice moyen des trois années précédant celles du numérateur.
+Cette procédure de gestion est fondée sur la méthode 3.2 utilisée par le CIEm pour les stocks à données limitées [@ices2012; @jardim2015]. Le TAC est calculé comme suit :
 
 \begin{align}
 \textrm{TAC}_y &= \alpha C_{y-1},\\
@@ -78,37 +69,28 @@ The TAC is calculated as:
 \frac{I_{y-3} + I_{y-4} + I_{y-5}} {3} \right. ,
 \end{align}
 
-where $C_{y-1}$ is the catch from the previous year and $\alpha$ is the ratio of the mean index in the most recent 2 years of the time series and the mean index in 3--5 years before current time.
-Due to the biennial nature of most BC surveys for any one area, we propose an alternative version of this MP, "Iratio2", which calculates the ratio with the last 2 years of available survey observations in the numerator and the last 3 years of available survey observations in the denominator.
+où $C_{y-1}$ correspond aux prises de l’année précédente et $\alpha$ est le ratio de l’indice moyen des deux dernières années de la série chronologique et de l’indice moyen des 3--5 dernières années.
+En raison de la nature biennale de la plupart des relevés menés en Colombie-Britannique pour une zone, nous proposons une autre version de cette procédure de gestion, « Iratio2 », qui calcule le ratio avec les deux dernières années d’observations de relevé disponibles au numérateur et les trois dernières années d’observations de relevé disponibles au dénominateur.
 
-<!-- TODO: make a consistent decision whether we use C_y-1 or TAC_y-1 -->
+### GB_slope : Pente de l’indice de Geromont et Butterworth {#sec:mp-gb-slope}
 
-### GB_slope: Geromont and Butterworth index slope {#sec:mp-gb-slope}
-
-This MP adjusts TAC based on previous catch and the trend in a relative abundance index to aim for relatively stable catch rates [@geromont2015] (Figure \@ref(fig:mp-gbslope-demo)).
-The TAC is calculated as:
-
-<!--also Butterworth, D.S. and H.F. Geromont. 2001. Evaluation of a class of possible simple interim
-management procedures for the Namibian Hake fishery. S. Afr. J. mar. Sci. 23: 357-374-->
+Cette procédure de gestion ajuste le TAC en fonction des prises antérieures et de la tendance d’un indice de l’abondance relative pour viser des taux de prises relativement stables [@geromont2015] (figure \@ref(fig:mp-gbslope-demo)). Le TAC est calculé comme suit :
 
 $$
 \textrm{TAC}_y= C_{y-1}(1+\lambda \beta_I),
 $$
 
-where $C_{y-1}$ is catch from the previous year, $\beta_I$ is the slope of a linear regression of the ln abundance index over the last $n$ years (default of $n = 5$), and $\lambda$ is a control parameter between 0 and 1 that adjusts how quickly TAC is adjusted based on the slope of the index.
-The TAC is subject to the following conditions that limit the rate at which the TAC can be adjusted up or down:
+où $C_{y-1}$ est les prises de l’année précédente, $\beta_I$ est la pente d’une régression linéaire de l’indice de l’abondance ln au cours des $n$ années précédentes (valeur par défaut de $n = 5$) et $\lambda$ est un paramètre de contrôle entre 0 et 1 qui ajuste la rapidité de l’ajustement du TAC en fonction de la pente de l’indice. Le TAC est assujetti aux conditions suivantes qui limitent le taux auquel il peut être ajusté à la hausse ou à la baisse :
 
-- if next TAC > 1.2 last catch, then TAC = 1.2 $\times$ last catch
-- if next TAC < 0.8 last catch, then TAC = 0.8 $\times$ last catch.
+- si le TAC suivant > 1,2 les dernières prises, alors le TAC = 1,2 $\times$ les dernières prises
+- si le TAC suivant < 0,8 les dernières prises, alors le TAC = 0,8 $\times$ les dernières prises.
 
-The default $\lambda$ value is 1 in DLMtool.
+La valeur $\lambda$ par défaut est 1 dans l’outil DLMtool.
 
-Here we propose adding a version with a lower value of $\lambda$ ($\lambda = 0.66$), which is therefore less responsive to changes in the relative abundance index.
-Furthermore, we propose extending the linear regression to encompass 6 or 8 years, due to the biennial nature of the synoptic trawl surveys, thereby encompassing a constant number of years with data.
-We denote these MPs as "GB_slope_6_1", "GB_slope_6_0.66", "GB_slope_8_1", and "GB_slope_8_0.66", where the numbers indicate the number of years and $\lambda$ value, respectively.
-The number of years and the $\lambda$ parameter could be explored as tuning parameters for specific stocks.
+Nous proposons ici d’ajouter une version avec une valeur plus basse de $\lambda$ ($\lambda = 0,66$), qui est donc moins sensible aux variations de l’indice de l’abondance relative.
+De plus, nous proposons d’étendre la régression linéaire à six ou huit ans, en raison de la nature biennale des relevés synoptiques au chalut, ce qui engloberait un nombre constant d’années pour lesquelles des données sont disponibles. Nous désignons ces procédures de gestion par « GB_slope_6_1 », « GB_slope_6_0,66 », « GB_slope_8_1 » et « GB_slope_8_0,66 », où les chiffres indiquent le nombre d’années et la valeur de $\lambda$, respectivement. Le nombre d’années et le paramètre $\lambda$ pourraient être explorés comme paramètres de réglage pour certains stocks.
 
-```{r mp-gbslope-demo, fig.cap="Illustration of GB\\_slope across different values of $\\lambda$, the gain/smoothing parameter that controls how sensitive the TAC recommendations are to changes in the relative abundance index.", fig.width=6, out.width="3.75in"}
+```{r mp-gbslope-demo, fig.cap="Illustration de GB\\_slope pour différentes valeurs de $\\lambda$, le paramètre de gain ou de lissage qui détermine dans quelle mesure les recommandations relatives au TAC sont sensibles aux changements de l’indice d’abondance relative.", fig.width=6, out.width="3.75in"}
 colour_scale <- ggplot2::scale_colour_brewer(palette= "Dark2")
 f <- function(catch_previous = 100, lambda = 1, slope) {
   tac_star <- catch_previous * (1 + lambda * slope)
@@ -133,45 +115,43 @@ pars %>%
   gfdlm::theme_pbs() +
   labs(
     colour = expression(gamma),
-    x = "Slope in ln(index)",
-    y = "TAC (based on 100 t last year)"
+    x = "Pente dans ln(index)",
+    y = "TAC (fondé sur 100 t l’an dernier)"
   ) +
   geom_hline(yintercept = 100, lty = 2, alpha = 0.4) +
   colour_scale
 ```
 
-### Islope: Index slope tracking {#sec:mp-islope}
+### Islope : Suivi de la pente de l’indice {#sec:mp-islope}
 
-These MPs incrementally adjust the TAC in an attempt to maintain a constant relative abundance index (Figure \@ref(fig:mp-islope-demo)).
-The MPs are similar to "GB_slope" with the addition of a parameter that determines the TAC in the first projection year and different choices of the $\lambda$ parameter.
-The TAC is calculated as:
+Ces procédures de gestion ajustent progressivement le TAC pour tenter de maintenir un indice de l’abondance relative constant (figure \@ref(fig:mp-islope-demo)).
+Les procédures de gestion sont semblables à « GB_slope » avec l’ajout d’un paramètre qui détermine le TAC pour la première année de projection et différents choix du paramètre $\lambda$. Le TAC est calculé comme suit :
 
 $$
 \textrm{TAC}_y = \textrm{TAC}^*(1+\lambda \beta_I),
 $$
 
-where, in the first projection year, $\textrm{TAC}^*$ is $(1-x)$ multiplied by the mean catch from the last 5 historical years.
-In subsequent years, $\textrm{TAC}^*$ is the TAC from the previous year.
-Again, $\lambda$ is a gain or smoothing parameter, and $\beta I$ is the slope of the ln abundance index over the past $n$ years (we have set $n = 6$).
+où, dans la première année de projection, $\textrm{TAC}^*$ est $(1-x)$ multiplié par les prises moyennes des cinq dernières années historiques. Les années suivantes, $\textrm{TAC}^*$ est le TAC de l’année précédente.
+Encore une fois, $\lambda$ est un paramètre de gain ou de lissage, et $\beta I$ est la pente de l’indice de l’abondance ln les $n$ dernières années (nous avons fixé $n = 6$).
 
-There are four variants of this procedure as described in @geromont2015a:
+Quatre variantes de cette procédure sont décrites dans @geromont2015a :
 
-- Islope1: The least biologically precautionary, with $\lambda = 0.4$ and $x = 0.2$
-- Islope2: Increasingly biologically precautionary, with $\lambda = 0.4$ and $x = 0.3$
-- Islope3: Increasingly biologically precautionary, with  $\lambda = 0.4$ and $x = 0.4$
-- Islope4: The most biologically precautionary, with  $\lambda = 0.2$ and $x = 0.4$
+- Islope1 : La moins prudente sur le plan biologique, avec $\lambda = 0,4$ et $x = 0,2$
+- Islope2 : De plus en plus prudente sur le plan biologique, avec $\lambda = 0,4$ et $x = 0,3$
+- Islope3 : De plus en plus prudente sur le plan biologique, avec $\lambda = 0,4$ et $x = 0,4$
+- Islope4 : La plus prudente sur le plan biologique, avec $\lambda = 0,2$ et $x = 0,4$
 
-Because of the $x$ values, all 4 versions start TAC at 60--80% of recent average catch.
-For our BC groundfish fisheries, we do not have an a priori expectation that stocks are currently being overfished. We therefore propose the following set that start TAC at 80% or 100% of average catch over the last 5 historical years:
+En raison de ces valeurs de $x$, les quatre versions commencent à un TAC de 60--80 % des prises moyennes récentes.
+En ce qui concerne les pêches du poisson de fond en Colombie-Britannique, nous ne nous attendons pas à ce que les stocks soient surexploités actuellement. Nous proposons donc l’ensemble suivant, avec un TAC de début à 80 % ou 100 % des prises moyennes au cours des cinq dernières années historiques :
 
-- Islope0.4_100: $\lambda = 0.4$ and $x = 0$
-- Islope0.4_80: $\lambda = 0.4$ and $x = 0.2$
-- Islope0.2_100: $\lambda = 0.2$ and $x = 0$
-- Islope0.2_80: $\lambda = 0.2$ and $x = 0.2$
+- Islope0.4_100 : $\lambda = 0,4$ et $x = 0$
+- Islope0.4_80 : $\lambda = 0,4$ et $x = 0,2$
+- Islope0.2_100 : $\lambda = 0,2$ et $x = 0$
+- Islope0.2_80 : $\lambda = 0,2$ et $x = 0,2$
 
-We have additionally modified this MP to add a maximum proportional increase in TAC from one year to the next of 1.2.
+Nous avons en outre modifié cette procédure de gestion pour ajouter une augmentation proportionnelle maximale du TAC de 1,2 d’une année à l’autre.
 
-```{r mp-islope-demo, fig.cap="Illustration of the Islope MPs across 2 values of $\\lambda$. The $x$ parameter only affects the TAC in the initial projection year and is therefore not shown.", fig.width=6, out.width="3.75in"}
+```{r mp-islope-demo, fig.cap="Illustration des procédures de gestion Islope pour 2 valeurs de $\\lambda$. Le paramètre $x$ a seulement une incidence sur le TAC dans l’année de projection initiale, et par conséquent il n’est pas illustré.", fig.width=6, out.width="3.75in"}
 f <- function(catch_mean_recent = 100, x = 0.2, lambda = 0.4,
   slope = 0.2) {
   tac_star <- (1 - x) * catch_mean_recent
@@ -194,18 +174,18 @@ pars %>%
   gfdlm::theme_pbs() +
   labs(
     colour = expression(gamma),
-    x = "Slope in ln(index)",
-    y = "TAC (based on 100 t last year)"
+    x = "Pente dans ln(index)",
+    y = "TAC (fondé sur 100 t l’an dernier)"
   ) +
   geom_hline(yintercept = 100, lty = 2, alpha = 0.4) +
   colour_scale +
   scale_x_continuous(breaks = seq(-0.75, 0.75, 0.25))
 ```
 
-### IDX: Index-based MP from @cox2020 {#sec:mp-idx}
+### IDX : Procédure de gestion fondée sur un indice de @cox2020 {#sec:mp-idx}
 
-This MP was used in the rebuilding plan for outside Yelloweye Rockfish in BC [@cox2020] (Figure \@ref(fig:mp-idx-demo)).
-The MP assigns TAC based on:
+Cette procédure de gestion a été utilisée dans le plan de rétablissement du sébaste aux yeux jaunes des eaux extérieures en Colombie-Britannique [@cox2020] (figure \@ref(fig:mp-idx-demo)).
+Elle attribue le TAC selon la formule suivante :
 
 $$
 \textrm{TAC}_y =
@@ -216,23 +196,21 @@ $$
 \end{cases}
 $$
 
-where $\delta_\textrm{min}$ is the most negative drop allowed in the relative biomass index before the fishery is closed that year (by default assuming $\textrm{TAC}_\textrm{Floor}$ is 20% of the average catch from the last 5 historical years) and $\Delta I_y$ is the current index value divided by the last observed index value minus 1.
-We set $\delta_\textrm{min} = -0.5$ as in [@cox2020], but this could be tuned for individual stocks.
-The maximum increase in TAC is capped at $\delta_\textrm{max} = 0.25$ by default.
+où $\delta_\textrm{min}$ est la baisse la plus négative autorisée dans l’indice de la biomasse relative avant la fermeture de la pêche cette année-là (en supposant par défaut que $\textrm{TAC}_\textrm{Floor}$ est de 20 % des prises moyennes des cinq dernières années historiques) et $\Delta I_y$ est la valeur de l’indice actuel divisée par la dernière valeur de l’indice observée moins 1.
+Nous avons fixé $\delta_\textrm{min} = -0,5$ comme dans [@cox2020], mais cette valeur peut être réglée pour les différents stocks.
+L’augmentation maximale du TAC est plafonnée à $\delta_\textrm{max} 0,25$ par défaut.
 
-This MP can be additionally smoothed:
+Cette procédure de gestion peut être lissée davantage :
 
 $$
 \textrm{TAC}_y = \lambda \cdot \textrm{TAC}_y + (1-\lambda) \textrm{TAC}_{y-1},
 $$
 
-where $\lambda$ controls the degree of smoothing and can range between 0 and 1. @cox2020 used $\lambda=0.5$.
-We define these MPs for DLMtool as "IDX" ($\delta_{\textrm{min}} = -0.5$, $\delta_{\textrm{max}} = 0.25$) and "IDX_smooth" (same as IDX but with $\lambda = 0.5$ to split the difference between the potentially proposed TAC and the one previously recommended).
+où $\lambda$ contrôle le degré de lissage et peut varier entre 0 et 1. @cox2020 ont utilisé $\lambda=0,5$. Nous définissons ces procédures de gestion pour DLMtool comme "IDX" ($\delta_{\textrm{min}} = -0,5$, $\delta_{\textrm{max}} = 0,25$) et « IDX_smooth » (identique à IDX, mais avec $\lambda = 0,5$ pour répartir la différence entre le TAC proposé potentiellement et celui précédemment recommandé).
 
-$\textrm{TAC}_\textrm{Floor}$ would ideally be set on a stock-specific basis to a reasonable value required to maintain other groundfish fisheries.
-Provisionally, in the absence of a stock-specific floor value, "IDX" will set the floor to 20% of the average catch from the last 5 historical years.
+Dans l’idéal, $\textrm{TAC}_\textrm{Floor}$ serait fixé selon une base propre au stock à une valeur raisonnable nécessaire pour maintenir les autres pêches du poisson de fond. Provisoirement, en l’absence d’une valeur plancher propre au stock, « IDX » fixera le plancher à 20 % des prises moyennes des cinq dernières années historiques.
 
-```{r mp-idx-demo, fig.cap="Illustration of the IDX MPs across two values of $\\delta_{\\textrm{min}}$ and $\\delta_{\\textrm{max}}$, also illustrating two values of $\\textrm{TAC}_\\textrm{Floor}$ ."}
+```{r mp-idx-demo, fig.cap="Illustration des procédures de gestion IDX pour deux valeurs de $\\delta_{\\textrm{min}}$ et $\\delta_{\\textrm{max}}$, montrant également deux valeurs de $\\textrm{TAC}_\\textrm{Floor}$ ."}
 f <- function(tac_prev, tac_floor, delta_min, delta_max, delta_ind) {
   if (delta_ind <= delta_min) tac <- tac_floor
   if (delta_ind > delta_min && delta_ind <= delta_max)
@@ -262,96 +240,95 @@ pars %>%
   labs(
     colour = expression(TAC[Floor]),
     x = expression(Delta ~ I[y]),
-    y = "TAC (based on 100 t last year)"
+    y = "TAC (fondé sur 100 t l’an dernier)"
   )+
   geom_hline(yintercept = 100, lty = 2, alpha = 0.4) +
   colour_scale
 ```
 
-## INDEX-TARGET MANAGEMENT PROCEDURES {#sec:mp-index-target}
+## PROCÉDURES DE GESTION INDICE-CIBLE {#sec:mp-index-target}
 
-MPs in this category aim to maintain a relative abundance index at some reference level.
-Typically, this reference level is set based on an assumption of what the index would be if the stock was at $B_\textrm{MSY}$.
-Since it would be challenging to apply this to real data in a manner consistent with this assumption, we instead propose modifying this MP to set the target index level to a historical index level, which would be chosen on a stock-by-stock basis.
-Provisionally, we set the reference level to the mean index value from the 10 years prior to the projection period.
-Analysts, in consultation with managers and stakeholders, may choose to adjust this reference period or choose some alternative reference index value.
-The performance of choices of reference index can be evaluated in the closed-loop simulation.
+Les procédures de gestion de cette catégorie visent à maintenir un indice de l’abondance relative à un certain niveau de référence.
+Habituellement, ce niveau de référence est fixé en fonction d’une hypothèse de ce que serait l’indice si le stock était à $B_\textrm{MSY}$.
+Comme il serait difficile de l’appliquer aux données réelles d’une manière conforme à cette hypothèse, nous proposons plutôt de modifier cette procédure de gestion pour fixer le niveau de l’indice cible à un niveau historique de l’indice, qui serait choisi stock par stock.
+Nous fixons provisoirement le niveau de référence à la valeur moyenne de l’indice pour les 10 années précédant la période de projection.
+Les analystes, en consultation avec les gestionnaires et les intervenants, peuvent choisir d’ajuster cette période de référence ou fixer une autre valeur de l’indice de référence.
+Le rendement des choix de l’indice de référence peut être évalué dans la simulation en boucle fermée.
 
-### IT: Iterative index target {#sec:mp-it}
+### IT : Indice cible itératif {#sec:mp-it}
 
-These are index target MPs where the TAC is modified according to current index levels (the mean index over the last 5 years) relative to a target level.
-Traditionally the target level is set to the index value at $B_\textrm{MSY}$, subject to observation error.
-As noted above, we modified this MP to set the target level as the average index value from the 10 year period prior to the projection period.
+Il s’agit de procédures de gestion indice-cible où le TAC est modifié en fonction des niveaux actuels de l’indice (l’indice moyen des cinq dernières années) par rapport à un niveau cible.
+Traditionnellement, le niveau cible est fixé à la valeur de l’indice à $B_\textrm{MSY}$, sous réserve de l’erreur d’observation.
+Comme nous l’avons mentionné ci-dessus, nous avons modifié cette procédure de gestion pour fixer le niveau cible à la valeur moyenne de l’indice sur les 10 ans précédant la période de projection.
 
-The TAC is calculated as:
+Le TAC est calculé comme suit :
 
 $$
 \textrm{TAC}_y = C_{y-1} I_\delta,
 $$
 
-where $C_{y-1}$ is the catch from the previous year and $I_\delta$ is the ratio of the mean index over the past five years to the reference index level.
+où $C_{y-1}$ correspond aux prises de l’année précédente et $I_\delta$ est le ratio de l’indice moyen des cinq dernières années par rapport au niveau de l’indice de référence.
 
-There are two variants of this procedure:
+Il existe deux versions de cette procédure :
 
-- IT5 where the maximum annual changes to the TAC are 5%
-- IT10 where the maximum annual changes to the TAC are 10%
+- IT5, où les variations annuelles maximales du TAC sont de 5 %;
+- IT10, où les variations annuelles maximales du TAC sont de 10 %.
 
-We denote our historical variants "IT5_hist" and "IT10_hist".
+Nous désignons nos variantes historiques « IT5_hist » et « IT10_hist ».
 
-### Itarget: Incremental index target {#sec:mp-itarget}
+### Itarget : Indice cible progressif {#sec:mp-itarget}
 
-The "Itarget" MPs [@geromont2015; @geromont2015a] incrementally adjust the TAC based on reference catch and abundance index values (Figure \@ref(fig:mp-itarget-demo)).
+Les procédures de gestion « Itarget » [@geromont2015; @geromont2015a] ajustent progressivement le TAC en fonction des valeurs de référence des prises et de l’indice de l’abondance (figure \@ref(fig:mp-itarget-demo)).
 
-If $I_\textrm{recent}\ge I_0$ the TAC is calculated as:
+Si $I_\textrm{recent}\ge I_0$ le TAC est calculé comme suit :
 
 $$
 \textrm{TAC}_{y+1} = \textrm{TAC}^* \left[w + (1 - w)\left(\frac{I_\textrm{recent} - I_0}{I_\textrm{target} - I_0}\right)\right],
 $$
 
-otherwise:
+Sinon :
 
 $$
 \textrm{TAC}_{y+1} = w \cdot \textrm{TAC}^* \left(\frac{I_\textrm{recent}}{I_0}\right)^2,
 $$
 
-These calculations depend on: 
+Ces calculs dépendent de :
 
-- $I_\textrm{recent}$, the average index over the most recent five years;
-- $I_\textrm{ave}$, the average index over the 10 years prior to the projection period;
-- $C_\textrm{ave}$, the average historical catch over the last five years of the historical period;
-- $\lambda$, the fraction of $I_\textrm{ave}$ below which future TACs are reduced quadratically (Figure \@ref(fig:mp-itarget-demo));
-- $\delta$, the fraction of $I_\textrm{ave}$ defining the target index value; 
-- $x$, the proportional difference between the future catch and $C_\textrm{ave}$; and
-- $w$, a smoothing parameter that defines the "steepness" of the adjustment slope.
+- $I_\textrm{recent}$, l’indice moyen sur les cinq dernières années;
+- $I_\textrm{ave}$, l’indice moyen sur les 10 années précédant la période de projection;
+- $C_\textrm{ave}$, les prises historiques moyennes des cinq dernières années de la période historique;
+- $\lambda$, la fraction de $I_\textrm{ave}$ sous laquelle les TAC futurs sont réduits quadratiquement (figure \@ref(fig:mp-itarget-demo));
+- $\delta$, la fraction de $I_\textrm{ave}$ définissant la valeur de l’indice cible;
+- $x$, la différence proportionnelle entre les prises futures et $C_\textrm{ave}$;
+- $w$, un paramètre de lissage qui définit le « taux de variation » de la pente de l’ajustement.
 
-then:
+puis de :
 
 - $I_0 = \lambda I_\textrm{ave}$;
-- $I_\textrm{target} = \delta I_\textrm{ave}$; and
-- $\textrm{TAC}^* = x C_\textrm{ave}$, the catch target.
+- $I_\textrm{target} = \delta I_\textrm{ave}$; ;
+- $\textrm{TAC}^* = x C_\textrm{ave}$, la cible des prises.
 
-@geromont2015 and @geromont2015a propose a number of configurations of these MPs.
-We propose starting with the following provisional versions and investigating tuning across a more complete range of parameter values if any of the provisional versions perform well.
+@geromont2015 et @geromont2015a proposent un certain nombre de configurations de ces procédures de gestion.
+Nous suggérons de commencer par les versions provisoires suivantes et d’étudier le réglage d’une gamme plus complète de valeurs des paramètres si l’une des versions provisoires donne de bons résultats.
 
-We recommend the following provisional base values:
-$\lambda = 0.2$, $\delta = 1$, $w = 0.5$, $x = 1$.
-This represents:
+Nous recommandons les valeurs de base provisoires suivantes :
+$\lambda = 0,2$, $\delta = 1$, $w = 0,5$, $x = 1$. Elles représentent :
 
-- the TAC adjustment decreasing quadratically at 20% of the average index over the last 10 historical years ($\lambda = 0.2$);
-- a target index of the average index value over the last 10 years ($\delta = 1$);
-- a moderate steepness of the adjustment slope ($w = 0.5$); and
-- a target catch equal to the average historical catch over the last five years of the historical period ($x = 1$).
+- l’ajustement du TAC diminuant quadratiquement à 20 % de l’indice moyen au cours des 10 dernières années historiques ($\lambda = 0,2$);
+- un indice cible de la valeur moyenne de l’indice au cours des 10 dernières années ($\delta = 1$);
+- un taux de variation modéré de la pente de l’ajustement ($w = 0,5$);
+- des prises cibles égales aux prises historiques moyennes des cinq dernières années de la période historique ($x = 1$).
 
-We then recommend varying each of the parameters while holding the others at their default values (Figure \@ref(fig:mp-itarget-demo2)):
+Nous recommandons ensuite de faire varier chacun des paramètres tout en maintenant les autres à leur valeur par défaut (figure \@ref(fig:mp-itarget-demo2)) :
 
-- Itarget_base:   $\lambda = 0.2$, $\delta = 1$,     $w = 0.5$, $x = 1$
-- Itarget_w0.8:   $\lambda = 0.2$, $\delta = 1$,     $w = 0.8$, $x = 1$
-- Itarget_x0.2:   $\lambda = 0.2$, $\delta = 1$,     $w = 0.5$, $x = 1.2$
-- Itarget_x0.8:   $\lambda = 0.2$, $\delta = 1$,     $w = 0.5$, $x = .8$
-- Itarget_d1.2:   $\lambda = 0.2$, $\delta = 1.2$,   $w = 0.5$, $x = 1$
-- Itarget_d0.8:   $\lambda = 0.2$, $\delta = 0.8$,   $w = 0.5$, $x = 1$
+- Itarget_base :  $\lambda = 0,2$, $\delta = 1$, $w = 0,5$, $x = 1$
+- Itarget_w0.8 :  $\lambda = 0,2$, $\delta = 1$, $w = 0,8$, $x = 1$
+- Itarget_x0.2 :  $\lambda = 0,2$, $\delta = 1$, $w = 0,5$, $x = 1,2$
+- Itarget_x0.8 :  $\lambda = 0,2$, $\delta = 1$, $w = 0,5$, $x = 0,8$
+- Itarget_d1.2 :  $\lambda = 0,2$, $\delta = 1,2$, $w = 0,5$, $x = 1$
+- Itarget_d0.8 :  $\lambda = 0,2$, $\delta = 0,8$, $w = 0,5$, $x = 1$
 
-```{r mp-itarget-demo, fig.cap="Illustration of possible Itarget MPs across a range of tuning parameters based on $I_\\textrm{ave} = 1$, showing the effect of varying $w$. In all cases, $I_0 = \\lambda I_\\textrm{ave} = 0.2$, below which the TAC is reduced quadratically.  Note that delta refers to $\\delta$.", fig.asp=0.75}
+```{r mp-itarget-demo, fig.cap="Illustration des procédures de gestion Itarget possibles pour un éventail de paramètres de réglage range d’après $I_\\textrm{ave} = 1$, qui montre les effets de la variation de $w$. Dans tous les cas, $I_0 = \\lambda I_\\textrm{ave} = 0,2$, valeur sous laquelle le TAC est réduit quadratiquement. À noter que delta correspond à $\\delta$.", fig.asp=0.75}
 f_itarget <- function(TACtarg, Irecent, Itarg, Iave, w, lambda = 0.2) {
   I0 <- lambda * Iave
   if (Irecent >= I0) {
@@ -380,8 +357,8 @@ pars %>%
   facet_grid(TACtarg ~ Itarg) +
   labs(
     colour = "w",
-    x = expression(I[recent] / I[target]),
-    y = "TAC (based on 100 t average\nin last 5 historical years)"
+    x = expression(I[récent] / I[cible]),
+    y = "TAC (fondé sur une moyenne de 100 dernières années historiques)"
   ) +
   geom_hline(yintercept = 100, lty = 2, alpha = 0.4) +
   geom_vline(xintercept = 1, lty = 2, alpha = 0.2) +
@@ -389,11 +366,11 @@ pars %>%
   coord_cartesian(expand = FALSE)
 ```
 
-```{r mp-itarget-demo2, fig.cap="Illustration of provisional Itarget MPs based on $I_\\textrm{ave} = 1$, with recommended provisional combinations of parameters. In all cases, $I_0 = \\lambda I_\\textrm{ave} = 0.2$, below which the TAC is reduced quadratically. Note that delta refers to $\\delta$.", fig.asp=0.75}
+```{r mp-itarget-demo2, fig.cap="Illustration de procédures de gestion Itarget provisoires d’après $I_\\textrm{ave} = 1$, avec les combinaisons de paramètres provisoires recommandées. Dans tous les cas, $I_0 = \\lambda I_\\textrm{ave} = 0,2$, valeur sous laquelle le TAC est réduit quadratiquement. À noter que delta correspond à $\\delta$.", fig.asp=0.75}
 pars <- expand.grid(
   TACtarg = c(80, 100, 120),
   Irecent = seq(0, 2, length.out = 300),
-  Itarg = c(0.8, 1, 1.2),
+  Itarg = c(0.8, 1, 1,2),
   Iave = 1,
   w = c(0.2, 0.5, 0.8),
   lambda = 0.2
@@ -415,32 +392,31 @@ pars2 %>%
   facet_grid(TACtarg ~ Itarg) +
   labs(
     colour = "w",
-    x = expression(I[recent] / I[target]),
-    y = "TAC (based on 100 t average\nin last 5 historical years)"
+    x = expression(I[récent] / I[cible]),
+    y = "TAC (fondé sur une moyenne de 100 dernières années historiques)"
   ) +
-  geom_hline(yintercept = 100, lty = 2, alpha = 0.4) +
-  geom_vline(xintercept = 1, lty = 2, alpha = 0.2) +
+  geom_hline(yintercept = 100, lty = 2, alpha = 0,4) +
+  geom_vline(xintercept = 1, lty = 2, alpha = 0,2) +
   scale_colour_viridis_d() +
   coord_cartesian(expand = FALSE)
 ```
 
 \clearpage
 
-### ITM: Index target based on natural mortality rate {#sec:mp-itm}
+### ITM : Indice-cible fondé sur le taux de mortalité naturelle {#sec:mp-itm}
 
-"ITM" is an index-target MP where the TAC is modified according to current index levels with the window defining "current" based on the assumed natural mortality $M$ (Figs \@ref(fig:mp-itm-demo)).
+« ITM » est une procédure de gestion indice-cible où le TAC est modifié en fonction des niveaux actuels de l’indice, la fenêtre définissant « actuel » en fonction de la mortalité naturelle présumée $M$ (figures \@ref(fig:mp-itm-demo)).
 
-The MP is defined as:
+La procédure de gestion est définie comme suit :
 
 $$
 \textrm{TAC}_y = \textrm{TAC}_{y-1} \delta I,
 $$
 
-where $\delta I$ is the ratio of the mean index over $4 \left(1/M\right)^{1/4}$ years to the reference index.
-The maximum fractional change in TAC is determined by $x$, defined as $x = \textrm{max} \left( \left( 5+25M \right) / 100,\ 0.2\right)$.
-As in the other reference index MPs, we use an historical period of the index to set the reference index level---provisionally the last 10 years before the projection period.
+où $\delta I$ est le ratio de l’indice moyen sur $4 \left(1/M\right)^{1/4}$ années par rapport à l’indice de référence.
+La variation fractionnelle maximale du TAC est déterminée par $x$, défini comme $x = \textrm{max} \left( \left( 5+25M \right) / 100,\ 0,2\right)$. Comme pour les autres procédures de gestion de l’indice de référence, nous utilisons une période historique de l’indice pour établir le niveau de l’indice de référence---provisoirement les 10 dernières années avant la période de projection.
 
-```{r mp-itm-demo, fig.cap="Illustration of the ITM MP. (a) Illustration of how TAC recommendation is based on natural mortality (M) and $\\delta I$, the proportional change in the recent relative abundance index compared to a reference level. Note that the effect of M only appears for large values of M---0.2 and 0.5 are overlapping in this figure. (b) Illustration of how M relates to the number of years over which to calculate the mean recent relative abundance index.", fig.asp=0.385}
+```{r mp-itm-demo, fig.cap="Illustration de la procédure de gestion ITM. (a) Illustration de la façon dont le TAC est fondé sur la mortalité naturelle (M) et sur $\\delta I$, le changement proportionnel de l’indice d’abondance relative par rapport à un niveau de référence. À noter que l’effet de M n’apparaît que pour les valeurs élevées de M---0,2 et 0,5 se chevauchent dans cette figure. (b) Illustration du rapport entre M et le nombre d’années utilisé pour calculer l’indice d’abondance relative moyen récent.", fig.asp=0.385}
 f <- function(tac_prev, M, deltaI) {
  mc <- max(c((5 + 25 * M)/100), 0.2)
  if (deltaI < (1 - mc))
@@ -469,7 +445,7 @@ g1 <- pars %>%
   labs(
     colour = expression(M),
     x = expression(delta ~ I),
-    y = "TAC (based on 100 t last year)"
+    y = "TAC (fondé sur 100 t l’an dernier)"
   )+
   geom_hline(yintercept = 100, lty = 2, alpha = 0.4) +
   colour_scale +
@@ -488,36 +464,36 @@ g2 <- pars %>%
   gfdlm::theme_pbs() +
   labs(
     x = expression(M),
-    y = "Years"
+    y = "Années"
   )
 cowplot::plot_grid(g1, g2, labels = "auto")
 ```
 
-## MODEL-BASED MANAGEMENT PROCEDURES {#sec:mp-model-based}
+## PROCÉDURES DE GESTION FONDÉES SUR UN MODÈLE {#sec:mp-model-based}
 
-### Surplus model production {#sec:mp-sp}
+### Modèle de production excédentaire {#sec:mp-sp}
 
-In addition to the empirical MPs described above, we propose including a surplus production model paired with a harvest control rule as a model-based MP. Here, we use the surplus production model implemented in MSEtool [@huynh_msetool_2019] and TMB [@tmb] and based on @fletcher1978.
+En plus des procédures de gestion empiriques décrites ci-dessus, nous proposons d’inclure un modèle de production excédentaire jumelé à une règle de contrôle des prises comme procédure de gestion fondée sur un modèle. Ici, nous utilisons le modèle de production excédentaire mis en œuvre dans MSEtool [@huynh_msetool_2019] et TMB [@tmb], d’après @fletcher1978.
 
-Biomass $B$ in year $y$ is calculated as
+La biomasse $B$ de l’année $y$ est calculée comme suit :
 
 $$
 B_y = B_{y-1} + P_{y-1} - C_{y-1},
 $$
 
-where $C_y$ is the observed catch and $P_y$ is the surplus production given by
+où $C_y$ correspond aux prises observées et $P_y$ est la production excédentaire donnée par la formule
 
 $$
 P_y = \gamma \times \textrm{MSY} \times \left(\dfrac{B_y}{K}-\left[\dfrac{B_y}{K}\right]^n\right),
 $$
 
-where $K$ is the carrying capacity, $\textrm{MSY}$ is the estimated maximum sustainable yield, and $n$ is the parameter that controls the shape of the production curve, and $\gamma$ is defined as
+où $K$ est la capacité de charge, $\textrm{MSY}$ est le rendement maximal durable estimé et $n$ est le paramètre qui contrôle la forme de la courbe de production, $\gamma$ étant défini comme
 
 $$
 \gamma = \dfrac{1}{n-1}n^{n/(n-1)}.
 $$
 
-The production parameter $n$ is typically fixed, producing the Schaefer model [@schaefer1954] with a symmetric productive curve ($B_{\textrm{MSY}}/K = 0.5$) when $n = 2$. The Fox model is the limiting case of the Fletcher parameterization as $n \rightarrow 1$, where
+Le paramètre de production $n$ est habituellement fixe, produisant le modèle de Schaefer [@schaefer1954] avec une courbe de production symétrique ($B_{\textrm{MSY}}/K = 0,5$) lorsque $n = 2$. Le modèle de Fox est le cas limitatif du paramétrage de Fletcher quand $n \rightarrow 1$, où
 
 $$
 K = e \times B_{MSY},
@@ -527,58 +503,59 @@ $$
 r = F_{\textrm{MSY}},
 $$
 
-and
+et
 
 $$
 P_y = -e \times \textrm{MSY} \times \dfrac{B_y}{K} \times \log\left(\dfrac{B_y}{K}\right).
 $$
 
-By conditioning the model on observed catch, the predicted index $\hat{I}_y$ is
+En conditionnant le modèle sur les prises observées, l’indice prévu $\hat{I}_y$ est
 
 $$
 \hat{I}_y = \hat{q} \hat{B}_y
 $$
 
-and the harvest rate is
+et le taux de récolte est
 
 $$
 \hat{F}_y = \dfrac{C_y}{\hat{B}_y}.
 $$
 
-The likelihood of the observed index $I_y$, assuming a lognormal distribution, is
+La vraisemblance de l’indice observé $I_y$, en supposant une distribution log-normale, est
 
 $$
 \log(I_y) \sim \textrm{Normal}(\log[\hat{I}_y], \sigma),
 $$
 
-where $\sigma$ represents the standard deviation.
+où $\sigma$ représente l’écart-type.
 
-We pair these surplus production models with the following harvest control rules (Figure \@ref(fig:mp-hcrs)):
+Nous jumelons ces modèles de production excédentaire avec les règles de contrôle des prises suivantes (figure \@ref(fig:mp-hcrs)) :
 
-1. HCR-4010: Above 40% of estimated *B*/*B*~0~ (biomass divided by unfished equilibrium spawning biomass), $F_y = \hat{F}_\textrm{MSY}$; at 10% of estimated *B*/*B*~0~, $F_y = 0$; between 10% and 40%, interpolate the adjustment factor linearly. This is a commonly applied HCR in the fisheries literature and on the US West Coast [e.g., @berger_2019].
+1. HCR-4010 : Au-delà de 40 % de *B*/*B*~0~ estimée (biomasse divisée par la biomasse féconde à l’équilibre non exploitée), $F_y = \hat{F}_\textrm{MSY}$; à 10 % de *B*/*B*~0~, $F_y = 0$; estimée; entre 10 % et 40 %, interpoler le facteur d’ajustement de façon linéaire. Cette règle de contrôle des prises est couramment appliquée dans la documentation sur les pêches et sur la côte Ouest des États-Unis [p. ex. @berger_2019].
 
-2. HCR-8040: Above 80% of estimated *B*/*B*~MSY~, $F_y = \hat{F}_\textrm{MSY}$; at 40% of estimated *B*/*B*~MSY~, $F_y = 0$; between 40% and 80%, interpolate the adjustment factor linearly.
-Note that this reference point is based on *B*~MSY~ whereas HCR-4010 is based on *B*~0~.
-This HCR creates operational control points that mimic the provisional biological upper stock reference and limit reference points from DFO's Sustainable Fisheries Framework (Figure \@ref(fig:pa-illustration)), where operational control points define the thresholds of management action (i.e., reducing fishing mortality).
-We note, however, that operational control points do not necessarily need to match the biological reference points (BRPs) to be consistent with the Sustainable Fisheries Framework.
-For example, a model may generate biased estimates of *B*/*B*~MSY~ and be better paired with operational control points that differ from the BRPs to obtain performance that meet sustainability objectives defined by the BRPs [e.g., @cox2013].
+2. HCR-8040 : Au-dessus de 80 % de *B*/*B*~MSY~ estimée, $F_y = \hat{F}_\textrm{MSY}$; à 40 % de *B*/*B*~MSY~ estimée, $F_y = 0$; entre 40 % et 80 %, interpoler le facteur d’ajustement de façon linéaire.
+Il convient de noter que ce point de référence est fondé sur *B*~MSY~ alors que HCR-4010 repose sur *B*~0~.
+Cette règle de contrôle des prises crée des points de contrôle opérationnels qui imitent les points de référence biologiques provisoires (point de référence supérieur du stock et point de référence limite) du Cadre pour la pêche durable du MPO (figure \@ref(fig:pa-illustration)), les points de contrôle opérationnels définissant les seuils des mesures de gestion (c.-à-d. réduction de la mortalité par pêche).
+Nous notons toutefois que les points de contrôle opérationnels ne doivent pas nécessairement correspondre aux points de référence biologiques (PRB) pour être conformes au Cadre pour la pêche durable.
+Par exemple, un modèle peut générer des estimations biaisées de *B*/*B*~MSY~ et être mieux jumelé avec des points de contrôle opérationnel qui diffèrent des points de référence biologiques pour obtenir un rendement qui répond aux objectifs de durabilité définis par les points de référence biologiques [p. ex. @cox2013].
 
-3. HCR-6040: A slightly less biologically conservative HCR than HCR-8040 [@cox2013]. This HCR does not begin ramping down the TAC from MSY until *B*/*B*~MSY~ < 0.6.
+3. HCR-6040 : Une règle de contrôle des prises légèrement moins prudente sur le plan biologique que la HCR-8040 [@cox2013].
+Cette règle ne commence pas à abaisser le TAC de MSY jusqu’à ce que *B*/*B*~MSY~ < 0,6.
 
-We denote these management procedures: "SP8040" (Schaefer surplus production model, 8040 HCR), "SP8040_Fox" (Fox surplus production model, 8040 HCR), etc.
-We only include the Schaefer surplus production model with the 4010 rule, since the choice of production function should not affect a depletion-based harvest control rule.
+Nous désignons ces procédures de gestion comme suit : « SP8040 » (modèle de production excédentaire de Schaefer, RCP 8040), « SP8040_Fox » (modèle de production excédentaire de Fox, RCP 8040), etc.
+Nous incluons seulement le modèle de production excédentaire de Schaefer avec la règle 4010, puisque le choix de la fonction de production ne devrait pas avoir d’incidence sur une règle de contrôle des prises fondée sur l’épuisement.
 
-We also include the following "meta" HCR rules [e.g., @cox2020], that could be modified as needed for specific stocks:
+Nous incluons également les règles RCP « méta » suivantes [e.g., @cox2020], qui peuvent être modifiées au besoin pour des stocks particuliers :
 
-- The maximum TAC increase in any one year is 20%.
-- The maximum decrease in TAC in any one year is 50%.
-- The minimum TAC is 10% of the catch in the last historical year.
-- The TAC is not increased unless the MP recommends increasing it by at least 5%.
+- L’augmentation maximale du TAC pour une année donnée est de 20 %.
+- La diminution maximale du TAC pour une année donnée est de 50 %.
+- Le TAC minimum est de 10 % des prises de la dernière année historique.
+- Le TAC n’est pas augmenté à moins que la procédure de gestion ne recommande de l’augmenter d’au moins 5 %.
 
-We include these (modifiable) rules in an MP defined as `SP_gf()` in the gfdlm R package [@gfdlm].
+Nous incluons ces règles (modifiables) dans une procédure de gestion définie comme 'SP_gf()` dans le progiciel gfdlm en R [@gfdlm].
 
 
-```{r, mp-hcrs, fig.cap="Proposed provisional harvest control rules to associate with model-based MPs.", fig.asp=0.25, fig.width=9, warning=FALSE, out.width="\\textwidth"}
+```{r, mp-hcrs, fig.cap="Règles de contrôle des prises provisoires proposées associées aux procédures de gestion fondées sur un modèle.", fig.asp=0.25, fig.width=9, warning=FALSE, out.width="\\textwidth"}
 f <- function (Brel, LRP, TRP, rel_min = 0, rel_max = 1, ...) {
     adj <- rep(rel_max, length(Brel))
     adj[Brel <= LRP] <- rel_min
@@ -622,13 +599,13 @@ pars <- bind_rows(pars8040, pars4010) %>%
 pars$type <- as.factor(pars$type)
 pars$type <- forcats::fct_relevel(pars$type, "HCR-MSY", "HCR-4010", "HCR-6040", "HCR-8040")
 
-make_hcr_fig <- function(dat, xlab = expression(Estimated~B/B[0])) {
+make_hcr_fig <- function(dat, xlab = expression(~B/B[0])) { 
   ggplot(dat, aes(Brel, tac)) +
   geom_line() +
   ggsidekick::theme_sleek() +
   labs(
     x = xlab,
-    y = "TAC adjustment factor\n(proportion of MSY)"
+    y = "Facteur d’ajustement du TAC\n(proportion de MSY)"
   ) +
   geom_vline(aes(xintercept = LRP), lty = 2, alpha = 0.4) +
   geom_vline(aes(xintercept = TRP), lty = 2, alpha = 0.4)

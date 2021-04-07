@@ -1,180 +1,174 @@
 # DISCUSSION {#sec:discussion}
 
-In this document we have presented a framework for implementing an MP approach to providing Science advice for groundfish in British Columbia.
-We outlined an approach to developing appropriate OMs, testing suites of MPs, and identifying MPs that best meet the objectives of fisheries management and stakeholders.
-Ultimately, it is our aim that the MP Framework improves the capacity of DFO to meet the requirements of Canada's Sustainable Fisheries Framework and the Fish Stocks provisions of the *Fisheries Act* for data-limited species.
-Although the MP Framework does not emphasize explicit knowledge of fish-stock reference points, it emphasizes selecting management approaches that have a high likelihood of maintaining fish stocks above implicitly known reference points across multiple plausible states of nature.
-In the following discussion we highlight issues regarding reference points, MP tuning, assessment frequency and triggers, the inclusion of environmental effects, assessing the value of information, and use of this framework as part of stock rebuilding plans.
+Dans ce document, nous avons présenté un cadre pour la mise en œuvre d’une approche fondée sur des procédures de gestion pour produire des avis scientifiques sur le poisson de fond en Colombie-Britannique.
+Nous y décrivons une approche pour élaborer des modèles opérationnels appropriés, mettre à l’essai des séries de procédures de gestion, et déterminer celles qui répondent le mieux aux objectifs de la gestion des pêches et des intervenants.
+Notre objectif final est que le Cadre des procédures de gestion améliore la capacité du MPO à répondre aux exigences du Cadre pour la pêche durable du Canada et des dispositions sur les stocks de poissons de la *Loi sur les pêches* pour les espèces à données limitées.
+Bien que le Cadre des procédures de gestion ne mette pas l’accent sur la connaissance explicite des points de référence des stocks de poissons, il privilégie le choix d’approches de gestion qui offrent une forte probabilité de maintenir les stocks de poissons au-dessus des points de référence implicitement connus dans différents états de la nature possibles.
+Dans la discussion qui suit, nous mettons en lumière les problèmes liés aux points de référence, à l’ajustement des procédures de gestion, à la fréquence et aux déclencheurs des évaluations, à l’inclusion des effets environnementaux, à l’évaluation de la valeur de l’information, et à l’utilisation de ce Cadre dans les plans de rétablissement des stocks.
 
-## IMPLICIT VS. EXPLICIT KNOWLEDGE OF LIMIT REFERENCE POINTS {#sec:discussion-ref-points}
+## CONNAISSANCE IMPLICITE ET EXPLICITE DES POINTS DE RÉFÉRENCE LIMITES {#sec:discussion-ref-points}
 
-This MP Framework, and all MSE processes, differ from conventional stock assessments in the way science advice is delivered.
-In most BC groundfish stock assessments [e.g., @yamanaka2011; @starr2017; @forrest2019], catch advice is presented in the form of decision tables, where probabilities of breaching reference points (e.g., probability of the stock falling below the LRP) are presented over a range of possible future TAC levels.
-Uncertainty can be incorporated into the process in two main ways: (1) within a single model, through treating model parameters (e.g., $M$, $R_0$, $h$, process, and observation error terms) as random variables; and/or (2) developing alternative models to test sensitivity to model assumptions.
-In the latter case, results from some of these sensitivity models may be averaged to produce a model-averaged decision table [e.g., @forrest2019], integrating uncertainties across multiple models.
-This approach depends on explicit reporting of reference points and estimation of stock status.
-Following the production of a decision table, it is then the job of the decision-makers to select a future TAC based on the probabilities presented in the decision table and their consideration of other factors such as economic needs of the fishery combined with their risk tolerance.
-In this process, consideration of risk (i.e., probability of breaching reference points and resulting impacts) occurs at the final step of the decision-making process and may not always be transparent or be related to agreed-upon objectives.
+Ce Cadre des procédures de gestion et tous les processus d’évaluation des stratégies de gestion diffèrent des évaluations classiques des stocks pour ce qui est de la façon dont les avis scientifiques sont fournis.
+Dans la plupart des évaluations des stocks de poisson de fond de la Colombie-Britannique [p. ex. @yamanaka2011; @starr2017; @forrest2019], les avis sur les prises sont présentés sous forme de tableaux de décision, où les probabilités de dépassement des points de référence (p. ex. la probabilité que les stocks tombent en deçà du PRL) sont présentées pour un éventail de futurs TAC possibles.
+L’incertitude peut être intégrée au processus principalement de deux façons : 1) dans un seul modèle, en traitant les paramètres du modèle (p. ex. $M$, $R_0$, $h$, termes d’erreur de processus et d’observation) comme des variables aléatoires; et/ou 2) en élaborant d’autres modèles pour tester la sensibilité aux hypothèses du modèle.
+Dans ce dernier cas, on peut moyenner les résultats de certains de ces modèles de sensibilité pour produire un tableau de décision fondé sur la moyenne des modèles [p. ex. @forrest2019], en intégrant les incertitudes entre plusieurs modèles.
+Cette approche dépend de la déclaration explicite des points de référence et de l’estimation de l’état des stocks.
+À la suite de la production d’un tableau de décision, il incombe aux décideurs de choisir un TAC futur en fonction des probabilités présentées dans le tableau de décision et en tenant compte d’autres facteurs comme les besoins économiques de la pêche combinés à leur tolérance au risque.
+Dans ce processus, la prise en compte du risque (c.-à-d. la probabilité de dépasser les points de référence et les impacts qui en découlent) se fait à l’étape finale du processus décisionnel et n'est pas toujours transparente ou liée à des objectifs convenus.
 
-MP frameworks differ from conventional assessments in two key ways: (1) reference points and stock status are not explicitly reported (or at least not emphasized); and (2) objectives related to the probability of breaching reference points must be agreed upon at the beginning of the process, i.e., at Step 2 of the best practices (Section \@ref(sec:best2)).
-Reference points and stock status are therefore still an integral component of the framework---they are calculated in the OMs and are built into the performance metrics.
-Critically, agreement on acceptable risk (e.g., acceptable probabilities of breaching reference points) must be reached at the beginning of the process so that performance metrics and satisficing criteria can be established.
-The final decision point in this process is the MP that delivers a TAC that meets objectives, while ideally also achieving acceptable trade-offs among other objectives such as catch or variability in catch.
-An advantage of MP frameworks is that all objectives must be transparently stated and are "baked in" to the final catch advice.
+Les cadres de procédures de gestion diffèrent des évaluations conventionnelles de deux manières principales : 1) les points de référence et l’état des stocks ne sont pas explicitement indiqués (ou du moins ne sont pas mis en relief); et 2) les objectifs relatifs à la probabilité de dépasser les points de référence doivent être convenus au début du processus, c’est-à-dire à l’étape 2 des pratiques exemplaires (section \@ref(sec:best2)).
+Les points de référence et l’état des stocks font donc toujours partie intégrante du cadre---ils sont calculés dans les modèles opérationnels et intégrés dans les paramètres de rendement.
+Il est essentiel de s’entendre sur le risque acceptable (p. ex. les probabilités acceptables de dépassement des points de référence) au début du processus afin de pouvoir établir les paramètres de rendement et les critères de satisfaction.
+Le point de décision final dans ce processus est la procédure de gestion qui produit un TAC atteignant les objectifs, tout en réalisant idéalement aussi des compromis acceptables entre d’autres objectifs comme les prises ou la variabilité des prises.
+L’un des avantages des cadres de procédures de gestion est que tous les objectifs doivent être énoncés de façon transparente et faire partie intégrante de l’avis final sur les prises.
 
-We note that, for many stocks, especially data-limited stocks, it is not possible to reliably estimate biological reference points or estimate stock status.
-MP frameworks such as this one may be especially important for these stocks
-The Sustainable Fisheries Framework and the Fish Stocks provisions of the *Fisheries Act* require that fish stocks be maintained at sustainable levels, and particularly above the LRP (Section \@ref(sec:intro-motivation)).
-This framework implicitly preserves the intent of these policies, despite the fact that reference points and stock status are not explicitly provided.
-The MP Framework therefore increases capacity for provision of Sustainable Fisheries Framework- and Fish Stocks provisions-compliant catch advice for data-limited stocks.
-We recommend that products such as [DFO's sustainability survey](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/index-en.html) be flexible to accommodate status reports from MP-approach processes, which may use alternative wording such as: "Under the current management procedure, the stock has a less than [X] probability ([Y] times out of [N] chance) of being below the LRP averaged over a [Z]-year time frame."
-Alternatively, if a minimum-performance-by-year calculation [@ices2016criteria] is performed: "...less than [X] probability ([Y] times out of [N] chance) of being below the LRP in each and every year over a [Z]-year time frame."
+Nous précisons que, pour de nombreux stocks, en particulier les stocks à données limitées, il n’est pas possible d’estimer de façon fiable leurs points de référence biologiques ou leur état.
+Des cadres des procédures de gestion comme celui-ci peuvent être particulièrement importants pour ces stocks.
+Le Cadre pour la pêche durable et les dispositions relatives aux stocks de poissons de la *Loi sur les pêches* exigent que les stocks de poissons soient maintenus à des niveaux durables, et en particulier au-dessus du PRL (section \@ref(sec:intro-motivation)).
+Ce cadre préserve implicitement l’intention de ces politiques, bien que les points de référence et l’état du stock ne soient pas explicitement fournis.
+Le Cadre des procédures de gestion améliore donc la capacité de produire des avis sur les prises conformes au Cadre pour la pêche durable et aux dispositions sur les stocks de poissons pour les stocks à données limitées.
+Nous recommandons que des produits comme [l’étude sur la durabilité réalisée par le MPO] (https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/index-fr.html) soient souples pour tenir compte des rapports d’étape des processus fondés sur des procédures de gestion, qui peuvent utiliser d’autres formulations comme : « Selon la procédure de gestion actuelle, la probabilité que le stock soit inférieur au PRL moyenné sur une période de [Z]-années est inférieure à [X] ([Y] chances sur [N]). »
+Sinon, si on calcule un rendement minimal par année [@ices2016criteria] : « [...] la probabilité que le stock soit inférieur au PRL chaque année pendant une période de [Z] années est inférieure à [X] ([Y] chances sur [N]). »
 
-## TUNING MPs {#sec:discussion-tuning}
+## RÉGLAGE DES PROCÉDURES DE GESTION {#sec:discussion-tuning}
 
-Many of the MPs in this framework are characterized by one or more parameters that control how the TAC should change in response to changes in the survey index (Appendix \@ref(app:MPs)).
-For example, the Itarget MPs have four "tuning" parameters, $w$, $x$, $\lambda$, and $\delta$, which control the rate and scale of TAC adjustments in response to changes in the index (Appendix \@ref(app:MPs) Section \@ref(sec:mp-itarget)).
-In our Rex Sole case study, we tested six versions of the Itarget MPs over a fairly coarse scale of the tuning parameters.
-In this particular case, several of the MPs performed well with respect to satisficing criteria so we did not explore more combinations.
-However, in some applications of the framework it may be desirable to iteratively tune MPs on a fine scale to achieve desired performance outcomes [see @sagarese2018 for discussion on tuning MPs].
+Bon nombre des procédures de gestion de ce Cadre sont caractérisées par un ou plusieurs paramètres qui contrôlent la façon dont le TAC devrait changer en réponse aux variations de l’indice du relevé (annexe \@ref(app:MPs)).
+Par exemple, les procédures de gestion Itarget ont quatre paramètres de « réglage », $w$, $x$, $\lambda$ et $\delta$ qui contrôlent le taux et l’échelle des ajustements du TAC en réponse aux variations de l’indice (annexe \@ref(app:MPs), section \@ref(sec:mp-itarget)).
+Dans notre étude de cas de la plie royale, nous avons mis à l’essai six versions des procédures de gestion Itarget sur une échelle assez grossière des paramètres de réglage.
+Dans ce cas particulier, plusieurs procédures de gestion ont donné de bons résultats en ce qui concerne les critères de satisfaction, de sorte que nous n’avons pas exploré d’autres combinaisons.
+Cependant, dans certaines applications du Cadre, il peut être souhaitable de régler avec précision les procédures de gestion de façon itérative pour atteindre les résultats de rendement visés [voir la discussion sur le réglage des procédures de gestion dans @sagarese2018 ].
 
-There is a trade-off between testing a larger set of generic MPs across a coarse array of tuning parameters and homing in on better-performing MPs via the satisficing step vs. focusing effort on a few MPs that are highly "tuned" to achieve desired outcomes.
-In cases where generic MPs perform poorly, the latter approach may be preferred.
-This latter approach may also be preferred in more mature processes with strong stakeholder engagement, where MPs can be tuned iteratively to meet a more refined set of objectives [e.g., @cox2008a].
-Ultimately, the decision about whether to evaluate generic or finely tuned MPs will be made on a stock-by-stock basis.
-The process may start with more generic MPs and graduate to more finely tuned MPs as experience is gained with the performance of specific MPs.
+Il y a un compromis à faire entre la mise à l’essai d’un plus grand ensemble de procédures de gestion génériques en fonction d’un ensemble approximatif de paramètres de réglages et l’intégration de procédures de gestion plus performantes au moyen de l’étape relative à la satisfaction, plutôt que de concentrer les efforts sur quelques procédures de gestion qui sont très « précises » pour atteindre les résultats souhaités. 
+Dans les cas où les procédures de gestion génériques donnent de mauvais résultats, la deuxième approche peut être préférable. 
+Cette dernière approche peut également être privilégiée dans des processus plus matures avec une forte mobilisation des intervenants, où les procédures de gestion peuvent être réglées de façon itérative pour atteindre un ensemble d’objectifs plus précis [p. ex. @cox2008a]. 
+En fin de compte, la décision d’évaluer des procédures de gestion génériques ou plus précises sera prise au cas par cas pour chaque stock. 
+Le processus peut commencer avec des procédures de gestion plus génériques et passer peu à peu à des procédures de gestion plus précises à mesure que l’expérience est acquise avec le rendement de certaines procédures de gestion.
 
-## REASSESSMENT FREQUENCY AND TRIGGERS {#sec:discussion-triggers}
+## FRÉQUENCE ET DÉCLENCHEURS DES RÉÉVALUATIONS {#sec:discussion-triggers}
 
-In general, the purpose of an MP framework is to identify and select a robust MP that can be left in place for an agreed amount of time.
-We do not recommend a specific interval between assessments in this framework and suggest this should be done on a stock-by-stock basis.
-We suggest that the MP Framework itself can be used to test appropriate re-assessment intervals for individual fish stocks [e.g., @huynh2020].
-Interim checks between assessments are also recommended to ensure the selected MP is performing as expected.
+En général, l’objectif d’un cadre des procédures de gestion est de déterminer et de choisir une procédure de gestion solide qui peut être laissée en place pendant une période convenue. 
+Nous ne recommandons pas d’intervalle précis entre les évaluations dans ce Cadre et suggérons de le faire stock par stock. 
+Selon nous, le Cadre des procédures de gestion lui-même peut être utilisé pour mettre à l’essai des intervalles de réévaluation appropriés pour les différents stocks de poissons [p. ex. @huynh2020]. 
+Des vérifications provisoires entre les évaluations sont également recommandées pour s’assurer que la procédure de gestion choisie fonctionne comme prévu.
 
-In addition to the best practice steps described in Section \@ref(sec:best-practices), @carruthers2018 describe a final evaluation step, where performance of the selected MP is formally reviewed once it has been implemented.
-Departures from an MP's predicted performance have been termed "exceptional circumstances", where the observed system dynamics fall outside the range of OM scenarios specified in the OM(s), over which the MPs were demonstrated to be robust [@butterworth2008].
-Exceptional circumstances can be caused either by misspecification of the original OM(s) or can be due to unforeseen changes in the future system dynamics that were not captured in the original OM(s) (e.g., changes in natural mortality, growth, recruitment, or fishing dynamics).
-Evidence for exceptional circumstances, occurring within the recommended assessment interval, would trigger a review of the OM(s) and MP, possibly resulting in a new OM, or an adjustment to the selected MP [@carruthers_hordyk_2018].
+En plus des étapes des pratiques exemplaires décrites dans la section \@ref(sec:best-practices), @carruthers2018 présentent une étape d’évaluation finale, où le rendement de la procédure de gestion choisie est examiné officiellement une fois qu’elle a été mise en œuvre.
+Les écarts par rapport au rendement prévu d’une procédure de gestion ont été qualifiés de « circonstances exceptionnelles », lorsque la dynamique observée du système se situe en dehors de l’éventail des scénarios de modèles opérationnels précisés dans le ou les modèles opérationnels, pour lesquels la robustesse des procédures de gestion a été démontrée [@butterworth2008].
+Les circonstances exceptionnelles peuvent être causées soit par une mauvaise spécification du ou des modèles opérationnels originaux, soit par des changements imprévus dans la dynamique future du système qui n’ont pas été saisis dans le modèle opérationnel original (p. ex. changements dans la mortalité naturelle, la croissance, le recrutement ou la dynamique de la pêche).
+La preuve de circonstances exceptionnelles, survenant dans l’intervalle recommandé entre les évaluations, déclencherait un examen des modèles opérationnels et de la procédure de gestion, ce qui pourrait entraîner un nouveau modèle opérationnel ou un ajustement de la procédure de gestion choisie [@carruthers_hordyk_2018].
 
-In established MSE processes [e.g., @cox2008a], informal evaluation of the performance of MPs may be done at regular intervals as the MP is applied and new data are gathered (e.g., survey and commercial CPUE information).
-@carruthers_hordyk_2018 list several examples of MSEs where formal protocols for detecting exceptional circumstances have been established.
-In general, formal protocols have included monitoring the biomass index, catch, and sometimes other data-types such as age-composition data, and comparing observations to the OM predictions.
-Examples of triggers for re-evaluation include observed data falling outside some confidence interval of the OM-predicted data (e.g., 90% or 95%).
-@carruthers_hordyk_2018 recommend testing the statistical power of formal protocols to detect exceptional circumstances.
-This may be especially important for data-limited species, where statistical power may be low due to large uncertainty in OM dynamics.
-For example, if the confidence interval of a predicted index is extremely large due to OM uncertainties, the likelihood of future observed indices falling outside its range may be low.
-It may therefore be necessary to use more rigorous test statistics, possibly based on multiple sources of data [e.g., examples provided in @carruthers_hordyk_2018].
+Dans les processus établis d’évaluation des stratégies de gestion [p. ex. @cox2008a], une évaluation informelle du rendement des procédures de gestion peut être effectuée à intervalles réguliers à mesure que la procédure de gestion est appliquée et que de nouvelles données sont recueillies (p. ex. relevé et renseignements sur les CPUE dans la pêche commerciale).
+@carruthers_hordyk_2018 donnent plusieurs exemples d’évaluations des stratégies de gestion où des protocoles officiels de détection de circonstances exceptionnelles ont été établis.
+En général, les protocoles officiels comprenaient la surveillance de l’indice de la biomasse, des prises et parfois d’autres types de données, comme les données sur la composition selon l’âge, et la comparaison des observations aux prévisions du modèle opérationnel.
+Les données observées qui se situent à l’extérieur d’un certain intervalle de confiance des données prédites par le modèle opérationnel (p. ex. 90 % ou 95 %) sont des exemples de déclencheurs de réévaluation.
+@carruthers_hordyk_2018 recommandent de tester la puissance statistique des protocoles formels pour détecter les circonstances exceptionnelles.
+Cela peut être particulièrement important pour les espèces à données limitées, où la puissance statistique peut être faible en raison d’une grande incertitude dans la dynamique du modèle opérationnel.
+Par exemple, si l’intervalle de confiance d’un indice prédit est extrêmement important en raison des incertitudes du modèle opérationnel, la probabilité que les indices observés dans l’avenir se situent à l’extérieur de sa fourchette peut être faible.
+Il peut donc être nécessaire d’utiliser des statistiques d’essai plus rigoureuses, peut-être fondées sur plusieurs sources de données [p. ex., exemples donnés dans @carruthers_hordyk_2018].
 
-We recommend regular evaluation of the performance of MPs recommended by this framework but recognize that a formal protocol has not yet been established.
-We therefore also recommend further analyses to evaluate protocols for detecting exceptional circumstances as a matter of priority.
+Nous préconisons d’évaluer régulièrement le rendement des procédures de gestion recommandées par ce Cadre, mais nous reconnaissons qu’un protocole formel n’a pas encore été établi.
+Nous recommandons donc aussi d’autres analyses pour évaluer les protocoles de détection des circonstances exceptionnelles en priorité.
 
-## INCLUDING ENVIRONMENTAL EFFECTS {#sec:discussion-environmental}
+## INCLUSION DES EFFETS ENVIRONNEMENTAUX {#sec:discussion-environmental}
 
-The Fish Stocks provisions of the *Fisheries Act* state that fisheries management decisions shall take "into account the biology of the fish and the environmental conditions affecting the stock" (Section \@ref(sec:intro-motivation)).
-Changing environmental conditions can affect fish stocks in many ways, including impacting natural mortality rates, growth rates and condition, recruitment success, and spatial distribution, which may impact fishery catchability or selectivity.
-Robust methods for including environmental considerations into single-species catch advice are not well-established in fisheries decision-making environments [but see @haltuch2011; @haltuch2019; @crone2019].
-This is because of large uncertainties associated with observing complex marine environments and understanding mechanisms linking fish population dynamics with environmental change [@myers1995].
-Unless mechanisms are well-understood [e.g., @swain2015], incorporating environmental variables into stock assessments does not necessarily improve advice [@punt2014].
+Les dispositions sur les stocks de poissons de la *Loi sur les pêches* stipulent que les décisions de gestion des pêches doivent tenir « compte de la biologie du poisson et des conditions environnementales qui influent sur le stock » (section \@ref(sec:intro-motivation)).
+Les conditions environnementales changeantes peuvent avoir de nombreuses répercussions sur les stocks de poissons, notamment sur les taux de mortalité naturelle, les taux de croissance et l’état, le succès du recrutement et la répartition spatiale, ce qui peut avoir une incidence sur la capturabilité ou la sélectivité des pêches.
+Les milieux décisionnels des pêches ne disposent pas de méthodes solides bien établies pour inclure des considérations environnementales dans les avis sur les prises d’une seule espèce [mais voir @haltuch2011; @haltuch2019; @crone2019].
+Cela est dû aux grandes incertitudes associées à l’observation d’environnements marins complexes et à la compréhension des mécanismes reliant la dynamique des populations de poissons aux changements environnementaux [@myers1995].
+À moins que les mécanismes soient bien compris [p. ex. @swain2015], l’intégration des variables environnementales dans les évaluations des stocks ne permet pas nécessairement d’améliorer les avis [@punt2014].
 
-Closed loop simulation-testing is an important means of evaluating how MPs perform in the presence of uncertainty and a changing environment [e.g., @haltuch2009; @haltuch2011; @punt2011b].
-In this approach, hypotheses about how environmental variables impact population dynamics are incorporated into the OMs, with the performance of alternative MPs (which may or may not include environmental variables) evaluated in the same way as presented in this framework.
-Multiple OMs can be developed that represent multiple hypotheses for environmental effects.
-OMs could explicitly include environmental variables (e.g., linking ocean temperature with recruitment deviations, or linking predator abundance with *M*), or could be mechanism-free (e.g., allowing growth parameters or $M$ to vary through time with no specific driver).
-The latter, mechanism-free approaches are already straightforward to incorporate into DLMtool operating models, via growth or mortality parameters (see Section \@ref(sec:dlmtool-time-varying)).
-The Rex Sole case study included one OM scenario in the robustness set where $M$ increased linearly through time.
-In this case, no specific mechanism for changing $M$ was provided.
+Les essais par simulation en boucle fermée sont un moyen important d’évaluer le rendement des procédures de gestion en présence d’incertitude et d’un environnement changeant [p. ex. @haltuch2009; @haltuch2011; @punt2011b].
+Dans cette approche, les hypothèses concernant l’impact des variables environnementales sur la dynamique des populations sont intégrées dans les modèles opérationnels, et le rendement des procédures de gestion de rechange (qui peuvent ou non inclure des variables environnementales) est évalué de la façon présentée dans ce Cadre.
+Il est possible d’élaborer plusieurs modèles opérationnels qui représentent différentes hypothèses pour les effets environnementaux.
+Les modèles opérationnels pourraient inclure explicitement des variables environnementales (p. ex. établir un lien entre la température de l’océan et les écarts du recrutement ou entre l’abondance des prédateurs et *M*) ou pourraient ne pas comporter de mécanisme (p. ex. laisser les paramètres de croissance ou $M$ varier dans le temps sans facteur particulier).
+Ces dernières approches sans mécanisme sont déjà faciles à intégrer dans les modèles opérationnels de DLMtool, au moyen de paramètres de croissance ou de mortalité (voir la section \@ref(sec:dlmtool-time-varying)).
+L’étude de cas de la plie royale comprenait un scénario de modèle opérationnel dans l’ensemble de robustesse où $M$ augmentait linéairement dans le temps. Dans ce cas, aucun mécanisme précis n’était fourni pour faire varier $M$.
 
-Environmental changes may also increase the frequency of unexpected events such as very large or very small recruitment events.
-These are sometimes referred to as "black-swan" events [e.g., @taleb2007; @anderson2017; @anderson2019] or "spasmodic recruitment" [@caddy1983] and can be incorporated into operating models through the addition of alternative distributions for recruitment anomalies to allow for occasional very large or very small events.
-An upcoming application of the MP Framework for the Inside stock of Yelloweye Rockfish will include an OM scenario that incorporates occasional sudden large recruitment events [@haggarty2020yelloweye].
-We recommend using the tools developed for this MP Framework to further explore simulation-testing approaches to identify MPs that are robust to changing environmental conditions.
+Les changements environnementaux peuvent aussi accroître la fréquence des événements imprévus comme les épisodes de recrutement très fort ou très faible.
+Ces événements sont parfois appelés « cygnes noirs » [p. ex. @taleb2007; @anderson2017; @anderson2019] ou « recrutement spasmodique » [@caddy1983], et on peut les intégrer aux modèles opérationnels en ajoutant d’autres distributions pour les anomalies de recrutement afin de tenir compte de ces événements occasionnels.
+Une application prochaine du Cadre des procédures de gestion pour le stock de sébaste aux yeux jaunes des eaux intérieures comprendra un scénario de modèle opérationnel qui incorporera des épisodes occasionnels et soudains de recrutement important [@haggarty2020yelloweye].
+Nous recommandons d’utiliser les outils élaborés aux fins de ce Cadre pour explorer plus à fond les méthodes d’essai par simulation pour déterminer des procédures de gestion qui demeurent valides dans des conditions environnementales changeantes.
 
-## ASSESSING THE VALUE OF INFORMATION {#sec:discussion-voi}
+## ÉVALUATION DE LA VALEUR DE L’INFORMATION {#sec:discussion-voi}
 
-The MP Framework provides the tools to evaluate the "value of information" (VoI) on the performance of MPs.
-Value-of-information analyses assess whether performance can be improved with the addition of resources invested in data-collection.
-Conversely, such analyses can evaluate whether similar performance could be achieved if fewer data were available.
-These are essentially sensitivity analyses to the addition or removal of data sources or changes to data quantity or quality.
+Le Cadre des procédures de gestion fournit les outils nécessaires pour évaluer la « valeur de l’information » par rapport au rendement des procédures de gestion.
+Les analyses de la valeur de l’information permettent d’évaluer si l’ajout de ressources investies dans la collecte de données permet d’améliorer le rendement.
+Ces analyses peuvent également permettre d’évaluer, à l’inverse, si un rendement semblable pourrait être atteint si moins de données étaient disponibles.
+Il s’agit essentiellement d’analyses de sensibilité à l’ajout ou l’élimination de sources de données ou aux changements touchant la quantité ou la qualité des données.
 
-Typical data types that could be included in value-of-information analyses in applications of the MP Framework for BC groundfish include survey-index and age-composition data.
-In terms of survey-index data, this framework could be used to test the sensitivity of MP performance to changes in the precision of population indexes.
-For example, applications of the framework could quantify the expected change in the probability of maintaining a stock above its LRP in the long term given reductions or expansions in random-stratified survey programs.
+Les types de données classiques qui pourraient être incluses dans les analyses de la valeur de l’information dans les applications du Cadre des procédures de gestion pour le poisson de fond de la Colombie-Britannique sont les données sur les indices de relevé et sur la composition selon l’âge.
+En ce qui concerne les données sur les indices de relevé, ce cadre pourrait servir à vérifier la sensibilité du rendement de la procédure de gestion aux changements de précision des indices de la population.
+Par exemple, les applications du Cadre pourraient quantifier le changement prévu de la probabilité de maintenir un stock au-dessus de son PRL à long terme, compte tenu des réductions ou des expansions des programmes de relevés à stratification aléatoire.
 
-The MP Framework could also be used to evaluate whether MP performance could be improved by ageing otoliths for a given stock.
-This would be achieved by using the OM to simulate age-composition data, possibly with different effective sample sizes, and testing whether MPs that rely on age-composition data (e.g., a full age-structured model) outperform simpler, data-limited MPs such as the ones tested in this document.
-DLMtool's companion package MSEtool contains a large number of data-rich MPs (age-structured models) that could be used for this purpose [@huynh_msetool_2019].
-This type of analysis could be used to answer questions about whether data-rich MPs would better meet management objectives for a given fish stock and, if so, how much ageing data would be required for a full assessment [e.g., @sagarese2018].
-The effects of ageing imprecision and bias on assessment performance could also be evaluated.
-We note that simulating age- and length-composition data with sufficiently realistic "noise" can be challenging.
-Evaluating the performance of MPs with composition data that represent the underlying true composition more closely than real data may overestimate the performance of MPs that rely on composition data.
+Le Cadre des procédures de gestion pourrait également être utilisé pour évaluer si la détermination de l’âge à partir des otolithes pourrait améliorer le rendement des procédures de gestion pour un stock donné.
+Pour ce faire, on utiliserait le modèle opérationnel pour simuler les données sur la composition selon l’âge, peut-être avec des tailles effectives de l’échantillon différentes, et on vérifierait si les procédures de gestion qui dépendent des données sur la composition selon l’âge (p. ex. un modèle complet structuré selon l’âge) ont un rendement supérieur aux procédures de gestion plus simples et à données limitées, comme celles qui sont mises à l’essai dans le présent document.
+Le progiciel d’accompagnement de DLMtool, MSEtool, contient un grand nombre de procédures de gestion riches en données (modèles structurés selon l’âge) qui pourraient être utilisées à cette fin [@huynh_msetool_2019].
+Ce type d’analyse pourrait servir à déterminer si des procédures de gestion riches en données répondraient mieux aux objectifs de gestion d’un stock de poissons donné et, le cas échéant, de la quantité de données sur la détermination de l’âge nécessaire pour une évaluation complète [p. ex. @sagarese2018].
+Les effets des biais et de l’imprécision de la détermination de l’âge sur le rendement de l’évaluation pourraient également être évalués.
+Nous soulignons qu’il peut être difficile de simuler des données sur la composition selon l’âge et la longueur avec un « bruit » suffisamment réaliste.
+L’évaluation du rendement des procédures de gestion à l’aide de données sur la composition qui représentent la composition sous-jacente réelle plus étroitement que les données réelles peut surestimer le rendement des procédures de gestion qui dépendent des données sur la composition.
 
-We suggest that expanding the framework to include VoI considerations may also require development of new objectives and performance metrics associated with the costs of expanding research programs, collecting more data, or benefits such as marginal improvements in accuracy of advice and improvements in catch accessibility.
+À notre avis, l’élargissement du Cadre pour inclure des considérations sur la valeur de l’information pourrait également nécessiter l’élaboration de nouveaux objectifs et paramètres de rendement liés aux coûts associés à l’expansion des programmes de recherche, à la collecte de plus de données ou à des avantages comme des améliorations marginales de l’exactitude des avis et des améliorations de l’accessibilité des prises.
 
-## REBUILDING PLANS {#sec:discussion-rebuilding}
+## PLANS DE RÉTABLISSEMENT {#sec:discussion-rebuilding}
 
-The [Precautionary Approach policy](https://waves-vagues.dfo-mpo.gc.ca/Library/40584781.pdf) and the Fish Stocks provisions of the *Fisheries Act* (Section \@ref(sec:intro-motivation)) require that management measures be put in place if fish stocks are assessed to be in the critical zone (i.e., below the LRP).
-Rebuilding plans require that management measures should rebuild stocks out of the critical zone within a specified time frame (e.g., one or two generation times), with a specified probability.
-The MP Framework can be easily modified to test performance of alternative MPs with respect to meeting rebuilding objectives for stocks requiring rebuilding plans.
-The only real modifications needed are to the objectives and performance metrics, which are already customizable within this framework.
+La [Politique sur l’approche de précaution] (https://waves-vagues.dfo-mpo.gc.ca/Library/40584999.pdf) et les dispositions sur les stocks de poissons de la *Loi sur les pêches* (section \@ref(sec:intro-motivation)) exigent que des mesures de gestion soient mises en place si l’on évalue que les stocks de poissons se trouvent dans la zone critique (c.-à-d. sous le PRL).
+Les plans de rétablissement requièrent que les mesures de gestion fassent sortir les stocks de la zone critique dans un délai précis (p. ex. une ou deux générations), avec une probabilité déterminée.
+Le Cadre des procédures de gestion peut être facilement modifié pour tester le rendement des autres procédures de gestion en ce qui concerne l’atteinte des objectifs de rétablissement des stocks nécessitant des plans de rétablissement.
+Les seules véritables modifications nécessaires sont les objectifs et les paramètres de rendement, qui sont déjà personnalisables dans ce Cadre.
 
-A challenge for data-limited species is how to determine whether a stock is in the critical zone in the first place, required in order to trigger a rebuilding plan.
-In light of new legislative requirements for rebuilding under the  Fish Stocks provisions, DFO Science is currently developing more detailed guidance on considerations for the design of rebuilding strategies [@kronlund2020].
-Drawing on precedents by Health Canada [@weight2018], @kronlund2020 suggest a "weight of evidence" approach to determine whether rebuilding is required.
-A weight of evidence approach may include consideration of combined contributions of individual studies (totality of evidence), and expert judgement-assigned weights for each line of evidence, where a line of evidence may consist of one or more studies.
-We suggest that if conditioned OMs place a high probability of a fish stock being in the critical zone across a range of plausible OM assumptions, this could contribute to the lines of evidence used to trigger a rebuilding plan.
+Pour les espèces à données limitées, l’un des défis est de déterminer si un stock se trouve dans la zone critique, ce qui est nécessaire pour déclencher un plan de rétablissement.
+À la lumière des nouvelles exigences législatives concernant le rétablissement dans les dispositions sur les stocks de poissons, la Direction des sciences du MPO élabore actuellement des directives plus détaillées sur les facteurs à prendre en considération pour concevoir des programmes de rétablissement [@kronlund2020].
+En s’appuyant sur les précédents établis par Santé Canada, [@weight2018], @kronlund2020 suggère une approche fondée sur le « poids de la preuve » pour déterminer si le rétablissement est nécessaire.
+Une approche fondée sur le poids de la preuve peut comprendre la prise en compte des contributions combinées de différentes études (ensemble de la preuve) et des valeurs attribuées par jugement d’expert à chaque source de données, lorsqu’une source de données peut comprendre une ou plusieurs études.
+Nous sommes d’avis que, dans les cas où les modèles opérationnels conditionnés établissent une forte probabilité qu’un stock de poissons se trouve dans la zone critique pour une gamme d’hypothèses plausibles de modèles opérationnels, cela pourrait contribuer aux sources de données utilisées pour déclencher un plan de rétablissement.
 
-This framework is currently being applied to evaluate alternative data-limited MPs for the rebuilding plan for the Inside stock of Yelloweye Rockfish in British Columbia [@haggarty2020yelloweye].
+Ce cadre est actuellement appliqué pour évaluer d’autres procédures de gestion à données limitées pour le plan de rétablissement du stock de sébaste aux yeux jaunes des eaux intérieures en Colombie-Britannique [@haggarty2020yelloweye].
 
-## DATA-MODERATE AND DATA-RICH STOCKS {#sec:discussion-data-rich}
+## STOCKS À DONNÉES MODÉRÉES ET À DONNÉES ABONDANTES {#sec:discussion-data-rich}
 
-This framework has outlined the steps needed to evaluate the performance of data-limited MPs, with a focus on BC groundfish species.
-Data-richness occurs along a gradient and it may be desirable to apply the framework to evaluate the performance of data-moderate or data-rich MPs.
-The principles of this framework are the same along the data-richness continuum.
-The MSEtool R package [@huynh_msetool_2019] contains data-moderate (e.g., delay-difference models) and data-rich (e.g., statistical catch-age models) MPs that could easily be incorporated into this framework with some modification.
-However, we note again that the framework is software agnostic.
-Other software tools have been used in a similar fashion for data-rich species in BC [e.g., Sablefish: @cox2008a; Pacific Herring: @cox2019].
+Ce Cadre décrit les étapes nécessaires pour évaluer le rendement des procédures de gestion à données limitées, en mettant l’accent sur les espèces de poisson de fond de la Colombie-Britannique.
+La richesse en données se produit le long d’un gradient et il peut être souhaitable d’appliquer le Cadre pour évaluer le rendement des procédures de gestion à données modérées ou abondantes.
+Les principes de ce Cadre sont les mêmes dans le continuum de la richesse en données.
+Le progiciel MSEtool dans R [@huynh_msetool_2019] contient des procédures de gestion à données modérées (p. ex. modèles de type différence-délai) et abondantes (p. ex. modèles statistiques des prises selon l’âge) qui pourraient facilement être intégrées à ce Cadre avec quelques modifications.
+Cependant, nous précisons encore une fois que le Cadre est indépendant du logiciel.
+D’autres logiciels ont été utilisés de la même façon pour des espèces à données riches en Colombie-Britannique [p. ex. la morue charbonnière : @cox2008a; hareng du Pacifique : @cox2019].
 
-## LIMITATIONS OF THE FRAMEWORK {#sec:discussion-limitations}
 
-As in all MSE processes, results of this framework will depend on the degree to which uncertainties within the real system are captured within the OMs.
-For this reason we recommended developing multiple OMs to capture the key, most plausible hypotheses about the system in the reference set, and a wider range of uncertainties in the robustness set.
-However, it is inevitable that some uncertainties will not be considered, either because they are unknown or because including them would create unworkable complexity in the modelling and decision-making environment.
-For example, species for which spatial considerations are important (e.g., highly migratory species, or species with strong environmental drivers of productivity).
-Some considerations will inevitably be considered outside the scope of the process due to limitations in available data, time, or expertise.
-Therefore it is important to evaluate the performance of selected MPs once they are implemented, either through informal or formal means (Section \@ref(sec:discussion-triggers)).
+## LIMITES DU CADRE {#sec:discussion-limitations}
 
-Our OMs were conditioned on observed data, using the SRA model in MSEtool.
-Outputs of this model rely on the quality of the available data, and also on the assumed distributions of its input parameters.
-In particular, assumptions about selectivity will be a key source of uncertainty for species with little or no age composition data.
-Therefore, selectivity should be treated as an axis of uncertainty in most applications.
-Furthermore, as the SRA assumes almost no observation error in historical catch data, uncertainty may be underestimated in its outputs.
-For trawl-caught BC groundfish, catch estimates are considered reliable since the 1996 introduction of 100% at-sea observer coverage.
-For line-caught species, catch data are considered reliable since 2006, when 100% electronic monitoring was introduced.
-For some species, especially those with low monetary value, catch data prior to these years may be more uncertain and it may be necessary to include alternative scenarios to account for uncertainty in catch [e.g. @haggarty2020yelloweye].
+Comme pour tous les processus d’évaluation des stratégies de gestion, les résultats de ce Cadre dépendront de la mesure dans laquelle les incertitudes du système réel sont exprimées dans les modèles opérationnels.
+C’est pourquoi nous avons recommandé d’élaborer plusieurs modèles opérationnels pour saisir les hypothèses clés les plus plausibles au sujet du système dans l’ensemble de référence, ainsi qu’un plus large éventail d’incertitudes dans l’ensemble de robustesse.
+Cependant, il est inévitable que certaines incertitudes ne soient pas prises en compte, soit parce qu’elles sont inconnues, soit parce que leur inclusion créerait une complexité inapplicable dans l’environnement de modélisation et de prise de décisions, comme les espèces pour lesquelles les considérations spatiales sont importantes (p. ex. les espèces hautement migratrices) ou les espèces dont la productivité est fortement influencée par l'environnement.
+Certaines considérations seront inévitablement prises en compte en dehors de la portée du processus en raison des limites des données disponibles, du temps ou de l’expertise.
+Il est donc important d’évaluer le rendement de certaines procédures de gestion une fois qu’elles sont mises en œuvre, par des moyens informels ou formels (section \@ref(sec:discussion-triggers)).
 
-<!-- We have presented a selection of empirical and model-based MPs for data-limited species but future applications of the framework may need to evaluate other MPs, either published in the literature or developed as part of the MSE process itself [e.g., @cox2008a]. -->
+Nos modèles opérationnels ont été conditionnés en fonction des données observées, à l’aide du modèle d’analyse de la réduction des stocks dans MSEtool.
+Les sorties du modèle dépendent de la qualité des données disponibles, ainsi que des distributions présumées de ses paramètres d’entrée.
+En particulier, les hypothèses sur la sélectivité constitueront une source d’incertitude clé pour les espèces pour lesquelles il y a peu ou pas de données sur la composition selon l’âge.
+Il faudrait donc traiter la sélectivité comme un axe d’incertitude dans la plupart des applications.
+De plus, comme un modèle d’analyse de la réduction des stocks suppose qu’il n’y a presque pas d’erreur d’observation dans les données historiques sur les prises, l’incertitude peut être sous-estimée dans ses sorties.
+Pour le poisson de fond de la Colombie-Britannique pêché au chalut, les estimations des prises sont considérées comme fiables depuis l’introduction, en 1996, du niveau de présence à 100 % des observateurs en mer.
+Pour les espèces capturées à la ligne, les données sur les prises sont considérées comme fiables depuis l’introduction de la surveillance électronique à 100 % en 2006. Pour certaines espèces, surtout celles qui ont une faible valeur monétaire, les données sur les prises avant ces années peuvent être plus incertaines et il peut être nécessaire d’inclure d’autres scénarios pour tenir compte de l’incertitude dans les prises [p. ex. @haggarty2020yelloweye].
 
-Finally, the success of this framework and any MSE process will depend on adequate engagement by fishery managers, First Nations, and stakeholders.
-For some species, different user groups may have diverse objectives, creating large tradeoffs and a complex decision-making environment.
-In these cases, careful governance of the process and attention to Steps 1 and 2 (Section \@ref(sec:best-practices)) will be especially critical.
+<! -- Nous avons présenté une sélection de procédures de gestion empiriques et fondées sur des modèles pour les espèces à données limitées, mais les applications futures du cadre pourraient nécessiter d’évaluer d’autres procédures de gestion, publiées dans la documentation ou élaborées dans le cadre du processus même d’évaluation des stratégies de gestion [p. ex. @cox2008a]. -->
 
-<!-- We recommend separate review processes for extensions to the framework to evaluate data-moderate and/or data-rich MPs, as there will be additional considerations and sources of uncertainty. -->
-<!-- We also recommend separate review processes for extensions that include consideration of environmental effects, assessing the value of information and rebuilding plans.  -->
+Enfin, le succès de ce Cadre et de tout processus d’évaluation des stratégies de gestion dépendra de la participation adéquate des gestionnaires des pêches, des Premières Nations et des intervenants.
+Pour certaines espèces, différents groupes d’utilisateurs peuvent avoir des objectifs variés, ce qui crée d’importants compromis et un environnement décisionnel complexe.
+Dans ces cas, il sera particulièrement important de bien gérer le processus et de porter attention aux étapes 1 et 2 (section \@ref(sec:best-practices)).
 
-# ACKNOWLEDGEMENTS
+# REMERCIEMENTS
 
-We are grateful to the members of our technical advisory group Rob Kronlund, Adam Keizer, Chris Grandin, Ashleen Benson, Dana Haggarty, Rowan Haigh, Roger Kanno, Paul Starr, Rob Tadey, and Greg Workman for helpful discussions and comments on earlier drafts of this document.
+Nous remercions les membres de notre groupe consultatif technique, Rob Kronlund, Adam Keizer, Chris Grandin, Ashleen Benson, Dana Haggarty, Rowan Haigh, Roger Kanno, Paul Starr, Rob Tadey et Greg Workman, pour leurs discussions et commentaires utiles sur les versions antérieures de ce document.
 
-We thank Chris Grandin, who developed a number of visualization and report-generation functions within the gfdlm R package that greatly improved this document and will be invaluable in applications of the framework.
+Nous remercions Chris Grandin, qui a mis au point un certain nombre de fonctions de visualisation et de génération de rapports dans le progiciel gfdlm R, qui ont grandement amélioré ce document et qui seront d’une valeur inestimable dans les applications du Cadre.
 
-We thank Tom Carruthers and Adrian Hordyk for their work on developing DLMtool and MSEtool.
-This project would have been a much bigger undertaking without these tools. Tom and Adrian's helpful guidance and willingness to add many new features on request have greatly improved this framework.
+Nous remercions Tom Carruthers et Adrian Hordyk de leur travail de développement de DLMtool et MSEtool. Ce projet aurait été beaucoup plus vaste sans ces outils. Les conseils utiles de Tom et d’Adrian et leur disponibilité pour ajouter de nombreuses nouvelles fonctions sur demande ont grandement amélioré ce cadre.
 
-We thank John Holmes for supporting our work on this framework within the Stock Assessment and Research Division at the Pacific Biological Station.
+Nous remercions John Holmes, qui a soutenu notre travail sur ce Cadre dans la Division de l’évaluation des stocks et de la recherche à la Station biologique du Pacifique.
 
-We thank Jaclyn Cleary and Ann-Marie Huang for helpful advice on other MSE processes in BC.
+Nous remercions Jaclyn Cleary et Ann-Marie Huang pour leurs conseils utiles sur d’autres processus d’évaluation des stratégies de gestion en Colombie-Britannique.
 
-We thank DFO's Ocean and Freshwater Science Contribution Program for supporting the development of DLMtool and MSEtool.
+Nous remercions le Programme de contribution aux sciences marines et d’eaux douces du MPO, qui a appuyé l’élaboration de DLMtool et de MSEtool.
 
-Finally, we thank Carrie Holt and Meaghan Bryan for insightful reviews that greatly improved this document.
+Enfin, nous remercions Carrie Holt et Meaghan Bryan pour leurs commentaires judicieux qui ont grandement amélioré ce document.
 

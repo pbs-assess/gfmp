@@ -3,69 +3,67 @@
 `r if(knitr:::is_latex_output()) '\\Appendices'`
 `r if(!knitr:::is_latex_output()) '# (APPENDIX) Appendix {-}'`
 
-# DLMTOOL OPERATING MODEL {#app:dlmtool-om}
+# MODÈLE OPÉRATIONNEL DE DLMTOOL {#app:dlmtool-om}
 
-The population dynamics operating model (OM), as implemented in DLMtool, is an age-structured model described below.
-The OM is flexible, with options to allow a number of parameters (e.g., natural mortality, growth, selectivity) to vary through time (see Section \@ref(sec:dlmtool-time-varying)).
-Multiple sub-areas can also be described, and outcome uncertainty can be represented through the addition of implementation uncertainty and bias parameters.
-Full documentation of the DLMtool OM, including the range of possible parameterizations, is described in the appendices of @carruthers2018, adapted here for the MP Framework.
-Here, we adapt the documentation in @carruthers2018, following their notation conventions where possible for consistency.
-We present the simplest version of the OM, without time-varying parameters or multiple sub-areas.
-This simple OM structure should be suitable as a base OM for most stocks intended to be assessed within the framework.
-More complex structural assumptions, including time-varying parameters, could be developed as OM scenarios when justified for individual stocks.
+Le modèle opérationnel (MO) de la dynamique des populations, tel qu’il est mis en œuvre dans DLMtool, est un modèle structuré selon l’âge décrit ci-après.
+Le modèle opérationnel est flexible et offre des options permettant à un certain nombre de paramètres (p. ex. mortalité naturelle, croissance, sélectivité) de varier dans le temps (voir la section \@ref(sec:dlmtool-time-varying)).
+Il est aussi possible de décrire plusieurs sous-zones, ainsi que de représenter l’incertitude des résultats en ajoutant des paramètres d’incertitude de la mise en œuvre et de biais.
+La documentation complète du modèle opérationnel de DLMtool, y compris la gamme des paramétrages possibles, est décrite dans les annexes de @carruthers2018 et adaptée ici pour le Cadre des procédures de gestion.
+Ici, nous adaptons la documentation indiquée dans @carruthers2018, en suivant leurs conventions de notation autant que possible dans un souci de cohérence.
+Nous présentons la version la plus simple du modèle opérationnel, sans paramètres variables dans le temps ou sous-zones multiples.
+Cette structure simple de modèle opérationnel devrait convenir comme modèle opérationnel de base pour la plupart des stocks destinés à être évalués dans le Cadre.
+Des hypothèses structurelles plus complexes, y compris des paramètres variables dans le temps, pourraient être élaborées comme scénarios de modèles opérationnels lorsqu’elles sont justifiées pour des stocks en particulier.
 
-Following the lead of @carruthers2018, we denote parameters that are user-defined and sampled stochastically across replicates with a tilde (e.g. $\widetilde{M}$).
-For example, $\widetilde{M_i} \sim f \left( \theta \right)$ represents the $i^\textrm{th}$ simulation draw of parameter $M$ being sampled from the distribution function $f$ and parameters $\theta$.
-In most cases, the stochastic parameters could be sampled from a uniform distribution or specified directly after sampling from any distribution or model.
+En suivant l’exemple de @carruthers2018, nous désignons les paramètres définis par l’utilisateur et échantillonnés de façon stochastique sur les répétitions par un tilde (p. ex. $\widetilde{M}$). Par exemple, $\widetilde{M_i} \sim f \left( \theta \right)$ représente le $i^\textrm{th}$ tirage dans la simulation du paramètre $M$ échantillonné à partir de la fonction de distribution $f$ et des paramètres $\theta$.
+Dans la plupart des cas, les paramètres stochastiques pourraient être échantillonnés à partir d’une distribution uniforme ou précisés directement après l’échantillonnage à partir d’une distribution ou d’un modèle quelconque.
 
-There are two distinct time-periods in the simulation framework:
-(1) the historical period, which includes the years from the first year of the catch time-series $t_1$ to the final year of the catch time series $t_c$ (where "c" represents the "current" year); and
-(2) the projection period, which covers the period from the first year after $t_c$ to the final projection year $t_N$.
-The historical period is conditioned to historical observations using an age-structured stock-reduction analysis [SRA; @kimura1982; @walters2006], described in Appendix \@ref(app:sra).
-The closed-loop simulation, with application of the MPs and calculation of performance metrics, begins in the first year of the projection period (year $t_{c}+1$).
+Le cadre de simulation comporte deux périodes distinctes :
+1) la période historique, qui comprend les années allant de la première année de la série chronologique des prises $t_1$ à la dernière année de la série chronologique des prises $t_c$ (où « c » représente l’année « en cours »);
+2) la période de projection, qui va de la première année suivant $t_c$ à la dernière année de la projection $t_N$. 
+La période historique est conditionnée en fonction des observations historiques à l’aide d’une analyse de la réduction des stocks structurée selon l’âge [ARS; @kimura1982; @walters2006], décrite à l’annexe \@ref(app:sra).
+La simulation en boucle fermée, avec application des procédures de gestion et calcul des paramètres de rendement, commence la première année de la période de projection (année $t_{c}+1$).
 
-OM development in the MP Framework follows three steps:
+L’élaboration d’un modèle opérationnel dans le Cadre des procédures de gestion comporte trois étapes :
 
-1. Set parameter values and ranges in the OM---OM equations are provided in this appendix; main parameters are defined in Table \@ref(tab:tab-om-pars); default parameter settings are provided in Appendix \@ref(app:default-slots). Parameter values may be drawn from biological and fishery data, local stock assessments, the scientific literature, meta-analyses from similar species, stock assessments from other regions, expert judgement, or other sources where relevant. Examples of user-defined parameter settings drawn from a range of sources are provided in Appendix \@ref(app:desc-om-rex), and in @haggarty2020yelloweye.
+1. Établir les valeurs et les plages des paramètres du MO---Les équations du MO sont fournies dans cette annexe; les principaux paramètres sont définis dans le tableau \@ref(tab:tab-om-pars); les réglages par défaut des paramètres figurent à l’annexe \@ref(app:default-slots). Les valeurs des paramètres peuvent être tirées de données biologiques et halieutiques, d’évaluations des stocks locaux, de la documentation scientifique, de méta-analyses d’espèces semblables, d’évaluations des stocks dans d’autres régions, de jugements d’experts ou d’autres sources, le cas échéant. Des exemples de réglages de paramètres définis par l’utilisateur et tirés d’une gamme de sources sont fournis à l’annexe \@ref(app:desc-om-rex), et dans @haggarty2020yelloweye.
 
-2. Pass the OM parameters to the SRA model, which conditions the OM by fitting an age-structured SRA to historical observed catches and indices of abundance (with options to fit to age- and/or length-composition data if available).
-This results in conditioned estimates of model parameters and estimates of historical biomass and historical fishing mortality (in years $t_1$ to $t_c$), which are consistent with historical observations.
-Equations for the SRA model are provided in Appendix \@ref(app:sra).
+2. Envoyer les paramètres du modèle opérationnel dans le modèle d’analyse de la réduction des stocks, qui conditionne le modèle opérationnel en ajustant une analyse de la réduction des stocks structurée selon l’âge aux prises observées et aux indices de l’abondance (avec des options pour l’ajuster aux données sur la composition selon l’âge ou la longueur si elles sont disponibles).
+On obtient des estimations conditionnées des paramètres du modèle et des estimations de la biomasse historique et de la mortalité historique par pêche (les années $t_1$ à $t_c$), qui sont conformes aux observations historiques.
+Les équations pour le modèle d’analyse de la réduction des stocks sont fournies à l’annexe \@ref(app:sra).
 
-3. Pass the conditioned parameter values back to the OM (now the "conditioned" OM) for use in the closed-loop simulation projections, starting in year $t_{c}+1$.
+3. Renvoyer les valeurs des paramètres conditionnés au modèle opérationnel (maintenant le modèle opérationnel « conditionné ») pour les utiliser dans les projections de simulation en boucle fermée, à partir de l’année $t_{c}+1$.
 
-The SRA updates one or more of the following OM parameters, depending on data availability (see Appendix \@ref(app:sra) for details):
+L’analyse de la réduction des stocks met à jour un ou plusieurs des paramètres suivants du modèle opérationnel, en fonction de la disponibilité des données (voir plus de détails à l’annexe \@ref(app:sra)) :
 
-- $B_{t_c}/B_0$ (or "D"; depletion in the last historical year $t_c$)
-- $R_0$ (unfished recruitment)
-- $\theta_\textrm{AC}$ (or "AC"; first-order autocorrelation of recruitment deviations)
-- $\varepsilon_{\textrm{R},y}$ for years $t_1$ to $t_c$ (annual recruitment deviations for the historical period)
-- $F_{a,y}$ (fishing mortality at age by year for the historical period)
-- Selectivity parameters (age-based or length-based).
+- $B_{t_c}/B_0$ (ou « D »; épuisement au cours de la dernière année historique $t_c$)
+- $R_0$ (recrutement non exploité)
+- $\theta_\textrm{AC}$ (ou « AC »; autocorrélation de premier ordre des écarts de recrutement)
+- $\varepsilon_{\textrm{R},y}$ pour les années $t_1$ à $t_c$ (écarts annuels de recrutement pour la période historique)
+- $F_{a,y}$ (mortalité par pêche selon l’âge, par année, pour la période historique)
+- Paramètres de sélectivité (fondés sur l’âge ou la longueur).
 
-These parameters are defined in context in the following sections. Non-updated parameters are used as specified in the OM.
+Ces paramètres sont définis en contexte dans les sections qui suivent. Les paramètres non mis à jour sont utilisés comme spécifié dans le modèle opérationnel.
 
-Note that covariance among SRA parameter estimates is preserved when they are passed back to the OM.
-In general, covariance among other specified parameters is not accounted for since parameters are specified by single values or distributions.
-However, it is possible to include covariance among parameters if this information is available.
-For example, distributions of growth and maturity parameters for the Rex Sole case study are drawn from their posterior probability distributions (Appendix \@ref(app:desc-om-rex), Section \@ref(app:desc-stock-rex)).
+Il convient de noter que la covariance entre les estimations des paramètres de l’analyse de la réduction des stocks est préservée lorsqu’elles sont renvoyées dans le modèle opérationnel.
+En général, la covariance entre d’autres paramètres spécifiés n’est pas prise en compte puisque les paramètres sont précisés par des valeurs ou des distributions uniques.
+Toutefois, il est possible d’inclure la covariance entre les paramètres si cette information est disponible. Par exemple, les distributions des paramètres de croissance et de maturité pour l’étude de cas de la plie royale sont tirées de leurs distributions de probabilité a posteriori (annexe \@ref(app:desc-om-rex), section \@ref(app:desc-stock-rex)).
 
-## POPULATION DYNAMICS MODEL  {#sec:dlmtool-pop-dynamics}
+## MODÈLE DE DYNAMIQUE DES POPULATIONS {#sec:dlmtool-pop-dynamics}
 
 <!-- Parameters for the population dynamics are included in the `Stock` object of DLMtool. -->
 
-### Growth and maturity
+### Croissance et maturité
 
-The OM assumes that growth follows a von Bertalanffy model:
+Le modèle opérationnel suppose que la croissance suit un modèle de von Bertalanffy :
 
 $$
-L_{a} = \widetilde{L}_{\infty}\left( 1 - \exp( - \widetilde{\kappa}(a - \widetilde{t}_{0} \right)),
+L_{a} = \widetilde{L}_{\infty}\left( 1 – \exp( – \widetilde{\kappa}(a – \widetilde{t}_{0} \right)),
 (\#eq:dlm-om-vonb)
 $$
 
-where $L_a$ represents length at age $a$, $\widetilde{\kappa}$ represents the growth rate, $\widetilde{L}_{\infty}$ represents the maximum length and $\widetilde{t}_0$ represents the theoretical age where length is zero.
+où $L_a$ représente la longueur selon l’âge, $a$, $\widetilde{\kappa}$ le taux de croissance, $\widetilde{L}_{\infty}$ la longueur maximale et $\widetilde{t}_0$ l’âge théorique où la longueur est de zéro.
 
-Weight-at-age ($w_a$) is assumed to be related to length-at-age ($L_a$) by:
+On suppose que le poids selon l’âge ($w_a$) est lié à la longueur selon l’âge ($L_a$) par la formule :
 
 $$
 w_{a} = \widetilde{\alpha}_{W}\ {L_{a}}^{\widetilde{\beta}_{W}},
@@ -73,48 +71,39 @@ w_{a} = \widetilde{\alpha}_{W}\ {L_{a}}^{\widetilde{\beta}_{W}},
 $$
 
 
-where $\alpha_W$ and $\beta_W$ are species-specific length-weight coefficients.
-Maturity is specified according to length, using a logistic model with parameters describing length-at-50% maturity ($\widetilde{\theta}_{l50}$) and the length increment from 50% to 95% maturity ($\widetilde{\theta}_{l50-95}$). Maturity ($m_l$) at length ($l$) is then calculated as:
+où $\alpha_W$ et $\beta_W$ sont des coefficients longueur-poids propres à l’espèce.
+La maturité est précisée en fonction de la longueur, à l’aide d’un modèle logistique avec des paramètres décrivant la longueur à 50 % de maturité ($\widetilde{\theta}_{l50}$) et l’augmentation de la longueur de 50 % à 95 % de maturité ($\widetilde{\theta}_{l50-95}$). La maturité ($m_l$) à la longueur ($l$) est alors calculée comme suit :
 
 $$
-m_{l} = \frac{1}{1 + e^{{- \ln}19\left( \frac{l - \widetilde{\theta}_{l50}}{{\widetilde{\theta}}_{l50-95}} \right)}},
+m_{l} = \frac{1}{1 + e^{{- \ln}19\left( \frac{l – \widetilde{\theta}_{l50}}{{\widetilde{\theta}}_{l50-95}} \right)}},
 (\#eq:dlm-om-matl)
 $$
 
-```{r, include=FALSE, eval=FALSE}
-f <- function(l, theta_l50, theta_5095) {
-  x <- 1 + exp(-log(19) * ((l - theta_l50) / theta_5095))
-  1 / x
-}
-x <- seq(1, 100, length.out = 200)
-plot(x, f(x, 50, 25))
-```
-
-where maturity ($m_a$) at age is calculated from the length-at-age:
+où la maturité ($m_a$) selon l’âge est calculée à partir de la longueur selon l’âge :
 
 $$
-m_{a} = \frac{1}{1 + e^{{- \ln}19\left( \frac{a - \theta_{a50}}{\theta_{a95} - \theta_{a50}} \right)}},
+m_{a} = \frac{1}{1 + e^{{- \ln}19\left( \frac{a – \theta_{a50}}{\theta_{a95} – \theta_{a50}} \right)}},
 (\#eq:dlm-om-mata)
 $$
 
-and \(\theta_{a50}\) and \(\theta_{a95}\) represent the age at 50% and 95% maturity given by the inverse von-Bertalanffy growth curve:
+et \(\theta_{a50}\) and \(\theta_{a95}\) représentent l’âge à 50% et 95% de maturité donné par la courbe de croissance inverse de von Bertalanffy :
 
 <!-- TODO: check these! -->
 $$
-\theta_{a50} = \frac{- \ln\left( 1 - \widetilde{\theta}_{l50} / \widetilde{L}_{\infty} \right)}{\widetilde{\kappa}} + \widetilde{t}_{0},
+\theta_{a50} = \frac{- \ln\left( 1 – \widetilde{\theta}_{l50} / \widetilde{L}_{\infty} \right)}{\widetilde{\kappa}} + \widetilde{t}_{0},
 (\#eq:dlm-om-invonb)
 $$
 
 $$
-\theta_{a95} = \frac{- \ln\left( 1 - \left( \widetilde{\theta}_{l50} / \widetilde{L}_{\infty} + {\widetilde{\theta}}_{l50\_ 95} / \widetilde{L}_{\infty} \right) \right)}{\widetilde{\kappa}} + \widetilde{t}_{0}.
+\theta_{a95} = \frac{- \ln\left( 1 – \left( \widetilde{\theta}_{l50} / \widetilde{L}_{\infty} + {\widetilde{\theta}}_{l50\_ 95} / \widetilde{L}_{\infty} \right) \right)}{\widetilde{\kappa}} + \widetilde{t}_{0}.
 (\#eq:dlm-om-theta95)
 $$
 
-### Population dynamics
+### Dynamique des populations
 
-Leading parameters of the population dynamics model, defined as fixed values or ranges by the user, are: unfished recruitment $R_0$, the steepness parameter of the stock-recruit relationship ($h$) [@mace1988], and natural mortality ($M$).
-Recruitment and numbers-at-age are initialized in the first historical year using the SRA model (Appendix \@ref(app:sra), Equations \@ref(eq:sra-om-numinit) to \@ref(eq:sra-om-recinit)).
-During the projection period (years $y = t_{c}+1$ to $y = t_N$), the number of fish recruited to the first age group at the beginning of each year $N_{y,a=1}$ is calculated as a function of the previous year's spawning biomass $B_{y-1}$. The framework assumes a Beverton-Holt stock-recruit relationship [@beverton1957] with annual lognormal recruitment deviations $\varepsilon_{R,y}$, but analysts can alternatively choose a Ricker function [@ricker1954]:
+Les paramètres avancés du modèle de dynamique des populations, définis comme des valeurs fixes ou des fourchettes par l’utilisateur, sont les suivants : recrutement non exploité $R_0$, paramètre du taux de variation de la relation stock-recrue ($h$) [@mace1988] et mortalité naturelle ($M$).
+Le recrutement et le nombre selon l’âge sont initialisés la première année historique à l’aide du modèle d’analyse de la réduction des stocks (annexe \@ref(app:sra), équations \@ref(eq:sra-om-numinit) à \@ref(eq:sra-om-recinit)). Pendant la période de projection (années $y = t_{c}+1$ à $y = t_N$), le nombre de poissons recrutés dans le premier groupe d’âge au début de chaque année $N_{y,a=1}$ est calculé comme une fonction de la biomasse féconde de l’année précédente $B_{y-1}$.
+Le Cadre suppose une relation stock-recrue de Beverton-Holt [@beverton1957] avec écarts de recrutement annuels log-normaux $\varepsilon_{R,y}$, mais les analystes peuvent également choisir une fonction de Ricker [@ricker1954] :
 
 $$
 N_{y, a = 1} = R_y =
@@ -125,44 +114,41 @@ N_{y, a = 1} = R_y =
 (\#eq:dlm-om-rya)
 $$
 
-where $\alpha^{\textrm{B}}$ and $\beta^{\textrm{B}}$ are the parameters of the Beverton-Holt stock-recruit relationship, and $\alpha^{\textrm{R}}$ and $\beta^{\textrm{R}}$ are the parameters of the Ricker stock-recruit relationship, derived from user-defined parameters steepness ($\widetilde{h}$) and $\widetilde{R}_0$, where
+où $\alpha^{\textrm{B}}$ et $\beta^{\textrm{B}}$ sont les paramètres de la relation stock-recrue de Beverton-Holt, et $\alpha^{\textrm{R}}$ et $\beta^{\textrm{R}}$ sont les paramètres de la relation stock-recrue de Ricker, dérivés du taux de variation des paramètres définis par l’utilisateur ($\widetilde{h}$) and $\widetilde{R}_0$, où
 $\alpha^{\textrm{B}} = \frac{4\tilde{h}}{(1-\tilde{h})\phi_0}$,
 $\beta^{\textrm{B}} = \frac{5\tilde{h}-1}{(1-\tilde{h})B_0}$
-and
+et
 $\alpha^{\textrm{R}} = \frac{(5\tilde{h})^{1.25}}{\phi_0}$,
 $\beta^{\textrm{R}} = \frac{\log(5\tilde{h})}{B_0}$.
-The parameter $\phi_0$ is unfished spawners-per-recruit (see Equation \@ref(eq:dlm-om-phi), with $F^e=0$) and $B_{0}$ is unfished spawning biomass, calculated as
+Le paramètre $\phi_0$ est le nombre de reproducteurs par recrue non exploités (voir l’équation \@ref(eq:dlm-om-phi), avec $F^e=0$) et $B_{0}$ est la biomasse féconde non exploitée, calculée comme suit :
 
 $$
 B_{0} = \sum_{a = 1}^{A}{m_{a}\ w_{a}\ \widetilde{R}_{0}e^{-\widetilde{M}{(a-1)}}},
 (\#eq:dlm-om-bo)
 $$
 
-where $A$ is the user-defined maximum age and $\widetilde{R}_{0}e^{\widetilde{M}{(a-1)}}$ gives unfished numbers-at-age.
-Spawning biomass $B_y$ in a given year is calculated as
+où $A$ est l’âge maximal défini par l’utilisateur et $\widetilde{R}_{0}e^{\widetilde{M}{(a-1)}}$ donne les nombres selon l’âge non exploités. La biomasse féconde $B_y$ d’une année donnée est calculée comme suit :
 
 $$
 B_{y} = \sum_{a = 1}^{A}{w_{a}m_{a}N_{y,a}},
 (\#eq:dlm-om-sy)
 $$
 
-where $N_{y,a}$ is annual numbers-at-age, given in Equation \@ref(eq:dlm-om-nya).
+où $N_{y,a}$ correspond aux nombres selon l’âge annuels, donnés dans l’équation \@ref(eq:dlm-om-nya).
 
-Annual log recruitment deviations ($\log \varepsilon_{R,y}$) are generated by first sampling from a normal distribution with standard deviation $\widetilde{\sigma}_R$:
+Les écarts de recrutement annuels logarithmiques ($\log \varepsilon_{R,y}$) sont générés par le premier échantillonnage selon une distribution normale avec l’écart-type $\widetilde{\sigma}_R$ :
 
 $$
 \log \delta_{R,y}\sim \mathrm{Normal}\left(
-\frac{-0.5 \widetilde{\sigma}_R^2 (1 - \widetilde{\theta}_\textrm{AC})}{\sqrt{1 - \widetilde{\theta}_\textrm{AC}^2}},
+\frac{-0.5 \widetilde{\sigma}_R^2 (1 – \widetilde{\theta}_\textrm{AC})}{\sqrt{1 – \widetilde{\theta}_\textrm{AC}^2}},
 \widetilde{\sigma}_R \right),
 (\#eq:dlm-om-recdev)
 $$
 
-where the mean term includes a mean-bias correction for autocorrelated lognormal variables and the term $\widetilde{\theta}_{\textrm{AC}}$ represents first-order autocorrelation.
-We use the notation Normal(mean, standard deviation) rather than Normal(mean, variance) here and throughout.
-Temporal autocorrelation $\widetilde{\theta}_\textrm{AC}$ is added to these initial draws as:
+où le terme moyen comprend une correction de biais moyen pour les variables log-normales autocorrélées et le terme $\widetilde{\theta}_{\textrm{AC}}$ représente l’autocorrélation de premier ordre. Nous utilisons la notation Normal (moyenne, écart-type) plutôt que Normal (moyenne, variance) ici et dans tout le document. L’autocorrélation temporelle $\widetilde{\theta}_\textrm{AC}$ est ajoutée à ces tirages initiaux comme suit :
 
 $$
-\log \varepsilon_{R,y} = {\widetilde{\theta}}_{\textrm{AC}}\log \varepsilon_{R,y - 1} + \delta_{R,y}\sqrt{\left( 1 - {{\widetilde{\theta}}_{\textrm{AC}}}^{2} \right)},
+\log \varepsilon_{R,y} = {\widetilde{\theta}}_{\textrm{AC}}\log \varepsilon_{R,y – 1} + \delta_{R,y}\sqrt{\left( 1 – {{\widetilde{\theta}}_{\textrm{AC}}}^{2} \right)},
 (\#eq:dlm-om-auto)
 $$
 
@@ -171,7 +157,7 @@ $$
 (\#eq:dlm-om-recdev-exp)
 $$
 
-The number of fish $N$ in each year $y > t_c$ is then calculated from the numbers in the previous year and age class, subject to the instantaneous total mortality rate ($Z$) at age ($a$):
+On calcule ensuite le nombre de poissons $N$ chaque année à partir des chiffres de l’année précédente et de la catégorie d’âge, en fonction du taux de mortalité totale instantanée ($Z$) à l’âge ($a$) :
 
 $$
 N_{y,a} =
@@ -183,308 +169,291 @@ N_{y,a} =
 (\#eq:dlm-om-nya)
 $$
 
-where $A$ is the maximum age class and the annual total mortality rate $Z_{y,a}$ is given by
+où $A$ est la classe d’âge maximale et le taux de mortalité annuelle totale $Z_{y,a}$ est donné par la formule :
 
 $$
 Z_{y,a} = \widetilde{M} + v_{a}F_{y,a},
 (\#eq:dlm-om-zya)
 $$
 
-where $F_{y,a}$ is fishing mortality-at-age during year $y$, defined in Equation \@ref(eq:dlm-om-Fay)), and $v_{a}$ is selectivity-at-age, defined in Equation \@ref(eq:dlm-om-va).
+où $F_{y,a}$ est la mortalité selon l’âge par pêche au cours de l’année $y$, définie dans l’équation \@ref(eq:dlm-om-Fay)) et $v_{a}$ est la sélectivité selon l’âge, définie dans l’équation \@ref(eq:dlm-om-va).
 
-Note that Equation \@ref(eq:dlm-om-nya) treats the maximum age class $A$ as a plus group (i.e., the age class $A$ includes all fish of age $A$ and older).
-This is not the default in DLMtool, which usually makes the assumption that $A$ is large enough to include all age classes (i.e., $N_{y,a} = N_{y-1,a-1}e^{-Z_{y-1,a-1}}$ is used for all age classes including $a = A$).
-However, when the model is conditioned using the SRA (Appendix \@ref(app:sra)), the SRA defaults to treating $A$ as a plus group (Equation \@ref(eq:sra-om-nya)) and, to ensure consistency between the historical and projection periods, the SRA forces DLMtool to also treat $A$ as a plus group for the closed-loop simulations in the projection period.
-Since we recommend always conditioning OMs for BC groundfish using the SRA, we include the plus group in Equation \@ref(eq:dlm-om-nya).
+Il convient de noter que l’équation \@ref(eq:dlm-om-nya) traite la classe d’âge maximale $A$ comme un groupe plus (c.-à-d. que la classe d’âge $A$ comprend tous les poissons d’âge $A$ et plus).
+Ce n’est pas la valeur par défaut dans DLMtool, qui pose habituellement l’hypothèse que $A$ est suffisamment grande pour inclure toutes les classes d’âge (c.-à-d. qu’on utilise $N_{y,a} = N_{y-1,a-1}e^{-Z_{y-1,a-1}}$ pour toutes les classes d’âge, y compris $a = A$).
+Cependant, lorsque le modèle est conditionné à l’aide de l’analyse de la réduction des stocks (annexe\@ref(app:sra)), l’analyse de la réduction des stocks traite par défaut $A$ comme un groupe plus (équation \@ref(eq:sra-om-nya)) et, pour assurer la cohérence entre les périodes historiques et de projection, l’analyse de la réduction des stocks force DLMtool à traiter également $A$ comme un groupe plus pour les simulations en boucle fermée dans la période de projection.
+Comme nous recommandons de toujours conditionner les modèles opérationnels pour le poisson de fond de la Colombie-Britannique à l’aide de l’analyse de la réduction des stocks, nous incluons le groupe plus dans l’équation \@ref(eq:dlm-om-nya).
 
-## FLEET DYNAMICS {#sec:dlmtool-fleet-dynamics}
+## DYNAMIQUE DE LA FLOTTILLE {#sec:dlmtool-fleet-dynamics}
 
-<!-- Parameters for the fleet dynamics are included in the `Fleet` object of DLMtool. -->
-
-During the projection period, the rate of fishing mortality-at-age ($F_{y,a}$) is calculated from the TAC prescribed by the MP ($\textrm{TAC}_{\mathrm{MP},y}$).
-To distribute catches over ages it is first necessary to calculate the distribution of vulnerable biomass ($B^V_{y,a}$) across ages:
+Pendant la période de projection, le taux de mortalité selon l’âge par pêche ($F_{y,a}$) est calculé à partir du TAC prescrit par la procédure de gestion ($\textrm{TAC}_{\mathrm{MP},y}$). Pour répartir les prises entre les âges, il faut d’abord calculer la distribution de la biomasse vulnérable ($B^V_{y,a}$) entre les âges :
 
 $$
 B^V_{y,a} = N_{y,a} w_{a} v_{a} \dot{R}_{a}
 (\#eq:dlm-om-vulcom)
 $$
 
-where $\dot{R_a}$ represents retention rate at age and the selectivity-at-age $v_{a}$ (or vulnerability-at-age) is calculated according to whether users define selectivity to be asymptotic (logistic) or dome-shaped, using the following length-based function:
+où $\dot{R_a}$ représente le taux de rétention selon l’âge et la sélectivité selon l’âge $v_{a}$ (ou la vulnérabilité selon l’âge) est calculée selon que les utilisateurs définissent la sélectivité comme étant asymptotique (logistique) ou en forme de dôme, en utilisant la fonction de longueur suivante :
 
 $$
 v_{a} =
 \begin{cases}
-2^{-\frac{(\widetilde{L}_{a} - \widetilde{L}^{\textrm{FS}})^2}{\widetilde{\sigma}^2_{\textrm{asc}}}} & \textrm{if } L_{a} < \widetilde{L}^{\textrm{FS}},\\
+2^{-\frac{(\widetilde{L}_{a} – \widetilde{L}^{\textrm{FS}})^2}{\widetilde{\sigma}^2_{\textrm{asc}}}} & \textrm{if } L_{a} < \widetilde{L}^{\textrm{FS}},\\
 1 & \textrm{if logistic and } L_{a} \ge \widetilde{L}^{\textrm{FS}},\\
-2^{-\frac{(\widetilde{L}_{a} - \widetilde{L}^{\textrm{FS}})^2}{\widetilde{\sigma}^2_{\textrm{des}}}} & \textrm{if dome-shaped and } L_{a} \ge \widetilde{L}^{\textrm{FS}}
+2^{-\frac{(\widetilde{L}_{a} – \widetilde{L}^{\textrm{FS}})^2}{\widetilde{\sigma}^2_{\textrm{des}}}} & \textrm{if dome-shaped and } L_{a} \ge \widetilde{L}^{\textrm{FS}}
 \end{cases}
 (\#eq:dlm-om-va)
 $$
 
-where $\widetilde{L}^\textrm{FS}$ represents the user-defined length-at-full-selectivity.
-The standard deviation of the ascending limb ($\widetilde{\sigma}_{\textrm{asc}}^{2}$) is given by
+où $\widetilde{L}^\textrm{FS}$ représente la longueur à la sélectivité totale définie par l’utilisateur. L’écart-type du membre ascendant ($\widetilde{\sigma}_{\textrm{asc}}^{2}$) est donné par la formule :
 
 $$
-\sigma_{\textrm{asc}} = \frac{{\widetilde{L}}^{5} - \widetilde{L}^\textrm{FS}}{\sqrt{- \log_{2} 0.05}}
+\sigma_{\textrm{asc}} = \frac{{\widetilde{L}}^{5} – \widetilde{L}^\textrm{FS}}{\sqrt{- \log_{2} 0.05}}
 (\#eq:dlm-om-siglasc)
 $$
 
-where $\widetilde{L}^5$ is the user-defined length-at-5%-selectivity.
+où $\widetilde{L}^5$ est la longueur à 5 % de sélectivité définie par l’utilisateur.
 
-The standard deviation of the descending limb is given by
+L’écart-type du membre descendant est donné par la formule :
 
 $$
-\sigma_{\textrm{des}} = \frac{\widetilde{L}_\infty - \widetilde{L}^\textrm{FS}}{{\sqrt{- \log_{2} {\widetilde{V}_{L_\infty}}}}},
+\sigma_{\textrm{des}} = \frac{\widetilde{L}_\infty – \widetilde{L}^\textrm{FS}}{{\sqrt{- \log_{2} {\widetilde{V}_{L_\infty}}}}},
 (\#eq:dlm-om-sigldes)
 $$
 
-where $\widetilde{V}_{L_\infty}$ is the user-defined selectivity-at-maximum-length. Setting this parameter to 1 necessarily fixes selectivity to be logistic (Equation \@ref(eq:dlm-om-sigldes) is undefined when $\widetilde{V}_{L_\infty} = 1$).
+où $\widetilde{V}_{L_\infty}$ est la sélectivité à la longueur maximale définie par l’utilisateur. Le réglage de ce paramètre à 1 force la sélectivité à être logistique (l’équation \@ref(eq:dlm-om-sigldes) n’est pas définie lorsque $\widetilde{V}_{L_\infty} = 1$).
 
-DLMtool currently models all catch as coming from a single fleet.
-However, if the OM is conditioned using the SRA model (Appendix \@ref(app:sra)), the SRA can accommodate multiple fleets, and selectivity is fleet-specific.
-Fleet-specific selectivity in the SRA is calculated using Equation \@ref(eq:sra-om-vaf) with fleet-specific user-defined settings for $\widetilde{L}^5$, $\widetilde{L}^{FS}$ and $\widetilde{V}_{L_\infty}$, or is estimated if age- or length-composition data are provided.
-In this case, selectivity in the DLMtool OM in the projection period is replaced in Equation \@ref(eq:dlm-om-zya) with the SRA-conditioned estimate of fishing mortality-at-age in the final year ($t_c$) of the historical period ($\Sigma_f v_{a,f} F_{t_c,f}$), normalized by dividing by apical $F$ (maximum $F$ across ages) in that year.
-This provides fractions of $F$-at-age derived from the relative selectivity-at-age across fleets (i.e., catch-weighted selectivity-at-age).
-The closed-loop simulation projections therefore assume that the relative selectivities across fleets remains constant in the projection period.
+L’outil DLMtool modélise actuellement toutes les prises comme si elles provenaient d’une seule flottille.
+Toutefois, si le modèle opérationnel est conditionné à l’aide du modèle d’analyse de la réduction des stocks (annexe \@ref(app:sra)), l’analyse de la réduction des stocks peut intégrer plusieurs flottilles, et la sélectivité est propre à la flottille.
+La sélectivité propre à la flottille dans l’analyse de la réduction des stocks est calculée à l’aide de l’équation \@ref(eq:sra-om-vaf) avec des paramètres propres à la flottille définis par l’utilisateur pour $\widetilde{L}^5$, $\widetilde{L}^{FS}$ et $\widetilde{V}_{L_\infty}$, ou elle est estimée si des données sur la composition selon l’âge ou la longueur sont fournies.
+Dans ce cas, la sélectivité dans le modèle opérationnel de DLMtool pendant la période de projection est remplacée dans l’équation \@ref(eq:dlm-om-zya) par l’estimation conditionnée par l’analyse de la réduction des stocks de la mortalité selon l’âge par pêche la dernière année ($t_c$) de la période historique($\Sigma_f v_{a,f} F_{t_c,f}$), normalisée en la divisant par la valeur apicale de $F$ ($F$ maximale entre les âges) cette année-là.
+On obtient des fractions de $F$ selon l’âge dérivées de la sélectivité relative selon l’âge entre les flottilles (c.-à-d. la sélectivité selon l’âge pondérée par les prises).
+Les projections de simulation en boucle fermée supposent donc que les sélectivités relatives entre les flottilles demeurent constantes pendant la période de projection.
 
-Similarly, if the OM is conditioned using the SRA model, analysts can also specify (or estimate) selectivity parameters for the individual indices of abundance.
-In this case, the SRA passes all of the indices back to DLMtool, preserving the estimated or user-defined selectivities-at-age for each index.
-It is the coding of specific MPs that determines which index is used in the MPs during the projection period.
+De même, si le modèle opérationnel est conditionné à l’aide du modèle d’analyse de la réduction des stocks, les analystes peuvent également préciser (ou estimer) les paramètres de sélectivité pour les différents indices de l’abondance.
+Dans ce cas, l’analyse de la réduction des stocks renvoie tous les indices dans DLMtool, en conservant les sélectivités selon l’âge estimées ou définies par l’utilisateur pour chaque indice.
+C’est le codage de certaines procédures de gestion qui détermine l’indice qui est utilisé dans les procédures de gestion pendant la période de projection.
 
-The realized projected catches $C_{y,a}$ are the TAC recommendations across ages (with possible implementation error).
-Projected catches may account for retention rate ($\dot{R}_{y,a}$) and post-release discard mortality rate $\widetilde{\theta}_{M{\textrm{disc}}}$ in the presence of discarding.
-Implementation uncertainty ($I_\textrm{TAC}$, Equation \@ref(eq:dlm-om-itac)) may also be accounted for (e.g., in the presence of consistent under-utilization of TACs):
+Les prises prévues réalisées $C_{y,a}$ sont les recommandations de TAC pour tous les âges (avec une erreur de mise en œuvre possible).
+Les prises prévues peuvent tenir compte du taux de rétention ($\dot{R}_{y,a}$) et du taux de mortalité des rejets après leur remise à l’eau $\widetilde{\theta}_{M{\textrm{disc}}}$ en cas de rejets.
+L’incertitude liée à la mise en œuvre ($I_\textrm{TAC}$, équation \@ref(eq:dlm-om-itac)) peut également être prise en compte (p. ex. en cas de constante sous-utilisation des TAC) :
 
 $$
 C_{y,a} = \frac{B^V_{y,a}} {\sum_{a}^{A}B^V_{y,a}}
 \textrm{TAC}_{\mathrm{MP},y}\ I_{\mathrm{TAC},y}\
-\frac{\dot{R}_{y,a} + \left( 1 - \dot{R}_{y,a} \right)
+\frac{\dot{R}_{y,a} + \left( 1 – \dot{R}_{y,a} \right)
 {\widetilde{\theta}}_{\textrm{Mdisc}}}{\dot{R}_{y,a}}
 (\#eq:dlm-om-cata)
 $$
 
-where ($I_\textrm{TAC}$) is user-defined (according to other parameters; Equation \@ref(eq:dlm-om-itac)), and the overall retention rate-at-age $\dot{R}_{y,a}$, is a combination of an age-specific retention $r_{y,a}$ with a maximum value of $1$ (Equation \@ref(eq:dlm-om-ray)), and a constant rate of discarding $\widetilde{\gamma}$:
+où ($I_\textrm{TAC}$) est définie par l’utilisateur (selon d’autres paramètres; équation \@ref(eq:dlm-om-itac)) et le taux global de rétention selon l’âge $\dot{R}_{y,a}$, est une combinaison d’une rétention propre à l’âge $r_{y,a}$ avec une valeur maximale de $1$ (équation \@ref(eq:dlm-om-ray)) et un taux constant de rejets $\widetilde{\gamma}$ :
 
 $$
-\dot{R}_{y,a} = r_{y,a}\ (1 - \widetilde{\gamma}).
+\dot{R}_{y,a} = r_{y,a}\ (1 – \widetilde{\gamma}).
 (\#eq:dlm-om-retention)
 $$
 
-where age-specific retention $r_{y,a}$, is modelled using the same form of double-normal curve as selectivity:
+où la rétention propre à l’âge $r_{y,a}$ est modélisée à l’aide de la même forme de courbe double-normale que la sélectivité :
 
 $$
 r_{y,a} = \begin{cases}
-2^{- \ \frac{{(L_{y,a} - {\widetilde{L}}_{\textrm{rmax}})}^{2}}{\sigma_{\textrm{rasc}}^{2}}} & L_{y,a} \leq {\widetilde{L}}_{\textrm{rmax}}, \\
-2^{- \ \frac{{(L_{y,a} - {\widetilde{L}}_{\textrm{rmax}})}^{2}}{\sigma_{\textrm{rdesc}}^{2}}} & L_{y,a} > {\widetilde{L}}_{\textrm{rmax}}, \\
+2^{- \ \frac{{(L_{y,a} – {\widetilde{L}}_{\textrm{rmax}})}^{2}}{\sigma_{\textrm{rasc}}^{2}}} & L_{y,a} \leq {\widetilde{L}}_{\textrm{rmax}}, \\
+2^{- \ \frac{{(L_{y,a} – {\widetilde{L}}_{\textrm{rmax}})}^{2}}{\sigma_{\textrm{rdesc}}^{2}}} & L_{y,a} > {\widetilde{L}}_{\textrm{rmax}}, \\
 \end{cases}
 (\#eq:dlm-om-ray)
 $$
 
-where $\widetilde{L}_\textrm{rmax}$ is the length at maximum retention.
-The standard deviation parameter of the ascending limb is given by the length at 5% retention $\widetilde{L}_{r5}$:
+où $\widetilde{L}_\textrm{rmax}$ est la longueur à la rétention maximale. Le paramètre d’écart-type du membre ascendant est donné par la longueur à 5 % de rétention $\widetilde{L}_{r5}$ :
 
 $$
-\sigma_{\textrm{rasc}} = \frac{{\widetilde{L}}_{r5} - \widetilde{L}_{\textrm{rmax}}}{\sqrt{- \log_2 {0.05}}}
+\sigma_{\textrm{rasc}} = \frac{{\widetilde{L}}_{r5} – \widetilde{L}_{\textrm{rmax}}}{\sqrt{- \log_2 {0.05}}}
 (\#eq:dlm-om-sigrasc)
 $$
 
-while the standard deviation of the descending limb is given by retention $\widetilde{r}_{L_\infty}$ of fish of length $\widetilde{L}_\infty$:
+alors que l’écart-type du membre descendant est donné par la rétention $\widetilde{r}_{L_\infty}$ de la longueur du poisson $\widetilde{L}_\infty$ :
 
 $$
-\sigma_{\textrm{rdesc}} = \frac{\widetilde{L}_\infty - \widetilde{{L}}_{\textrm{rmax}}}{\sqrt{- \log_2 {\widetilde{{r}}_{L_\infty}}}}.
+\sigma_{\textrm{rdesc}} = \frac{\widetilde{L}_\infty – \widetilde{{L}}_{\textrm{rmax}}}{\sqrt{- \log_2 {\widetilde{{r}}_{L_\infty}}}}.
 (\#eq:dlm-om-sigrdec)
 $$
 
-The retention curve approaches an asymptotic curve as $\widetilde{r}_{L_\infty} \to 1$.
+La courbe de rétention s’approche d’une courbe asymptotique à mesure que $\widetilde{r}_{L_\infty} \to 1$.
 
-Fishing mortality rates are then calculated from the realized catches $C_{y,a}$ subject to the constraint that they do not exceed ${F_\textrm{max}}$:
+On calcule ensuite les taux de mortalité par pêche à partir des prises réalisées $C_{y,a}$ avec la contrainte qu’elles ne dépassent pas ${F_\textrm{max}}$ :
 
 $$
-F_{y,a} = \min \left( - \ln\left( 1 - \frac{C_{y,a}}{N_{y,a}{w}_{a}} \right),\widetilde{F}_{\max} \right).
+F_{y,a} = \min \left( – \ln\left( 1 – \frac{C_{y,a}}{N_{y,a}{w}_{a}} \right),\widetilde{F}_{\max} \right).
 (\#eq:dlm-om-Fay)
 $$
 
-${F_\textrm{max}}$ can be adjusted but is set to 3 by default.
+${F_\textrm{max}}$ peut être ajustée, mais est réglée à 3 par défaut.
 
-## OBSERVATION DYNAMICS
+## DYNAMIQUE DES OBSERVATIONS
 
 <!-- Parameters for observation dynamics are included in the `Obs` object of DLMtool. -->
-The observation dynamics emulate the collection of data for use in the MPs.
-Two fundamental types of data are simulated by the OM: (1) time series data (e.g., annual
-catches from 1970--2017); and (2) catch composition data (e.g., length or age samples).
+La dynamique des observations émule la collecte des données à utiliser dans les procédures de gestion.
+Le modèle opérationnel simule deux types fondamentaux de données : 1) les données des séries chronologiques (p. ex. les prises annuelles de 1970 à 2017); et 2) les données sur la composition des prises (p. ex. échantillons de longueur ou d’âge).
 
-### Time series data
+### Données des séries chronologiques
 
-Time series data are simulated with various types of error that would be expected from real-life sampling of fisheries data (e.g., lognormal observation error on indices of abundance).
-The standard index of abundance in DLMtool is calculated by adding observation error and bias to annual total biomass ($B^T_{y}$) through a term $\omega_{I,y}$ that includes bias and imprecision in the index observations:
+Les données des séries chronologiques sont simulées à l’aide de divers types d’erreurs qui seraient possibles dans l’échantillonnage en temps réel des données sur les pêches (p. ex. erreur d’observation log-normale sur les indices de l’abondance).
+L’indice standard de l’abondance dans l’outil DLML est calculé en ajoutant l’erreur d’observation et le biais à la biomasse totale annuelle ($B^T_{y}$) au moyen d’un terme $\omega_{I,y}$ qui inclut le biais et l’imprécision des observations de l’indice :
 
 $$
 I_{y}^{\textrm{obs}} = \omega_{I,y}\frac{{B^T_{y}}^{\widetilde{\beta}}}{\frac{1}{t_c}\sum_{i = 1}^{t_c}{B^T_{i}}^{\widetilde{\beta}}}
 (\#eq:dlm-om-iy)
 $$
 
-where $B^T_{y}$ is total biomass given by the sum over ages of the weight-at-age $w_a$, and numbers at age $N_{y,a}$:
+où $B^T_{y}$ est la biomasse totale donnée par la somme des âges du poids selon l’âge $w_a$, et des nombres selon l’âge $N_{y,a}$ :
 
 $$
 B^T_{y} = \sum_{a = 1}^{A}{w_{a}N_{y,a}}
 (\#eq:dlm-om-by)
 $$
 
-and where $\widetilde{\beta}$ is a hyperstability/hyperdepletion parameter.
-When $\widetilde{\beta}$ is 1 the index is linearly related to spawning biomass $B_y$.
-When $\widetilde{\beta}$ is greater than 1 the index is hyperdeplete and moves faster than true spawning biomass changes.
-When $\widetilde{\beta}$ is lower than 1 the index is hyperstable and moves slower than true spawning biomass changes.
-When the observed index is calculated, it is normalized to have a mean value of 1 over all years.
+et où $\widetilde{\beta}$ est un paramètre d’hyperstabilité/hyperépuisement.
+Quand $\widetilde{\beta}$ est 1, l’indice est lié linéairement à la biomasse féconde $B_y$.
+Quand $\widetilde{\beta}$ est supérieur à 1, l’indice est hyperépuisé et se déplace plus rapidement que les véritables changements de la biomasse féconde.
+Quand $\widetilde{\beta}$ est inférieur à 1, l’indice est hyperstable et se déplace plus lentement que les véritables changements de la biomasse féconde.
+Lorsque l’indice observé est calculé, il est normalisé pour avoir une valeur moyenne de 1 sur toutes les années.
 
-The term $\omega_{I,y}$ represents imprecision in observations via $\widetilde{\sigma}_I$:
+Le terme $\omega_{I,y}$ représente une imprécision dans les observations par $\widetilde{\sigma}_I$ :
 
 $$
-\omega_{I,y} = \exp \left( \varepsilon_{I,y} - \frac{{\widetilde{\sigma}}_{I}^2}{2} \right),
+\omega_{I,y} = \exp \left( \varepsilon_{I,y} – \frac{{\widetilde{\sigma}}_{I}^2}{2} \right),
 (\#eq:dlm-om-omegai)
 $$
 
-where the lognormal error term, $\varepsilon$, is drawn from a normal distribution whose standard deviation $\sigma_I$ can be sampled at random in each simulation:
+où le terme de l’erreur log-normale, $\varepsilon$, est tiré d’une distribution normale dont l’écart-type $\sigma_I$ peut être échantillonné au hasard dans chaque simulation :
 
 $$
 \varepsilon_{I,y}\sim \textrm{Normal}\left( 0,\widetilde{{\sigma}}_{I} \right).
 (\#eq:dlm-om-epsiloni)
 $$
 
-The DLMtool OM can also be set up to reflect one or more real observed indices of biomass or abundance in the historical period and apply the specified survey selectivity-at-age to the projected period.
-We recommend this approach for the MP Framework assuming that the OM has been conditioned via an SRA model (Appendix \@ref(app:sra)).
-In this case, the index values in years $t_1$ to $t_c$ are specified as data and the index values $I$ (without observation error) in year $y$ (for $y > t_c$) and for survey $s$ are calculated as:
+Le modèle opérationnel de l’outil DLML peut également être réglé pour refléter un ou plusieurs indices réels observés de la biomasse ou de l’abondance de la période historique, et appliquer à la période projetée la sélectivité du relevé selon l’âge qui a été spécifiée.
+Nous recommandons cette approche pour le Cadre des procédures de gestion en supposant que le modèle opérationnel a été conditionné par un modèle d’analyse de la réduction des stocks (annexe \@ref(app:sra)). Dans ce cas, les valeurs de l’indice pour les années $t_1$ à $t_c$ sont définies comme des données et les valeurs de l’indice $I$ (sans erreur d’observation) l’année $y$ (pour $y > t_c$) et pour le relevé $s$ sont calculées comme suit :
 
 $$
 I_{y,s} = q_s \sum_{a=1}^A v_{a,s} N_{y,a} w_{y,a}
 (\#eq:sra-om-iysn-addind)
 $$
 
-for a biomass-based index and:
+pour un indice fondé sur la biomasse et comme suit :
 
 $$
 I_{y,s} = q_s \sum_{a=1}^A v_{a,s} N_{y,a}
 (\#eq:sra-om-iysb-addind)
 $$
 
-for an abundance-based index.
-The symbol $q_s$ represents catchability as estimated via the SRA (Equation \@ref(eq:sra-om-iysb) or \@ref(eq:sra-om-iysn)).
-The selectivity-at-age ($v_{a,s}$) is modelled using the same logistic form as for the commercial fleet (Equations \@ref(eq:dlm-om-va)--\@ref(eq:dlm-om-sigldes)) but with its own shape as specified by the user or estimated via the SRA (Equations \@ref(eq:sra-om-vaf)).
+pour un indice fondé sur l’abondance.
+Le symbole $q_s$ représente la capturabilité estimée par l’analyse de la réduction des stocks (équation \@ref(eq:sra-om-iysb) ou \@ref(eq:sra-om-iysn)).
+La sélectivité selon l’âge ($v_{a,s}$) est modélisée à l’aide de la même forme logistique que pour la flottille commerciale (équations \@ref(eq:dlm-om-va)--\@ref(eq:dlm-om-sigldes)), mais avec sa propre forme spécifiée par l’utilisateur ou estimée par l’analyse de la réduction des stocks (équations \@ref(eq:sra-om-vaf)).
 
-The OM then scales and adds observation error to each index as:
-
-$$
-I_{y,s}^{\textrm{obs}} = \omega_{I,y,s}\frac{{I_{y,s}}^{\widetilde{\beta}}}{\frac{1}{t_c}\sum_{i = 1}^{t_c}{I_{i,s}}},
-(\#eq:dlm-om-iy-addind)
-$$
-
-with $\omega_{I,y,s}$ calculated as:
-
+Le modèle opérationnel met ensuite une erreur d’observation à l’échelle et l’ajoute à chaque index comme suit :
 
 $$
-\omega_{I,y,s} = \exp \left( \varepsilon_{I,y,s} - \frac{{{\widetilde{\sigma}}_{I}}^2}{2} \right),
-(\#eq:dlm-om-omegai-addind)
+I_{y,s}^{\textrm{obs}} = \omega_{I,y,s}\frac{{I_{y,s}}^{\widetilde{\beta}}}{\frac{1}{t_c}\sum_{i = 1}^{t_c}{I_{i,s}}}, (\#eq:dlm-om-iy-addind)
 $$
 
-where the lognormal error term $\varepsilon$, is drawn from a normal distribution whose standard deviation $\widetilde{\sigma_I}$ is sampled at random in each simulation:
+avec le terme $\omega_{I,y,s}$ calculé comme suit :
+
+
+$$
+\omega_{I,y,s} = \exp \left( \varepsilon_{I,y,s} – \frac{{{\widetilde{\sigma}}_{I}}^2}{2} \right), (\#eq:dlm-om-omegai-addind)
+$$
+
+où le terme de l’erreur log-normale $\varepsilon$, est tiré d’une distribution normale dont l’écart-type $\widetilde{\sigma_I}$ est échantillonné au hasard dans chaque simulation :
 
 $$
 \varepsilon_{I,y,s}\sim \textrm{Normal}\left( 0,{{\widetilde{\sigma}}}_{I} \right).
 (\#eq:dlm-om-epsiloni-addind)
 $$
 
-### Catch composition data
+### Données sur la composition des prises
 
-Two types of catch composition observations are simulated, catches-by-age-class-by-year (CAA) and catches-by-length-class-by-year (CAL).
-Although we do not propose any provisional MPs that use CAA or CAL, future applications may explore the value of information of these types of data, e.g., related to aging fish otoliths.
-Therefore, we describe the observation model component of CAA.
-We do not describe the observation model of CAL at this time.
+Deux types d’observations de la composition des prises sont simulés : les prises par classe d’âge par année (CAA) et les prises par classe de longueur par année (CAL). Bien que nous ne proposions pas de procédures de gestion provisoires qui utilisent CAA ou CAL, de futures applications pourraient explorer la valeur de l’information de ces types de données, p. ex. en ce qui concerne la détermination de l’âge à l'aide des otolithes des poissons. Nous décrivons donc la composante modèle d’observation de CAA. Nous ne décrivons pas le modèle d’observation de CAL pour le moment.
 
-The observation model for CAA uses a simple multinomial distribution to generate observed catches at age for the projection period $C_{y,a}^{\textrm{obs}}$, accounting for the user-defined effective sample size ($\widetilde{\textrm{ESS}}_{\textrm{CAA}}$, the number of independent observations) and the average annual number of samples ($n_\textrm{CAA}$, number of individuals aged).
-For example, $\widetilde{\textrm{ESS}}_\textrm{CAA}$ independent catch
-samples-at-age (e.g., 20 per year) are sampled in proportion $p_a$ to the
-catches-at-age predicted by the model ($C_{y,a}$, Equation \@ref(eq:dlm-om-cata)):
+Le modèle d’observation de CAA utilise une distribution multinomiale simple pour générer les prises observées selon l’âge pour la période de projection $C_{y,a}^{\textrm{obs}}$, en tenant compte de la taille effective de l’échantillon définie par l’utilisateur ($\widetilde{\textrm{ESS}}_{\textrm{CAA}}$, le nombre d’observations indépendantes) et du nombre annuel moyen d’échantillons ($n_\textrm{CAA}$, nombre d’individus dont l’âge a été déterminé). Par exemple, les échantillons selon l’âge indépendant des prises $\widetilde{\textrm{ESS}}_\textrm{CAA}$ (p. ex. 20 par année) sont échantillonnés dans la proportion $p_a$ par rapport aux prises selon l’âge prédites par le modèle ($C_{y,a}$, équation \@ref(eq:dlm-om-cata)) :
 
 $$
 \dot{C}_{y,a}^{\textrm{obs}}\sim \textrm{Multinomial}\left( \widetilde{\textrm{ESS}}_{\textrm{CAA}},p_{a} = \ C_{y,a} \right).
 (\#eq:dlm-om-cataobs)
 $$
 
-For each year, the proportion of samples at age is then inflated to match the
-total sample size $\widetilde{n}_\textrm{CAA}$ and rounded to the nearest integer ($\textrm{nint}$):
+Pour chaque année, on gonfle ensuite la proportion d’échantillons selon l’âge pour la faire correspondre à la taille totale de l’échantillon $\widetilde{n}_\textrm{CAA}$ et on l’arrondit au nombre entier le plus proche ($\textrm{nint}$) :
 
 $$
 C_{y,a}^{\textrm{obs}} = \textrm{nint}\left( \ \frac{{\dot{C}}_{y,a}^{\textrm{obs}}\ \widetilde{n}_{\textrm{CAA}}}{\widetilde{\textrm{ESS}}_{\textrm{CAA}}} \right).
 (\#eq:dlm-om-cataobs-freq)
 $$
 
-Due to rounding, this model generates frequency-at-age data that are approximately equal to the average annual sample size:
+En raison de l’arrondissement, ce modèle génère des données sur la fréquence selon l’âge qui sont à peu près égales à la taille moyenne annuelle de l’échantillon :
 
 $$
 \sum_{a}^{A}{C_{y,a}^{\textrm{obs}}\ } \approx \widetilde{n}_{\textrm{CAA}}.
 (\#eq:dlm-om-cataobs-equality)
 $$
 
-## IMPLEMENTATION DYNAMICS
+## DYNAMIQUE DE LA MISE EN ŒUVRE
 
 <!-- Parameters for implementation dynamics are included in the `Imp` object of DLMtool.-->
 <!--The OM includes three types of implementation error-->
 <!--, which relate to MPs that provide management advice in terms of Total Allowable Catch (TAC), Total Allowable Effort (TAE) and size limits (SL).-->
-This framework only considers MPs that provide TAC advice for quota-managed groundfish fisheries.
-Given that BC groundfish fisheries are subject to 100% at-sea and dockside observer coverage, we make the assumption that under-reporting of catch will be negligible in projection years.
-However, for non-target species, there is a possibility that TACs will not be fully used.
-The implementation uncertainty in TACs is applied in Equation \@ref(eq:dlm-om-cata).
+Ce Cadre ne tient compte que des procédures de gestion qui produisent des avis de TAC pour les pêches du poisson de fond assujetties à des quotas.
+Étant donné que la pêche du poisson de fond en Colombie-Britannique est assujettie à un niveau de présence des observateurs de 100 % en mer et à quai, nous supposons que la sous-déclaration des prises sera négligeable dans les années de projection.
+Cependant, pour les espèces non ciblées, il est possible que les TAC ne soient pas pleinement utilisés.
+L’incertitude liée à la mise en œuvre des TAC est appliquée dans l’équation \@ref(eq:dlm-om-cata).
 
-The TAC implementation uncertainty term ($I_\textrm{TAC}$) is the product of a user-defined fraction of the TAC taken $\widetilde{b}_\textrm{TAC}$ and a degree of inter-annual variability controlled by $\widetilde{\sigma}_\textrm{TAC}$.
+Le terme de l’incertitude de la mise en œuvre du TAC ($I_\textrm{TAC}$) est le produit d’une fraction définie par l’utilisateur du TAC capturé $\widetilde{b}_\textrm{TAC}$ et d’un degré de variabilité interannuelle contrôlé par $\widetilde{\sigma}_\textrm{TAC}$.
 
 $$
-I_{\textrm{TAC},y} = \widetilde{b}_\textrm{TAC} \cdot \exp \left( \varepsilon_{\textrm{TAC},y} - \frac{{{\widetilde{\sigma}}}_{\textrm{TAC}}^2}{2} \right).
+I_{\textrm{TAC},y} = \widetilde{b}_\textrm{TAC} \cdot \exp \left( \varepsilon_{\textrm{TAC},y} – \frac{{{\widetilde{\sigma}}}_{\textrm{TAC}}^2}{2} \right).
 (\#eq:dlm-om-itac)
 $$
 
-For example, $b_\textrm{TAC} = 0.7$ is equivalent to 30% catch underages.
-The error term $\varepsilon_{\textrm{TAC},y}$ is drawn from a normal distribution whose standard deviation $\widetilde{\sigma}_\textrm{TAC}$ is user-defined and can be sampled at random in each simulation:
+Par exemple, $b_\textrm{TAC} = 0,7$ équivaut à des déficits de 30 % des prises. Le terme de l’erreur $\varepsilon_{\textrm{TAC},y}$ est tiré d’une distribution normale dont l’écart-type $\widetilde{\sigma}_\textrm{TAC}$ est défini par l’utilisateur et peut être échantillonné au hasard dans chaque simulation :
 
 $$
 \varepsilon_{TAC,y}\sim \textrm{Normal}\left( 0,\widetilde{\sigma}_{\textrm{TAC}} \right).
 (\#eq:dlm-om-epsilontac)
 $$
 
-## CALCULATION OF MSY-BASED REFERENCE POINTS {#sec:dlmtool-msy-refpts}
+## CALCUL DES POINTS DE RÉFÉRENCE FONDÉS SUR MSY {#sec:dlmtool-msy-refpts}
 
-Biological reference points (BRPs) in the MP Framework are currently based on the provisional reference points suggested in Canada's Precautionary Approach Framework [@dfo2006; @dfo2009], where the limit reference point (LRP) is defined as the OM value of $0.4B_\textrm{MSY}$ and the upper stock reference (USR) is defined as the OM value of $0.8B_\textrm{MSY}$.
-$B_\textrm{MSY}$ is defined as the equilibrium spawning biomass $B^e$ that would occur if the stock were fished at the constant rate of fishing mortality $F^e$ that produces maximum sustainable yield $\textrm{MSY}$.
+Les points de référence biologiques (PRB) du Cadre des procédures de gestion sont actuellement fondés sur les points de référence provisoires suggérés dans le Cadre de l’approche de précaution du Canada [@dfo2006; @dfo2009], où le point de référence limite (PRL) est défini comme la valeur dans le modèle opérationnel de $0,4B_\textrm{MSY}$ et le point de référence supérieur du stock (RSS) est défini comme la valeur dans le modèle opérationnel de $0,8B_\textrm{MSY}$. 
+$B_\textrm{MSY}$ est définie comme la biomasse féconde à l’équilibre $B^e$ qui se produirait si le stock était exploité au taux constant de la mortalité par pêche $F^e$ qui produit le rendement maximal durable $\textrm{MSY}$.
 
-Calculation of BRPs is done using estimated parameters from the conditioning stage, described in Appendix \@ref(app:sra).
-In the absence of annual variability in life history and/or selectivity parameters, $F_\textrm{MSY}$ is calculated by numerically solving for the value of equilibrium $F^e$ that maximizes the equilibrium yield $Y^e$
+Le calcul des PRB est effectué à l’aide des paramètres estimés à l’étape du conditionnement, décrits dans l’annexe \@ref(app:sra).
+En l’absence de variabilité annuelle dans les paramètres du cycle biologique ou de la sélectivité, on calcule $F_\textrm{MSY}$ en résolvant numériquement la valeur à l’équilibre $F^e$ qui maximise le rendement à l’équilibre $Y^e$
 
 $$
 Y^e = F^e R^e \phi^b,
 (\#eq:dlm-om-yeq)
 $$
 
-where $R^e$ is equilibrium recruitment (Equation \@ref(eq:dlm-om-req)) and $\phi^b$ is equilibrium vulnerable biomass-per-recruit, defined in Equation \@ref(eq:dlm-om-phib) below.
+où $R^e$ est le recrutement à l’équilibre (équation \@ref(eq:dlm-om-req)) et $\phi^b$ est la biomasse vulnérable par recrue à l’équilibre, définie dans l’équation \@ref(eq:dlm-om-phib) ci-dessous.
 
-In this framework, we assume a Beverton-Holt stock-recruit relationship [@beverton1957], although DLMtool also allows users to select the Ricker form [@ricker1954]:
+Dans ce Cadre, nous supposons une relation stock-recrue de Beverton-Holt [@beverton1957], bien que DLMtool permette également aux utilisateurs de sélectionner une forme de Ricker [@ricker1954] :
 
 $$
 R^e =
 \begin{cases}
-      \dfrac{\alpha^{\textrm{B}}\phi - 1}{\beta^{\textrm{B}}\phi} & \textrm{Beverton-Holt}\\
+      \dfrac{\alpha^{\textrm{B}}\phi – 1}{\beta^{\textrm{B}}\phi} & \textrm{Beverton-Holt}\\
       \dfrac{\log(\alpha^{\textrm{R}}\phi)}{\beta^{\textrm{R}}\phi} & \textrm{Ricker},
 \end{cases}
 (\#eq:dlm-om-req)
 $$
 
-where $\alpha^{\textrm{B}}$ and $\beta^{\textrm{B}}$ are the parameters of the Beverton-Holt stock recruit relationship, and $\alpha^{\textrm{R}}$ and $\beta^{\textrm{R}}$ are the parameters of the Ricker stock recruit relationship, defined above (see Equation \@ref(eq:sra-om-rya).
+où $\alpha^{\textrm{B}}$ et $\beta^{\textrm{B}}$ sont les paramètres de la relation stock-recrue de Beverton-Holt, et $\alpha^{\textrm{R}}$ et $\beta^{\textrm{R}}$ sont les paramètres de la relation stock-recrue de Ricker, définis ci-dessus (voir l’équation \@ref(eq:sra-om-rya).
 
-Following the approach of @botsford1981, equilibrium spawning biomass-per-recruit is calculated
+Selon l’approche de @botsford1981, on calcule la biomasse féconde par recrue à l’équilibre comme suit :
 
 $$
 \phi = \sum_{a=1}^A \iota_a w_a m_a,
 (\#eq:dlm-om-phi)
 $$
 
-where $\iota_a$ is equilibrium survivorship-at-age:
+où $\iota_a$ est la survie selon l’âge à l’équilibre :
 
 $$
    \iota_a=
@@ -496,161 +465,102 @@ $$
 (\#eq:dlm-om-survivorship)
 $$
 
-and $Z^e_{a}$ is equilibrium total mortality-at-age:
+et $Z^e_{a}$ est la mortalité totale selon l’âge à l’équilibre :
 
 $$
 Z^e_{a} = \widetilde{M} +  F^e_{a}v_{a}.
 (\#eq:dlm-om-zeq)
 $$
 
-Finally, using the same approach, $\phi^b$ is calculated:
+Enfin, en utilisant la même approche, on calcule $\phi^b$ comme suit :
 
 $$
 \phi^b = \sum_{a=1}^A \iota_a w_a v_a.
 (\#eq:dlm-om-phib)
 $$
 
-After numerically solving Equation \@ref(eq:dlm-om-yeq) for $F_\textrm{MSY}$, $B_\textrm{MSY}$ is calculated:
+Après avoir résolu numériquement l’équation \@ref(eq:dlm-om-yeq) pour $F_\textrm{MSY}$, $B_\textrm{MSY}$ est calculée comme suit :
 
 $$
 B_{\textrm{MSY}} = \phi\textrm{MSY} R^e,
 (\#eq:dlm-om-bmsy)
 $$
 
-with $F^e=F_\textrm{MSY}$ in Equation \@ref(eq:dlm-om-survivorship).
+avec $F^e=F_\textrm{MSY}$ dans l’équation \@ref(eq:dlm-om-survivorship).
 
-Note that, as for Equation \@ref(eq:dlm-om-nya), the maximum age class $A$ is treated as a plus group in Equation \@ref(eq:dlm-om-survivorship). While this is not the default setting in DLMtool, it becomes the default when the SRA is used to condition the OM (see explanation in Section \@ref(sec:dlmtool-pop-dynamics)).
+Il convient de noter que, comme pour l’équation \@ref(eq:dlm-om-nya), la classe d’âge maximale $A$ est traitée comme un groupe plus dans l’équation \@ref(eq:dlm-om-survivorship). Bien qu’il ne s’agisse pas du paramètre par défaut dans DLMtool, il devient le paramètre par défaut lorsqu’on utilise l’analyse de la réduction des stocks pour conditionner le modèle opérationnel (voir l’explication dans la section \@ref(sec:dlmtool-pop-dynamics)).
 
-## TIME-VARYING PARAMETERS {#sec:dlmtool-time-varying}
+## PARAMÈTRES VARIABLES DANS LE TEMPS {#sec:dlmtool-time-varying}
 
-The OM as described above assumes that model parameters representing growth, selectivity, and fishery catchability are time invariant.
-DLMtool allows users to set a number of key parameters to vary through time, according to user-specified slope and variation parameters.
-For example, if the growth parameters $\widetilde{L}_\infty$ and $\widetilde{\kappa}$ are set to be time-varying [@carruthers2018, their Appendix C, Equations 7 and 8], then the von Bertalanffy growth curve will vary through time.
-This will affect other model variables that depend on length, including weight-at-age (Equation \@ref(eq:dlm-om-wta)), maturity-at-length and age (Equations \@ref(eq:dlm-om-matl) and \@ref(eq:dlm-om-mata)), and selectivity-at-age (Equation \@ref(eq:dlm-om-va)).
+Le modèle opérationnel décrit ci-dessus suppose que les paramètres du modèle représentant la croissance, la sélectivité et la capturabilité de la pêche ne varient pas dans le temps.
+DLMtool permet aux utilisateurs de définir un certain nombre de paramètres clés qui varient dans le temps, en fonction des paramètres de pente et de variation qu’ils ont spécifiés.
+Par exemple, si les paramètres de croissance $\widetilde{L}_\infty$ et $\widetilde{\kappa}$ sont définis comme variables dans le temps [@carruthers2018, équations 7 et 8 de leur annexe C], alors la courbe de croissance de von Bertalanffy variera dans le temps.
+Cela aura une incidence sur d’autres variables du modèle qui dépendent de la longueur, y compris le poids selon l’âge (équation \@ref(eq:dlm-om-wta)), la maturité selon la longueur et l’âge (équations \@ref(eq:dlm-om-matl) et \@ref(eq:dlm-om-mata)) et la sélectivité selon l’âge (équation \@ref(eq:dlm-om-va)).
 
-Similarly, $M$ can be set to be time-varying, either as a function of: (1) a user-defined percentage annual increase or (2) weight-at-age relative to maximum weight, or both [@carruthers2018, their Appendix C, Equation 4].
-Fishery catchability $q$ can also be set to vary through time during the projection period [@carruthers2018, their Appendix D, Equation 42].
-Note that setting growth and mortality parameters to be time-varying in the DLMtool OM will result in them being carried through to the SRA model.
+De même, $M$ peut être définie comme variable dans le temps, soit comme une fonction : 1) d’une augmentation annuelle en pourcentage définie par l’utilisateur ou 2) du poids selon l’âge par rapport au poids maximal, ou les deux [@carruthers2018, équation 4 de l’annexe C].
+La capturabilité de la pêche $q$ peut également varier au fil du temps pendant la période de projection, [@carruthers2018, équation 42 de leur annexe D].
+Il est à noter que le fait de définir des paramètres de croissance et de mortalité variables dans le temps dans le modèle opérationnel de DLMtool les transférera dans le modèle d’analyse de la réduction des stocks.
 
-In the presence of time-varying parameters, $B_0$ is calculated as
+En présence de paramètres variables dans le temps, on calcule $B_0$ comme suit :
 
 $$
 B_0 = \frac{\sum_{y=1}^{\theta_{a50}}B_\textrm{unfished}^y}{\theta_{a50}},
 (\#eq:dlm-om-dyn-bo)
 $$
 
-which is the average unfished spawning biomass over the first $\theta_{a50}$ (age-at-maturity) years of the historical period (rounded up to the nearest integer) and $B_\textrm{unfished}^y$ is calculated $B_0$ (Equation \@ref(eq:dlm-om-bo)).
-Other alternative interpretations of $B_0$ could also be programmed (e.g., average $B_0$ across the whole historical period, or at the end of the historical period), depending on the desired benchmark or target.
+qui est la biomasse féconde moyenne non exploitée les premières années $\theta_{a50}$ (âge à la maturité) de la période historique (arrondie au nombre entier le plus proche) et $B_\textrm{unfished}^y$ est $B_0$ calculée (équation \@ref(eq:dlm-om-bo)).
+On peut aussi programmer d’autres interprétations de $B_0$ (p. ex. $B_0$ moyenne sur toute la période historique ou à la fin de la période historique), en fonction de la cible ou du point de référence désiré.
 
-Time-varying growth, natural mortality and/or selectivity will result in time-varying MSY-based reference points, because DLMtool calculates $\textrm{MSY}$ and related metrics (e.g., $B_\textrm{MSY}$) at each time-step in the model, in which case annual performance metrics will be based on annual estimates of  reference points.
-Analysts should exercise caution with time-varying $B_\textrm{MSY}$ and $B_0$.
-Declining reference points can imply improved stock status relative to lower reference points, possibly leading to a "ratcheting" effect as both stock and reference points decline.
-Alternatively, it is possible to base performance metrics on an average $B_\textrm{MSY}$ from the historical period or on some other desired benchmark [e.g., the estimated average biomass from a productive historical period @dfo2009; @forrest2018].
+Une croissance, une mortalité naturelle ou une sélectivité variables dans le temps se traduiront par des points de référence fondés sur le rendement maximal durable qui varient dans le temps, car DLMtool calcule $\textrm{MSY}$ et les paramètres connexes (comme $B_\textrm{MSY}$) à chaque pas de temps du modèle, auquel cas les paramètres de rendement annuel seront fondés sur des estimations annuelles des points de référence.
+Les analystes doivent faire preuve de prudence avec $B_\textrm{MSY}$ et $B_0$ variables dans le temps.
+La diminution des points de référence peut entraîner une amélioration de l’état du stock par rapport aux points de référence inférieurs, ce qui peut causer un effet « d’abaissement » à mesure que le stock et les points de référence diminuent.
+Sinon, il est possible de baser les paramètres du rendement sur une $B_\textrm{MSY}$ moyenne tirée de la période historique ou sur un autre point de référence souhaité [p. ex. la biomasse moyenne estimée d’une période historique productive @dfo2009; @forrest2018].
 
-It is recommended that appropriate benchmarks or targets in the presence of time-varying productivity be resolved in collaboration with fisheries management, stakeholders, and First Nations, as performance metrics based on reference points such as $B_\textrm{MSY}$ and $B_0$ will be impacted by the methods used to calculate them. Such decisions should be documented to ensure transparency.
+Il est recommandé de résoudre des cibles ou des points de référence appropriés en cas de productivité variable dans le temps en collaboration avec les gestionnaires des pêches, les intervenants et les Premières Nations, car les paramètres de rendement fondés sur des points de référence tels que $B_\textrm{MSY}$ et $B_0$ seront influencés par les méthodes utilisées pour les calculer. Ces décisions devraient être documentées pour assurer la transparence.
 
-How to treat reference points when parameters, particularly productivity parameters such as $\widetilde{M}$ or $\widetilde{\kappa}$, are time-varying is an active area of research [e.g., @haltuch2009; @haltuch2019; @punt2014]. We suggest that the MP Framework is a suitable environment for further simulation-testing alternative approaches for time-varying reference points and suggest this is an important research area for future applications of the framework.
+Le traitement des points de référence lorsque les paramètres, en particulier les paramètres de productivité comme $\widetilde{M}$ ou $\widetilde{\kappa}$, sont variables dans le temps, est un domaine de recherche actif [p. ex. @haltuch2009; @haltuch2019; @punt2014]. Nous sommes d’avis que le Cadre des procédures de gestion est un environnement approprié pour d’autres approches d’essais par simulation plus poussées pour les points de référence variables dans le temps, et qu’il s’agit d’un important domaine de recherche pour les applications futures du Cadre.
 
 \clearpage
 
-## DLMTOOL SLOTS
+## TIROIRS DE DLMTOOL
 
-```{r tab-om-pars, echo=FALSE, cache=FALSE, message=FALSE, results='asis'}
-# slot_include <- c(
-#   "maxage",
-#   "R0",
-#   "M",
-#   "h",
-#   "Perr",
-#   "AC",
-#   "Linf",
-#   "K",
-#   "t0",
-#   "L50",
-#   "L50\\_95",
-#   "D",
-#   "a",
-#   "b",
-#   "L5",
-#   "LFS",
-#   "Vmaxlen",
-#   "LR5",
-#   "LFR",
-#   "Rmaxlen",
-#   "Cobs",
-#   "Cbiascv",
-#   "CAA\\_nsamp",
-#   "CAA\\_ESS",
-#   "CAL\\_nsamp",
-#   "CAL\\_ESS",
-#   "Iobs",
-#   "Ibiascv",
-#   "beta",
-#   "Irefbiascv",
-#   "Crefbiascv",
-#   "TACFrac",
-#   "TACSD")
-
-# get_first_sentence <- function(x) {
-#   unlist(strsplit(x, '(?<=\\.)\\s+', perl=TRUE))[[1]]
-# }
-
-# p <- readr::read_csv(system.file("alt-slot-descriptions.csv", package = "gfdlm"))
-# p <- dplyr::filter(p, slot %in% slot_include) %>%
-#   dplyr::mutate(first_sentence = purrr::map_chr(.$custom_description, get_first_sentence)) %>%
-#   dplyr::select(slot_type, slot, parameter_symbols, first_sentence)
-
-# mc_tribble <- function(indf, indents = 4, mdformat = TRUE) {
-#   name <- as.character(substitute(indf))
-#   name <- name[length(name)]
-#
-#   meat <- capture.output(write.csv(indf, quote = TRUE, row.names = FALSE))
-#   meat <- paste0(
-#     paste(rep(" ", indents), collapse = ""),
-#     c(paste(sprintf("~%s", names(indf)), collapse = ", "),
-#       meat[-1]))
-#
-#   if (mdformat) meat <- paste0("    ", meat)
-#   obj <- paste(name, " <- tribble(\n", paste(meat, collapse = ",\n"), ")", sep = "")
-#   if (mdformat) cat(paste0("    ", obj)) else cat(obj)
-# }
-
+```{r tab-om-pars, echo=FALSE, cache=FALSE, message=FALSE, results='asis', eval=FALSE}
  p <- tribble(
 ~slot_type, ~slot,          ~parameter_symbols,              ~first_sentence,
-"Stock",    "maxage",     "$n_a$",                         "The maximum age of individuals that is simulated.",
-"Stock",    "R0",         "$R_0$",                         "The magnitude of unfished recruitment.",
-"Stock",    "M",          "$M$",                           "Natural mortality rate.",
-"Stock",    "h",          "$h$",                           "Steepness of the stock-recruit relationship.",
-"Stock",    "Perr",       "$\\sigma_R$",                   "SD of recruitment deviations in log space.",
-"Stock",    "AC",         "$\\theta_{\\textrm{AC}}$",      "Autocorrelation in recruitment deviations.",
-"Stock",    "Linf",       "$L_{\\infty}$",                 "von Bertalanffy maximum expected length.",
-"Stock",    "K",          "$\\kappa$",                     "von Bertalanffy growth parameter.",
-"Stock",    "t0",         "$t_0$",                         "von Bertalanffy theoretical age at length zero.",
-"Stock",    "L50",        "$\\theta_{l50}$",               "Length at 50\\% maturity.",
-"Stock",    "L50\\_95",    "$\\theta_{l50-95}$",           "Length increment from 50\\% to 95\\% maturity.",
-"Stock",    "a",          "$\\alpha_W$",                   "Length-weight parameter.",
-"Stock",    "b",          "$\\beta_W$",                    "Length-weight parameter.",
-"Fleet",    "L5",         "$L^5$",                         "Shortest length corresponding to 5\\% vulnerability.",
-"Fleet",    "LFS",        "$L^\\textrm{FS}$",              "Shortest length that is fully vulnerable to fishing.",
-"Fleet",    "Vmaxlen",    "$V_{L_\\infty}$",               "The vulnerability of fish at maximum expected length.",
-"Fleet",    "LR5",        "${L}_{r5}$",                         "Shortest length fish corresponding to 5\\% retention.",
-"Fleet",    "LFR",        "$L_\\textrm{rmax}$",            "Shortest length fish that are fully retained.",
- "Fleet",  "Rmaxlen",    "$r_{L_\\infty}$",             "The retention of fish at ${L}_\\infty$.",
-"Obs.",     "Iobs",       "$\\sigma_I$",                   "Observation error SD of the relative abundance index in log space.",
-"Obs.",     "Cobs",       "$\\sigma_{C}$",                 "Observation error SD of the catch in log space.",
-"Obs.",      "Cbiascv",    "$b_C$",                         "CV controlling the sampling of bias in catch observations.",
-"Obs.",     "beta",       "$\\beta$",                      "Hyperstability/hyperdepletion parameter.",
-"Obs.",     "CAA\\_ESS",  "$\\textrm{ESS}_\\textrm{CAA}$", "Effective sample size of multinomial catch-at-age observation error model.",
-"Obs.",     "CAA\\_nsamp", "$n_\\textrm{CAA}$",            "Number of catch-at-age observations per time step.",
-"Imp.",     "TACFrac",    "$b_\\textrm{TAC}$",             "Mean fraction of TAC taken.",
-"Imp.",     "TACSD",      "$\\sigma_\\textrm{bTAC}$",      "SD in lognormal fraction of TAC taken."
+"Stock",    "maxage",     "$n_a$",                         "L’âge maximal des individus qui est simulé.",
+"Stock",    "R0",         "$R_0$",                         "L’ampleur du recrutement non exploité.",
+"Stock",    "M",          "$M$",                           "Taux de mortalité naturelle.",
+"Stock",    "h",          "$h$",                           "Taux de variation de la relation stock-recrue.",
+"Stock",    "Perr",       "$\\sigma_R$",                   "ET des écarts de recrutement dans l’espace logarithmique.",
+"Stock",    "AC",         "$\\theta_{\\textrm{AC}}$",      "Autocorrélation dans les écarts de recrutement.",
+"Stock",    "Linf",       "$L_{\\infty}$",                 "Longueur maximale prévue de von Bertalanffy.",
+"Stock",    "K",          "$\\kappa$",                     "Coefficient de croissance de von Bertalanffy.",
+"Stock",    "t0",         "$t_0$",                         "Âge théorique de von Bertalanffy à la longueur zéro.",
+"Stock",    "L50",        "$\\theta_{l50}$",               "Longueur à 50\\% de maturité.",
+"Stock",    "L50\\_95",    "$\\theta_{l50-95}$",           "Augmentation de longueur de 50 % à 95 % de maturité.",
+"Stock",    "a",          "$\\alpha_W$",                   "Paramètre longueur-poids.",
+"Stock",    "b",          "$\\beta_W$",                    "Paramètre longueur-poids.",
+"Flotille",    "L5",         "$L^5$",                         "Longueur la plus courte correspondant à une vulnérabilité de 5\\%.",
+"Flotille",    "LFS",        "$L^\\textrm{FS}$",              "Longueur la plus courte pleinement vulnerable à la pêche.",
+"Flotille",    "Vmaxlen",    "$V_{L_\\infty}$",               "Vulnérabilité des poissons à la longueur maximale prévue.",
+"Flotille",    "LR5",        "${L}_{r5}$",                         "Longueur la plus courte des poissons correspondant à une rétention de 5\\%.",
+"Flotille",    "LFR",        "$L_\\textrm{rmax}$",            "Longueur la plus courte des poissons qui sont entièrement conservés.",
+ "Flotille",  "Rmaxlen",    "$r_{L_\\infty}$",             "Rétention des poissons à ${L}_\\infty$.",
+"Obs.",     "Iobs",       "$\\sigma_I$",                   "ET de l’erreur d’observation de l’indice de l’abondance relative dans l’espace logarithmique.",
+"Obs.",     "Cobs",       "$\\sigma_{C}$",                 "ET de l’erreur d’observation des prises dans l’espace logarithmique.",
+"Obs.",      "Cbiascv",    "$b_C$",                         "CV contrôlant l’échantillonnage du biais dans les observations des prises.",
+"Obs.",     "beta",       "$\\beta$",                      "Paramètre d’hyperstabilité/hyperépuisement.",
+"Obs.",     "CAA\\_ESS",  "$\\textrm{ESS}_\\textrm{CAA}$", "Taille effective de l’échantillon du modèle d’erreur d’observation multinomiale des prises selon l’âge.",
+"Obs.",     "CAA\\_nsamp", "$n_\\textrm{CAA}$",            "Nombre d’observations des prises selon l’âge par pas de temps.",
+"MEO",     "TACFrac",    "$b_\\textrm{TAC}$",             "Fraction moyenne du TAC prélevée.",
+"MEO",     "TACSD",      "$\\sigma_\\textrm{bTAC}$",      "ET de la fraction log-normale du TAC prélevée."
 )
 
 
 
 p %>%
   mutate(slot = paste0("\\texttt{", slot, "}")) %>%
-  csasdown::csas_table(format = "latex", col_names = c("OM element", "Slot", "Parameter", "Description"), caption = "DLMtool operating model (OM) `slots', parameter symbols, and brief descriptions. In the `OM elements' column, `Obs.' and `Imp.' refer to the observation and implementation components, respectively. `Slots' is the technical name for the parameter elements within the DLMtool R package. All parameters in this table (except $n_a$, $\\alpha_W$, and $\\beta_W$) can be defined as stochastic with draws from a distribution for each simulation replicate.") %>%
+  csasdown::csas_table(format = "latex", col_names = c("Élément du modèle opérationnel", "Tiroir", "Paramètre", "Description"), caption = Tiroirs, symboles des paramètres et brèves descriptions du modèle opérationnel de DLMtool. Dans la colonne « Éléments du modèle opérationnel », « Obs. » et « MEO » renvoient respectivement aux composantes d’observation et de mise en œuvre. « Tiroirs » est le nom technique des éléments des paramètres dans le progiciel DLMtool R. Tous les paramètres de ce tableau (sauf $n_a$, $\\alpha_W$ et $\\beta_W$) peuvent être définis comme stochastiques avec des tirages à partir d’une distribution pour chaque répétition de la simulation.") %>%
   kableExtra::column_spec(1, width = "1.75cm") %>%
   kableExtra::column_spec(2, width = "1.75cm") %>%
   kableExtra::column_spec(3, width = "1.75cm") %>%
