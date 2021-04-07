@@ -8,6 +8,9 @@ library("here")
 library("assertthat")
 # load_all("../gfdlm")
 
+FRENCH <- TRUE
+if (FRENCH) options(OutDec =  ",")
+
 cores <- floor(parallel::detectCores() / 2L)
 # future::plan(future::multiprocess, workers = cores)
 future::plan(future::sequential)
@@ -53,7 +56,12 @@ PM <- c("LT LRP", "LT USR", "FMSY", "STC", "LTC", "AADC")
 # Set up and checks -----------------------------------------------------------
 
 stopifnot(all(reference_mp %in% mp$mp))
-fig_dir <- here("report", "figure")
+
+if (!FRENCH) {
+  fig_dir <- here("report", "figure")
+} else {
+  fig_dir <- here('report-french', 'figure')
+}
 if (!dir.exists(fig_dir)) dir.create(fig_dir)
 .ggsave <- function(filename, width, height, ...) {
   ggsave(file.path(fig_dir, paste0(sp, "-", filename, ".png")),
@@ -222,6 +230,19 @@ mp_eg_not_sat <- c(
   ".SP6040_0.4"
 )
 
+if (FRENCH) {
+  sc$scenario_human <- c(
+    "1 - Ceq. 200%",
+    "2 - Ceq. 250%",
+    "3 - M plus\nélevée",
+    "4 - Taux de variation\nplus élevé",
+    "5 - Plus faible\nsélectivité",
+    "6 - Pas de CPUE\nCeq. 250%",
+    "7 - Pas de CPUE\nCeq. 50%",
+    "8 - M\ncroissante")
+}
+
+
 plots <- gfdlm::plot_factory(
   mse_list = mse,
   pm = PM,
@@ -238,7 +259,8 @@ plots <- gfdlm::plot_factory(
   satisficed_criteria = satisficed_criteria,
   skip_projections = FALSE,
   survey_type = "AddInd",
-  omit_index_fn = oddify
+  omit_index_fn = oddify,
+  french = FRENCH
 )
 
 .ggsave("dot-refset-avg", width = 7.5, height = 4.5, plot = plots$dot_refset_avg)
@@ -300,7 +322,11 @@ walk(names(plots$projections), ~ {
 optimize_png <- FALSE
 if (optimize_png && !identical(.Platform$OS.type, "windows")) {
   files_per_core <- 4
-  setwd("report/figure")
+  if (!FRENCH) {
+    setwd("report/figure")
+  } else {
+    setwd("report-french/figure")
+  }
   system(paste0(
     "find -X . -name 'rex-*.png' -print0 | xargs -0 -n ",
     files_per_core, " -P ", cores, " optipng -strip all"
