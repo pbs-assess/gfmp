@@ -1,0 +1,180 @@
+# DISCUSSION {#sec:discussion}
+
+In this document we have presented a framework for implementing an MP approach to providing Science advice for groundfish in British Columbia.
+We outlined an approach to developing appropriate OMs, testing suites of MPs, and identifying MPs that best meet the objectives of fisheries management and stakeholders.
+Ultimately, it is our aim that the MP Framework improves the capacity of DFO to meet the requirements of Canada's Sustainable Fisheries Framework and the Fish Stocks provisions of the *Fisheries Act* for data-limited species.
+Although the MP Framework does not emphasize explicit knowledge of fish-stock reference points, it emphasizes selecting management approaches that have a high likelihood of maintaining fish stocks above implicitly known reference points across multiple plausible states of nature.
+In the following discussion we highlight issues regarding reference points, MP tuning, assessment frequency and triggers, the inclusion of environmental effects, assessing the value of information, and use of this framework as part of stock rebuilding plans.
+
+## IMPLICIT VS. EXPLICIT KNOWLEDGE OF LIMIT REFERENCE POINTS {#sec:discussion-ref-points}
+
+This MP Framework, and all MSE processes, differ from conventional stock assessments in the way science advice is delivered.
+In most BC groundfish stock assessments [e.g., @yamanaka2011; @starr2017; @forrest2019], catch advice is presented in the form of decision tables, where probabilities of breaching reference points (e.g., probability of the stock falling below the LRP) are presented over a range of possible future TAC levels.
+Uncertainty can be incorporated into the process in two main ways: (1) within a single model, through treating model parameters (e.g., $M$, $R_0$, $h$, process, and observation error terms) as random variables; and/or (2) developing alternative models to test sensitivity to model assumptions.
+In the latter case, results from some of these sensitivity models may be averaged to produce a model-averaged decision table [e.g., @forrest2019], integrating uncertainties across multiple models.
+This approach depends on explicit reporting of reference points and estimation of stock status.
+Following the production of a decision table, it is then the job of the decision-makers to select a future TAC based on the probabilities presented in the decision table and their consideration of other factors such as economic needs of the fishery combined with their risk tolerance.
+In this process, consideration of risk (i.e., probability of breaching reference points and resulting impacts) occurs at the final step of the decision-making process and may not always be transparent or be related to agreed-upon objectives.
+
+MP frameworks differ from conventional assessments in two key ways: (1) reference points and stock status are not explicitly reported (or at least not emphasized); and (2) objectives related to the probability of breaching reference points must be agreed upon at the beginning of the process, i.e., at Step 2 of the best practices (Section \@ref(sec:best2)).
+Reference points and stock status are therefore still an integral component of the framework---they are calculated in the OMs and are built into the performance metrics.
+Critically, agreement on acceptable risk (e.g., acceptable probabilities of breaching reference points) must be reached at the beginning of the process so that performance metrics and satisficing criteria can be established.
+The final decision point in this process is the MP that delivers a TAC that meets objectives, while ideally also achieving acceptable trade-offs among other objectives such as catch or variability in catch.
+An advantage of MP frameworks is that all objectives must be transparently stated and are "baked in" to the final catch advice.
+
+We note that, for many stocks, especially data-limited stocks, it is not possible to reliably estimate biological reference points or estimate stock status.
+MP frameworks such as this one may be especially important for these stocks
+The Sustainable Fisheries Framework and the Fish Stocks provisions of the *Fisheries Act* require that fish stocks be maintained at sustainable levels, and particularly above the LRP (Section \@ref(sec:intro-motivation)).
+This framework implicitly preserves the intent of these policies, despite the fact that reference points and stock status are not explicitly provided.
+The MP Framework therefore increases capacity for provision of Sustainable Fisheries Framework- and Fish Stocks provisions-compliant catch advice for data-limited stocks.
+We recommend that products such as [DFO's sustainability survey](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/index-en.html) be flexible to accommodate status reports from MP-approach processes, which may use alternative wording such as: "Under the current management procedure, the stock has a less than [X] probability ([Y] times out of [N] chance) of being below the LRP averaged over a [Z]-year time frame."
+Alternatively, if a minimum-performance-by-year calculation [@ices2016criteria] is performed: "...less than [X] probability ([Y] times out of [N] chance) of being below the LRP in each and every year over a [Z]-year time frame."
+
+## TUNING MPs {#sec:discussion-tuning}
+
+Many of the MPs in this framework are characterized by one or more parameters that control how the TAC should change in response to changes in the survey index (Appendix \@ref(app:MPs)).
+For example, the Itarget MPs have four "tuning" parameters, $w$, $x$, $\lambda$, and $\delta$, which control the rate and scale of TAC adjustments in response to changes in the index (Appendix \@ref(app:MPs) Section \@ref(sec:mp-itarget)).
+In our Rex Sole case study, we tested six versions of the Itarget MPs over a fairly coarse scale of the tuning parameters.
+In this particular case, several of the MPs performed well with respect to satisficing criteria so we did not explore more combinations.
+However, in some applications of the framework it may be desirable to iteratively tune MPs on a fine scale to achieve desired performance outcomes [see @sagarese2018 for discussion on tuning MPs].
+
+There is a trade-off between testing a larger set of generic MPs across a coarse array of tuning parameters and homing in on better-performing MPs via the satisficing step vs. focusing effort on a few MPs that are highly "tuned" to achieve desired outcomes.
+In cases where generic MPs perform poorly, the latter approach may be preferred.
+This latter approach may also be preferred in more mature processes with strong stakeholder engagement, where MPs can be tuned iteratively to meet a more refined set of objectives [e.g., @cox2008a].
+Ultimately, the decision about whether to evaluate generic or finely tuned MPs will be made on a stock-by-stock basis.
+The process may start with more generic MPs and graduate to more finely tuned MPs as experience is gained with the performance of specific MPs.
+
+## REASSESSMENT FREQUENCY AND TRIGGERS {#sec:discussion-triggers}
+
+In general, the purpose of an MP framework is to identify and select a robust MP that can be left in place for an agreed amount of time.
+We do not recommend a specific interval between assessments in this framework and suggest this should be done on a stock-by-stock basis.
+We suggest that the MP Framework itself can be used to test appropriate re-assessment intervals for individual fish stocks [e.g., @huynh2020].
+Interim checks between assessments are also recommended to ensure the selected MP is performing as expected.
+
+In addition to the best practice steps described in Section \@ref(sec:best-practices), @carruthers2018 describe a final evaluation step, where performance of the selected MP is formally reviewed once it has been implemented.
+Departures from an MP's predicted performance have been termed "exceptional circumstances", where the observed system dynamics fall outside the range of OM scenarios specified in the OM(s), over which the MPs were demonstrated to be robust [@butterworth2008].
+Exceptional circumstances can be caused either by misspecification of the original OM(s) or can be due to unforeseen changes in the future system dynamics that were not captured in the original OM(s) (e.g., changes in natural mortality, growth, recruitment, or fishing dynamics).
+Evidence for exceptional circumstances, occurring within the recommended assessment interval, would trigger a review of the OM(s) and MP, possibly resulting in a new OM, or an adjustment to the selected MP [@carruthers_hordyk_2018].
+
+In established MSE processes [e.g., @cox2008a], informal evaluation of the performance of MPs may be done at regular intervals as the MP is applied and new data are gathered (e.g., survey and commercial CPUE information).
+@carruthers_hordyk_2018 list several examples of MSEs where formal protocols for detecting exceptional circumstances have been established.
+In general, formal protocols have included monitoring the biomass index, catch, and sometimes other data-types such as age-composition data, and comparing observations to the OM predictions.
+Examples of triggers for re-evaluation include observed data falling outside some confidence interval of the OM-predicted data (e.g., 90% or 95%).
+@carruthers_hordyk_2018 recommend testing the statistical power of formal protocols to detect exceptional circumstances.
+This may be especially important for data-limited species, where statistical power may be low due to large uncertainty in OM dynamics.
+For example, if the confidence interval of a predicted index is extremely large due to OM uncertainties, the likelihood of future observed indices falling outside its range may be low.
+It may therefore be necessary to use more rigorous test statistics, possibly based on multiple sources of data [e.g., examples provided in @carruthers_hordyk_2018].
+
+We recommend regular evaluation of the performance of MPs recommended by this framework but recognize that a formal protocol has not yet been established.
+We therefore also recommend further analyses to evaluate protocols for detecting exceptional circumstances as a matter of priority.
+
+## INCLUDING ENVIRONMENTAL EFFECTS {#sec:discussion-environmental}
+
+The Fish Stocks provisions of the *Fisheries Act* state that fisheries management decisions shall take "into account the biology of the fish and the environmental conditions affecting the stock" (Section \@ref(sec:intro-motivation)).
+Changing environmental conditions can affect fish stocks in many ways, including impacting natural mortality rates, growth rates and condition, recruitment success, and spatial distribution, which may impact fishery catchability or selectivity.
+Robust methods for including environmental considerations into single-species catch advice are not well-established in fisheries decision-making environments [but see @haltuch2011; @haltuch2019; @crone2019].
+This is because of large uncertainties associated with observing complex marine environments and understanding mechanisms linking fish population dynamics with environmental change [@myers1995].
+Unless mechanisms are well-understood [e.g., @swain2015], incorporating environmental variables into stock assessments does not necessarily improve advice [@punt2014].
+
+Closed loop simulation-testing is an important means of evaluating how MPs perform in the presence of uncertainty and a changing environment [e.g., @haltuch2009; @haltuch2011; @punt2011b].
+In this approach, hypotheses about how environmental variables impact population dynamics are incorporated into the OMs, with the performance of alternative MPs (which may or may not include environmental variables) evaluated in the same way as presented in this framework.
+Multiple OMs can be developed that represent multiple hypotheses for environmental effects.
+OMs could explicitly include environmental variables (e.g., linking ocean temperature with recruitment deviations, or linking predator abundance with *M*), or could be mechanism-free (e.g., allowing growth parameters or $M$ to vary through time with no specific driver).
+The latter, mechanism-free approaches are already straightforward to incorporate into DLMtool operating models, via growth or mortality parameters (see Section \@ref(sec:dlmtool-time-varying)).
+The Rex Sole case study included one OM scenario in the robustness set where $M$ increased linearly through time.
+In this case, no specific mechanism for changing $M$ was provided.
+
+Environmental changes may also increase the frequency of unexpected events such as very large or very small recruitment events.
+These are sometimes referred to as "black-swan" events [e.g., @taleb2007; @anderson2017; @anderson2019] or "spasmodic recruitment" [@caddy1983] and can be incorporated into operating models through the addition of alternative distributions for recruitment anomalies to allow for occasional very large or very small events.
+An upcoming application of the MP Framework for the Inside stock of Yelloweye Rockfish will include an OM scenario that incorporates occasional sudden large recruitment events [@haggarty2020yelloweye].
+We recommend using the tools developed for this MP Framework to further explore simulation-testing approaches to identify MPs that are robust to changing environmental conditions.
+
+## ASSESSING THE VALUE OF INFORMATION {#sec:discussion-voi}
+
+The MP Framework provides the tools to evaluate the "value of information" (VoI) on the performance of MPs.
+Value-of-information analyses assess whether performance can be improved with the addition of resources invested in data-collection.
+Conversely, such analyses can evaluate whether similar performance could be achieved if fewer data were available.
+These are essentially sensitivity analyses to the addition or removal of data sources or changes to data quantity or quality.
+
+Typical data types that could be included in value-of-information analyses in applications of the MP Framework for BC groundfish include survey-index and age-composition data.
+In terms of survey-index data, this framework could be used to test the sensitivity of MP performance to changes in the precision of population indexes.
+For example, applications of the framework could quantify the expected change in the probability of maintaining a stock above its LRP in the long term given reductions or expansions in random-stratified survey programs.
+
+The MP Framework could also be used to evaluate whether MP performance could be improved by ageing otoliths for a given stock.
+This would be achieved by using the OM to simulate age-composition data, possibly with different effective sample sizes, and testing whether MPs that rely on age-composition data (e.g., a full age-structured model) outperform simpler, data-limited MPs such as the ones tested in this document.
+DLMtool's companion package MSEtool contains a large number of data-rich MPs (age-structured models) that could be used for this purpose [@huynh_msetool_2019].
+This type of analysis could be used to answer questions about whether data-rich MPs would better meet management objectives for a given fish stock and, if so, how much ageing data would be required for a full assessment [e.g., @sagarese2018].
+The effects of ageing imprecision and bias on assessment performance could also be evaluated.
+We note that simulating age- and length-composition data with sufficiently realistic "noise" can be challenging.
+Evaluating the performance of MPs with composition data that represent the underlying true composition more closely than real data may overestimate the performance of MPs that rely on composition data.
+
+We suggest that expanding the framework to include VoI considerations may also require development of new objectives and performance metrics associated with the costs of expanding research programs, collecting more data, or benefits such as marginal improvements in accuracy of advice and improvements in catch accessibility.
+
+## REBUILDING PLANS {#sec:discussion-rebuilding}
+
+The [Precautionary Approach policy](https://waves-vagues.dfo-mpo.gc.ca/Library/40584781.pdf) and the Fish Stocks provisions of the *Fisheries Act* (Section \@ref(sec:intro-motivation)) require that management measures be put in place if fish stocks are assessed to be in the critical zone (i.e., below the LRP).
+Rebuilding plans require that management measures should rebuild stocks out of the critical zone within a specified time frame (e.g., one or two generation times), with a specified probability.
+The MP Framework can be easily modified to test performance of alternative MPs with respect to meeting rebuilding objectives for stocks requiring rebuilding plans.
+The only real modifications needed are to the objectives and performance metrics, which are already customizable within this framework.
+
+A challenge for data-limited species is how to determine whether a stock is in the critical zone in the first place, required in order to trigger a rebuilding plan.
+In light of new legislative requirements for rebuilding under the  Fish Stocks provisions, DFO Science is currently developing more detailed guidance on considerations for the design of rebuilding strategies [@kronlund2020].
+Drawing on precedents by Health Canada [@weight2018], @kronlund2020 suggest a "weight of evidence" approach to determine whether rebuilding is required.
+A weight of evidence approach may include consideration of combined contributions of individual studies (totality of evidence), and expert judgement-assigned weights for each line of evidence, where a line of evidence may consist of one or more studies.
+We suggest that if conditioned OMs place a high probability of a fish stock being in the critical zone across a range of plausible OM assumptions, this could contribute to the lines of evidence used to trigger a rebuilding plan.
+
+This framework is currently being applied to evaluate alternative data-limited MPs for the rebuilding plan for the Inside stock of Yelloweye Rockfish in British Columbia [@haggarty2020yelloweye].
+
+## DATA-MODERATE AND DATA-RICH STOCKS {#sec:discussion-data-rich}
+
+This framework has outlined the steps needed to evaluate the performance of data-limited MPs, with a focus on BC groundfish species.
+Data-richness occurs along a gradient and it may be desirable to apply the framework to evaluate the performance of data-moderate or data-rich MPs.
+The principles of this framework are the same along the data-richness continuum.
+The MSEtool R package [@huynh_msetool_2019] contains data-moderate (e.g., delay-difference models) and data-rich (e.g., statistical catch-age models) MPs that could easily be incorporated into this framework with some modification.
+However, we note again that the framework is software agnostic.
+Other software tools have been used in a similar fashion for data-rich species in BC [e.g., Sablefish: @cox2008a; Pacific Herring: @cox2019].
+
+## LIMITATIONS OF THE FRAMEWORK {#sec:discussion-limitations}
+
+As in all MSE processes, results of this framework will depend on the degree to which uncertainties within the real system are captured within the OMs.
+For this reason we recommended developing multiple OMs to capture the key, most plausible hypotheses about the system in the reference set, and a wider range of uncertainties in the robustness set.
+However, it is inevitable that some uncertainties will not be considered, either because they are unknown or because including them would create unworkable complexity in the modelling and decision-making environment.
+For example, species for which spatial considerations are important (e.g., highly migratory species, or species with strong environmental drivers of productivity).
+Some considerations will inevitably be considered outside the scope of the process due to limitations in available data, time, or expertise.
+Therefore it is important to evaluate the performance of selected MPs once they are implemented, either through informal or formal means (Section \@ref(sec:discussion-triggers)).
+
+Our OMs were conditioned on observed data, using the SRA model in MSEtool.
+Outputs of this model rely on the quality of the available data, and also on the assumed distributions of its input parameters.
+In particular, assumptions about selectivity will be a key source of uncertainty for species with little or no age composition data.
+Therefore, selectivity should be treated as an axis of uncertainty in most applications.
+Furthermore, as the SRA assumes almost no observation error in historical catch data, uncertainty may be underestimated in its outputs.
+For trawl-caught BC groundfish, catch estimates are considered reliable since the 1996 introduction of 100% at-sea observer coverage.
+For line-caught species, catch data are considered reliable since 2006, when 100% electronic monitoring was introduced.
+For some species, especially those with low monetary value, catch data prior to these years may be more uncertain and it may be necessary to include alternative scenarios to account for uncertainty in catch [e.g. @haggarty2020yelloweye].
+
+<!-- We have presented a selection of empirical and model-based MPs for data-limited species but future applications of the framework may need to evaluate other MPs, either published in the literature or developed as part of the MSE process itself [e.g., @cox2008a]. -->
+
+Finally, the success of this framework and any MSE process will depend on adequate engagement by fishery managers, First Nations, and stakeholders.
+For some species, different user groups may have diverse objectives, creating large tradeoffs and a complex decision-making environment.
+In these cases, careful governance of the process and attention to Steps 1 and 2 (Section \@ref(sec:best-practices)) will be especially critical.
+
+<!-- We recommend separate review processes for extensions to the framework to evaluate data-moderate and/or data-rich MPs, as there will be additional considerations and sources of uncertainty. -->
+<!-- We also recommend separate review processes for extensions that include consideration of environmental effects, assessing the value of information and rebuilding plans.  -->
+
+# ACKNOWLEDGEMENTS
+
+We are grateful to the members of our technical advisory group Rob Kronlund, Adam Keizer, Chris Grandin, Ashleen Benson, Dana Haggarty, Rowan Haigh, Roger Kanno, Paul Starr, Rob Tadey, and Greg Workman for helpful discussions and comments on earlier drafts of this document.
+
+We thank Chris Grandin, who developed a number of visualization and report-generation functions within the gfdlm R package that greatly improved this document and will be invaluable in applications of the framework.
+
+We thank Tom Carruthers and Adrian Hordyk for their work on developing DLMtool and MSEtool.
+This project would have been a much bigger undertaking without these tools. Tom and Adrian's helpful guidance and willingness to add many new features on request have greatly improved this framework.
+
+We thank John Holmes for supporting our work on this framework within the Stock Assessment and Research Division at the Pacific Biological Station.
+
+We thank Jaclyn Cleary and Ann-Marie Huang for helpful advice on other MSE processes in BC.
+
+We thank DFO's Ocean and Freshwater Science Contribution Program for supporting the development of DLMtool and MSEtool.
+
+Finally, we thank Carrie Holt and Meaghan Bryan for insightful reviews that greatly improved this document.
+

@@ -1,0 +1,63 @@
+\clearpage
+
+# REX SOLE CASE STUDY SUMMARY
+
+We undertook a case study of the Rex Sole (*Glyptocephalus zachirus*) stock in the West Coast Vancouver Island (WCVI) groundfish management area (Area 3CD) to demonstrate an application of the MP Framework.
+This stock was selected because it lacks recent ageing data, lacks current assessment advice, and has a contrasting life-history with that of Strait of Georgia Yelloweye Rockfish (*Sebastes ruberrimus*), a fish stock for which this framework has been applied concurrently [@haggarty2020yelloweye].
+We briefly summarize the Rex Sole case study here. Full details are available in Appendix \@ref(app:mse-rex) and Appendix \@ref(app:desc-om-rex).
+The case-study is presented to illustrate the framework and its outputs but *is not intended for the provision of catch advice at this time*.
+
+Rex Sole are a flatfish caught primarily in the bottom-trawl fishery in BC.
+They can live as long as 29 years, grow as large as 58 cm, and weigh up to 1.44 kg.
+Otoliths have been collected regularly on BC surveys, but these otoliths have not been aged.
+Rex Sole are caught regularly in the DFO synoptic bottom trawl surveys and relative biomass indexes calculated from these surveys have a relatively low level of observation error (CV [coefficient of variation] = 0.07--0.12) compared to many other groundfish stocks caught in the same survey.
+Rex Sole in WCVI do not have an existing stock assessment or TAC.
+
+**Decision context**:
+The decision to be made was which MP to use to determine catch limits for the period until the next available catch advice.
+
+**Objectives and performance metrics**:
+We defined objectives and performance metrics following the provisional suggestions in Section \@ref(sec:approach2) that are guided by the Precautionary Approach Framework.
+Since 1.5--2 Rex Sole generations would be less than 50 years, we chose to run our projections for 50 years (Section \@ref(sec:approach2)).
+
+We defined the performance metrics as:
+
+1. LT LRP: Probability *B* > 0.4 *B*~MSY~ (years 35--50)
+2. LT USR: Probability *B* > 0.8 *B*~MSY~ (years 35--50)
+3. FMSY: P(*F* < *F*~MSY~) (years 1--50)
+4. STC: Probability catch > reference catch (years 1--10)
+5. LTC: Probability catch > reference catch (years 35--50)
+6. AADC: Probability AADC (average absolute interannual difference in catch) < historical AADC (years 1--50)
+
+where reference catch was defined as the average catch from the last five years.
+
+**Operating model specification**:
+We established six reference-set OMs encompassing uncertainty in depletion of the stock prior to 1996, natural mortality (*M*), stock-recruit steepness (*h*), fishery and survey length selectivity, and the inclusion or exclusion of commercial CPUE effort data (Appendix \@ref(app:mse-rex) Section \@ref(sec:results-reference-set)).
+We further established two robustness-set OMs encompassing less plausible but possible additional sources of structural uncertainty: (1) an OM scenario that assumes the stock was lightly fished before 1996 and excludes the CPUE data; and (2) an OM scenario that assesses robustness to future increases in natural mortality (possibly due to climate change or shifts in predator abundance) (Appendix \@ref(app:mse-rex) Section \@ref(sec:results-robustness-set)).
+
+We documented the initial parameterization of the OMs (Appendix \@ref(app:desc-om-rex)) and the conditioning of the OMs using stochastic stock reduction analysis (SRA; Appendix \@ref(app:sra)).
+The conditioning estimated biomass depletion in the last historical year, the magnitude of unfished recruitment, fishing mortality at age by year, and historical recruitment deviations.
+We retained only parameter combinations that had plausible fits to the observed data in the SRA (Appendix \@ref(app:mse-rex) Section \@ref(sec:results-om-conditioning)).
+
+**Candidate management procedure specification**:
+We worked with the full set of provisional candidate MPs described in Appendix \@ref(app:MPs).
+We modified the MPs to only observe even years of the survey index to reflect the biennial nature of the WCVI synoptic bottom trawl survey.
+
+**Closed-loop simulation application**:
+We applied satisficing criteria based on the LT LRP and STC performance metrics (minimum LT LRP > 0.9, minimum STC > 0.8). We discarded some MPs with near-identical performance to render a manageable set of seven MPs for further consideration.
+These MPs included index-target MPs, surplus production models paired with a harvest control rule, and two constant-catch MPs.
+
+**Presentation of results**:
+We presented a number of visualizations featuring the OM reference-set scenarios to aid evaluating trade-offs amongst the seven satisficed MPs for final decision-making.
+We averaged results across OM reference-set scenarios, to integrate across the various uncertainties represented by these OMs.
+We presented probability results in terms of the average (Figures \@ref(fig:rex-tigure-avg)) and minimum performance (Figures \@ref(fig:rex-tigure-min)), where the latter accounts for the worst-case scenario among OM reference-set scenarios.
+We suggest that Figures \@ref(fig:rex-tigure-avg) and \@ref(fig:rex-tigure-min) would be the primary source of information used by decision-makers to reach a final MP-selection decision.
+To aid this decision, we included a number of other visualizations to help decision-makers understand the underlying dynamics and trade-offs of the various OMs across all satisficed MPs.
+
+Finally, we assessed performance of the satisficed MPs under the OM robustness scenarios.
+We present results from the two OM robustness scenarios separately to allow decision-makers to see performance of MPs under these less plausible OM scenarios.
+Poor performance of an MP under one of these OM scenarios may influence a decision-maker to select another MP that performs well under both OM reference and robustness scenarios.
+Four Itarget MPs (Appendix \@ref(app:MPs) Section \@ref(sec:mp-itarget)) were relatively robust to the OM scenario where the stock was lightly fished prior to 1996 and to increasing natural mortality in the future.
+Conversely, the constant catch and surplus production MPs had substantially lower probabilities of achieving the LT LRP objective under the lightly fished OM robustness scenario.
+
+We provide a full set of results and interpretation of results in Appendix \@ref(app:mse-rex).

@@ -1,0 +1,112 @@
+# INTRODUCTION {#sec:intro}
+
+## BACKGROUND {#sec:intro-background}
+
+Fishery-independent surveys conducted by Fisheries and Oceans Canada (DFO) encounter over 200 groundfish species in the Pacific region. Of these, approximately 100 are regularly caught in the British Columbia (BC) integrated groundfish fishery. The Pacific Region Groundfish Integrated Fisheries Management Plan (IFMP)[@dfo2017] lists approximately 80 species-area fish stocks for which annual total allowable catches (TACs) are required, most of which are applied as individual transferable quotas (ITQs) within the BC integrated groundfish fishery.
+
+In recent decades, advice on TACs for Pacific groundfish species has been developed using statistical stock assessment models that rely on indices of abundance, age-composition, commercial catch, and biological data that enable estimation of key population metrics such as stock status, relative depletion, recruitment, growth, fishery selectivity, and natural and fishing mortality. These stock assessment models are data and resource-intensive, with only a few assessments produced each year with available data and Science sector resources.
+
+The majority of fish stocks encountered by the integrated groundfish fishery are considered data-limited, where data-limited stocks are defined as those with insufficient data to: (1) reliably estimate stock status; or (2) estimate abundance or productivity with conventional stock assessment methods such as statistical catch-at-age models [@dowling2015; @dowling2015a]. Many of these stocks lack current assessment advice.
+
+## MOTIVATION {#sec:intro-motivation}
+
+The Canadian Sustainable Fisheries Framework (SFF) lays the foundation for the precautionary approach (PA) to fisheries management in Canada [@dfo2006; @dfo2009].
+The Precautionary Approach Framework [@dfo2009] relies on the definition of biological reference points (BRPs), which define biomass targets as well as low biomass thresholds to be avoided with high probability.
+The approach requires that fishing mortality be adjusted in relation to two levels of stock status---an Upper Stock Reference (USR) and a Limit Reference Point (LRP) (Figure \@ref(fig:pa-illustration)).
+The LRP and USR delineate three stock status zones ("healthy", "cautious", and "critical").
+Of particular importance is the LRP, which is defined as the spawning biomass below which serious harm may occur to the stock.
+Other key elements of the Precautionary Approach Framework include a harvest control rule (HCR), which determines allowable removal rates in each of the three stock status zones (e.g., Figure \@ref(fig:pa-illustration)), and the requirement to take into account risk and uncertainty when developing BRPs and determining stock status in relation to BRPs [@dfo2006; @dfo2009].
+
+(ref:fig-pa) Illustration of DFO's Precautionary Approach Framework. Based on @dfo2009.
+
+```{r pa-illustration, fig.cap="(ref:fig-pa)", out.width="3.8in"}
+knitr::include_graphics(here::here("images/pa-framework.png"))
+```
+
+On June 21, 2019, major amendments to Canada's [*Fisheries Act*](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-3.html#h-1175547) received Royal Assent, thus passing them into Canadian law. Among many other amendments, provisions in the new *Fisheries Act* require that fish stocks be managed at sustainable levels, specifically at biomass levels above the LRP. Hereafter referred to as the "Fish Stocks provisions", the provisions legislate elements of Canada's Sustainable Fisheries Framework and Precautionary Approach Framework, and state:
+
+> **Measures to maintain fish stocks**
+> 6.1(1) In the management of fisheries, the Minister shall implement measures to maintain major fish stocks at or above the level necessary to promote the sustainability of the stock, taking into account the biology of the fish and the environmental conditions affecting the stock.
+
+> **Limit reference point**
+> 6.1 (2) If the Minister is of the opinion that it is not feasible or appropriate, for cultural reasons or because of adverse socio-economic impacts, to implement the measures referred to in subsection (1), the Minister shall set a limit reference point and implement measures to maintain the fish stock above that point, taking into account the biology of the fish and the environmental conditions affecting the stock.
+
+> **Plan to rebuild**
+> 6.2(1) If a major fish stock has declined to or below its limit reference point, the Minister shall develop a plan to rebuild the stock above that point in the affected area, taking into account the biology of the fish and the environmental conditions affecting the stock, and implement it within the period provided for in the plan.
+
+For data-limited stocks, data are generally insufficient to adequately account for uncertainty in development of BRPs and assessment of stock status relative to BRPs. To comply with the legal requirements identified in the Fish Stocks provisions for data-limited species, it is therefore necessary to develop defensible methods and a framework for setting catch limits that promote sustainability and maintain stocks above their LRP, recognizing that, in many cases, the LRP and stock status cannot be reliably estimated.
+
+The objective of the framework proposed in this document is to preserve the *intent* of the Precautionary Approach Framework, legislated in the Fish Stocks provisions, and provide decision-makers with a quantified characterization of risk with respect to the likelihood of maintaining stocks above the LRP, regardless of the quality and quantity of available data.
+
+## TIERED APPROACHES {#sec:intro-tiered-approaches}
+
+Many other nations and governing bodies have established frameworks for assessing data-limited fish stocks---often through "tiered" approaches (e.g., United States [@newman2015], ICES [@ices2012], Australia [@smith2009]).
+A tiered approach places stocks into ranked categories (tiers) based on the types and quality of available data.
+Specific data-limited methods for setting catch limits are identified for each tier. Arbitrary buffers may also be added to recommended catch limits in each tier (e.g., reduce recommended catch limit by 20%), in an attempt to account for the additional uncertainty inherent in more data-limited tiers.
+
+In 2016, a CSAS workshop was held in the Pacific region to review international tiered approaches, as a preliminary evaluation of the suitability of a tiered approach for the BC integrated groundfish fishery [@dfo2016tiered].
+Instead of recommending a discrete tiered approach based on data-availability, the workshop recommended considering data-richness on a continuous scale and simulation-testing multiple alternative management procedures (MPs) on a stock-by-stock basis, using a management-oriented, or management strategy evaluation (MSE), approach to identify data-limited MPs that would best meet policy and fishery objectives, explicitly accounting for risk.
+
+## MANAGEMENT-ORIENTED APPROACHES {#sec:intro-management-oriented}
+
+Worldwide, there has been a movement towards management-oriented approaches to stock assessment and fisheries management [e.g., @delamare1998; @butterworth1999; @plaganyi2007; @rademeyer2007; @berkson2015; @geromont2015; @punt2016; @carruthers2016].
+Whereas traditional stock assessment methods focus explicitly on estimation of biological parameters and stock status, a management-oriented approach focuses on identifying MPs that perform best with respect to policy and fishery objectives when implemented in a "closed-loop" simulation environment (Figure \@ref(fig:mse-chart-basic)).
+
+Closed-loop simulation is distinguished from conventional stock assessment because it simulates feedback between implementation of the MPs and the simulated system representing the fish stock and its environment, described by one or more operating models (OMs).
+This approach not only takes into account the effect of the MPs on the system but also the future data collected from the system and its use in the MPs [@punt2016].
+Data-limited MPs may be represented by a simple empirical rule, such as an adjustment to catch based on a change in an index of abundance or may be based on more complex methods incorporating multiple data sources and statistical models.
+
+(ref:fig-mse-chart-basic) Illustration of the fisheries closed-loop simulation process following @punt2016. The management procedure may be based on a simple data rule (e.g., decrease the allowable catch x% if the survey index decreases y%) or it might be an estimation model combined with a harvest control rule.
+
+```{r mse-chart-basic, fig.cap="(ref:fig-mse-chart-basic)", out.width="6.3in"}
+knitr::include_graphics(here::here("images/mse-chart-simple2.png"))
+```
+
+The scientific literature reports a large number of data-limited MPs.
+When tested in closed-loop simulation environments, data-limited MPs have shown variable performance across conditions such as species life-history and levels of biomass depletion [e.g., @carruthers2014; @carruthers2016].
+Closed-loop simulation-testing of data-limited MPs allows for evaluation of relative performance of MPs across a range of uncertainties in, for example, underlying fish biology, observation error, estimation error, and implementation error [e.g., @kell2006; @carruthers2016].
+Importantly, a management-oriented approach employing closed-loop simulation enables ranking of MPs with respect to meeting objectives and enables evaluation of trade-offs among competing objectives (e.g., policy-based conservation objectives and economic objectives).
+
+Since 2017, a partnership agreement between the University of British Columbia (UBC) and DFO [@dfo_dlmtool_2017] has supported development of two open-source software packages for MSE, implemented in R [@r2019]: the Data Limited Methods toolkit (DLMtool) [@carruthers2018; @carruthers_hordyk_2018] and the Management Strategy Evaluation toolkit (MSEtool) [@huynh_msetool_2019].
+After several years of development, these packages provide some of the fastest, most flexible and extensible software for conducting MSE for fisheries, ranging from data-poor to data-rich, enabling rapid assessment of multiple MPs according to customizable conservation and fisheries objectives, and evaluation of key trade-offs.
+
+## OBJECTIVES OF THIS DOCUMENT {#sec:intro-objectives}
+
+This document aims to develop a management procedure framework ("MP Framework") for selecting methods for provision of catch advice for Pacific groundfish stocks that do not have sufficient data to estimate the parameters needed for full statistical stock assessments.
+Therefore, the framework will provide advice for stocks where biological reference points and stock status cannot be reliably estimated.
+In doing so, it aims to improve the capacity of DFO to meet the requirements of Canada's Sustainable Fisheries Framework and the Fish Stocks provisions of the *Fisheries Act* for data-limited species.
+The MP Framework will apply closed-loop simulation to formalize the process of testing and selecting MPs for data-limited groundfish stocks, which will support the provision of scientific advice to fisheries managers.
+We emphasize that biological reference points and stock status, which are integral to the Sustainable Fisheries Framework and Fish Stocks provisions, are also integral to the MP Framework, even if they are not explicitly stated in the catch advice.
+Instead reference points and stock status are incorporated into the OMs (see Appendix \@ref(app:dlmtool-om)) and management procedures are selected based on explicitly defined probabilities of maintaining OM stock status above reference points.
+We choose the terminology MP Framework to clearly specify the focus on selection of best-performing MPs, rather than focusing on the available data.
+
+This document presents a methodology for developing appropriate OMs, testing suites of MPs, and identifying MPs that best meet the objectives of fisheries management, First Nations and stakeholders.
+This work builds on recent work by @anderson2019synopsis, which is a comprehensive, reproducible data synopsis for nearly all Pacific groundfish species encountered by DFO surveys and commercial fisheries in BC.
+Although the proposed framework is software agnostic, in the current implementation, data and empirical analyses from the groundfish synopsis packages [@gfdata; @gfplot] are used to develop OMs using the DLMtool [@carruthers2018] and MSEtool packages [@huynh_msetool_2019], implemented in the statistical software R [@r2019].
+The OMs are then used in simulation-testing a range of data-limited MPs against performance metrics.
+While this document focuses on data-limited MPs, the main features of the framework could be extended to more data-rich species to evaluate performance of data-moderate or data-rich MPs (e.g., different configurations of statistical catch-age models coupled with harvest control rules).
+An R package written by the authors for this framework, gfdlm [@gfdlm], houses many tools and custom visualizations to aid in the process.
+Steps of the process are described more fully in the following sections of the document.
+
+## EXPECTED BENEFITS {#sec:intro-benefits}
+
+There are a number of expected benefits of this project. Compared to the current status quo, this framework will allow DFO to:
+
+* provide evidence-based catch advice for more stocks, including stocks for which advice was not previously available;
+* develop a standardized and transparent approach across stocks;
+* test performance of data-limited MPs for providing catch advice with respect to meeting sustainability and fishery objectives; and
+* help build an understanding of the most important data needs and research priorities for reducing uncertainty in stock assessment advice.
+
+Critically, the framework will develop methods to improve capacity for DFO Science to provide sustainable, data-limited catch advice, consistent with Canada's Precautionary Approach Framework as legislated under the Fish Stocks provisions, therefore enabling data-limited stocks to be brought into compliance with the Fish Stocks provisions of the *Fisheries Act*.
+
+Extensions to the framework could be used to inform:
+
+* rebuilding plans and recovery potential assessments [e.g., @haggarty2020yelloweye];
+* methods for accounting for environmental conditions in management decisions, as required under the Fish Stocks Provisions;
+* assessing the value of collecting more information; and
+* evaluating the performance of data-moderate and data-rich MPs.
+
+See Section \@ref(sec:discussion) for discussion of these.
+
+We emphasize that while the framework does not explicitly report biological reference points and stock status, which often cannot be reliably estimated for data-limited stocks, the framework is designed to evaluate MPs with respect to the probability of maintaining stocks above reference points over a defined range of uncertainties.
+Reference points are therefore an integral component of the framework.

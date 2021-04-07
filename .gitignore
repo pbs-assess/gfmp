@@ -39,3 +39,9 @@ nodejs/
 
 report/gfmp-outline.mindnode/QuickLook/Preview.jpg
 report/resdoc.toc
+*.docx
+*.doc
+*.o
+*.so
+*.xlsx
+report/lw_gfplot.cpp

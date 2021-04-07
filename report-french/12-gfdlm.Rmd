@@ -1,0 +1,156 @@
+\clearpage
+
+# R PACKAGE TO SUPPORT THE MP FRAMEWORK {#app:gfdlm}
+
+We developed the R package [gfdlm](https://github.com/pbs-assess/gfdlm) [@gfdlm] to provide a set of tools that facilitate applications of this framework.
+The package includes our provisional library of MPs, a number of plotting functions for summarizing simulation output and model fits, and a variety of other utilities for manipulating DLMtool MPs and performance metrics, and creating reports based on DLMtool simulations (such as Appendix \@ref(app:desc-om-rex) in this document).
+
+## PLOTTING FUNCTIONS
+
+All plotting functions are set up to take either:
+
+1. a named list of DLMtool simulations from `DLMtool::runMSE()`,
+2. a named list of SRA model fits from `MSEtool::SRA_scope()`, or
+3. a named list of performance metric data frames from `gfdlm::get_probs()`.
+
+In all cases, the list elements should contain different OM scenarios from the reference and/or robustness sets and the names should reflect the OM scenario names.
+
+Note that the `pkg::f()` syntax refers to a function `f()` within the package `pkg` without loading the package via the `library()` function.
+We have written code in this appendix using this syntax so that it is clear where various functions originate.
+
+The following are the main plotting functions:
+
+* `plot_index_fits()` takes a named list of SRA model fits and creates a plot of historical population index data and model fits. For example, Figure \@ref(fig:rex-survey-fits).
+
+* `plot_convergence()` takes a named list of DLMtool simulations and creates a plot to assess replicate convergence. For example, Figure \@ref(fig:rex-converge).
+
+* `plot_tigure()` takes a named list of performance metric data frames and creates a shaded probability table of performance metrics. For example, Figure \@ref(fig:rex-tigure-avg).
+
+* `plot_dots()` takes a named list of performance metric data frames and creates a dot or dot-and-line plot of performance metrics. For example, Figure \@ref(fig:rex-dot-lines).
+
+* `plot_tradeoff()` takes a named list of performance metric data frames and creates a trade-off plot of two selected performance metrics. For example, Figure \@ref(fig:rex-tradeoff-reference).
+
+* `plot_radar()` takes a named list of performance metric data frames and creates a radar plot. For example, Figure \@ref(fig:rex-spider-satisficed-mps-avg).
+
+* `plot_index()` takes a named list of DLMtool simulations and creates a plot showing historical and projected population index values. For example, Figure \@ref(fig:rex-proj-index).
+
+* `plot_main_projections()` takes a named list of DLMtool simulations and creates a time-series plot of historical and projected *B*/*B*~MSY~, *F*/*F*~MSY~, and catch. For example, Figure \@ref(fig:rex-proj-ceq200).
+
+* `plot_kobe()` takes a named list of DLMtool simulations and creates a Kobe plot (*F*/*F*~MSY~ vs. *B*/*B*~MSY~) for the last projected year. For example, Figure \@ref(fig:rex-kobe).
+
+* `plot_worms()` takes a named list of DLMtool simulations and creates a Kobe plot through time. For example, Figure \@ref(fig:rex-worm).
+
+* `plot_scenario_projections()` takes a named list of DLMtool simulations and creates a time-series plot of historical and projected *B*/*B*~MSY~, *F*/*F*~MSY~, and catch with all OM scenarios overlaid on the same plots using different colours. For example, Figure \@ref(fig:rex-proj-scenarios).
+
+* `plot_factory()` is "the one [plotting function] to rule them all". This function takes a named list of DLMtool simulations along with a number of other arguments specifying characteristics like satisficed MPs and performance metrics and generates common versions of all the figures described above. The output is a named list of ggplot2 [@wickham2016] elements that can be viewed, modified, and/or saved for inclusion in a report. For example, this function was used to create all the main figures in the Rex Sole case study in this document (Figures \@ref(fig:rex-converge)--\@ref(fig:rex-proj-scenarios)).
+
+* `pm_factory()` is a function factory that generates a performance metric function. For example, the following creates a performance metric `LT LRP` that is based on spawning biomass, a reference level of 0.4 of B~MSY~, and calculated over years 36--50 in the projection period.
+
+```{r, echo=TRUE, eval=FALSE}
+`LT LRP` <- gfdlm::pm_factory("SBMSY", ref = 0.4, yrs = c(36, 50))
+```
+
+## MP MANIPULATION FUNCTIONS
+
+`use_AddInd()` and `reduce_survey()` are function factories that modify MPs to use the DLMtool "additional index" data and discard selected survey years, respectively. The additional index data (as used in this framework) reflects the observed index in the historical period and an index that reflects the survey or fleet selectivity pattern in the projection period.
+For example, the following creates a new MP named `.Itarget_base` by taking the MP `Itarget_base` and (1) modifying it to use the first "additional index" and (2) omitting every even year of the survey to emulate a biennial survey:
+
+```{r, echo=TRUE, eval=FALSE}
+oddify <- function(x) seq(2, x, by = 2)
+.Itarget_base <- gfdlm::Itarget_base %>%
+  gfdlm::use_AddInd() %>%
+  gfdlm::reduce_survey(index = oddify)
+```
+
+Note that `%>%` refers to the "pipe" function from the magrittr R package [@magrittr].
+It can be read as "and then".
+Technically, it places the output from the function before the `%>%` into the first argument of the function after the `%>%`.
+
+## REPORTING UTILITIES
+
+`create_rmd()` creates or updates a template for specifying a DLMtool OM. For example, it was used to create Appendix \@ref(app:desc-om-rex).
+
+\clearpage
+
+# COMPUTATIONAL ENVIRONMENT
+
+This version of the document was generated on `r Sys.time()` with
+`r devtools::session_info()$platform$version` [@r2019] and R package versions:
+
+```{r env, echo = FALSE, results='asis', message=FALSE, warning=FALSE, eval=TRUE, cache=FALSE}
+library(TMB, warn.conflicts = FALSE, quietly = TRUE)
+library(rstan, warn.conflicts = FALSE, quietly = TRUE)
+library(rstanarm, warn.conflicts = FALSE, quietly = TRUE)
+library(bookdown, warn.conflicts = FALSE, quietly = TRUE)
+library(rmarkdown, warn.conflicts = FALSE, quietly = TRUE)
+library(DLMtool, warn.conflicts = FALSE, quietly = TRUE)
+library(cowplot, warn.conflicts = FALSE, quietly = TRUE)
+library(MSEtool, warn.conflicts = FALSE, quietly = TRUE)
+library(glmmTMB, warn.conflicts = FALSE, quietly = TRUE)
+library(gfdata, warn.conflicts = FALSE, quietly = TRUE)
+pkgs <- sort(c("gfplot", "ggplot2", "dplyr", "rstan", "knitr", "glmmTMB",
+  "TMB", "purrr", "kableExtra", "cowplot", "csasdown", "bookdown", "rmarkdown",
+  "rstanarm", "gfdlm", "gfdata",
+  "DLMtool", "MSEtool"))
+info <- devtools::session_info()$packages
+info <- info %>% dplyr::filter(package %in% pkgs) %>%
+  dplyr::select(package, ondiskversion, date) %>%
+  dplyr::rename(Package = package, Version = ondiskversion, Date = date)
+
+info %>%
+  knitr::kable(booktabs = TRUE, linesep = "", longtable = TRUE, format = "pandoc") %>%
+  kableExtra::kable_styling(latex_options = c("hold_position"))
+```
+
+```{r sha, cache=FALSE}
+get_sha <- function(path) {
+  if (!identical(.Platform$OS.type, "windows")) {
+    suppressWarnings({
+      sha <- tryCatch(system(paste0("git ls-remote git@github.com:", path, ".git"),
+        intern = TRUE, ignore.stderr = TRUE), error = function(e) "error")
+    })
+    if (is.null(attr(sha, "status")) && sha != "error")
+      out <- substr(sha[grepl("HEAD", sha)], 1, 7)
+    else
+      out <- "xxxxxxx"
+  } else {
+    out <- "xxxxxxx"
+  }
+  out
+}
+sha_gfmp <- get_sha("pbs-assess/gfmp")
+sha_gfdlm <- get_sha("pbs-assess/gfdlm")
+# sha_gfdata <- get_sha("pbs-assess/gfdata")
+sha_gfdata <- "7e075bc"
+sha_gfplot <- get_sha("pbs-assess/gfplot")
+# sha_mse <- get_sha("pbs-assess/MSEtool")
+sha_mse <- "0805813"
+# sha_dlm <- get_sha("DLMtool/DLMtool")
+sha_dlm <- "feb23c76"
+sha_csasdown <- get_sha("pbs-assess/csasdown")
+```
+
+The source code for this document is available at:\
+<`r paste0("https://github.com/pbs-assess/gfmp/tree/", sha_gfmp)`>.
+
+This document was compiled with the R package csasdown [@csasdown].
+
+The specific versions of the primary packages used to generate this report can be viewed at:
+
+<`r paste0("https://github.com/DLMtool/DLMtool/tree/", sha_dlm)`>\
+<`r paste0("https://github.com/tcarruth/MSEtool/tree/", sha_mse)`>\
+<`r paste0("https://github.com/pbs-assess/gfdlm/tree/", sha_gfdlm)`>\
+<`r paste0("https://github.com/pbs-assess/gfdata/tree/", sha_gfdata)`>\
+<`r paste0("https://github.com/pbs-assess/csasdown/tree/", sha_csasdown)`>\
+
+\vspace{4mm}
+or installed via:
+
+`# install.packages('devtools')`\
+`devtools::install_github('DLMtool/DLMtool', ref = '`r sha_dlm`')`\
+`devtools::install_github('tcarruth/MSEtool', ref = '`r sha_mse`')`\
+`devtools::install_github('pbs-assess/gfdlm', ref = '`r sha_gfdlm`')`\
+`devtools::install_github('pbs-assess/gfdata', ref = '`r sha_gfdata`')`\
+`devtools::install_github('pbs-assess/csasdown', ref = '`r sha_csasdown`')`\
+
+\clearpage
