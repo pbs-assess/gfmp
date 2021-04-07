@@ -365,7 +365,7 @@ lwd <- data.frame(L50 = L50, L95=L95, L50_95=L50_95) %>%
   reshape2::melt()
 ggplot(lwd, aes(value)) + geom_histogram() +
   facet_wrap(~variable, scales = "free_x", ncol = 3) +
-  theme_pbs() + xlab("Parameter value") + ylab("Samples") +
+  theme_pbs() + xlab(en2fr("Parameter value", french)) + ylab(en2fr("Samples", french)) +
   coord_cartesian(expand = FALSE)
 L95 <- logit_perc(a = post_mat$`(Intercept)`, b = post_mat$length, perc = 0.95)
 ```
