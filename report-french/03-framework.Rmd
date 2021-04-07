@@ -288,7 +288,7 @@ Les lignes qui se croisent indiquent des changements dans l’ordre de classemen
 Une courbe correspond à une convergence lorsque les lignes demeurent à peu près horizontales et parallèles et ne se croisent pas vers la droite du graphique.
 
 ```{r methods-converge, fig.cap="(ref:fig-methods-converge)"}
-knitr::include_graphics(here("report/figure/framework-convergence.png"))
+knitr::include_graphics(here("report-french/figure/framework-convergence.png"))
 ```
 
 ## ÉTAPE 6 : PRÉSENTATION DES RÉSULTATS ET CHOIX DE LA PROCÉDURE DE GESTION {#sec:approach6}
@@ -363,7 +363,7 @@ Les cellules encadrées représentent les procédures de gestion qui répondent 
 Les noms des procédures de gestion en gris représentent les procédures de gestion de référence.
 
 ```{r methods-tigure, fig.cap="(ref:fig-methods-tigure)", out.width="3.5in"}
-knitr::include_graphics(here("report/figure/framework-tigure.png"))
+knitr::include_graphics(here("report-french/figure/framework-tigure.png"))
 ```
 
 (ref:fig-methods-dots)
@@ -376,7 +376,7 @@ Les procédures de gestion de référence sont indiquées par des cercles ouvert
 Les procédures de gestion autres que de référence sont indiquées par des cercles fermés (faux).
 
 ```{r methods-dots, fig.cap="(ref:fig-methods-dots)", out.width="\\textwidth"}
-knitr::include_graphics(here("report/figure/framework-dot.png"))
+knitr::include_graphics(here("report-french/figure/framework-dot.png"))
 ```
 
 (ref:fig-methods-tradeoff)
@@ -384,7 +384,7 @@ Cette visualisation montre les compromis à deux variables entre deux paramètre
 Les axes inférieur et gauche correspondent à deux paramètres de rendement et les points individuels représentent les procédures de gestion.
 
 ```{r methods-tradeoff, fig.cap="(ref:fig-methods-tradeoff)", out.width="4.25in"}
-knitr::include_graphics(here("report/figure/framework-trade-off.png"))
+knitr::include_graphics(here("report-french/figure/framework-trade-off.png"))
 ```
 
 (ref:fig-methods-radar) Ce diagramme en radar illustre les compromis des paramètres de rendement dans un ensemble de procédures de gestion.
@@ -395,7 +395,7 @@ Les lignes plus près de l’extérieur correspondent donc aux procédures de ge
 Il faut faire attention lorsqu’on interprète ces tracés, car la disposition des « rayons » peut influencer la perception des formes obtenues [@diehl2010; @feldman2013; @albo2016].
 
 ```{r methods-radar, fig.cap="(ref:fig-methods-radar)"}
-knitr::include_graphics(here("report/figure/framework-radar.png"))
+knitr::include_graphics(here("report-french/figure/framework-radar.png"))
 ```
 
 (ref:fig-methods-proj) Cette visualisation illustre les valeurs historiques et projetées de B/B~MSY~ (où B représente la biomasse féconde), de F/F~MSY~ et des prises pour diverses procédures de gestion pour un seul modèle opérationnel.
@@ -408,7 +408,7 @@ Les lignes horizontales tiretées indiquent B/B~MSY~ = 0,8 et 0,4, et F/F~MSY~ =
 Il est à noter que les simulations sont sans biais moyen et que les médianes de B/B~MSY~ et de F/F~MSY~ ne devraient donc pas se superposer parfaitement à la ligne du 1, même si la pêche est parfaitement à F~MSY~.
 
 ```{r methods-proj, fig.cap="(ref:fig-methods-proj)", out.width="\\textwidth"}
-knitr::include_graphics(here("report/figure/framework-main-projections.png"))
+knitr::include_graphics(here("report-french/figure/framework-main-projections.png"))
 ```
 
 (ref:fig-methods-proj-sens)
@@ -423,7 +423,7 @@ Elle permet d’avoir plusieurs rangées représentant chacune une procédure de
 Il convient de noter que la sensibilité des séries chronologiques aux scénarios de modèles opérationnels ne correspond pas nécessairement à la sensibilité relative à l’ordre de classement des procédures de gestion, qui est finalement le résultat important dans une approche axée sur la gestion.
 
 ```{r methods-proj-sens, fig.cap="(ref:fig-methods-proj-sens)", out.width="\\textwidth"}
-knitr::include_graphics(here("report/figure/framework-sens-projections.png"))
+knitr::include_graphics(here("report-french/figure/framework-sens-projections.png"))
 ```
 
 (ref:fig-methods-index) Cette visualisation illustre les valeurs historiques et projetées de l’indice de la population relatif.
@@ -436,7 +436,7 @@ Pour les procédures de gestion fondées sur des indices, il est important de co
 Pour les procédures de gestion simples, cette visualisation est également utile pour évaluer si la simulation produit des projections futures de l’indice qui sont conformes aux tendances historiques observées.
 
 ```{r methods-index, fig.cap="(ref:fig-methods-index)", out.width="6in",}
-knitr::include_graphics(here("report/figure/framework-index-projections.png"))
+knitr::include_graphics(here("report-french/figure/framework-index-projections.png"))
 ```
 
 (ref:fig-methods-kobe) Graphiques de Kobe (B/B~MSY~ par rapport à F/F~MSY~) pour la dernière année des projections pour toutes les répétitions.
@@ -448,7 +448,7 @@ La ligne horizontale tiretée représente F/F~MSY~ = 1.
 Les répétitions dont les valeurs sortent des limites extérieures de l’axe sont indiquées sur la limite de l’axe par un cercle vide (p. ex. angle inférieur droit).
 
 ```{r methods-kobe, fig.cap="(ref:fig-methods-kobe)", out.width="5in"}
-knitr::include_graphics(here("report/figure/framework-kobe.png"))
+knitr::include_graphics(here("report-french/figure/framework-kobe.png"))
 ```
 
 (ref:fig-methods-worm) Cette visualisation illustre la trajectoire temporelle des valeurs de F/F~MSY~ par rapport à B/B~MSY~ résumées entre les répétitions pour une seule procédure de gestion.
@@ -461,7 +461,7 @@ Les lignes et les diamants changent de couleur dans le temps et des points préc
 À titre de référence, les données sous-jacentes à la dernière tranche de temps de cette figure sont les mêmes que celles de la figure \@ref(fig:methods-kobe).
 
 ```{r methods-worm, fig.cap="(ref:fig-methods-worm)", out.width="5in"}
-knitr::include_graphics(here("report/figure/framework-worm.png"))
+knitr::include_graphics(here("report-french/figure/framework-worm.png"))
 ```
 
 \clearpage
