@@ -59,19 +59,7 @@ drex$catch <- dplyr::filter(d_catch, year <= 2019)
 saveRDS(drex, here::here("generated-data", "rex-filter-data.rds"))
 ```
 
-# REX SOLE OPERATING MODEL DEFINITION {#app:desc-om-rex}
-
-(ref:fig-rex-synopsis1) PLACEHOLDER: The first page for Rex Sole from @anderson2019synopsis.
-
-```{r rex-synopsis1, fig.cap="(ref:fig-rex-synopsis1)", out.width="5.8in", fig.pos="h", eval=FALSE}
-knitr::include_graphics(here::here("report/figure/rex-sole-1.pdf"))
-```
-
-(ref:fig-rex-synopsis2) PLACEHOLDER: The second page for Rex Sole from @anderson2019synopsis.
-
-```{r rex-synopsis2, fig.cap="(ref:fig-rex-synopsis2)", out.width="5.8in", fig.pos="p", eval=FALSE}
-knitr::include_graphics(here::here("report/figure/rex-sole-2.pdf"))
-```
+# DÉFINITION DU MODÈLE OPÉRATIONNEL DE LA PLIE ROYALE {#app:desc-om-rex}
 
 ```{r message = FALSE}
 library(DLMtool)
@@ -79,11 +67,9 @@ knitr_results <- TRUE
 knitr_echo <- TRUE
 ```
 
-This section describes the specification of the Rex Sole operating model.
-Some OM scenarios in the reference and robustness sets assign alternative options for some of the parameters.
-We note this below where it occurs.
+Cette section décrit les spécifications du modèle opérationnel de la plie royale. Certains scénarios de modèle opérationnel des ensembles de référence et de robustesse attribuent des options de rechange pour certains paramètres. Nous l’indiquons ci-dessous lorsque c’est le cas.
 
-## STOCK SLOT DESCRIPTIONS {#app:desc-stock-rex}
+## DESCRIPTION DES TIROIRS DU STOCK {#app:desc-stock-rex}
 
 ```{r warnings = FALSE}
 stock_rex <- methods::new("Stock")
@@ -92,7 +78,7 @@ cpars <- list()
 set.seed(282943)
 ```
 
-We begin by setting the random seed for sampling from distributions below:
+Nous commençons par établir la graine aléatoire pour l’échantillonnage à partir des distributions ci-dessous :
 
 ```{r, echo=TRUE, eval=FALSE}
 set.seed(282943)
@@ -110,9 +96,9 @@ stock_rex@Name <- "Rex Sole WCVI"
 ```
 
 <!-- slot-chunk-begin -->
-### Common_Name {#app:desc-stock-common_name-rex}
+### Common_name {#app:desc-stock-common_name-rex}
 
-*Common name of the species.*
+*Nom commun de l’espèce.*
 
 ```{r desc-stock-common_name-rex, results = knitr_results, echo = knitr_echo}
 stock_rex@Common_Name <- "Rex Sole"
@@ -122,7 +108,7 @@ stock_rex@Common_Name <- "Rex Sole"
 <!-- slot-chunk-begin -->
 ### Species {#app:desc-stock-species-rex}
 
-*Scientific name of the species.*
+*Nom scientifique de l’espèce.*
 
 ```{r desc-stock-species-rex, results = knitr_results, echo = knitr_echo}
 stock_rex@Species <- "Glyptocephalus zachirus"
@@ -132,11 +118,9 @@ stock_rex@Species <- "Glyptocephalus zachirus"
 <!-- slot-chunk-begin -->
 ### maxage {#app:desc-stock-maxage-rex}
 
-*The maximum age of individuals that is simulated. Positive integer.*
+*Âge maximal simulé des individus. Nombre entier positif.*
 
-The maximum recorded age for a Rex Sole in BC waters is 15 in the Hecate Strait Multispecies Assemblage survey in 1998. We do not have ages in our database for 3CD to inform the maximum age for this region. @munk2001 note the maximum age observed for Rex Sole in the Gulf of Alaska is 27 years. This maximum age becomes the plus group when the SRA is run.
-
-<!-- M = 5.4/15 = 0.36.  -->
+L’âge maximal enregistré pour une plie royale dans les eaux de la Colombie-Britannique est de 15 ans dans le relevé de l’assemblage plurispécifique dans le détroit d’Hécate en 1998. Nous n’avons pas de données sur l’âge dans notre base de données pour la zone 3CD qui nous permettraient de déterminer l’âge maximal pour cette région. @munk2001 note que l’âge maximal observé pour la plie royale dans le golfe d’Alaska est de 27 ans. Cet âge maximum devient le groupe plus lorsque l’analyse de la réduction des stocks est exécutée.
 
 ```{r desc-stock-maxage-rex, results = knitr_results, echo = knitr_echo}
 stock_rex@maxage <- 27
@@ -146,9 +130,9 @@ stock_rex@maxage <- 27
 <!-- slot-chunk-begin -->
 ### M {#app:desc-stock-m-rex}
 
-*Natural mortality rate.*
+*Taux de mortalité naturelle.*
 
-@mcgilliard2017 used 0.17 y^-1^ for *M* but they also note that growth rates and size can vary with latitude, which can affect *M*. *M* is likely slightly higher in BC at lower latitudes. Here, we add a range of possible *M* values starting with a lower bound of that from @mcgilliard2017. The maximum age observed in our database of 15 implies a higher value of *M*, although this maximum age is likely an underestimate. We include an alternative OM scenario with a higher *M* value (*M* = 0.3 y^-1^).
+@mcgilliard2017 ont utilisé 0,17 y^-1^ pour *M*, mais ils notent également que les taux de croissance et la taille peuvent varier en fonction de la latitude, ce qui peut influencer *M*. *M* est probablement légèrement plus élevée en Colombie-Britannique à des latitudes plus basses. Ici, nous ajoutons une plage de valeurs possibles de *M* en commençant par une limite plus basse que celle de @mcgilliard2017. L’âge maximal de 15 ans observé dans notre base de données implique une valeur plus élevée de *M*, bien que cet âge maximal soit probablement une sous-estimation. Nous incluons un autre scénario du modèle opérationnel avec une valeur plus élevée de *M* (*M* = 0,3 y^-1^).
 
 ```{r desc-stock-m-rex, results = knitr_results, echo = knitr_echo}
 stock_rex@M <- c(0.17, 0.25)
@@ -158,9 +142,9 @@ stock_rex@M <- c(0.17, 0.25)
 <!-- slot-chunk-begin -->
 ### h {#app:desc-stock-h-rex}
 
-*Steepness of the stock-recruit relationship.*
+*Taux de variation de la relation stock-recrue.*
 
-@maunder2012 cite @myers1999 who found a median value of steepness of 0.80 for flatfish and note that, because of the bias in the value estimated for North Atlantic Cod in that paper, the value might be closer to 0.94. @grandin2017arrowtooth estimated steepness for Arrowtooth Flounder, but found their posterior was highly influenced by their prior (they estimated a median of 0.88 with a 95% confidence interval of 0.69--0.98, which nearly matches the prior). Here we will use the same prior used in @grandin2017arrowtooth (Figure \@ref(fig:desc-rex-h)) but we also include an alternative OM scenario with steepness fixed to a relatively high value of 0.95.
+@maunder2012 cite @myers1999, qui ont trouvé une valeur médiane de 0,80 du taux de variation pour les poissons plats et note qu’en raison du biais dans la valeur estimée pour la morue franche dans ce document, la valeur pourrait être plus proche de 0,94. @grandin2017arrowtooth ont estimé le taux de variation pour la plie à grande bouche, mais ont trouvé que leur valeur a posteriori était fortement influencée par leur valeur a priori (ils estimaient une médiane de 0,88 avec un intervalle de confiance à 95 % de 0,69--0,98 qui correspond presque à la valeur a priori). Ici, nous utiliserons la même valeur a priori que celle utilisée dans @grandin2017arrowtooth (figure \@ref(fig:desc-rex-h)), mais nous inclurons également un autre scénario de modèle opérationnel avec un taux de variation fixé à une valeur relativement élevée de 0,95.
 
 <!-- quantile(rbeta(1e6, shape1 = 13.4, shape2 = 2.4), probs = c(0.025, 0.5, 0.975)) -->
 <!-- stock_rex@h <- c(0.80, 0.95) -->
@@ -169,7 +153,7 @@ stock_rex@M <- c(0.17, 0.25)
 cpars$h <- rbeta(nsim, 13.4, 2.4)
 ```
 
-Note that if the samples of $h$ were lower, they would ideally be constrained to $[0.2, 1)$ via a transformation. For example: `0.8 * rbeta(nsim, 13.4, 2.4) + 0.2`.
+Il convient de noter que si les échantillons de $h$ étaient plus faibles, ils seraient dans l’idéal limités à $[0.2, 1)$ par une transformation. Par exemple : `0.8 * rbeta(nsim, 13.4, 2.4) + 0.2`.
 
 ```{r desc-rex-h, fig.cap="Density of h prior.", fig.width=6, out.width="4in"}
 h <- seq(0, 1, length.out = 200)
@@ -177,7 +161,7 @@ hd <- dbeta(h, 13.4, 2.4)
 ggplot(data.frame(h = h, Density = hd), aes(h, Density)) +
   geom_line() +
   theme_pbs() +
-  ylab(en2fr("Density"))
+  ylab(en2fr("Density", french))
 ```
 
 <!-- slot-chunk-end -->
@@ -185,10 +169,9 @@ ggplot(data.frame(h = h, Density = hd), aes(h, Density)) +
 <!-- slot-chunk-begin -->
 ### Perr {#app:desc-stock-perr-rex}
 
-*Process error, the CV of lognormal recruitment deviations.*
+*Erreur de processus, le coefficient de variation des écarts du recrutement log-normal.*
 
-@thorson2014 found the mean standard deviation of log recruitment deviations for Pleuronectiformes to be about 0.64. @mcgilliard2017 used 0.6 for Gulf of Alaska stocks.
-We will use a normal distribution centered around this value of 0.6 with a bit of variation represented by an SD of 0.1:
+@thorson2014 ont constaté que l’écart-type moyen des écarts du recrutement logarithmique pour les pleuronectiformes était d’environ 0,64. @mcgilliard2017 ont utilisé 0,6 pour les stocks du golfe d’Alaska. Nous utiliserons une distribution normale centrée autour de cette valeur de 0,6 avec un peu de variation représentée par un ET de 0,1 :
 
 <!-- stock_rex@Perr <- c(0.4, 0.9) -->
 
@@ -200,9 +183,9 @@ cpars$Perr <- rnorm(nsim, 0.6, 0.1)
 <!-- slot-chunk-begin -->
 ### AC {#app:desc-stock-ac-rex}
 
-*Autocorrelation in recruitment deviations.*
+*Autocorrélation dans les écarts du recrutement.*
 
-This parameter will be replaced by the stock reduction analysis (SRA) model based on a post-hoc calculation performed on the estimated historical recruitment deviations.
+Ce paramètre sera remplacé par le modèle d’analyse de la réduction des stocks (ARS) fondé sur un calcul a posteriori effectué sur les écarts du recrutement historique estimés.
 
 <!-- stock_rex@AC <- c(0.2, 0.7) -->
 
@@ -220,22 +203,22 @@ cpars$AC[cpars$AC < -1] <- -1
 <!-- slot-chunk-begin -->
 ### Linf {#app:desc-stock-linf-rex}
 
-*Maximum length.*
+*Longueur maximale.*
 
-Although we do not have any ages in our database for WCVI, there exist a limited number of ages from the Hecate Strait Multispecies Assemblage Survey and a von Bertalanffy model fits reasonably well (Figure \@ref(fig:rex-length1)). We will extract samples from the model posterior (Figure \@ref(fig:desc-vb-parameters)) and save them as custom parameters.
+Bien que nous n’ayons pas d’âge dans notre base de données pour la côte ouest de l’île de Vancouver, il y a un nombre limité d’âges dans le relevé de l’assemblage plurispécifique du détroit d’Hécate et un modèle de von Bertalanffy convient raisonnablement bien (figure \@ref(fig:rex-length1)). Nous extrairons des échantillons de la valeur a posteriori du modèle (figure \@ref(fig:desc-vb-parameters)) et les enregistrerons en tant que paramètres personnalisés.
 
-We fit the model with Stan [@rstan] using the model implemented in the gfplot R package [@gfplot] according to the equation:
+Nous avons ajusté le modèle avec Stan [@rstan] en utilisant le modèle mis en œuvre dans le progiciel gfplot en R [@gfplot] selon l’équation suivante :
 
 $$
   L_i \sim \operatorname{Log-normal}
   \left( \log(l_{\infty} (1 - \exp(-k (A_i - t_0)))), \sigma \right),
 $$
 
-where $L_i$ and $A_i$ refer to the length and age of fish $i$, $\sigma$ refers to the scale parameter of the lognormal distribution, and all other parameters refer to the von Bertalanffy equation.
-We used weakly informative priors: $k \sim \textrm{Normal}(0, 2)$, $L_\mathrm{inf} \sim \textrm{Normal}(0, \varphi)$, $t_0 \sim \textrm{Normal}(0, 20)$, and $\sigma \sim \textrm{Student-t}(3,0, 2)$, where $\varphi$ refers to the 99% quantile of the observed lengths (36 cm).
-We sampled 8000 iterations across four chains from the posterior and checked that the chains were consistent with convergence via the Rhat (potential scale reduction factor) and ESS (effective sample size) metrics along with trace plots of the samples [@gelman2014].
+où $L_i$ et $A_i$ renvoient à la longueur et à l’âge du poisson $i$, $\sigma$ fait référence au paramètre d’échelle de la distribution log-normale, et tous les autres paramètres font référence à l’équation de von Bertalanffy.
+Nous avons utilisé des valeurs a priori peu informatives : $k \sim \textrm{Normal}(0, 2)$, $L_\mathrm{inf} \sim \textrm{Normal}(0, \varphi)$, $t_0 \sim \textrm{Normal}(0, 20)$ et $\sigma \sim \textrm{Student-t}(3,0, 2)$, où $\varphi$ fait référence au quantile de 99 % des longueurs observées (36 cm).
+Nous avons échantillonné 8 000 itérations sur quatre chaînes à partir de la valeur a posteriori et vérifié que les chaînes concordaient avec la convergence au moyen des paramètres Rhat (facteur de réduction d’échelle potentiel) et ESS (taille effective de l’échantillon) ainsi que des tracés des échantillons [@gelman2014].
 
-```{r rex-length1, echo=FALSE, fig.cap="von Bertalanffy model fit to lengths and ages from the Hecate Strait Multispecies Assemblage Survey. Dots represent individual fish and lines represent 100 samples from the posterior.", fig.width=6, out.width='4in'}
+```{r rex-length1, echo=FALSE, fig.cap="Modèle de von Bertalanffy ajusté aux longueurs et aux âges du relevé de l’assemblage plurispécifique du détroit d’Hécate. Les points représentent les poissons individuels et les lignes représentent 100 échantillons de la valeur a posteriori.", fig.width=6, out.width='4in'}
 if (!file.exists(here("generated-data", "msa-ages-rex.rds"))) {
   msa <- gfdata::get_survey_samples("rex sole", ssid = 2)
   saveRDS(msa, file = here("generated-data", "msa-ages-rex.rds"))
@@ -273,7 +256,7 @@ ggplot(.dp, aes(ages, length, group = id)) +
   ) +
   geom_line(alpha = 0.1) +
   gfdlm::theme_pbs() +
-  xlab(en2fr("Age (years)")) + ylab(paste(en2fr("Length"), "(cm)"))
+  xlab("Âge (années)") + ylab("Longueur (cm)")
 ```
 
 ```{r desc-stock-linf-rex, results = knitr_results, echo = knitr_echo}
@@ -284,11 +267,7 @@ cpars$Linf <- as.numeric(vb_post$linf[i])
 <!-- slot-chunk-begin -->
 ### K {#app:desc-stock-k-rex}
 
-*von Bertalanffy growth parameter k.*
-
-<!-- @turnock2005 (their Table 4.12) in the Gulf of Alaska estimated $k$ to be 0.38 and 0.31 for males and females, respectively. We will use these values. -->
-
-<!-- We will explore an alternative scenario with $k = 0.17$ cm based on female fish from Oregon [@hosie1976]. -->
+*Coefficient de croissance k de von Bertalanffy.*
 
 ```{r desc-stock-k-rex, results = knitr_results, echo = knitr_echo}
 cpars$K <- as.numeric(vb_post$k[i])
@@ -298,13 +277,9 @@ cpars$K <- as.numeric(vb_post$k[i])
 <!-- slot-chunk-begin -->
 ### t0 {#app:desc-stock-t0-rex}
 
-*von Bertalanffy theoretical age at length zero.*
+*Âge théorique de von Bertalanffy à la longueur zéro.*
 
-<!-- @turnock2005 (their Table 4.12) in the Gulf of Alaska estimated $t_0$ to be 0.79 and 0.69 for males and females, respectively. We assume these should be negative. -->
-
-<!-- We will explore an alternative scenario with $t_0 = -0.57$ cm based on female fish from Oregon [@hosie1976]. -->
-
-The $t_0$ parameter estimated in our model is slightly positive, although there are very few fish under the age of 4 in this data set to inform the model.
+Le paramètre $t_0$ estimé dans notre modèle est légèrement positif, bien qu’il y ait très peu de poissons de moins de quatre ans dans cet ensemble de données pour alimenter le modèle.
 
 ```{r desc-stock-t0-rex, results = knitr_results, echo = knitr_echo}
 cpars$t0 <- as.numeric(vb_post$t0[i])
@@ -315,8 +290,7 @@ vbd <- data.frame(t0 = vb_post$t0, k = vb_post$k, linf = vb_post$linf) %>%
   tidyr::pivot_longer(tidyr::everything(), names_to = "variable", values_to = "value")
 ggplot(vbd, aes(value)) + geom_histogram() +
   facet_wrap(~variable, scales = "free_x", ncol = 3) +
-  theme_pbs() + xlab(en2fr("Parameter value")) + ylab("") +
-  theme(axis.text.y.left = element_blank()) +
+  theme_pbs() + xlab("Valeur du paramètre") + ylab("Échantillons") +
   coord_cartesian(expand = FALSE)
 ```
 
@@ -325,15 +299,15 @@ ggplot(vbd, aes(value)) + geom_histogram() +
 <!-- slot-chunk-begin -->
 ### L50 {#app:desc-stock-l50-rex}
 
-*Length at 50% maturity.*
+*Longueur à 50 % de maturité.*
 
-We have sufficient maturity and length data to fit a logistic maturity model. @mcgilliard2017 noted that length at maturity varied by latitude, but that age at maturity was fairly consistent among stocks.
+Nous avons suffisamment de données sur la maturité et la longueur pour ajuster un modèle de maturité logistique. @mcgilliard2017 ont noté que la longueur à la maturité variait selon la latitude, mais que l’âge à la maturité était assez constant entre les stocks.
 
-Although we visualize the relationship for male and female fish separately (Figure \@ref(fig:desc-stock-mat-plot)), we fit a Bayesian logistic GLM (generalized linear model) with rstanarm [@rstanarm] to sample parameter values from a model that estimates maturity for an average male/female fish from our samples (Figure \@ref(fig:desc-lw-fits)).
-We used priors of Normal(0, 50) for the intercept and Normal(0, 10) for the effect of length and male/female.
-We sampled 2000 iterations for each of four chains from the posterior and check that the chains were consistent with convergence using the same approach as described above for the von Bertalanffy model.
+Bien que nous visualisions séparément la relation pour les poissons mâles et femelles (figure \@ref(fig:desc-stock-mat-plot)), nous intégrons un modèle linéaire généralisé (MLG) logistique bayésien (modèle linéaire généralisé) avec rstanarm [@rstanarm] pour échantillonner les valeurs des paramètres d’un modèle qui estime la maturité d’un poisson mâle/femelle moyen à partir de nos échantillons (figure \@ref(fig:desc-lw-fits)).
+Nous avons utilisé des valeurs a priori de Normal(0, 50) pour l’intersection et de Normal(0, 10) pour l’effet de la longueur et mâle/femelle.
+Nous avons échantillonné 2 000 itérations pour chacune des quatre chaînes de la valeur a posteriori et nous avons vérifié que les chaînes concordaient avec la convergence en utilisant la même approche que celle décrite ci-dessus pour le modèle de von Bertalanffy.
 
-```{r desc-stock-mat-plot, fig.width=6, out.width="4in", fig.cap="Predicted maturity by length for males and females separately. \"Rug lines\" along the top and bottom indicate individual sampled fish with some overlap. Curved lines represent predictions from a logistic regression. Vertical line represents the length at 50\\% maturity."}
+```{r desc-stock-mat-plot, fig.width=6, out.width="4in", fig.cap="Maturité prévue selon la longueur pour les mâles et les femelles séparément. Les traits en haut et en bas indiquent les poissons individuels échantillonnés avec un certain chevauchement. Les courbes représentent les prévisions tirées d’une régression logistique. La ligne verticale représente la longueur à 50\\% de maturité."}
 m_mat <- gfplot::fit_mat_ogive(drex$survey_samples, type = "length")
 gfplot::plot_mat_ogive(m_mat, french = TRUE)
 
@@ -359,7 +333,7 @@ L50 <- logit_perc(a = post_mat$`(Intercept)`, b = post_mat$length, perc = 0.5)
 i <- sample(seq_along(post_mat$length), nsim)
 ```
 
-```{r desc-stock-rex-mat2, fig.width=6, out.width="4in", fig.cap="Predicted maturity by length from the Bayesian model for a fish of average male/female sex. Individual thin translucent lines represent 100 draws from the posterior."}
+```{r desc-stock-rex-mat2, fig.width=6, out.width="4in", fig.cap="Maturité prévue selon la longueur à partir du modèle bayésien pour un poisson de sexe mâle/femelle moyen. Les lignes translucides fines représentent 100 tirages de la valeur a posteriori."}
 La <- seq(0, max(m_mat$pred_data$age_or_length), length.out = 300)
 mat_prob <- function(x, intercept, slope) {
   plogis(intercept + x * slope)
@@ -369,15 +343,13 @@ mat_prob <- function(x, intercept, slope) {
   list(post_mat$`(Intercept)`[.i], post_mat$length[.i], seq_along(post_mat$length[.i])), ~ {
     data.frame(length = La, prob = mat_prob(La, ..1, ..2), id = ..3)
   }
-) %>% mutate(type = "Maturity")
+) %>% mutate(type = "Maturité")
 
 .dm %>%
   ggplot(aes(length, prob, group = id)) +
   geom_line(alpha = 0.04) +
-  labs(colour = "Type", y = "Probability", x = "Length (cm)") +
+  labs(colour = "Type", y = "Probabilité", x = "Longueur (cm)") +
   theme_pbs() +
-  xlab(paste(rosettafish::en2fr("Length"), "(cm)")) +
-  ylab(rosettafish::en2fr("Probability"))+
   coord_cartesian(expand = FALSE, ylim = c(-0.005, 1.005))
 ```
 
@@ -385,7 +357,7 @@ mat_prob <- function(x, intercept, slope) {
 cpars$L50 <- L50[i]
 ```
 
-```{r desc-lw-fits, fig.cap="Posterior samples of length at maturity parameters. L50 represents length at 50\\% maturity, L90 represents length at 95\\% maturity, and L50\\_95 represents the length difference between L50 and L95.", fig.width=6, out.width="4in", fig.asp=0.5}
+```{r desc-lw-fits, fig.cap="Échantillons a posteriori des paramètres de la longueur à la maturité. L50 représente la longueur à 50\\% de maturité, L90 représente la longueur à 95\\% de maturité et L50\\_95 représente la différence de longueur entre L50 et L95.", fig.width=6, out.width="4in", fig.asp=0.5}
 L95 <- logit_perc(a = post_mat$`(Intercept)`, b = post_mat$length, perc = 0.95)
 L50_95 <- L95 - L50
 set.seed(3828)
@@ -393,22 +365,21 @@ lwd <- data.frame(L50 = L50, L95=L95, L50_95=L50_95) %>%
   reshape2::melt()
 ggplot(lwd, aes(value)) + geom_histogram() +
   facet_wrap(~variable, scales = "free_x", ncol = 3) +
-  theme_pbs() + xlab(en2fr("Parameter value")) + ylab("") +
-  theme(axis.text.y.left = element_blank()) +
+  theme_pbs() + xlab("Parameter value") + ylab("Samples") +
   coord_cartesian(expand = FALSE)
 L95 <- logit_perc(a = post_mat$`(Intercept)`, b = post_mat$length, perc = 0.95)
 ```
 
-Our estimated average length at 50% maturity (`r round(mean(L50), 1)` cm) is between the length at 50% maturity reported for Rex Sole off Oregon (24cm) and the Gulf of Alaska (35cm) [@abookire2006].
+Notre longueur moyenne estimée à 50 % de maturité (`r round(mean(L50), 1)` cm) se situe entre la longueur à 50 % de maturité déclarée pour la plie royale au large de l’Oregon (24 cm) et dans le golfe d’Alaska (35 cm) [@abookire2006].
 
 <!-- slot-chunk-end -->
 
 <!-- slot-chunk-begin -->
 ### L50_95 {#app:desc-stock-l50_95-rex}
 
-*Length increment from 50% to 95% maturity.*
+*Augmentation de la longueur de 50 % à 95 % de maturité.*
 
-We can calculate this as a derived parameter from our logistic maturity model:
+Nous pouvons la calculer comme un paramètre dérivé de notre modèle de maturité logistique :
 
 ```{r echo=TRUE, eval=FALSE}
 L95 <- logit_perc(a = post_mat$`(Intercept)`, b = post_mat$length, perc = 0.95)
@@ -423,9 +394,9 @@ cpars$L50_95 <- L50_95[i]
 <!-- slot-chunk-begin -->
 ### D {#app:desc-stock-d-rex}
 
-*Current level of stock depletion SSB~current~/SSB~unfished~.*
+*Niveau actuel d’épuisement du stock BSR~actuelle~/BSR~non exploitée~.*
 
-This will be populated via the SRA conditioning model and so we will leave it blank here.
+Ce paramètre sera donné par le modèle de conditionnement de l'analyse de la réduction des stocks et nous le laisserons donc en blanc ici.
 
 ```{r desc-stock-d-rex, results = knitr_results, echo = knitr_echo}
 stock_rex@D
@@ -435,11 +406,11 @@ stock_rex@D
 <!-- slot-chunk-begin -->
 ### a {#app:desc-stock-a-rex}
 
-*Length-weight parameter alpha. Positive real number.*
+*Paramètre longueur-poids alpha. Nombre réel positif.*
 
-We have sufficient length and weight data to fit a model to our data for both sexes combined:
+Nous avons suffisamment de données sur la longueur et le poids pour ajuster un modèle à nos données pour les deux sexes combinés :
 
-(ref:desc-stock-a-rex) Length-weight relationship for Rex Sole sampled from the WCVI Synoptic Survey with both sexes combined. The model is fit as in @anderson2019synopsis (regression of log(weight) vs. log(length)) using the R package TMB [@tmb] and a Student-t observation model with degrees of freedom of 3 to downweight any outliers.
+(ref:desc-stock-a-rex) Relation longueur-poids pour la plie royale échantillonnée à partir du relevé synoptique sur la côte ouest de l’île de Vancouver avec les deux sexes combinés. Le modèle est ajusté comme dans @anderson2019synopsis (régression de log(poids) par rapport à log(longueur)) à l’aide du progiciel TMB dans R [@tmb] et d’un modèle d’observation de Student-t avec des degrés de liberté de 3 pour réduire la pondération des valeurs aberrantes.
 
 <!-- Suppressing a Makevars R message: -->
 ```{r desc-stock-a-rex1, message=FALSE, warning=FALSE, echo=FALSE, fig.width=6, out.width="4in", results='hide', fig.cap="(ref:desc-stock-a-rex)"}
@@ -462,18 +433,7 @@ round(stock_rex@a, 7)
 <!-- slot-chunk-begin -->
 ### b {#app:desc-stock-b-rex}
 
-*Length-weight parameter beta. Positive real number.*
-
-<!-- Alternatively from @mcgilliard2017: -->
-<!-- - Female = 3.44963 -->
-<!-- - Male = 3.30571 -->
-
-<!-- How do these values compare to @mcgilliard2017: -->
-<!-- Female a = 1.35e-06 -->
-<!-- Male a  = 2.18e-06 -->
-<!-- Female b = 3.45 -->
-<!-- Male b  = 3.31 -->
-<!-- A bit different. Should check sensitivity to these values. -->
+*Paramètre longueur-poids bêta. Nombre réel positif.*
 
 ```{r desc-stock-b-rex, results = knitr_results, echo = knitr_echo}
 stock_rex@b <- mlw$pars[["b"]]
@@ -481,7 +441,7 @@ round(stock_rex@b, 2)
 ```
 <!-- slot-chunk-end -->
 
-## FLEET SLOT DESCRIPTIONS {#app:desc-fleet-rex}
+## DESCRIPTION DES TIROIRS DE LA FLOTTILLE {#app:desc-fleet-rex}
 
 ```{r warnings = FALSE}
 fleet_rex <- DLMtool::Generic_Fleet
@@ -507,9 +467,9 @@ fleet_rex@isRel <- FALSE
 <!-- slot-chunk-begin -->
 ### nyears {#app:desc-fleet-nyears-rex}
 
-*The number of years for the historical spool-up simulation.*
+*Le nombre d’années pour la simulation historique accélérée.*
 
-We will set the historical run-up to start in 1996.
+Nous établirons le début de la période historique à 1996.
 
 ```{r desc-fleet-nyears-rex, results = knitr_results, echo = knitr_echo}
 catch_yrs <- unique(drex$catch$year)
@@ -522,7 +482,7 @@ fleet_rex@nyears
 <!-- slot-chunk-begin -->
 ### L5 {#app:desc-fleet-l5-rex}
 
-*Shortest length corresponding to 5% vulnerability.*
+*La longueur la plus courte correspondant à une vulnérabilité de 5 %.*
 
 ```{r min-caught-rex1}
 n_caught <- drex$commercial_samples %>%
@@ -530,13 +490,12 @@ n_caught <- drex$commercial_samples %>%
   nrow()
 ```
 
-There are only `r n_caught` fish with measured lengths in the WCVI commercial data, which is insufficient to estimate selectivity in the SRA.
-We will make the assumption that commercial and survey selectivity approximately match the maturity ogive (but are fully selected by $L_\infty$), similar to the assumption made in a delay-difference model that maturity and vulnerability to the fishery occur at the same age.
-For this we use $L^5 = 22$ and $L^\textrm{FS} = 32$.
-We will include an alternative assumption that the selectivity curve is shifted to the left making younger fish vulnerable to the fishery ($L^5 = 17$ and $L^\textrm{FS} = 28$).
-These curves will be specified in the SRA.
+Il n’y a que `r n_caught` poissons dont la longueur est mesurée dans les données sur les pêches commerciales sur la côte ouest de l’île de Vancouver, ce qui n’est pas suffisant pour estimer la sélectivité dans l’analyse de la réduction des stocks.
+Nous partirons de l’hypothèse que les sélectivités dans les pêches commerciales et le relevé correspondent approximativement à l’ogive de maturité (mais sont entièrement sélectionnées par $L_\infty$), semblable à l’hypothèse formulée dans un modèle de type différence-délai selon laquelle la maturité et la vulnérabilité à la pêche se produisent au même âge.
+Nous utilisons pour ces calculs $L^5 = 22$ et $L^\textrm{FS} = 32$. Nous inclurons une autre hypothèse selon laquelle la courbe de sélectivité est décalée vers la gauche, ce qui rend les poissons plus jeunes vulnérables à la pêche ($L^5 = 17$ et $L^\textrm{FS} = 28$).
+Ces courbes seront spécifiées dans l’analyse de la réduction des stocks.
 
-```{r desc-selectivity-function, fig.cap="Maturity-at-length and 2 selectivity curves used in the operating models. Maturity ogive represents 100 draws from the posterior. Vertical lines represent samples from $L_\\infty$.", fig.width=6, out.width='4in'}
+```{r desc-selectivity-function, fig.cap="Courbes de maturité selon la longueur et 2 courbes de sélectivité utilisées dans les modèles opérationnels. L’ogive de maturité représente 100 tirages de la valeur a posteriori. Les lignes verticales représentent les échantillons de $L_\\infty$.", fig.width=6, out.width='4in'}
 v <- function(La, LFS, L5) {
   ifelse(La < LFS,{
     sigma_asc <- (L5 - LFS)^2 / sqrt(-log(0.05, base = 2))
@@ -548,17 +507,16 @@ La <- seq(0, max(m_mat$pred_data$age_or_length), length.out = 300)
 # lines(La, v(La, L5 = 28, LFS = 12), lty = 2)
 
 vulnerable1 <- data.frame(length = La, prob = v(La, L5 = 22, LFS = 32)) %>%
-  mutate(type = "Selectivity 1", id = 9999)
+  mutate(type = "Sélectivité 1", id = 9999)
 
 vulnerable2 <- data.frame(length = La, prob = v(La, L5 = 17, LFS = 28)) %>%
-  mutate(type = "Selectivity 2", id = 99999)
+  mutate(type = "Sélectivité 2", id = 99999)
 
 bind_rows(.dm, vulnerable1) %>%
   bind_rows(vulnerable2) %>%
-  mutate(type = en2fr(type, french, allow_missing = TRUE)) %>% 
   ggplot(aes(length, prob, colour = type, group = id)) +
   geom_line(lwd = 1) +
-  labs(colour = en2fr("Type", french), y = en2fr("Probability", french), x = en2fr("Length (cm)", french)) +
+  labs(colour = "Type", y = "Probabilité", x = "Longueur (cm)") +
   theme_pbs() +
   coord_cartesian(expand = FALSE, ylim = c(-0.005, 1.005)) +
   scale_colour_manual(values = c("#00000006", RColorBrewer::brewer.pal(3, "Dark2")[1:2])) +
@@ -575,7 +533,7 @@ fleet_rex@L5 <- c(22, 22)
 <!-- slot-chunk-begin -->
 ### LFS {#app:desc-fleet-lfs-rex}
 
-*Shortest length that is fully vulnerable to fishing.*
+*La plus courte longueur qui est pleinement vulnérable à la pêche.*
 
 
 ```{r desc-fleet-lfs-rex, results = knitr_results, echo = knitr_echo}
@@ -587,14 +545,14 @@ fleet_rex@LFS <- c(34, 34)
 <!-- slot-chunk-begin -->
 ### CurrentYr {#app:desc-fleet-currentyr-rex}
 
-*The current calendar year (final year) of the historical simulations.*
+*L’année civile en cours (dernière année) des simulations historiques.*
 
 ```{r desc-fleet-currentyr-rex, results = knitr_results, echo = knitr_echo}
 fleet_rex@CurrentYr <- 2019
 ```
 <!-- slot-chunk-end -->
 
-## OBS SLOT DESCRIPTIONS {#app:desc-obs-rex}
+## DESCRIPTIONS DES TIROIRS D’OBSERVATION {#app:desc-obs-rex}
 
 ```{r warnings = FALSE}
 obs_rex <- DLMtool::Precise_Unbiased
@@ -605,15 +563,15 @@ obs_rex@CAL_ESS <- c(100, 200)
 obs_rex@CAL_nsamp <- c(100, 200)
 obs_rex@CAA_ESS <- c(100, 200)
 obs_rex@CAA_nsamp <- c(100, 200)
-obs_rex@Name <- "BC observation model"
+obs_rex@Name <- "Modèle d’observation de la Colombie-Britannique"
 ```
 
 <!-- slot-chunk-begin -->
 ### Cobs {#app:desc-obs-cobs-rex}
 
-*Log-normal catch observation error expressed as a CV. Uniform distribution lower and upper bounds.*
+*Erreur d’observation des prises log-normale exprimée sous forme de coefficient de variation. Distribution uniforme des limites inférieure et supérieure.*
 
-Since 1996, observation error on catch should be negligible.
+Depuis 1996, l’erreur d’observation sur les prises devrait être négligeable.
 
 ```{r desc-obs-cobs-rex, results = knitr_results, echo = knitr_echo}
 obs_rex@Cobs <- c(0, 0)
@@ -623,11 +581,9 @@ obs_rex@Cobs <- c(0, 0)
 <!-- slot-chunk-begin -->
 ### Cbiascv {#app:desc-obs-cbiascv-rex}
 
-*Log-normal CV controlling the sampling of bias in catch observations for each simulation. Uniform distribution lower and upper bounds.*
+*Coefficient de variation log-normal contrôlant l’échantillonnage du biais dans les observations des prises pour chaque simulation. Distribution uniforme des limites inférieure et supérieure.*
 
-We will keep this at 0 because observation error on catch should be very small with 100% on board and dockside monitoring.
-
-<!-- FIXME: what about the historical period? -->
+Nous maintiendrons cette valeur à 0 parce que l’erreur d’observation des prises devrait être très faible avec un niveau de surveillance de 100 % en mer et à quai.
 
 ```{r desc-obs-cbiascv-rex, results = knitr_results, echo = knitr_echo}
 obs_rex@Cbiascv <- c(0, 0)
@@ -637,9 +593,9 @@ obs_rex@Cbiascv <- c(0, 0)
 <!-- slot-chunk-begin -->
 ### Iobs {#app:desc-obs-iobs-rex}
 
-*Observation error in the relative abundance indices expressed as a CV. Uniform distribution lower and upper bounds.*
+*Erreur d’observation dans les indices de l’abondance relative exprimée sous forme de coefficient de variation. Distribution uniforme des limites inférieure et supérieure.*
 
-We will sample with replacement from the CVs of the observed WCVI synoptic trawl survey index values for Rex Sole.
+Nous échantillonnerons avec les valeurs de remplacement des CV des valeurs observées de l’indice du relevé synoptique au chalut sur la côte ouest de l’île de Vancouver pour la plie royale.
 
 ```{r desc-obs-iobs-rex-sample, eval=TRUE, echo=TRUE}
 set.seed(2943)
@@ -655,28 +611,28 @@ round(sort(unique(cpars$Iobs)), 2)
 <!-- slot-chunk-begin -->
 ### beta {#app:desc-obs-beta-rex}
 
-*A parameter controlling hyperstability/hyperdepletion where values below 1 lead to hyperstability (an index that decreases more slowly than true abundance) and values above 1 lead to hyperdepletion (an index that decreases more rapidly than true abundance). Uniform distribution lower and upper bounds.*
+*Un paramètre contrôlant l’hyperstabilité et l’hyperépuisement où les valeurs inférieures à 1 mènent à l’hyperstabilité (un indice qui diminue plus lentement que l’abondance réelle) et les valeurs supérieures à 1 mènent à l’hyperépuisement (un indice qui diminue plus rapidement que l’abondance réelle). Distribution uniforme des limites inférieure et supérieure.*
 
-We will set this to 1 to imply no hyperstability or hyperdepletion of the synoptic trawl survey population index.
+Nous établirons cette valeur à 1 pour signifier qu’il n’y a pas d’hyperstabilité ou d’hyperépuisement de l’indice de la population du relevé synoptique au chalut.
 
 ```{r desc-obs-beta-rex, results = knitr_results, echo = knitr_echo}
 obs_rex@beta <- c(1, 1)
 ```
 <!-- slot-chunk-end -->
 
-## IMP SLOT DESCRIPTIONS {#app:desc-imp-rex}
+## DESCRIPTION DES TIROIRS DE LA MISE EN ŒUVRE {#app:desc-imp-rex}
 
 ```{r warnings = FALSE}
 imp_rex <- DLMtool::Perfect_Imp
-imp_rex@Name <- "BC Implementation"
+imp_rex@Name <- "Mise en œuvre en Colombie-Britannique"
 ```
 
 <!-- slot-chunk-begin -->
 ### TACFrac {#app:desc-imp-tacfrac-rex}
 
-*Mean fraction of TAC taken. Uniform distribution lower and upper bounds.*
+*Fraction moyenne du TAC prélevée. Distribution uniforme des limites inférieure et supérieure.*
 
-We will assume that there is no persistent bias from replicate to replicate of the fraction of TAC taken.
+Nous supposerons qu’il n’y a pas de biais persistant d’une répétition à l’autre de la fraction du TAC prélevée.
 
 ```{r desc-imp-tacfrac-rex, results = knitr_results, echo = knitr_echo}
 imp_rex@TACFrac <- c(1.0, 1.0)
@@ -686,9 +642,9 @@ imp_rex@TACFrac <- c(1.0, 1.0)
 <!-- slot-chunk-begin -->
 ### TACSD {#app:desc-imp-tacsd-rex}
 
-*Log-normal CV in the fraction of TAC taken. Uniform distribution lower and upper bounds.*
+*CV log-normal dans la fraction du TAC prélevée. Distribution uniforme des limites inférieure et supérieure.*
 
-We will assume there is no variation in the fraction of TAC taken from year to year.
+Nous supposerons qu’il n’y a pas de variation dans la fraction du TAC prélevée d’une année à l’autre.
 
 ```{r desc-imp-tacsd-rex, results = knitr_results, echo = knitr_echo}
 imp_rex@TACSD <- c(0, 0)
