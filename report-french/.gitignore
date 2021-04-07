@@ -1,2 +1,5 @@
 knitr-cache-tex
 resdoc.Rmd
+*.toc
+_book/
+RES_MPF*
