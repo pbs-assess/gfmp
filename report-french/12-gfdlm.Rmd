@@ -2,7 +2,7 @@
 
 # LE PROGICIEL R EN APPUI AU CADRE DES PROCÉDURES DE GESTION {#app:gfdlm}
 
-Nous avons élaboré en R le progiciel [gfdlm] (https://github.com/pbs-assess/gfdlm) [@gfdlm] pour fournir un ensemble d’outils qui facilitent les applications de ce Cadre.
+Nous avons élaboré en R le progiciel gfdlm [@gfdlm] pour fournir un ensemble d’outils qui facilitent les applications de ce Cadre.
 Ce progiciel comprend notre bibliothèque provisoire de procédures de gestion, un certain nombre de fonctions de traçage pour résumer les sorties des simulations et les ajustements du modèle, ainsi qu’une variété d’autres utilitaires pour la manipulation des procédures de gestion et des paramètres de rendement de DLMtool et la création de rapports fondés sur les simulations de DLMtool (comme l’annexe \@ref(app:desc-om-rex) dans ce document).
 
 ## FONCTIONS DE TRAÇAGE
@@ -74,7 +74,7 @@ Techniquement, il place la sortie de la fonction avant la `%>%` dans le premier 
 
 # ENVIRONNEMENT INFORMATIQUE
 
-Cette version du document a été produite le `r Sys.time()` avec la version `r devtools::session_info()$platform$ [@r2019] et les versions du progiciel R :
+Cette version du document a été produite le `r Sys.time()` avec la version `r devtools::session_info()$platform` [@r2019] et les versions du progiciel R :
 
 ```{r env, echo = FALSE, results='asis', message=FALSE, warning=FALSE, eval=TRUE, cache=FALSE}
 library(TMB, warn.conflicts = FALSE, quietly = TRUE)
