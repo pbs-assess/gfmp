@@ -524,23 +524,23 @@ Le traitement des points de référence lorsque les paramètres, en particulier 
 
 ## TIROIRS DE DLMTOOL
 
-```{r tab-om-pars, echo=FALSE, cache=FALSE, message=FALSE, results='asis', eval=FALSE}
+```{r tab-om-pars, echo=FALSE, cache=FALSE, message=FALSE, results='asis', eval=TRUE}
  p <- tribble(
 ~slot_type, ~slot,          ~parameter_symbols,              ~first_sentence,
 "Stock",    "maxage",     "$n_a$",                         "L’âge maximal des individus qui est simulé.",
 "Stock",    "R0",         "$R_0$",                         "L’ampleur du recrutement non exploité.",
 "Stock",    "M",          "$M$",                           "Taux de mortalité naturelle.",
 "Stock",    "h",          "$h$",                           "Taux de variation de la relation stock-recrue.",
-"Stock",    "Perr",       "$\\sigma_R$",                   "ET des écarts de recrutement dans l’espace logarithmique.",
+"Stock",    "Perr",       "$\\sigma_R$",                   "ET de écarts de recrutement dans l’espace logarithmique.",
 "Stock",    "AC",         "$\\theta_{\\textrm{AC}}$",      "Autocorrélation dans les écarts de recrutement.",
 "Stock",    "Linf",       "$L_{\\infty}$",                 "Longueur maximale prévue de von Bertalanffy.",
 "Stock",    "K",          "$\\kappa$",                     "Coefficient de croissance de von Bertalanffy.",
 "Stock",    "t0",         "$t_0$",                         "Âge théorique de von Bertalanffy à la longueur zéro.",
 "Stock",    "L50",        "$\\theta_{l50}$",               "Longueur à 50\\% de maturité.",
-"Stock",    "L50\\_95",    "$\\theta_{l50-95}$",           "Augmentation de longueur de 50 % à 95 % de maturité.",
+"Stock",    "L50\\_95",    "$\\theta_{l50-95}$",           "Augmentation de longueur de 50 \\% à 95 \\% de maturité.",
 "Stock",    "a",          "$\\alpha_W$",                   "Paramètre longueur-poids.",
 "Stock",    "b",          "$\\beta_W$",                    "Paramètre longueur-poids.",
-"Flotille",    "L5",         "$L^5$",                         "Longueur la plus courte correspondant à une vulnérabilité de 5\\%.",
+   "Flotille",    "L5",         "$L^5$",                         "Longueur la plus courte correspondant à une vulnérabilité de 5\\%.",
 "Flotille",    "LFS",        "$L^\\textrm{FS}$",              "Longueur la plus courte pleinement vulnerable à la pêche.",
 "Flotille",    "Vmaxlen",    "$V_{L_\\infty}$",               "Vulnérabilité des poissons à la longueur maximale prévue.",
 "Flotille",    "LR5",        "${L}_{r5}$",                         "Longueur la plus courte des poissons correspondant à une rétention de 5\\%.",
@@ -554,13 +554,15 @@ Le traitement des points de référence lorsque les paramètres, en particulier 
 "Obs.",     "CAA\\_nsamp", "$n_\\textrm{CAA}$",            "Nombre d’observations des prises selon l’âge par pas de temps.",
 "MEO",     "TACFrac",    "$b_\\textrm{TAC}$",             "Fraction moyenne du TAC prélevée.",
 "MEO",     "TACSD",      "$\\sigma_\\textrm{bTAC}$",      "ET de la fraction log-normale du TAC prélevée."
+
+
 )
 
 
 
 p %>%
   mutate(slot = paste0("\\texttt{", slot, "}")) %>%
-  csasdown::csas_table(format = "latex", col_names = c("Élément du modèle opérationnel", "Tiroir", "Paramètre", "Description"), caption = Tiroirs, symboles des paramètres et brèves descriptions du modèle opérationnel de DLMtool. Dans la colonne « Éléments du modèle opérationnel », « Obs. » et « MEO » renvoient respectivement aux composantes d’observation et de mise en œuvre. « Tiroirs » est le nom technique des éléments des paramètres dans le progiciel DLMtool R. Tous les paramètres de ce tableau (sauf $n_a$, $\\alpha_W$ et $\\beta_W$) peuvent être définis comme stochastiques avec des tirages à partir d’une distribution pour chaque répétition de la simulation.") %>%
+  csasdown::csas_table(format = "latex", col_names = c("Élément du modèle opérationnel", "Tiroir", "Paramètre", "Description"), caption = "Tiroirs, symboles des paramètres et brèves descriptions du modèle opérationnel de DLMtool. Dans la colonne « Éléments du modèle opérationnel », « Obs. » et « MEO » renvoient respectivement aux composantes d’observation et de mise en œuvre. « Tiroirs » est le nom technique des éléments des paramètres dans le progiciel DLMtool R. Tous les paramètres de ce tableau (sauf $n_a$, $\\alpha_W$ et $\\beta_W$) peuvent être définis comme stochastiques avec des tirages à partir d’une distribution pour chaque répétition de la simulation.") %>%
   kableExtra::column_spec(1, width = "1.75cm") %>%
   kableExtra::column_spec(2, width = "1.75cm") %>%
   kableExtra::column_spec(3, width = "1.75cm") %>%
