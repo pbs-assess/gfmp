@@ -1,112 +1,112 @@
 # INTRODUCTION {#sec:intro}
 
-## BACKGROUND {#sec:intro-background}
+## CONTEXTE {#sec:intro-background}
 
-Fishery-independent surveys conducted by Fisheries and Oceans Canada (DFO) encounter over 200 groundfish species in the Pacific region. Of these, approximately 100 are regularly caught in the British Columbia (BC) integrated groundfish fishery. The Pacific Region Groundfish Integrated Fisheries Management Plan (IFMP)[@dfo2017] lists approximately 80 species-area fish stocks for which annual total allowable catches (TACs) are required, most of which are applied as individual transferable quotas (ITQs) within the BC integrated groundfish fishery.
+Dans le cadre des relevés indépendants des pêches effectués par Pêches et Océans Canada (MPO), plus de 200 espèces de poisson de fond ont été observées dans la région du Pacifique. Parmi celles-ci, une centaine sont pêchées régulièrement dans le cadre de la pêche intégrée du poisson de fond en Colombie-Britannique (C.-B.). Le Plan de gestion intégrée des pêches (PGIP) du poisson de fond de la région du Pacifique [@dfo2017] énumère environ 80 stocks de poissons pour lesquels il faut fixer des totaux autorisés des captures (TAC) annuels, dont la plupart sont appliqués sous forme de quotas individuels transférables (QIT) dans la pêche intégrée du poisson de fond de la Colombie-Britannique.
 
-In recent decades, advice on TACs for Pacific groundfish species has been developed using statistical stock assessment models that rely on indices of abundance, age-composition, commercial catch, and biological data that enable estimation of key population metrics such as stock status, relative depletion, recruitment, growth, fishery selectivity, and natural and fishing mortality. These stock assessment models are data and resource-intensive, with only a few assessments produced each year with available data and Science sector resources.
+Dans les dernières décennies, les avis sur les TAC pour les espèces de poisson de fond du Pacifique ont été élaborés à l’aide de modèles statistiques d’évaluation des stocks qui s’appuient sur les indices de l’abondance, la composition selon l’âge, les prises commerciales et des données biologiques qui permettent d’estimer les paramètres clés de la population comme l’état du stock, l’épuisement relatif, le recrutement, la croissance, la sélectivité de la pêche ainsi que la mortalité naturelle et par pêche. Ces modèles d’évaluation des stocks exigent beaucoup de données et de ressources, et seules quelques évaluations sont produites chaque année avec les données disponibles et les ressources de la Direction des sciences.
 
-The majority of fish stocks encountered by the integrated groundfish fishery are considered data-limited, where data-limited stocks are defined as those with insufficient data to: (1) reliably estimate stock status; or (2) estimate abundance or productivity with conventional stock assessment methods such as statistical catch-at-age models [@dowling2015; @dowling2015a]. Many of these stocks lack current assessment advice.
+La majorité des stocks de poissons rencontrés dans la pêche intégrée du poisson de fond sont considérés comme ayant des données limitées, c’est-à-dire que les données ne sont pas suffisantes pour : 1) estimer de façon fiable l’état des stocks; ou 2) estimer l’abondance ou la productivité à l’aide de méthodes classiques d’évaluation des stocks comme les modèles statistiques des prises selon l’âge [@dowling2015; @dowling2015a]. Il n’existe pas d’avis d’évaluation valide pour beaucoup de ces stocks.
 
 ## MOTIVATION {#sec:intro-motivation}
 
-The Canadian Sustainable Fisheries Framework (SFF) lays the foundation for the precautionary approach (PA) to fisheries management in Canada [@dfo2006; @dfo2009].
-The Precautionary Approach Framework [@dfo2009] relies on the definition of biological reference points (BRPs), which define biomass targets as well as low biomass thresholds to be avoided with high probability.
-The approach requires that fishing mortality be adjusted in relation to two levels of stock status---an Upper Stock Reference (USR) and a Limit Reference Point (LRP) (Figure \@ref(fig:pa-illustration)).
-The LRP and USR delineate three stock status zones ("healthy", "cautious", and "critical").
-Of particular importance is the LRP, which is defined as the spawning biomass below which serious harm may occur to the stock.
-Other key elements of the Precautionary Approach Framework include a harvest control rule (HCR), which determines allowable removal rates in each of the three stock status zones (e.g., Figure \@ref(fig:pa-illustration)), and the requirement to take into account risk and uncertainty when developing BRPs and determining stock status in relation to BRPs [@dfo2006; @dfo2009].
+Le Cadre pour la pêche durable (CPD) du Canada jette les bases de l’approche de précaution (AP) en matière de gestion des pêches au Canada [@dfo2006; @dfo2009].
+Le Cadre de l’approche de précaution [@dfo2009] repose sur la définition des points de référence biologiques (PRB) qui définissent les cibles de la biomasse ainsi que les seuils de biomasse faible à éviter avec une probabilité élevée.
+L’approche exige que la mortalité par pêche soit ajustée par rapport à deux niveaux de l’état des stocks : un point de référence supérieur des stocks (RSS) et un point de référence limite (PRL) (figure \@ref(fig:pa-illustration)).
+Le PRL et le RSS délimitent trois zones d’état des stocks (« saine », « de prudence » et « critique »).
+Le PRL, qui est défini comme la biomasse reproductrice en dessous de laquelle des dommages graves peuvent être causés au stock, est particulièrement important.
+Le Cadre de l’approche de précaution comprend d’autres éléments clés, notamment une règle de contrôle des prises (RCP), qui détermine les taux de prélèvement admissibles dans chacune des trois zones d’état des stocks (p. ex. figure \@ref(fig:pa-illustration)), et la nécessité de tenir compte du risque et de l’incertitude pour élaborer les points de référence biologiques et déterminer l’état des stocks par rapport à ceux-ci [@dfo2006; @dfo2009].
 
-(ref:fig-pa) Illustration of DFO's Precautionary Approach Framework. Based on @dfo2009.
+(ref:fig-pa) Illustration du Cadre de l’approche de précaution du MPO. D’après @dfo2009.
 
 ```{r pa-illustration, fig.cap="(ref:fig-pa)", out.width="3.8in"}
 knitr::include_graphics(here::here("images/pa-framework.png"))
 ```
 
-On June 21, 2019, major amendments to Canada's [*Fisheries Act*](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-3.html#h-1175547) received Royal Assent, thus passing them into Canadian law. Among many other amendments, provisions in the new *Fisheries Act* require that fish stocks be managed at sustainable levels, specifically at biomass levels above the LRP. Hereafter referred to as the "Fish Stocks provisions", the provisions legislate elements of Canada's Sustainable Fisheries Framework and Precautionary Approach Framework, and state:
+Le 21 juin 2019, d’importantes modifications à la [*Loi sur les pêches*] (https://laws-lois.justice.gc.ca/fra/lois/f-14/page-3.html#h-1175547) du Canada ont reçu la sanction royale, ce qui leur a donné force de lois canadiennes. Parmi bien d’autres modifications, les dispositions de la nouvelle *Loi sur les pêches* exigent que les stocks de poissons soient gérés à des niveaux durables, plus précisément à des niveaux de biomasse supérieurs au PRL. Ci-après appelées les « dispositions relatives aux stocks de poisson », ces dispositions législatives portent sur des éléments du Cadre pour la pêche durable et du Cadre de l’approche de précaution du Canada et énoncent ce qui suit :
 
-> **Measures to maintain fish stocks**
-> 6.1(1) In the management of fisheries, the Minister shall implement measures to maintain major fish stocks at or above the level necessary to promote the sustainability of the stock, taking into account the biology of the fish and the environmental conditions affecting the stock.
+> **Mesures pour maintenir les stocks de poissons**
+> 6.1(1) Dans sa gestion des pêches, le ministre met en œuvre des mesures pour maintenir les grands stocks de poissons au moins au niveau nécessaire pour favoriser la durabilité des stocks, en tenant compte de la biologie du poisson et des conditions du milieu qui touchent les stocks.
 
-> **Limit reference point**
-> 6.1 (2) If the Minister is of the opinion that it is not feasible or appropriate, for cultural reasons or because of adverse socio-economic impacts, to implement the measures referred to in subsection (1), the Minister shall set a limit reference point and implement measures to maintain the fish stock above that point, taking into account the biology of the fish and the environmental conditions affecting the stock.
+> **Point de référence limite**
+> 6.1(2) S’il estime qu’il n’est pas possible ou qu’il n’est pas indiqué, en raison de facteurs culturels ou de répercussions socioéconomiques négatives, de mettre en œuvre les mesures visées au paragraphe (1), le ministre établit un point de référence limite et met en œuvre des mesures pour maintenir le stock de poissons au moins à ce point, en tenant compte de la biologie du poisson et des conditions du milieu qui touchent le stock.
 
-> **Plan to rebuild**
-> 6.2(1) If a major fish stock has declined to or below its limit reference point, the Minister shall develop a plan to rebuild the stock above that point in the affected area, taking into account the biology of the fish and the environmental conditions affecting the stock, and implement it within the period provided for in the plan.
+> **Plan de rétablissement**
+>6.2(1) Si un grand stock de poissons a diminué jusqu’au point de référence limite pour ce stock ou se situe sous cette limite, le ministre élabore un plan visant à rétablir le stock au-dessus de ce point de référence dans la zone touchée, en tenant compte de la biologie du poisson et des conditions du milieu qui touchent le stock, et met en œuvre ce plan dans la période qui y est prévue.
 
-For data-limited stocks, data are generally insufficient to adequately account for uncertainty in development of BRPs and assessment of stock status relative to BRPs. To comply with the legal requirements identified in the Fish Stocks provisions for data-limited species, it is therefore necessary to develop defensible methods and a framework for setting catch limits that promote sustainability and maintain stocks above their LRP, recognizing that, in many cases, the LRP and stock status cannot be reliably estimated.
+Dans le cas des stocks à données limitées, les données sont généralement insuffisantes pour tenir compte adéquatement de l’incertitude pour élaborer les points de référence biologiques et pour évaluer l’état des stocks par rapport à ceux-ci. Afin de respecter les exigences juridiques définies dans les dispositions sur les stocks de poissons pour les espèces à données limitées, il est donc nécessaire d’élaborer des méthodes défendables et un cadre pour l’établissement de limites de prises qui favorisent la durabilité et le maintien des stocks au-dessus de leur PRL, tout en reconnaissant que, dans de nombreux cas, il n’est pas possible d’estimer le PRL et l’état du stock de manière fiable.
 
-The objective of the framework proposed in this document is to preserve the *intent* of the Precautionary Approach Framework, legislated in the Fish Stocks provisions, and provide decision-makers with a quantified characterization of risk with respect to the likelihood of maintaining stocks above the LRP, regardless of the quality and quantity of available data.
+L’objectif du cadre proposé dans le présent document est de préserver *l’intention* du Cadre de l’approche de précaution prévu par les dispositions sur les stocks de poissons, et de fournir aux décideurs une caractérisation quantifiée du risque en ce qui concerne la probabilité de maintenir les stocks au-dessus du PRL, quelles que soient la qualité et la quantité des données disponibles.
 
-## TIERED APPROACHES {#sec:intro-tiered-approaches}
+## APPROCHES À PLUSIEURS NIVEAUX {#sec:intro-tiered-approaches}
 
-Many other nations and governing bodies have established frameworks for assessing data-limited fish stocks---often through "tiered" approaches (e.g., United States [@newman2015], ICES [@ices2012], Australia [@smith2009]).
-A tiered approach places stocks into ranked categories (tiers) based on the types and quality of available data.
-Specific data-limited methods for setting catch limits are identified for each tier. Arbitrary buffers may also be added to recommended catch limits in each tier (e.g., reduce recommended catch limit by 20%), in an attempt to account for the additional uncertainty inherent in more data-limited tiers.
+De nombreux autres pays et organes de gouvernance ont établi des cadres d’évaluation des stocks de poissons à données limitées, souvent au moyen d’approches « à plusieurs niveaux » (p. ex. États-Unis [@newman2015], CIEM [@ices2012], Australie [[@smith2009]).
+Une approche à plusieurs niveaux classe les stocks dans des catégories (niveaux) en fonction des types et de la qualité des données disponibles.
+Des méthodes précises pour l’établissement de limites de prises avec des données limitées sont définies pour chaque niveau. Il est également possible d’ajouter des tampons arbitraires aux limites de prises recommandées dans chaque niveau (p. ex. réduire la limite de prises recommandée de 20 %), afin de tenir compte de l’incertitude supplémentaire inhérente aux niveaux à données plus limitées.
 
-In 2016, a CSAS workshop was held in the Pacific region to review international tiered approaches, as a preliminary evaluation of the suitability of a tiered approach for the BC integrated groundfish fishery [@dfo2016tiered].
-Instead of recommending a discrete tiered approach based on data-availability, the workshop recommended considering data-richness on a continuous scale and simulation-testing multiple alternative management procedures (MPs) on a stock-by-stock basis, using a management-oriented, or management strategy evaluation (MSE), approach to identify data-limited MPs that would best meet policy and fishery objectives, explicitly accounting for risk.
+En 2016, la région du Pacifique a tenu un atelier du SCCS pour examiner les approches internationales à plusieurs niveaux, à titre d’évaluation préliminaire de la pertinence d’une approche à plusieurs niveaux pour la pêche intégrée du poisson de fond en Colombie-Britannique [@dfo2016tiered]].
+Au lieu de recommander une approche à niveaux distincts fondée sur la disponibilité des données, l’atelier a recommandé de tenir compte de la richesse des données sur une échelle continue et de mettre à l’essai par simulation plusieurs procédures de gestion (PG) de rechange pour chaque stock, en s’appuyant sur une approche axée sur la gestion, ou l’évaluation des stratégies de gestion (ESG), afin de déterminer les procédures de gestion à données limitées qui répondraient le mieux aux objectifs en matière de politiques et de pêche, en tenant explicitement compte du risque.
 
-## MANAGEMENT-ORIENTED APPROACHES {#sec:intro-management-oriented}
+## APPROCHES AXÉES SUR LA GESTION {#sec:intro-management-oriented}
 
-Worldwide, there has been a movement towards management-oriented approaches to stock assessment and fisheries management [e.g., @delamare1998; @butterworth1999; @plaganyi2007; @rademeyer2007; @berkson2015; @geromont2015; @punt2016; @carruthers2016].
-Whereas traditional stock assessment methods focus explicitly on estimation of biological parameters and stock status, a management-oriented approach focuses on identifying MPs that perform best with respect to policy and fishery objectives when implemented in a "closed-loop" simulation environment (Figure \@ref(fig:mse-chart-basic)).
+À l’échelle mondiale, on se tourne vers des approches axées sur la gestion pour évaluer les stocks et gérer les pêches [p. ex. @delamare1998; @butterworth1999; @plaganyi2007; @rademeyer2007; @berkson2015; @geromont2015; @punt2016; @carruthers2016].
+Alors que les méthodes traditionnelles d’évaluation des stocks mettent explicitement l’accent sur l’estimation des paramètres biologiques et de l’état des stocks, une approche axée sur la gestion cherche à déterminer les procédures de gestion qui donnent les meilleurs résultats pour les objectifs en matière de politiques et de pêche lorsqu’elles sont mises en œuvre dans un environnement de simulation en boucle fermée (figure \@ref(fig:mse-chart-basic)).
 
-Closed-loop simulation is distinguished from conventional stock assessment because it simulates feedback between implementation of the MPs and the simulated system representing the fish stock and its environment, described by one or more operating models (OMs).
-This approach not only takes into account the effect of the MPs on the system but also the future data collected from the system and its use in the MPs [@punt2016].
-Data-limited MPs may be represented by a simple empirical rule, such as an adjustment to catch based on a change in an index of abundance or may be based on more complex methods incorporating multiple data sources and statistical models.
+La simulation en boucle fermée diffère de l’évaluation classique des stocks parce qu’elle simule la rétroaction entre la mise en œuvre des procédures de gestion et le système simulé représentant le stock de poisson et son environnement, décrite par un ou plusieurs modèles opérationnels (MO).
+Cette approche tient compte non seulement de l’effet des procédures de gestion sur le système, mais aussi des données futures recueillies dans le système et de leur utilisation dans les procédures de gestion [@punt2016]].
+Les procédures de gestion à données limitées peuvent être représentées par une règle empirique simple, comme un ajustement des prises en fonction du changement d’un indice de l’abondance, ou être fondées sur des méthodes plus complexes intégrant plusieurs sources de données et modèles statistiques.
 
-(ref:fig-mse-chart-basic) Illustration of the fisheries closed-loop simulation process following @punt2016. The management procedure may be based on a simple data rule (e.g., decrease the allowable catch x% if the survey index decreases y%) or it might be an estimation model combined with a harvest control rule.
+(ref:fig-mse-chart-basic) Illustration du processus de simulation en boucle fermée de la pêche selon @punt2016. La procédure de gestion peut être fondée sur une règle de données simple (p. ex. réduire les prises autorisées de x % si l’indice du relevé diminue de y %) ou peut être un modèle d’estimation combiné à une règle de contrôle des prises.
 
 ```{r mse-chart-basic, fig.cap="(ref:fig-mse-chart-basic)", out.width="6.3in"}
 knitr::include_graphics(here::here("images/mse-chart-simple2.png"))
 ```
 
-The scientific literature reports a large number of data-limited MPs.
-When tested in closed-loop simulation environments, data-limited MPs have shown variable performance across conditions such as species life-history and levels of biomass depletion [e.g., @carruthers2014; @carruthers2016].
-Closed-loop simulation-testing of data-limited MPs allows for evaluation of relative performance of MPs across a range of uncertainties in, for example, underlying fish biology, observation error, estimation error, and implementation error [e.g., @kell2006; @carruthers2016].
-Importantly, a management-oriented approach employing closed-loop simulation enables ranking of MPs with respect to meeting objectives and enables evaluation of trade-offs among competing objectives (e.g., policy-based conservation objectives and economic objectives).
+La documentation scientifique fait état d’un grand nombre de procédures de gestion dont les données sont limitées.
+Lorsqu’elles ont été mises à l’essai dans des environnements de simulation en boucle fermée, les procédures de gestion à données limitées ont donné un rendement variable selon les conditions comme le cycle biologique de l’espèce et les niveaux d’épuisement de la biomasse [p. ex. @carruthers2014; @carruthers2016].
+La mise à l’essai par simulation en boucle fermée des procédures de gestion à données limitées permet d’évaluer le rendement relatif des procédures de gestion avec une gamme d’incertitudes entourant, par exemple, la biologie sous-jacente des poissons, l’erreur d’observation, l’erreur d’estimation et l’erreur de mise en œuvre [p. ex. @kell2006; @carruthers2016].
+Surtout, une approche axée sur la gestion qui utilise la simulation en boucle fermée permet de classer les procédures de gestion par rapport à l’atteinte des objectifs et d’évaluer les compromis entre des objectifs concurrents (p. ex. des objectifs de conservation fondés sur les politiques et des objectifs économiques).
 
-Since 2017, a partnership agreement between the University of British Columbia (UBC) and DFO [@dfo_dlmtool_2017] has supported development of two open-source software packages for MSE, implemented in R [@r2019]: the Data Limited Methods toolkit (DLMtool) [@carruthers2018; @carruthers_hordyk_2018] and the Management Strategy Evaluation toolkit (MSEtool) [@huynh_msetool_2019].
-After several years of development, these packages provide some of the fastest, most flexible and extensible software for conducting MSE for fisheries, ranging from data-poor to data-rich, enabling rapid assessment of multiple MPs according to customizable conservation and fisheries objectives, and evaluation of key trade-offs.
+Depuis 2017, une entente de partenariat entre l’Université de la Colombie-Britannique (UBC) et le MPO [@dfo_dlmtool_2017] a facilité l’élaboration de deux progiciels à accès libre pour l’évaluation des stratégies de gestion, mis en œuvre dans R [@r2019] : la trousse Data Limited Methods toolkit (DLMtool) [@carruthers2018; @carruthers_hordyk_2018] et la trousse d’évaluation des stratégies de gestion (MSEtool) [[@huynh_msetool_2019]].
+Après plusieurs années de développement, ces progiciels offrent certains des logiciels les plus rapides, les plus souples et les plus extensibles pour évaluer les stratégies de gestion pour les pêches, allant de systèmes pauvres en données à riches en données, permettant d’évaluer rapidement plusieurs procédures de gestion en fonction d’objectifs de conservation et de pêche personnalisables et d’évaluer les principaux compromis.
 
-## OBJECTIVES OF THIS DOCUMENT {#sec:intro-objectives}
+## OBJET DU PRÉSENT DOCUMENT {#sec:intro-objectives}
 
-This document aims to develop a management procedure framework ("MP Framework") for selecting methods for provision of catch advice for Pacific groundfish stocks that do not have sufficient data to estimate the parameters needed for full statistical stock assessments.
-Therefore, the framework will provide advice for stocks where biological reference points and stock status cannot be reliably estimated.
-In doing so, it aims to improve the capacity of DFO to meet the requirements of Canada's Sustainable Fisheries Framework and the Fish Stocks provisions of the *Fisheries Act* for data-limited species.
-The MP Framework will apply closed-loop simulation to formalize the process of testing and selecting MPs for data-limited groundfish stocks, which will support the provision of scientific advice to fisheries managers.
-We emphasize that biological reference points and stock status, which are integral to the Sustainable Fisheries Framework and Fish Stocks provisions, are also integral to the MP Framework, even if they are not explicitly stated in the catch advice.
-Instead reference points and stock status are incorporated into the OMs (see Appendix \@ref(app:dlmtool-om)) and management procedures are selected based on explicitly defined probabilities of maintaining OM stock status above reference points.
-We choose the terminology MP Framework to clearly specify the focus on selection of best-performing MPs, rather than focusing on the available data.
+Le présent document vise à élaborer un cadre relatif aux procédures de gestion (Cadre des procédures de gestion) qui permet de choisir les méthodes utilisées pour fournir des avis sur les prises pour les stocks de poisson de fond du Pacifique sur lesquels on ne dispose pas de données suffisantes pour estimer les paramètres nécessaires à une évaluation statistique complète du stock.
+Ainsi, le Cadre permettra de produire des avis pour les stocks pour lesquels il n’est pas possible d’estimer les points de référence biologiques et l’état du stock de manière fiable.
+Ce faisant, il vise à améliorer la capacité du MPO de répondre aux exigences du Cadre pour la pêche durable du Canada et des dispositions sur les stocks de poissons de la *Loi sur les pêches* pour les espèces à données limitées.
+Le Cadre des procédures de gestion appliquera la simulation en boucle fermée pour officialiser le processus d’essai et de sélection des procédures de gestion pour les stocks de poisson de fond à données limitées, et facilitera ainsi la production des avis scientifiques pour les gestionnaires des pêches.
+Nous insistons sur le fait que les points de référence biologiques et l’état du stock, qui font partie intégrante du Cadre pour la pêche durable et des dispositions sur les stocks de poissons, font également partie intégrante du Cadre des procédures de gestion, même s’ils ne sont pas explicitement énoncés dans les avis sur les prises.
+Les points de référence et l’état du stock sont plutôt intégrés dans les modèles opérationnels (voir l’annexe \@ref(app:dlmtool-om)) et les procédures de gestion sont choisies en fonction de probabilités explicitement définies de maintenir l’état du stock dans le modèle opérationnel au-dessus des points de référence.
+Nous avons choisi le terme Cadre des procédures de gestion pour indiquer clairement que l’accent est mis sur la sélection des procédures de gestion les plus performantes, plutôt que sur les données disponibles.
 
-This document presents a methodology for developing appropriate OMs, testing suites of MPs, and identifying MPs that best meet the objectives of fisheries management, First Nations and stakeholders.
-This work builds on recent work by @anderson2019synopsis, which is a comprehensive, reproducible data synopsis for nearly all Pacific groundfish species encountered by DFO surveys and commercial fisheries in BC.
-Although the proposed framework is software agnostic, in the current implementation, data and empirical analyses from the groundfish synopsis packages [@gfdata; @gfplot] are used to develop OMs using the DLMtool [@carruthers2018] and MSEtool packages [@huynh_msetool_2019], implemented in the statistical software R [@r2019].
-The OMs are then used in simulation-testing a range of data-limited MPs against performance metrics.
-While this document focuses on data-limited MPs, the main features of the framework could be extended to more data-rich species to evaluate performance of data-moderate or data-rich MPs (e.g., different configurations of statistical catch-age models coupled with harvest control rules).
-An R package written by the authors for this framework, gfdlm [@gfdlm], houses many tools and custom visualizations to aid in the process.
-Steps of the process are described more fully in the following sections of the document.
+Le présent document décrit une méthodologie pour élaborer des modèles opérationnels appropriés et pour mettre à l’essai des séries de procédures de gestion et déterminer celles qui répondent le mieux aux objectifs de gestion des pêches et aux objectifs des Premières Nations et des intervenants.
+Ce travail s’appuie sur des travaux récents de @anderson2019synopsis, qui constituent un synopsis de données complet et reproductible pour presque toutes les espèces de poisson de fond du Pacifique rencontrées dans les relevés du MPO et les pêches commerciales en Colombie-Britannique.
+Bien que le cadre proposé soit indépendant du logiciel, dans la mise en œuvre actuelle, les données et les analyses empiriques des progiciels de synopsis sur le poisson de fond [@gfdata; @gfplot] sont utilisées pour élaborer des modèles opérationnels à l’aide des progiciels DLMtool [@carruthers2018] et MSEtool [@huynh_msetool_2019], mis en œuvre dans le logiciel statistique R [@r2019].
+Les modèles opérationnels sont ensuite utilisés dans la mise à l’essai par simulation d’un éventail de procédures de gestion à données limitées par rapport aux paramètres de rendement.
+Bien que le présent document porte sur les procédures de gestion à données limitées, les principales caractéristiques du Cadre pourraient être étendues à des espèces plus riches en données afin d’évaluer le rendement des procédures de gestion à données modérées ou abondantes (p. ex. différentes configurations de modèles statistiques des prises selon l’âge couplés à des règles de contrôle des prises).
+Un progiciel en R produit par les auteurs pour ce cadre, gfdlm [@gfdlm], contient de nombreux outils et des visualisations personnalisées pour faciliter le processus.
+Les étapes du processus sont décrites plus en détail dans les sections suivantes du document.
 
-## EXPECTED BENEFITS {#sec:intro-benefits}
+## AVANTAGES ESCOMPTÉS {#sec:intro-benefits}
 
-There are a number of expected benefits of this project. Compared to the current status quo, this framework will allow DFO to:
+Ce projet comporte plusieurs avantages escomptés. Comparativement au statu quo, ce cadre permettra au MPO de :
 
-* provide evidence-based catch advice for more stocks, including stocks for which advice was not previously available;
-* develop a standardized and transparent approach across stocks;
-* test performance of data-limited MPs for providing catch advice with respect to meeting sustainability and fishery objectives; and
-* help build an understanding of the most important data needs and research priorities for reducing uncertainty in stock assessment advice.
+* fournir des avis sur les prises fondés sur des données probantes pour davantage de stocks, y compris des stocks pour lesquels des avis n’étaient pas disponibles auparavant;
+* élaborer une approche normalisée et transparente pour l’ensemble des stocks;
+* tester le rendement des procédures de gestion à données limitées pour donner des avis sur les prises quant à l’atteinte des objectifs de durabilité et de pêche;
+* aider à mieux comprendre les besoins en données et les priorités de recherche les plus importants pour réduire l’incertitude dans les avis sur l’évaluation des stocks.
 
-Critically, the framework will develop methods to improve capacity for DFO Science to provide sustainable, data-limited catch advice, consistent with Canada's Precautionary Approach Framework as legislated under the Fish Stocks provisions, therefore enabling data-limited stocks to be brought into compliance with the Fish Stocks provisions of the *Fisheries Act*.
+Fondamentalement, le Cadre permettra d’élaborer des méthodes pour améliorer la capacité de la Direction des sciences du MPO à fournir des avis sur les prises durables et à données limitées, conformément au Cadre de l’approche de précaution du Canada prévu par les dispositions sur les stocks de poissons, et ainsi de mettre les stocks à données limitées en conformité avec les dispositions sur les stocks de poissons de la *Loi sur les pêches*.
 
-Extensions to the framework could be used to inform:
+Les extensions du Cadre pourraient venir étayer :
 
-* rebuilding plans and recovery potential assessments [e.g., @haggarty2020yelloweye];
-* methods for accounting for environmental conditions in management decisions, as required under the Fish Stocks Provisions;
-* assessing the value of collecting more information; and
-* evaluating the performance of data-moderate and data-rich MPs.
+* les plans de rétablissement et les évaluations du potentiel de rétablissement [p. ex.@haggarty2020yelloweye]];
+* des méthodes pour prendre en compte des conditions environnementales dans les décisions de gestion, comme l’exigent les dispositions sur les stocks de poissons;
+* l’évaluation de la valeur de la collecte de davantage d’informations;
+* l’évaluation du rendement des procédures de gestion à données modérées et à données abondantes.
 
-See Section \@ref(sec:discussion) for discussion of these.
+Voir l’examen de ces points dans la section \@ref(sec:discussion).
 
-We emphasize that while the framework does not explicitly report biological reference points and stock status, which often cannot be reliably estimated for data-limited stocks, the framework is designed to evaluate MPs with respect to the probability of maintaining stocks above reference points over a defined range of uncertainties.
-Reference points are therefore an integral component of the framework.
+Nous soulignons que, bien que le Cadre ne fasse pas explicitement état des points de référence biologiques et de l’état des stocks, qu’il n’est souvent pas possible d’estimer de manière fiable pour les stocks à données limitées, il est conçu pour évaluer les procédures de gestion par rapport à la probabilité de maintenir les stocks au-dessus des points de référence pour une gamme définie d’incertitudes.
+Les points de référence font donc partie intégrante du Cadre.

@@ -1,155 +1,157 @@
-# BEST PRACTICES FOR MANAGEMENT PROCEDURE APPROACHES {#sec:best-practices}
+# PRATIQUES EXEMPLAIRES POUR LES APPROCHES RELATIVES AUX PROCÉDURES DE GESTION {#sec:best-practices}
 
-@punt2016 reviewed best practices for MSE and identified five key steps in the process (Steps 2--6 below). In large part, the DLMtool software has been designed to allow practitioners to follow these steps [Figure \@ref(fig:mse-chart); @carruthers2018]. We also identify a critical first step (Step 1 below): defining the decision context [@gregory2012; @cox2016].
-In most practical applications the steps in the MSE process will be iterative.
-For example, objectives or performance metrics may be refined after experience is gained with their performance in simulations or the real world [@delamare1998; @plaganyi2007; @cox2008a; @punt2016].
-OMs and MPs may also be refined or revised in light of new information or changes to fishing operations or the ecosystem [e.g., @plaganyi2007; @pestal2008].
+@punt2016 ont examiné les pratiques exemplaires pour l’évaluation des stratégies de gestion (ESG) et défini cinq étapes clés du processus (étapes 2 à 6 ci-après). En grande partie, le logiciel DLMtool a été conçu pour permettre aux praticiens de suivre ces étapes [figure \@ref(fig:mse-chart); @carruthers2018]. Nous définissons également une première étape essentielle (étape 1 ci-après) : définir le contexte décisionnel [@gregory2012; @cox2016].
+Dans la plupart des applications pratiques, les étapes du processus d’ESG seront itératives.
+Par exemple, on peut préciser les objectifs ou les paramètres de rendement une fois que l’on connaît mieux leur rendement grâce à l’expérience tirée de simulations ou de la réalité [@delamare1998; @plaganyi2007; @cox2008a; @punt2016].
+On peut également affiner ou réviser les modèles opérationnels et les procédures de gestion à la lumière de nouveaux renseignements ou de changements touchant les activités de pêche ou l’écosystème [p. ex. @plaganyi2007; @pestal2008].
 
-In this section we provide an overview of the six best practice steps.
-We describe how each of the six steps is implemented in the proposed MP Framework in Section \@ref(sec:approach).
+Dans cette section, nous donnons un aperçu des six étapes des pratiques exemplaires.
+Nous décrivons comment chacune des six étapes est mise en œuvre dans le Cadre des procédures de gestion à la section \@ref(sec:approach).
 
-(ref:fig-mse-chart) The steps of the MSE process following @punt2016 as implemented in DLMtool. Adapted from @carruthers2018. This figure expands on Figure \@ref(fig:mse-chart-basic).
+(ref:fig-mse-chart) Les étapes du processus d’évaluation des stratégies de gestion selon @punt2016, telles que mises en œuvre dans DLMtool. Adapté de @carruthers2018. Cette figure complète la figure \@ref(fig:mse-chart-basic).
 
 ```{r mse-chart, fig.cap="(ref:fig-mse-chart)", out.width="\\textwidth"}
-knitr::include_graphics(here::here("images/mse-chart.png"))
+knitr::include_graphics(here::here("images/mse-chart-french.png"))
 ```
 
-## STEP 1: DEFINE THE DECISION CONTEXT {#sec:best1}
+## ÉTAPE 1 : DÉFINIR LE CONTEXTE DÉCISIONNEL {#sec:best1}
 
-Key questions to guide defining the decision context for MSE include:
+Les principales questions qui guident la définition du contexte décisionnel de l’évaluation des stratégies de gestion sont les suivantes :
 
-* What is the exact decision to be made?
+* Quelle est la décision exacte à prendre?
 
-* What is the time frame for making the decision?
+* Quel est le délai pour prendre la décision?
 
-* How often will the decision be evaluated and updated? E.g., will a TAC decision be in place for one year or several years?
+* À quelle fréquence la décision sera-t-elle évaluée et mise à jour? Par exemple, une décision sur le TAC sera-t-elle en vigueur pendant un an ou plusieurs années?
 
-* What are the boundaries on the project and decision?
+* Quelles sont les limites du projet et de la décision?
 
-* What are the legislative and policy requirements?
+* Quelles sont les exigences législatives et politiques?
 
-* What are specific roles and responsibilities of parties involved? Parties include Science, Management, First Nations, industry, academia, and/or non-governmental organizations (NGOs).
+* Quels sont les rôles et responsabilités précis des parties concernées? Les parties sont les Sciences, la Gestion, les Premières Nations, l’industrie, le milieu universitaire et des organisations non gouvernementales (ONG).
 
-* How will the final decision be made? For example, it may be necessary to rank or weight objectives if there are large trade-offs with respect to performance for different objectives.
+* Comment la décision finale sera-t-elle prise? Par exemple, il pourrait être nécessaire de classer ou de pondérer les objectifs s’il y a d’importants compromis en ce qui concerne le rendement pour différents objectifs.
 
-* How will the process be governed? For example, how will acceptability of trade-offs be determined? How will meetings be facilitated? How will consultation be managed? Failures in governance of the decision-making process can lead to a less successful decisions in terms of acceptance and compliance [@smith1999; @armitage2019].
+* Comment le processus sera-t-il gouverné? Par exemple, comment déterminera-t-on l’acceptabilité des compromis? Comment les réunions seront-elles animées? Comment la consultation sera-t-elle gérée? Les lacunes dans la gouvernance du processus décisionnel peuvent déboucher sur des décisions moins fructueuses sur le plan de l’acceptation et de la conformité [@smith1999; @armitage2019].
 
-Definition of the decision context is the role of managers, stakeholders, First Nations, and other key interested parties.
-Engagement of resource users at all stages of the MSE cycle from the outset is critical, as it increases the likelihood that the process will be considered credible, objectives will reflect real objectives, and MPs will be successfully implemented as planned [@smith1999; @punt2016; @armitage2019].
+La définition du contexte décisionnel revient aux gestionnaires, aux intervenants, aux Premières Nations et aux autres principales parties concernées.
+La participation des utilisateurs de la ressource à toutes les étapes de l’évaluation des stratégies de gestion est essentielle, car elle augmente la probabilité que le processus soit jugé crédible, que les objectifs reflètent les objectifs réels et que les procédures de gestion soient mises en œuvre avec succès comme prévu [@smith1999; @punt2016; @armitage2019].
 
-## STEP 2: SELECTION OF OBJECTIVES AND PERFORMANCE METRICS {#sec:best2}
+## ÉTAPE 2 : CHOIX DES OBJECTIFS ET DES PARAMÈTRES DE RENDEMENT {#sec:best2}
 
-Clear management and fishery objectives and the performance metrics that measure them must be identified.
-Objectives may initially be high level and "strategic" (e.g., achieve sustainable fisheries, maintain economic prosperity, maintain cultural access) but these must be converted into operational "tactical" objectives that can be expressed as quantitative performance metrics [@hilborn2007; @delamare1998; @punt2016].
-Fully quantified objectives include a metric, the desired probability of success, and a time frame to achieve the objective (e.g., probability of maintaining the stock above the LRP is greater than 0.95 [19 times out of 20], in each and every year of a 50-year period).
+Il faut établir des objectifs clairs en matière de gestion et de pêche ainsi que des paramètres de rendement qui permettent de les mesurer.
+Les objectifs peuvent être initialement généraux et « stratégiques » (p. ex. parvenir à des pêches durables, maintenir la prospérité économique, maintenir l’accès culturel), mais ils doivent être convertis en objectifs opérationnels « tactiques » qui peuvent être exprimés sous forme de paramètres de rendement quantitatifs [@hilborn2007; @delamare1998; @punt2016].
+Les objectifs entièrement quantifiés comprennent un paramètre, la probabilité de réussite souhaitée, et un délai pour atteindre l’objectif (p. ex. la probabilité de maintenir le stock au-dessus du PRL est supérieure à 0,95 [19 fois sur 20] chaque année pendant 50 ans).
 
-Since the properties of the underlying system represented by the OM are known exactly, a wide range of biological and economic metrics can be calculated from the OM [@carruthers2018].
-However, having too many performance metrics can make the final decision process complex. Performance metrics should be chosen so they can be understood by decision-makers and participants, and to facilitate a tractable decision-making environment [@punt2016].
+Comme on connaît exactement les propriétés du système sous-jacent représenté par le modèle opérationnel, il est possible de calculer un large éventail de paramètres biologiques et économiques à partir du modèle opérationnel [@carruthers2018].
+Toutefois, un trop grand nombre de paramètres de rendement peut compliquer le processus décisionnel final. Il faut choisir les paramètres de rendement de façon à ce qu’ils puissent être compris par les décideurs et les participants, et de manière à faciliter un environnement décisionnel souple [@punt2016].
 
-Objectives should be developed with the participation of managers, stakeholders, First Nations, and other interested parties [e.g., @smith1999; @mapstone2008; @plaganyi2007; @cox2008a].
-@hilborn2007 identified four categories of fishery objectives: biological, economic, social and political, noting that many conflicts in fisheries in fact arise from conflicting objectives.
-Within each of these categories, different resource users and interest groups will place value on different components, leading to inevitable trade-offs.
-For example, while most resource users may place higher value on increased biological production, specific resource user groups, such as aboriginal users, may prefer more stable access to yields and increased participation [@plaganyi2013] or have spatial objectives [@okamoto2020]. Recreational users may prefer lower yields and larger trophy fish [@hilborn2007].
-Achieving agreement on the list of objectives and performance metrics, especially with multiple user groups is critical, can be time-consuming and should be iterative, as participants build familiarity with each other and the process.
-Incorporating social and cultural objectives may be particularly important and is lacking in many decision making processes [@stephenson2017; @benson2018; @okamoto2020; but see, for example, @plaganyi2013; @dfo2019; @dfo2020].
-During Step 1 (Section \@ref(sec:best1)), attention should be given to governance of the process to ensure that there is meaningful participation by different groups and that participants can agree on a final set of objectives to adequately represent their interests and characterize the main trade-offs [@stephenson2017; @okamoto2020]. An overview of possible approaches is provided in @benson2018.
+Les objectifs devraient être élaborés avec la participation des gestionnaires, des intervenants, des Premières Nations et des autres parties concernées [p.ex. @smith1999; @mapstone2008; @plaganyi2007; @cox2008a]. 
+@hilborn2007 a cerné quatre catégories d’objectifs de pêche : les objectifs biologiques, économiques, sociaux et politiques. Il fait observer que de nombreux conflits dans le secteur des pêches découlent en fait d’objectifs contradictoires.
+Dans chacune de ces catégories, différents utilisateurs de la ressource et groupes d’intérêt attribueront de la valeur à différentes composantes, ce qui entraînera des compromis inévitables.
+Par exemple, alors que la plupart des utilisateurs de la ressource peuvent accorder une grande valeur à l’augmentation de la production biologique, certains groupes d’utilisateurs de la ressource, comme les utilisateurs autochtones, peuvent préférer un accès plus stable aux récoltes et une participation accrue [@plaganyi2013], ou avoir des objectifs spatiaux [@okamoto2020].
+Les utilisateurs récréatifs peuvent préférer des récoltes plus faibles et des poissons trophées plus gros [@hilborn2007].
+Il est essentiel de s’entendre sur la liste des objectifs et des paramètres de rendement, surtout lorsqu’il y a plusieurs groupes d’utilisateurs.
+Cette démarche peut prendre du temps et devrait être répétée plusieurs fois, à mesure que les participants apprennent à se connaître les uns les autres et se familiarisent avec le processus.
+Il peut être particulièrement important d’intégrer des objectifs sociaux et culturels, et cela fait défaut dans de nombreux processus décisionnels [@stephenson2017; @benson2018; @okamoto2020; mais voir, par exemple, @plaganyi2013; @dfo2019; @dfo2020].
+Au cours de l’étape 1 (section \@ref(sec:best1)), il faut accorder une attention particulière à la gouvernance du processus afin de s’assurer qu’il y a une participation significative des différents groupes et que les participants peuvent s’entendre sur un ensemble final d’objectifs pour représenter adéquatement leurs intérêts et caractériser les principaux compromis [@stephenson2017; @okamoto2020]. Un aperçu des approches possibles est présenté dans le rapport de @benson2018.
 
-## STEP 3: SELECTION OF UNCERTAINTIES/SPECIFICATION OF OPERATING MODELS {#sec:best3}
+## ÉTAPE 3 : CHOIX DES INCERTITUDES/SPÉCIFICATION DES MODÈLES OPÉRATIONNELS {#sec:best3}
 
-Uncertainties inherent in the underlying system are represented in the OM. Uncertainty in the OMs may be related to: the biology of the stock (e.g., growth, natural mortality, recruitment, migration); the dynamics of the fleet (e.g., targeting behaviour, selectivity of the fishing gear); the observation process (e.g., bias or imprecision in survey data or age/length composition data); and/or the implementation process (e.g., exceeding catch limits) [@carruthers2018].
+Les incertitudes inhérentes au système sous-jacent sont représentées dans le modèle opérationnel. L’incertitude dans les modèles opérationnels peut être liée à la biologie du stock (p. ex. croissance, mortalité naturelle, recrutement, migration), à la dynamique de la flottille (p. ex. comportement de ciblage, sélectivité des engins de pêche), au processus d’observation (p. ex. biais ou imprécision dans les données de relevé ou les données sur la composition selon l’âge et la longueur) ou au processus de mise en œuvre (p. ex. dépassement des limites de prises) [@carruthers2018].
 
-Some of this uncertainty (e.g., range of values of natural mortality or other parameters) may be captured within a single OM by expressing distributions for these parameters.
-However, it is unlikely that the full range of uncertainties thought to influence the system can be captured in a single OM.
-Therefore, best practice recommends dividing MSE trials into a "reference set", using a core set of OMs that include the most important uncertainties (e.g., depletion of the stock or range of natural mortality values), and a "robustness set", representing other plausible OM formulations that represent alternative structural hypotheses [@rademeyer2007].
-These authors recommend  that the reference set of OMs include the most important uncertainties, which are both highly plausible and have major impacts on results.
-While there is no established formal means for selecting OMs for the reference set, @punt2016 suggest that best practice start from a common set of factors which commonly have a large impact on MSE performance due to uncertainties.
-They provide a list of factors which commonly have a large impact on MSE performance due to uncertainty (their Table 3) and suggests that, at a minimum, MSE processes should consider: parameter uncertainty (related to productivity and stock size); process uncertainty; and observation error [see also @cooke1999].
-Implementation uncertainty is another important source of uncertainty, for example uncertainty in actual catches relative to TACs.
-Where available, stock assessments can be consulted for the major sources of uncertainty.
-For example, the initial reference set may be based on the set of sensitivity analyses presented in the stock assessment (possibly with additional scenarios), while the robustness set may include a broader, more exploratory set of uncertainties [e.g., Atlantic Bluefin Tuna (*Thunnus thynnus*), T. Carruthers, personal communication, May 12 2020].
+Il est possible de rendre compte d’une partie de ces incertitudes (p. ex. plage de valeurs de la mortalité naturelle ou d’autres paramètres) dans un seul modèle opérationnel en exprimant des distributions pour ces paramètres.
+Il est toutefois peu probable que l’on puisse refléter la gamme complète des incertitudes susceptibles d’influencer le système dans un seul modèle opérationnel.
+Par conséquent, la pratique exemplaire recommande de diviser les essais d’évaluation des stratégies de gestion en deux ensembles, à savoir un « ensemble de référence », qui regroupe des modèles opérationnels de base intégrant les incertitudes les plus importantes (p. ex. épuisement du stock ou plage des valeurs de la mortalité naturelle), et un « ensemble de robustesse », qui représente d’autres formules de modèles opérationnels possibles correspondant à des hypothèses structurelles de rechange [@rademeyer2007].
+Ces auteurs recommandent d’inclure dans l’ensemble de référence des modèles opérationnels les incertitudes les plus importantes, c’est-à-dire qui sont à la fois très possibles et ont des effets majeurs sur les résultats.
+Bien qu’il n’existe pas de moyen officiel établi pour sélectionner les modèles opérationnels pour l’ensemble de référence, @punt2016 proposent que les pratiques exemplaires partent d’un ensemble commun de facteurs qui ont habituellement un grand impact sur le rendement de l’évaluation des stratégies de gestion en raison des incertitudes.
+Ils dressent une liste des facteurs qui ont habituellement une grande incidence sur le rendement de l’ESG en raison de l’incertitude (leur tableau 3) et suggèrent qu’au minimum, les processus d’ESG devraient tenir compte de l’incertitude des paramètres (liée à la productivité et à la taille du stock), de l’incertitude du processus et de l’erreur d’observation [voir aussi @cooke1999].
+L’incertitude liée à la mise en œuvre est une autre source importante d’incertitude, par exemple l’incertitude des prises réelles par rapport aux TAC.
+Lorsqu’elles sont disponibles, on peut consulter les évaluations des stocks pour connaître les principales sources d’incertitude.
+Par exemple, l’ensemble de référence initial peut être fondé sur l’ensemble des analyses de sensibilité présentées dans l’évaluation des stocks (peut-être avec d’autres scénarios), tandis que l’ensemble de robustesse peut comprendre un ensemble plus vaste et plus exploratoire d’incertitudes [p. ex. thon rouge de l’Atlantique (*Thunnus thynnus*), T. Carruthers, communication personnelle 12 mai 2020].
 
-Interactions among uncertainties may be considered by evaluating all combinations of uncertainty factors [e.g., @rademeyer2006a]. This may be presented in grid format [e.g., @carruthers2020].
-However, this may not always be computationally possible, and it is more common to select 'base' levels for each factor and then  develop alternative OMs which vary one (or more than one) factor in turn [@punt2016].
-An iterative approach may be required, where sensitivity tests are run to determine which combinations produce the largest differences in results [e.g., @rademeyer2006b; @carruthers2020].
+On peut prendre en compte les interactions entre les incertitudes en évaluant toutes les combinaisons de facteurs d’incertitude [p. ex. @rademeyer2006a].
+Elles peuvent être présentées sous forme de grille [p. ex. @carruthers2020].
+Toutefois, ce n’est pas toujours possible sur le plan informatique, et il est plus courant de sélectionner des niveaux de « base » pour chaque facteur, puis de développer d’autres modèles opérationnels qui varient d’un (ou plus) facteur à leur tour [@punt2016].
+Une approche itérative peut être nécessaire, afin d’exécuter des tests de sensibilité pour déterminer les combinaisons qui produisent les plus grandes différences dans les résultats [p. ex. @rademeyer2006b; @carruthers2020].
 
-Once an agreed-upon reference set of OMs has been determined, a wider range of OMs (the robustness set) should be developed to capture a wider range of uncertainties that may be less plausible but should nonetheless be explored [@rademeyer2007].
-These may include effects related to environmental change (e.g., time-varying mortality, climate-driven recruitment, predator-prey relationships); structural representation of population dynamics (e.g., form of the stock-recruit relationship); or fleet dynamics (e.g., selectivity).
-@punt2016 also note that, in some cases, where the data used to parameterize the OM are in conflict (e.g., two indices of abundance are in conflict), the best practice may be to develop alternative OMs based on the different data sources.
-Other uncertainties in past reliability or future availability of data may also be captured in the robustness set [@rademeyer2007].
+Une fois que l’on s’est entendu sur un ensemble de référence de modèles opérationnels, un éventail plus large de modèles opérationnels (l’ensemble de robustesse) devrait être élaboré afin d’exprimer une plus large gamme d’incertitudes, qui sont peut-être moins plausibles, mais devraient néanmoins être explorées [@rademeyer2007].
+Ces effets peuvent comprendre les effets liés aux changements environnementaux (p. ex. mortalité variable dans le temps, recrutement dicté par le climat, relations prédateur-proie), la représentation structurelle de la dynamique des populations (p. ex. forme de la relation stock-recrue) ou la dynamique de la flottille (p. ex. sélectivité).
+@punt2016 notent également que, dans certains cas, lorsque les données utilisées pour paramétrer le modèle opérationnel sont en conflit (p. ex. deux indices de l’abondance contradictoires), la pratique exemplaire peut consister à élaborer d’autres modèles opérationnels en fonction des différentes sources de données.
+D’autres incertitudes relatives à la fiabilité des données antérieures ou à la disponibilité des données dans le futur peuvent également être reflétées dans l’ensemble de robustesse [@rademeyer2007].
 
-Reference and robustness sets may be selected through an iterative process examining the impact of uncertainties on the MSE performance.
-For example, @rademeyer2006b evaluated 28 preliminary robustness tests for a South African hake case study but discontinued tests that produced results very similar to the reference set trials.
-OMs may be weighted, where weightings may be based on qualitative plausibility criteria [@butterworth1996], or may be quantitative based on model-selection criteria based on fits to data (e.g., AIC [Akaike information criterion]).
-However, @punt2016 urged caution in using model-selection criteria to weight OMs unless there was very high confidence in the reliability of the likelihood function, which is unlikely to be the case in data-limited situations.
-Placing less plausible OMs into the reference set may somewhat alleviate the need to consider weighting of OMs.
+On peut choisir les ensembles de référence et de robustesse à l’aide d’un processus itératif examinant l’incidence des incertitudes sur le rendement de l’ESG.
+Par exemple, @rademeyer2006b a évalué 28 tests préliminaires de robustesse pour une étude de cas de merlu d’Afrique du Sud, mais a interrompu ceux qui produisaient des résultats très semblables aux essais de l’ensemble de référence.
+Il est possible de pondérer les modèles opérationnels, et les pondérations peuvent être fondées sur des critères de plausibilité qualitatifs [@butterworth1996] ou être quantitatives et fondées sur des critères de sélection du modèle reposant sur les ajustements aux données (p. ex. le CIA [critère d’information d’Akaike]).
+Toutefois, @punt2016 invitent à la prudence dans l’utilisation des critères de sélection du modèle pour pondérer les modèles opérationnels, à moins que la fiabilité de la fonction de probabilité ne soit très élevée, ce qui est peu probable dans des situations où les données sont limitées.
+L’inclusion de modèles opérationnels moins plausibles dans l’ensemble de référence pourrait atténuer quelque peu la nécessité d’envisager de pondérer les modèles opérationnels.
 
-Ideally, OMs should be conditioned on real data to ensure they can reproduce historical observations [e.g., @cox2008a; @forrest2018].
-In data-limited cases without reliable historical observations, this may not be possible.
-In these cases, best practice would be to develop a set of OMs that differ in terms of major uncertainties, especially related to stock productivity and current depletion level.
+Idéalement, il faudrait conditionner les modèles opérationnels aux données réelles afin de s’assurer qu’ils peuvent reproduire les observations historiques [p. ex. @cox2008a; @forrest2018].
+Dans les cas où les données sont limitées et où il n’existe pas d’observations historiques fiables, cela pourrait être impossible.
+La pratique exemplaire consisterait alors à élaborer un ensemble de modèles opérationnels qui diffèrent sur le plan des principales incertitudes, en particulier celles liées à la productivité du stock et au niveau d’épuisement actuel.
 
-Development of OMs is principally the responsibility of Science, although input from stakeholders, First Nations and other parties is desirable, especially with respect to identifying key uncertainties and ensuring plausibility of the OMs.
+L’élaboration des modèles opérationnels relève principalement de la Direction des sciences, mais il est souhaitable que les intervenants, les Premières Nations et d’autres parties y contribuent, surtout pour déterminer les principales incertitudes et garantir la plausibilité des modèles opérationnels.
 
-## STEP 4: IDENTIFICATION OF CANDIDATE MANAGEMENT PROCEDURES {#sec:best4}
+## ÉTAPE 4 : DÉTERMINATION DES PROCÉDURES DE GESTION POSSIBLES {#sec:best4}
 
-The scientific literature now reports many MPs for data-limited fisheries, more than 80 of which have been integrated into the DLMtool software [@carruthers2016; @carruthers2018].
-Management procedures for fisheries managed by catch limits are generally either model-based, where data are integrated into a stock assessment model and outputs are used to calculate catch limits, or empirical, where data are used in an algorithm to directly determine the catch limit (e.g., adjustment of catch based on change in index of abundance) [@punt2016].
-Empirical MPs can make use of a variety of data types including catch, population indices, fish lengths, and fish ages.
+La documentation scientifique fait état maintenant de nombreuses procédures de gestion pour les pêches à données limitées, dont plus de 80 ont été intégrées dans le logiciel DLMtool [@carruthers2016; @carruthers2018].
+Les procédures de gestion pour les pêches gérées par des limites de prises sont généralement soit fondées sur un modèle, où les données sont intégrées dans un modèle d’évaluation des stocks et les sorties sont utilisées pour calculer les limites de prises, soit empiriques, où les données sont utilisées dans un algorithme pour déterminer directement la limite de prises (p. ex. ajustement des prises en fonction des changements d’un indice d’abondance) [@punt2016].
+Les procédures de gestion empiriques peuvent utiliser divers types de données, dont celles sur les prises, les indices de population, la longueur des poissons et l’âge des poissons.
 
-Empirical MPs take data sampled from the system, such as a survey index, apply an algorithm, and make a catch recommendation.
-An example is the "Iratio" MP [@ices2012; @jardim2015], where the mean survey index value from the last two years is divided by the mean survey index value three to five years before present.
-This provides a ratio indicating whether the survey has increased or decreased, which is then multiplied by the previous year's catch to generate a new catch recommendation.
-If the survey index has been trending up, then the catch recommendation will increase, and vice versa.
-Model-based MPs fit a statistical population model (e.g., surplus production model) to observed data to estimate biological reference points and stock biomass.
-These are then incorporated into a harvest control rule (e.g., Figure \@ref(fig:pa-illustration)) to determine the catch limit for the following year.
+Les procédures de gestion empiriques extraient des données échantillonnées du système, comme un indice de relevé, leur appliquent un algorithme et formulent une recommandation sur les prises.
+Un exemple est la procédure de gestion « Iratio » [@ices2012; @jardim2015], dans laquelle la valeur moyenne de l’indice de relevé des deux dernières années est divisée par la valeur moyenne de l’indice de relevé sur les trois à cinq années avant le moment présent.
+On obtient ainsi un ratio indiquant si le relevé a augmenté ou diminué, lequel est ensuite multiplié par les prises de l’année précédente pour générer une nouvelle recommandation sur les prises.
+Si l’indice de relevé suit une tendance à la hausse, la recommandation sur les prises augmentera, et vice versa.
+Les procédures de gestion fondées sur un modèle font correspondre un modèle de population statistique (p. ex. un modèle de production excédentaire) aux données observées pour estimer les points de référence biologiques et la biomasse du stock.
+On les intègre ensuite à une règle de contrôle des prises (p. ex. figure \@ref(fig:pa-illustration)) pour déterminer la limite des prises pour l’année suivante.
 
-Given the large number of MP options available, a screening step is desirable.
-For example, MPs that do not return a catch limit (e.g., spatial closures or effort-based MPs) can be immediately screened out if management requires a catch limit.
-Also, unless the decision context involves considering the value of collecting new information, it is important to test MPs for which information or data are available [@punt2016].
-For example, MPs that rely on age-composition data or an estimate of current depletion may not be feasible for many data-limited BC groundfish stocks.
-It is also important to consider the period of time for which MPs will be left in place.
-Unless MPs will be updated annually, it will be important to design MPs that are left in place for several years and test their performance [e.g. @haggarty2020yelloweye].
-While it is important to work with a manageable set of MPs, it is also important not to screen too aggressively, to make sure good candidate MPs are not screened out early on.
+Étant donné le grand nombre d’options de procédures de gestion disponibles, une étape de présélection est souhaitable.
+Par exemple, les procédures de gestion qui ne produisent pas une limite de prises (p. ex. les fermetures de zones ou les procédures de gestion axées sur l’effort) peuvent être immédiatement écartées si la gestion exige une limite de prises.
+De plus, à moins que le contexte décisionnel ne nécessite de tenir compte de la valeur de la collecte de nouveaux renseignements, il est important de mettre à l’essai les procédures de gestion pour lesquelles des renseignements ou des données sont disponibles [@punt2016].
+Par exemple, les procédures de gestion qui reposent sur des données sur la composition selon l’âge ou sur une estimation de l’épuisement actuel pourraient ne pas convenir pour de nombreux stocks de poisson de fond de la Colombie-Britannique à données limitées.
+Il est également important de tenir compte de la période pendant laquelle les procédures de gestion resteront en place.
+À moins qu’elles ne soient mises à jour chaque année, il sera important de concevoir des procédures de gestion qui restent en place pendant plusieurs années et de tester leur rendement [p. ex. @haggarty2020yelloweye].
+Bien qu’il soit important de travailler avec un ensemble gérable de procédures de gestion, il est également important de ne pas procéder à une présélection trop agressive, afin de ne pas écarter de bonnes possibilités trop tôt.
 
-In general, identification of available MPs is the role of Science. Managers, stakeholders and First Nations should be involved in identifying desirable MPs [e.g., @cox2008a; @plaganyi2013] and provide input on feasibility of implementing some MPs and their likely success in terms of acceptance and compliance [@armitage2019].
+En général, c’est la Direction des sciences qui est chargée de définir les procédures de gestion disponibles. Les gestionnaires, les intervenants et les Premières Nations devraient participer à la détermination des procédures de gestion souhaitables [p. ex. @cox2008a; @plaganyi2013] et fournir des commentaires sur la faisabilité de la mise en œuvre de certaines d’entre elles et leur succès probable sur le plan de l’acceptation et de la conformité [@armitage2019].
 
-## STEP 5: SIMULATION OF THE APPLICATION OF THE MANAGEMENT PROCEDURES {#sec:best5}
+## ÉTAPE 5 : SIMULATION DE L’APPLICATION DES PROCÉDURES DE GESTION {#sec:best5}
 
-Once the OM and MPs are fully specified, the closed-loop simulation replicates can be run, following the process illustrated in Figure \@ref(fig:mse-chart).
-Critically, the simulations include feedback between the OM and the MP, where the OM generates data at each time step, which is used to apply the MP, which generates a catch recommendation, which is removed from the OM, which generates the next time step of data, and so forth until the projection period is complete.
+Une fois que le modèle opérationnel et les procédures de gestion sont entièrement spécifiés, on peut exécuter les répétitions de simulations en boucle fermée, en suivant le processus illustré à la figure \@ref(fig:mse-chart).
+Fondamentalement, les simulations comprennent une rétroaction entre le modèle opérationnel et la procédure de gestion : le modèle opérationnel génère des données à chaque étape temporelle, et ces données sont utilisées pour appliquer la procédure de gestion, laquelle génère une recommandation sur les prises, qui est supprimée du modèle opérationnel, ce qui génère le prochain pas de temps de données, et ainsi de suite jusqu’à la fin de la période de projection.
 
-Typically, a large number of replicate simulations are run for each OM-MP combination.
-Replicates may differ in terms of OM process error, observation errors and random draws from ranges of OM parameters, meaning that each replicate provides a different set of simulated data to the MPs.
-The number of replicates should be selected to ensure that performance metrics can be calculated with adequate precision [@punt2016], which can be indicated by MPs being consistently ranked in the same order regardless of additional replicates [@carruthers2018].
-The MSE should output enough information to calculate performance metrics for the MPs, and also to evaluate the behaviour and performance of the MSE itself (e.g., whether all trials converged, ranges of OM parameter values, and trajectories of key OM variables such as biomass and catch).
+En général, on effectue un grand nombre de simulations répétées pour chaque combinaison modèle opérationnel-procédure de gestion.
+Les répétitions peuvent différer quant à l’erreur de processus du modèle opérationnel, aux erreurs d’observation et aux tirages aléatoires à partir des fourchettes des paramètres des modèles opérationnels, ce qui signifie que chaque répétition fournit un ensemble différent de données simulées aux procédures de gestion.
+Il convient de choisir le nombre de répétitions de manière à pouvoir calculer les paramètres de rendement avec une précision adéquate [@punt2016], qui peut être dénotée par le fait que les procédures de gestion sont systématiquement classées dans le même ordre, quelles que soient les répétitions supplémentaires [@carruthers2018].
+L’évaluation des stratégies de gestion devrait produire suffisamment d’information pour calculer les paramètres de rendement pour les procédures de gestion, ainsi que pour évaluer le comportement et le rendement de l’ESG elle-même (p. ex. si tous les essais convergeaient, les plages de valeurs des paramètres des modèles opérationnels, et les trajectoires des principales variables des modèles opérationnels comme la biomasse et les prises).
 
-There may be a need to reduce the number of candidate MPs to a manageable set.
-Analysts can screen out MPs that do not meet a basic set of requirements for a broad range of stocks (e.g., MPs that result in a high probability of stocks being below the LRP).
-Such a procedure of screening out poorly performing MPs has been termed "satisficing" [@miller2010], where MPs must meet a minimum-defined standard to be accepted.
-Satisficing criteria may be used at the screening stage and can also be used at the final MP selection stage to help streamline the decision-making process.
-Satisficing criteria may be less strict at the preliminary screening stage, to ensure that potentially successful MPs are not screened out of the process too early.
+Il pourrait être nécessaire de réduire le nombre de procédures de gestion possibles à un ensemble gérable.
+Les analystes peuvent éliminer les procédures de gestion qui ne satisfont pas à un ensemble d’exigences de base pour un large éventail de stocks (p. ex. les procédures de gestion qui entraînent une forte probabilité que les stocks soient inférieurs au PRL).
+Cette étape visant à écarter les procédures de gestion dont le rendement laisse à désirer est dite « de satisfaction », c’est-à-dire que les procédures de gestion doivent respecter une norme minimale définie pour être acceptées.
+Les critères de satisfaction peuvent être utilisés à l’étape de la présélection et également à l’étape du choix de la procédure de gestion finale pour simplifier le processus décisionnel.
+Les critères de satisfaction peuvent être moins stricts à l’étape préliminaire de la présélection, afin que des procédures de gestion qui pourraient être efficaces ne soient pas exclues du processus trop tôt.
 
-Running the simulations is the role of Science.
-Feedback from managers, stakeholders and First Nations should be sought throughout the process, to enable iterative refinement of the models and outputs [e.g., @cox2008a].
+L’exécution des simulations est le rôle du Secteur des sciences. Il faut obtenir la rétroaction des gestionnaires, des intervenants et des Premières Nations tout au long du processus afin de permettre l’affinage itératif des modèles et des sorties [p. ex. @cox2008a].
 
-## STEP 6: PRESENTATION OF RESULTS AND SELECTION OF MANAGEMENT PROCEDURE {#sec:best6}
+## ÉTAPE 6 : PRÉSENTATION DES RÉSULTATS ET CHOIX DE LA PROCÉDURE DE GESTION {#sec:best6}
 
-Selection of an MP involves addressing trade-offs (e.g., between conservation and economic performance metrics), and therefore is the purview of managers, stakeholders, First Nations, and interested parties [@punt2016].
-Ultimately, selection of an MP may be a subjective process, depending on the magnitude of trade-offs.
-It may be necessary to rank performance metrics in order of priority before the process starts.
-The role of Science in this step is to ensure that results are clearly presented to decision-makers.
-Ideally this should include presentation of graphical outputs that enable clear comparison of MPs with respect to performance metrics and trade-offs [@punt2017].
+Le choix d’une procédure de gestion implique de faire des compromis (p. ex. entre les paramètres de rendement économique et de conservation) et, par conséquent, est du ressort des gestionnaires, des intervenants, des Premières Nations et des parties intéressées [@punt2016].
+En fin de compte, le choix d’une procédure de gestion peut être un processus subjectif, selon l’ampleur des compromis.
+Il peut être nécessaire de classer les paramètres de rendement par ordre de priorité avant le début du processus.
+Le rôle de la Direction des sciences à cette étape est de veiller à ce que les résultats soient clairement présentés aux décideurs.
+Dans l’idéal, cette étape devrait comporter la présentation de graphiques qui permettent une comparaison claire des procédures de gestion pour ce qui est des paramètres de rendement et des compromis [@punt2017].
 
-Two basic approaches may be used in selecting the final MP: satisficing and trade-off evaluation, where satisficing involves setting minimum performance standards (described in Section \@ref(sec:best5)) and trade-off evaluation involves decision-makers and stakeholders finding a balance among competing performance metrics [@punt2017].
-We already described an early satisficing step to screen out poorly performing MPs.
-A second satisficing step may be used towards the end of the process, to further screen out MPs that do not meet a minimum standard and to simplify the decision-making environment [@miller2010].
-After this, MP selection may move to a trading-off stage with a final reduced set of MPs.
-An iterative process may also be required, where MPs and/or OMs are refined following examination of results [e.g., @cox2008a].
-In cases where there is a reference and robustness set of OMs, OMs can be weighted on the basis of plausibility, although this may require a qualitative, expert-driven approach and may not be straightforward [@punt2016].
+Deux approches de base peuvent être utilisées pour choisir la procédure de gestion finale : l’évaluation de la satisfaction et des compromis, la satisfaction nécessitant de définir des normes de rendement minimales (décrites à la section \@ref(sec:best5)) et l’évaluation des compromis nécessitant que les décideurs et les intervenants trouvent un équilibre entre des paramètres de rendement concurrents [@punt2017].
+Nous avons déjà décrit une étape de présélection fondée sur des critères de satisfaction qui permet d’éliminer les procédures de gestion dont le rendement laisse à désirer au début du processus.
+Une étape de sélection semblable peut être répétée vers la fin du processus, pour éliminer d’autres procédures de gestion qui ne satisfont pas à une norme minimale et pour simplifier l’environnement décisionnel [@miller2010].
+Par la suite, la sélection de la procédure de gestion peut passer à une étape de compromis avec un dernier groupe réduit de procédures de gestion.
+Un processus itératif peut également être nécessaire, où l’on va affiner les procédures de gestion ou les modèles opérationnels après l’examen des résultats [p. ex. @cox2008a].
+Dans les cas où il y a un ensemble de référence et un ensemble de robustesse des modèles opérationnels, les modèles opérationnels peuvent être pondérés en fonction de la plausibilité, mais cela peut nécessiter une approche qualitative axée sur l’expertise, ce qui n’est pas toujours simple [@punt2016].
 
-@carruthers2018 also discuss a final step (Step 7 in Figure \@ref(fig:mse-chart)), which is formal review of the selected MP once it has been implemented with real data.
-Formal review includes evaluation of whether the MP is performing as expected.
-For example, this could be done by comparing whether real relative abundance indices follow similar trajectories to those predicted by the OMs under the selected MP.
-In this document, we do not demonstrate this formal review, but recognize that ongoing review of the performance of MPs following their application is a critical component of MSE, where OMs and MPs may be continuously refined as new data become available [@cox2008a; @carruthers_hordyk_2018].
+@carruthers2018 envisagent également une dernière étape (étape 7 sur la figure \@ref(fig:mse-chart)), qui est un examen officiel de la procédure de gestion sélectionnée une fois qu’elle a été mise en œuvre avec des données réelles.
+L’examen officiel comprend l’évaluation de la procédure de gestion pour vérifier si elle donne le rendement prévu.
+Par exemple, on pourrait comparer si les indices réels de l’abondance relative suivent des trajectoires semblables à celles prédites par les modèles opérationnels avec la procédure de gestion sélectionnée.
+Dans le présent document, nous ne faisons pas la démonstration de cet examen officiel, mais nous reconnaissons que l’examen continu du rendement des procédures de gestion après leur application est une composante essentielle de l’ESG, les modèles opérationnels et les procédures de gestion pouvant être continuellement améliorés à mesure que de nouvelles données deviennent disponibles [@cox2008a; @carruthers_hordyk_2018].
 
-Selection of the final MP should ideally result from careful specification of the objectives and performance metrics.
-In cases where a trade-off remains, or multiple MPs achieve sufficient performance, it is the role of managers---with input from stakeholders and First Nations and advice from Science---to select the final MP.
+Le choix de la procédure de gestion finale devrait idéalement découler de la spécification minutieuse des objectifs et des paramètres de rendement.
+Dans les cas où il reste un compromis, ou si plusieurs procédures de gestion donnent un rendement suffisant, c’est le rôle des gestionnaires — avec la contribution des intervenants et des Premières Nations et l’avis de la Direction des sciences — de choisir la procédure de gestion finale.

@@ -1,468 +1,464 @@
-# METHODS: THE PROPOSED FRAMEWORK {#sec:approach}
-
-We present the steps of a proposed framework for selecting MPs based on trade-offs in performance amongst MPs.
-Sections \@ref(sec:approach1) to \@ref(sec:approach6) describe the methods of the framework, as it would be applied in the provision of catch advice, organized according to the six best-practice steps described in Section \@ref(sec:best-practices).
-We note that the elements of the framework as laid out here, represent primarily the role of Science.
-When this framework is applied in provision of management advice, decision-makers, stakeholders, and other interested parties (e.g., First Nations, Nongovernmental Organizations [NGOs], and academics) should be engaged throughout the process, particularly in defining the decision context, setting objectives and performance metrics, and selecting MPs [e.g., @cox2008a].
-
-## STEP 1: DEFINE THE DECISION CONTEXT {#sec:approach1}
-
-For quota-managed groundfish species in BC, the decision to be made is which MP to use to determine catch limits for the period until the next available catch advice.
-The time frame for making the decision should be stated in the request for science advice. The boundaries on the project should be decided by a "technical committee", convened for each assessment, and typically comprised of representatives from DFO Science, Fisheries Management, First Nations, commercial and recreational fishing representatives, NGOs and other interested parties, as required.
-Examples of project elements to be scoped include key uncertainties to be included and excluded in the OMs, data to be included and excluded, and explicit trade-offs to be considered.
-These will be discussed in more detail in the following sections.
-
-The final decision on which MP to use to determine catch limits should be made based on a consensus by the Regional Peer Review committee, after review of the scientific content of the advice (including the structure and content of the OMs), and consideration of the relative performance of the MPs with respect to meeting stated objectives and trade-offs among performance metrics.
-The Regional Peer Review committee will typically be comprised of the technical committee plus a much broader range of interested parties representing DFO Science, Fisheries Management, First Nations, commercial and recreational fishing representatives, NGOs and other interested parties.
-
-The simulation framework tests the performance of specific MPs and ultimately a single catch limit from the final selected MP.
-The framework does not test posthoc adjustments to the catch limit recommended by an MP.
-This is in contrast to the decision tables presented in most Pacific Region groundfish stock assessments, where a range of possible catch limits with forecast of future stock status under each catch limit is provided for decision-making.
-Regardless of the framework used for advice, we note that it remains the purview of the Fisheries Minister to make posthoc adjustments to catch limits, based on cultural, social, or economic considerations, in accordance with the *Fisheries Act* (Sections 2 and 6).
-
-## STEP 2: SELECTION OF OBJECTIVES AND PERFORMANCE METRICS  {#sec:approach2}
-
-Here we describe a set of provisional objectives and associated performance metrics, refined after discussions with our technical advisory group.
-In applications of the framework, objectives and performance metrics should be refined on a stock-by-stock basis, with advice from Fisheries Management, First Nations, commercial and recreational fishing representatives, NGOs and other affected parties.
-Other objectives and performance metrics could be added (e.g., cultural objectives), decided on a stock-by-stock basis.
-The time-frame of interest for setting objectives and calculating performance metrics may also be determined on a stock-by-stock basis, as trade-offs change over time [@cox2008a].
-
-Key provisional conservation objectives are guided by the Precautionary Approach Framework [@dfo2006; @dfo2009], elements of which are incorporated into the Fish Stocks provisions of the *Fisheries Act* (see Section \@ref(sec:intro-motivation)).
-Additional objectives related to fisheries catch and variability in annual fisheries catch are based on precedents in other DFO Pacific Region analyses [e.g., @cox2008a; @forrest2018; @cox2019].
-
-We propose the following provisional tactical conservation and fisheries objectives:
-
-1. Maintain stock status above the LRP in the long term with an agreed upon probability.
-2. Maintain stock status above the upper stock reference (USR) in the long term with an agreed upon probability.
-3. Maintain a fishing exploitation rate below the rate at maximum sustainable yield with an agreed upon probability.
-4. Given the above conservation objectives are achieved, maximize short- and long-term fisheries catch.
-5. Given the above conservation objectives are achieved, minimize variability in fisheries catch from year to year.
-
-Objective 1 is implicit in Section 6.1 (1) of the *Fisheries Act* and explicit in Section 6.1(2) (see Section \@ref(sec:intro-motivation) of this document).
-Objectives 2 and 3 are interpretations of Section 6.1 (1) of the *Fisheries Act*, where it is stated that "the Minister shall implement measures to maintain major fish stocks at or above the level necessary to promote the sustainability of the stock".
-The term sustainability has many definitions as they pertain to fisheries [@hilborn2015; @marentette2020a].
-DFO Science is currently evaluating the language of the Fish Stocks provisions to clarify definitions of sustainability with respect to managing Canadian fisheries [@marentette2020b].
-Here, we assume that the objective of maintaining the stock in the Healthy Zone (Figure \@ref(fig:pa-illustration)) with non-zero probability is consistent with the language of maintaining stocks at or above levels to promote sustainability.
-We use provisional values of LRP = 0.4 *B*~MSY~ and USR = 0.8 *B*~MSY~, suggested under the Precautionary Approach Framework [@dfo2009] (we herein use *B* to refer to spawning biomass).
-See @marentette2020c and @marentette2020b for discussion of current evolving thinking on the role of these reference points in Canadian policy and legislation.
-
-The specific probabilities assigned to successfully achieving each objective likely need consideration on a stock-by-stock basis.
-For Objective 1, international best practice suggests the probability of maintaining stocks above the LRP should be 90--95% [@sainsbury2008; @mcilgorm2013; @ices2018; @marentette2020a], while the probability of reaching a target biomass (e.g., the threshold to the Healthy Zone or some pre-defined target above the USR) can be lower at around 50% [@mcilgorm2013].
-
-We propose the following provisional performance metrics, where MSY refers to maximum sustainable yield, *B*~MSY~ refers to equilibrium spawning biomass at MSY, and *F*~MSY~ refers to the fishing mortality that produces MSY over the long term:
-
-1. LT LRP: Probability *B* > 0.4 *B*~MSY~ (over long-term year range)
-2. LT USR: Probability *B* > 0.8 *B*~MSY~ (over long-term year range)
-3. FMSY: Probability *F* < *F*~MSY~ (over entire projection)
-4. STC: Probability catch > reference catch (over years 1--10)
-5. LTC: Probability catch > reference catch (over long-term year range)
-6. AADC: Probability AADC (average absolute interannual difference in catch) < historical AADC (over entire projection)
-
-All of the above performance metrics are expressed as probabilities of being above or below some criteria, where the probability is calculated as the average number of times the criteria is met across replicates and years, e.g.,
-
-$$\textrm{LT LRP}= \frac{\sum_{n = 1}^{n_{\textrm{rep}}}\sum_{t = t_1}^{t_2}B_t > 0.4B_\textrm{MSY}}{t_2 - t_1 + 1},$$
-where $t_1$ and $t_2$ are the first and last years over which the metric is calculated, and $n_\textrm{rep}$ is the number of replicate simulations. The other performance metrics are calculated in the same way.
-
-In the above list of performance metrics, LT LRP and LT USR are conservation metrics measuring Objectives 1 and 2 over the long term.
-FMSY is a conservation performance metric measuring Objective 3 over the whole projection period.
-LTC and STC are economic metrics, representing Objective 4, measured in the short and long-term, respectively.
-AADC is an economic metric, representing Objective 5, measured over the whole projection period (see description below).
-
-We suggest averaging the long-term performance metrics over a short window (e.g., 5--15 years) before the final year.
-The projection period and associated long-term year range should be defined on a stock-by-stock basis recognizing that shorter-lived stocks could use a shorter projection period, while longer-lived stocks such as rockfishes (*Sebastes* spp.) may require a longer projection period [@dfo2009; @dfo2013rebuilding].
-However, barring some other specified requirement for a definition of long-term (e.g., an associated Committee on the Status of Endangered Wildlife in Canada [COSEWIC] process), we suggest considering "long-term" as the minimum of 1.5--2 generation times of the species [@dfo2009; @dfo2013rebuilding] or 50 years, whichever is longer.
-We selected 50 years as a time-frame that should lead to relatively stable behaviour of MPs for shorter-lived stocks such as flatfishes (e.g., Rex Sole case study in Appendix \@ref(app:mse-rex); @forrest2018).
-@cox2008a used a projection period of 40 years for Sablefish (*Anopoploma fimbria*) and calculated average long-term performance metrics over years 21--40.
-@cox2019 used a projection period of 20 years for Pacific Herring (*Clupea pallasii*) and calculated average long-term performance metrics over the whole projection period.
-For a longer-lived stock, the first application of this framework for decision-making was an evaluation of rebuilding strategies for Inside Yelloweye Rockfish (*S. ruberrimus*) [@haggarty2020yelloweye].
-These authors evaluated long-term performance metrics over 1.5 generation times (in the 56th year).
-They also calculated probability of extinction metrics, required for COSEWIC evaluation, after 100 years.
-Preliminary simulation-testing may be needed to evaluate stability in projections to ensure that a long enough time period has been chosen.
-
-In most studies, conservation metrics are only presented over the long-term, reflecting legislated or policy-driven sustainability objectives.
-However, in some cases, shorter-term conservation metrics may also be valuable, for example to ensure that long-term rebuilding plans for depleted stocks don't come at a cost of further depleting the stock in the short term [e.g., @haggarty2020yelloweye].
-
-We suggest the "short-term" year range, which in the examples above only applies to the economic performance metric STC, should reflect some time period that is of near-term interest to current participants in the fishery.
-Our suggestion of 1--10 years represents a starting point and could be modified for specific fisheries.
-
-The catch objectives STC and LTC are provisionally defined in terms of some reference catch that is deemed necessary or desirable for economic reasons to maintain the fishery in question or to maintain the multispecies BC groundfish fishery as a whole.
-This reference level could be obtained through consultation with stakeholders or by identifying the average or minimum catch in recent years (e.g., minimum catch in the last five years).
-
-The performance metric AADC represents average absolute interannual difference in catch.
-We chose this representation of variability to be easy to understand and simple to compare historical values.
-It is calculated by subtracting each year's catch from the previous year's catch and taking the mean of the absolute value of these numbers, i.e., $$\textrm{AADC} = \frac{\sum_{t = t_1}^{t_2}\lvert C_t - C_{t-1} \rvert}{t_2 - t_1 + 1},$$
-where $t_1$ and $t_2$ are the first and last years over which the metric is calculated.
-In other words, AADC represents the expected deviation in catch from year to year.
-Alternatives such as standard deviations in log space or coefficients of variation have a more abstract meaning and have been found to be challenging for some stakeholders to interpret [@punt2017].
-We suggest reporting AADC relative to the AADC in some historical period that stakeholders identify as having acceptable annual variation in catch.
-We note that variability in catch is likely to be more important for target species than for incidentally caught species.
-However, large fluctuations in incidentally caught species may represent a problem in multispecies fisheries, where sudden increases in abundance of low-quota species co-occurring with target species may limit the ability of the fishery to realise TACs of target species.
-
-Performance metrics in the MP Framework are easily customizable.
-Performance metrics for applications of the framework may, for example, reflect a broader range of objectives such as those associated with rebuilding plans or COSEWIC criteria [e.g., @haggarty2020yelloweye].
-
-In cases where performance metrics are calculated over a range of years, care needs to be taken to clearly report how summary statistics are calculated.
-Provisionally, we suggest calculating performance statistics across replicates and the entire time window as defined for the performance metric.
-For example, we calculated the *F*~MSY~ performance metric across all replicates and years simultaneously.
-Alternative calculations would include calculating the performance statistics for a specific year of interest, calculating the proportion of years in which the performance metric was met [@australian_government2018], ensuring that the performance metric threshold is met in each and every year [@ices2016criteria], or each and every replicate.
-Best practices for these calculations vary across jurisdictions [@marentette2020a] and different methods may imply different risk tolerances.
-For example, requiring that a threshold is met in each and every year [@ices2016criteria] is a stricter requirement than requiring a threshold to be met on average over replicates and years.
-Therefore, the method for calculating the performance metrics may need to be determined iteratively, in consultation with managers, stakeholders and First Nations.
-
-## STEP 3: SELECTION OF UNCERTAINTIES/SPECIFICATION OF OPERATING MODELS {#sec:approach3}
-
-DLMtool OMs are organized into four main components representing a real fished system:
-
-1. population dynamics of the fish stock (e.g., growth, recruitment, mortality);
-2. fishery dynamics (e.g., selectivity, spatial targeting);
-3. observation processes (e.g., bias and precision in survey indices); and
-4. management implementation (e.g., percentage overages of catch limits).
-
-Parameters under the four components are entered into "slots" [terminology referring to a feature of the "S4" object-oriented programming system in R; @r2019], described in detail in our Appendix \@ref(app:dlmtool-om) and in Appendix B of @carruthers2018.
-
-DLMtool allows the incorporation of uncertainty in most OM parameters through optional specification of a distribution.
-See Appendix B of @carruthers2018 for a full list of parameters for which a distribution can be specified.
-To isolate the effects of specific sources of uncertainty on performance of MPs, we recommend development of alternative OMs that change the value (or distribution) of one or more parameters and/or data sources of interest [@punt2016].
-In general, we recommend developing more than one OM, dividing OMs into a reference set of core OMs representing the most important plausible model uncertainties, and a robustness set for testing sensitivity to a broader range of structural uncertainties [@rademeyer2007].
-We do not attempt to weight OMs in this framework.
-For BC groundfish stocks, reference-set uncertainties will likely be based on key uncertainties identified in typical groundfish stock assessments, namely natural mortality (*M*), steepness of the stock-recruit relationship (*h*), and initial depletion (i.e., depletion from an unfished state at the beginning of the projection period).
-For stocks with available stock assessments, these should be consulted to identify major sources of uncertainty.
-
-Candidate uncertainties to include in OMs in the robustness set may include:
-
-* Changes in predation rate (e.g., seal predation).
-* Changes in availability of prey.
-* The effectiveness of or changes to closed areas such as Rockfish Conservation Areas (RCAs).
-* Alternative representations of survey and commercial fleet size selectivity.
-* Alternative catch histories (e.g., for species such as rockfishes, which were historically reported under generic species names).
-* Implementation error (actual catches are above or below the TAC).
-
-In BC commercial groundfish fisheries, 100% of trawl vessels have carried observers since 1996 [@turris2000] and 100% of line vessels have carried electronic monitoring (EM) systems since 2006 [@stanley2015].
-Therefore, recent catch data are considered to be reliable and can be expected to remain so in the future, barring any major changes or interruptions to the observer programs.
-For some species that are important recreationally or to First Nations, there may be other uncertainties associated with catch data.
-We suggest that implementation error scenarios concerning catch reporting should be developed in collaboration with fishery managers, including First Nations managers, and the commercial or recreational industry, as appropriate to the stock.
-
-In some cases, the above uncertainties may be included in the reference set.
-In general an iterative approach may be required to reduce the robustness down to a set of OMs that provide contrast to results obtained with reference-set OMs [@rademeyer2007].
-We discuss recommendations for treatment and presentation of results from the reference and robustness sets in Section \@ref(sec:approach6).
-To ensure transparency and reproducibility, we recommend that the full specification of OM parameters be clearly documented in appendices attached to the working paper and the code to accomplish the simulations be version controlled and archived on publication.
+# MÉTHODES : LE CADRE PROPOSÉ {#sec:approach}
+
+Nous présentons les étapes d’un cadre proposé pour sélectionner les procédures de gestion en fonction des compromis de rendement entre elles.
+Les sections \@ref(sec:approach1) à \@ref(sec:approach6) décrivent les méthodes du Cadre, telles qu’elles s’appliqueraient à la production des avis sur les prises, organisées selon les six étapes des pratiques exemplaires décrites à la section \@ref(sec:best-practices).
+Nous soulignons que les éléments du Cadre qui sont présentés ici représentent principalement le rôle de la Direction des sciences.
+Lorsque ce Cadre est appliqué à la production d’avis de gestion, les décideurs, les intervenants et les autres parties concernées (p. ex. les Premières Nations, les organisations non gouvernementales [ONG] et le milieu universitaire) devraient participer tout au long du processus, particulièrement pour définir le contexte décisionnel, établir les objectifs et les paramètres de rendement, et choisir les procédures de gestion [p. ex. @cox2008a].
+
+## ÉTAPE 1 : DÉFINIR LE CONTEXTE DÉCISIONNEL {#sec:approach1}
+
+En ce qui concerne les espèces de poisson de fond assujetties à des quotas en Colombie-Britannique, la décision porte sur la procédure de gestion à utiliser pour déterminer les limites de prises pendant la période allant jusqu’au prochain avis sur les prises disponible.
+Le délai pour prendre la décision devrait être précisé dans la demande d’avis scientifique.
+Les limites du projet devraient être fixées par un « comité technique », convoqué pour chaque évaluation, et composé habituellement de représentants de la Direction des sciences et de la gestion des pêches du MPO, des Premières Nations, des représentants des pêches commerciales et récréatives, des ONG et d’autres parties intéressées, au besoin.
+Les éléments du projet dont la portée doit être définie sont par exemple les principales incertitudes à inclure et à exclure dans les modèles opérationnels, les données à inclure et à exclure, et les compromis explicites à envisager.
+Ils sont décrits de manière plus détaillée dans les prochaines sections.
+
+La décision finale sur la procédure de gestion à utiliser pour déterminer les limites de prises devrait être prise par consensus du Comité régional d’examen par les pairs, après examen du contenu scientifique de l'avis (y compris la structure et le contenu des modèles opérationnels) et prise en compte du rendement relatif des procédures de gestion en ce qui concerne l’atteinte des objectifs énoncés et les compromis entre les paramètres de rendement.
+Le Comité régional d’examen par les pairs sera habituellement composé du comité technique et d’un éventail beaucoup plus vaste de parties intéressées représentant les Sciences et la Gestion des pêches du MPO, les Premières Nations, les représentants de la pêche commerciale et récréative, des ONG et d’autres parties concernées.
+
+Le cadre de simulation met à l’essai le rendement de certaines procédures de gestion et, à la fin, une seule limite de prises à partir de la procédure de gestion finale choisie.
+Il ne teste pas les ajustements apportés après coup à la limite de prises recommandée par une procédure de gestion.
+Cela contraste avec les tableaux de décision présentés dans la plupart des évaluations des stocks de poisson de fond de la région du Pacifique, qui présentent une fourchette de limites de prises possibles avec prévision de l’état futur des stocks pour chacune d’elles en vue de la prise de décisions.
+Quel que soit le cadre utilisé pour l’avis, nous notons qu’il demeure du ressort du ministre des Pêches d’apporter des ajustements après coup aux limites de prises, en fonction des considérations culturelles, sociales ou économiques, conformément à la *Loi sur les pêches* (articles 2 et 6).
+
+## ÉTAPE 2 : CHOIX DES OBJECTIFS ET DES PARAMÈTRES DE RENDEMENT {#sec:approach2}
+
+Nous décrivons ici un ensemble d’objectifs provisoires et les paramètres de rendement connexes, peaufinés à la suite des discussions tenues avec notre groupe consultatif technique.
+Pour appliquer le cadre, il faut préciser les objectifs et les paramètres de rendement en fonction des stocks, avec l’avis de la Gestion des pêches, des Premières Nations, des représentants de la pêche commerciale et récréative, des ONG et d’autres parties touchées.
+D’autres objectifs et paramètres de rendement pourraient être ajoutés (p. ex. objectifs culturels), en fonction de chaque stock.
+Le délai pour établir les objectifs et calculer les paramètres de rendement peut également être déterminé pour chaque stock, à mesure que les compromis changent au fil du temps [@cox2008a].
+
+Les principaux objectifs de conservation provisoires sont guidés par le Cadre de l’approche de précaution [@dfo2006; @dfo2009], dont les éléments sont intégrés aux dispositions sur les stocks de poissons de la *Loi sur les pêches* (voir la section \@ref(sec:intro-motivation)). D’autres objectifs liés aux prises de la pêche et à la variabilité des prises annuelles sont fondés sur des précédents tirés d’autres analyses de la région du Pacifique du MPO [p. ex. @cox2008a; @forrest2018; @cox2019].
+
+Nous proposons les objectifs tactiques provisoires de conservation et de pêche suivants :
+
+1. Maintenir l’état des stocks au-dessus du PRL à long terme avec une probabilité convenue;
+2. Maintenir l’état du stock au-dessus du point de référence supérieur du stock (RSS) à long terme avec une probabilité convenue;
+3. Maintenir un taux d’exploitation de la pêche inférieur au taux du rendement maximal durable avec une probabilité convenue;
+4. Si les objectifs de conservation ci-dessus sont atteints, augmenter au maximum les prises à court et à long termes;
+5. Si les objectifs de conservation ci-dessus sont atteints, réduire au minimum la variabilité des prises d’une année à l’autre.
+
+L’objectif 1 est implicite dans le paragraphe 6.1(1) de la *Loi sur les pêches* et explicite dans le paragraphe 6.1(2) (voir la section \@ref(sec:intro-motivation) du présent document).
+Les objectifs 2 et 3 sont des interprétations du paragraphe 6.1(1) de la *Loi sur les pêches*, où il est dit que « ... le ministre met en œuvre des mesures pour maintenir les grands stocks de poissons au moins au niveau nécessaire pour favoriser la durabilité des stocks... ».
+Le terme « durabilité » a de nombreuses définitions en ce qui concerne les pêches [@hilborn2015; @marentette2020a].
+La Direction des sciences du MPO évalue actuellement le libellé des dispositions sur les stocks de poisson afin de clarifier les définitions de la durabilité en ce qui a trait à la gestion des pêches canadiennes [@marentette2020b].
+Ici, nous supposons que l’objectif de maintenir le stock dans la zone saine (figure \@ref(fig:pa-illustration)) avec une probabilité non nulle est conforme à la formulation « maintenir les grands stocks de poissons au moins au niveau nécessaire pour favoriser la durabilité des stocks ».
+Nous utilisons des valeurs provisoires du PRL = 0,4*B*~MSY~ et du RSS = 0,8*B*~MSY~, suggérées dans le Cadre de l’approche de précaution [@dfo2009] (nous utilisons ici *B* pour faire référence à la biomasse féconde).
+Voir @marentette2020c et @marentette2020b pour une discussion sur l’évolution actuelle de la réflexion sur le rôle de ces points de référence dans les politiques et la législation canadiennes.
+
+Il faudra probablement examiner stock par stock les probabilités précises attribuées à la réalisation de chaque objectif.
+Pour l’objectif 1, les pratiques exemplaires internationales suggèrent que la probabilité de maintenir les stocks au-dessus du PRL devrait être de 90 à 95 % [@sainsbury2008; @mcilgorm2013; @ices2018; @marentette2020a], tandis que la probabilité d’atteindre une biomasse cible (p. ex. le seuil pour la zone saine ou une cible prédéfinie au-dessus du RSS) peut être inférieure, à environ 50 % [@mcilgorm2013].
+
+Nous proposons les paramètres de rendement provisoires suivants, où MSY fait référence au rendement maximal durable, *B*~MSY~ à la biomasse féconde à l’équilibre à MSY et *F*~MSY~ à la mortalité par pêche qui produit MSY à long terme :
+
+1. LT LRP : Probabilité que *B* > 0,4*B*~MSY~ (sur une durée de plusieurs années)
+2. LT USR : Probabilité que *B* > 0,8*B*~MSY~ (sur une durée de plusieurs années)
+3. FMSY : Probabilité que *F* < *F*~MSY~ (sur l’ensemble de la projection)
+4. STC : Probabilité que les prises > prises de référence (sur les années 1 à 10)
+5. LTC : Probabilité que les prises > prises de référence (sur une durée de plusieurs années)
+6. AADC : Probabilité que l’AADC (différence interannuelle absolue moyenne des prises) < AADC historique (sur l’ensemble de la projection)
+
+Tous les paramètres de rendement ci-dessus sont exprimés sous forme de probabilités d’être au-dessus ou au-dessous de certains critères, la probabilité étant calculée comme le nombre moyen de fois où les critères sont respectés dans les répétitions et les années, p. ex. $$\textrm{LT LRP}= \frac{\sum_{n = 1}^{n_{\textrm{rep}}}\sum_{t = t_1}^{t_2}B_t > 0,4B_\textrm{MSY}}{t_2 – t_1 + 1},$$ où $t_1$ et $t_2$ sont les première et dernière années sur lesquelles le paramètre est calculé, et $n_\textrm{rep}$ est le nombre de simulations répétées. Les autres paramètres de rendement sont calculés de la même façon.
+
+Dans la liste de paramètres de rendement ci-dessus, LT LRP et LT USR sont des paramètres de conservation mesurant les objectifs 1 et 2 à long terme.
+FMSY est un paramètre de rendement de conservation qui mesure l’objectif 3 sur toute la période de projection.
+LTC et STC sont des paramètres économiques qui représentent l’objectif 4, mesuré à court et à long terme, respectivement.
+AADC est un paramètre économique représentant l’objectif 5, mesuré sur toute la période de projection (voir la description ci-après).
+
+Nous suggérons de calculer la moyenne des paramètres de rendement à long terme sur une courte période (p. ex. de 5 à 15 ans) avant la dernière année.
+La période de projection et la fourchette à long terme connexe devraient être définies pour chaque stock, sachant que l’on pourrait utiliser une période plus brève pour les stocks à plus courte durée de vie, tandis que les stocks vivant plus longtemps comme les sébastes (*Sebastes* spp.) pourraient nécessiter une période de projection plus longue [@dfo2009; @dfo2013rebuilding].
+Toutefois, à moins d’une autre exigence précise concernant une définition à long terme (p. ex. un processus connexe du Comité sur la situation des espèces en péril au Canada [COSEPAC]), nous proposons de considérer le « long terme » comme un minimum de 1,5 à 2 durées de génération de l’espèce [@dfo2009; @dfo2013rebuilding] et 50 ans, selon la période la plus longue.
+Nous avons choisi 50 ans comme délai qui devrait mener à un comportement relativement stable des procédures de gestion pour les stocks à courte durée de vie comme les poissons plats (p. ex. étude de cas de la plie royale à l’annexe \@ref(app:mse-rex); @forrest2018).
+@cox2008a ont utilisé une période de projection de 40 ans pour la morue charbonnière (*Anopoploma fimbria*) et calculé la moyenne des paramètres de rendement à long terme pour les années 21 à 40.
+@cox2019 ont appliqué une période de projection de 20 ans pour le hareng du Pacifique (*Clupea pallasii*) et calculé la moyenne des paramètres de rendement à long terme pour toute la période de projection.
+Dans le cas d’un stock à plus grande durée de vie, ce cadre a été appliqué pour la première fois à la prise de décisions pour une évaluation des stratégies de rétablissement du sébaste aux yeux jaunes des eaux intérieures (*S. ruberrimus*) [@haggarty2020yelloweye].
+Ces auteurs ont évalué les paramètres de rendement à long terme sur 1,5 temps de génération (dans la 56e année).
+Ils ont également calculé les paramètres de probabilité d’extinction requis pour l’évaluation du COSEPAC, après 100 ans.
+Des essais par simulation préliminaires peuvent être nécessaires pour évaluer la stabilité des projections afin de vérifier si une période suffisamment longue a été choisie.
+
+Dans la plupart des études, les paramètres de conservation ne sont présentés qu’à long terme, reflétant les objectifs de durabilité dictés par la loi ou les politiques.
+Toutefois, dans certains cas, des paramètres de conservation à court terme peuvent également être utiles, par exemple pour s’assurer que les plans de rétablissement à long terme des stocks épuisés ne se traduisent pas par un épuisement plus important du stock à court terme [p. ex. @haggarty2020yelloweye].
+
+Nous pensons que la fourchette des années « à court terme », qui dans les exemples ci-dessus ne s’applique qu’au paramètre de rendement économique STC (prises à court terme), devrait refléter une certaine période qui présente un intérêt à court terme pour les participants actuels à la pêche.
+Notre suggestion de 1 à 10 ans est un point de départ et pourrait être modifiée pour les différentes pêches.
+
+Les objectifs de prises à court terme STC et à long terme LTC sont définis provisoirement en fonction de certaines prises de référence jugées nécessaires ou souhaitables pour des raisons économiques afin de maintenir la pêche en question ou de maintenir la pêche plurispécifique du poisson de fond de la Colombie-Britannique dans son ensemble.
+Ce niveau de référence pourrait être obtenu en consultant les intervenants ou en déterminant les prises moyennes ou minimales des dernières années (p. ex. prises minimales dans les cinq dernières années).
+
+Le paramètre de rendement AADC représente la différence interannuelle absolue moyenne des prises.
+Nous avons choisi cette représentation de la variabilité pour qu’elle soit facile à comprendre et simple à comparer aux valeurs historiques.
+Ce paramètre est calculé en soustrayant les prises de chaque année de celles de l’année précédente et en prenant la moyenne de la valeur absolue de ces nombres, c’est-à-dire : $$\textrm{AADC} = \frac{\sum_{t = t_1}^{t_2}\lvert C_t – C_{t-1} \rvert}{t_2 – t_1 + 1},$$ où $t_1$ et $t_2$ sont les première et dernière années pour lesquelles le paramètre est calculé.
+Autrement dit, AADC représente l’écart prévu des prises d’une année à l’autre.
+Des solutions de rechange comme les écarts-types dans l’espace logarithmique ou les coefficients de variation ont une signification plus abstraite et se sont révélés difficiles à interpréter pour certains intervenants [@punt2017].
+Nous suggérons de déclarer AADC par rapport à sa valeur au cours d’une période historique pour laquelle les intervenants considèrent que la variation annuelle des prises est acceptable.
+Nous constatons que la variabilité des prises est probablement plus importante pour les espèces ciblées que pour les espèces capturées accidentellement.
+Cependant, de fortes fluctuations des espèces capturées accidentellement peuvent représenter un problème dans les pêches plurispécifiques, où des augmentations soudaines de l’abondance d’espèces à faible quota qui coexistent avec les espèces ciblées peuvent limiter la capacité de la pêche à atteindre les TAC des espèces ciblées.
+
+Les paramètres de rendement du Cadre des procédures de gestion sont facilement personnalisables. Pour les applications du Cadre, ils peuvent, par exemple, refléter un plus large éventail d’objectifs, comme ceux associés aux plans de rétablissement ou aux critères du COSEPAC [p. ex. @haggarty2020yelloweye].
+
+Dans les cas où les paramètres de rendement sont calculés sur plusieurs années, il faut prendre soin d’indiquer clairement la façon dont les statistiques sommaires sont calculées.
+À titre provisoire, nous suggérons de calculer les statistiques sur le rendement pour les répétitions et pour l’ensemble de la période définie pour ce paramètre de rendement.
+Par exemple, nous avons calculé le paramètre de rendement *F*~MSY~ pour toutes les répétitions et toutes les années simultanément.
+On pourrait aussi calculer les statistiques de rendement pour une année d’intérêt donnée, calculer la proportion d’années pendant lesquelles le paramètre de rendement est atteint [@australian_government2018], en vérifiant que le seuil du paramètre de rendement est atteint chaque année [@ices2016criteria] ou à chaque répétition.
+Les pratiques exemplaires pour ces calculs varient d’une administration à l’autre [@marentette2020a], et différentes méthodes peuvent signifier des tolérances au risque différentes.
+Par exemple, exiger qu’un seuil soit atteint chaque année [@ices2016criteria] est une exigence plus stricte que le fait d’exiger qu’un seuil soit atteint en moyenne sur les répétitions et les années.
+C’est pourquoi il peut être nécessaire de déterminer la méthode de calcul des paramètres de rendement de façon itérative, en consultation avec les gestionnaires, les intervenants et les Premières Nations.
+
+## ÉTAPE 3 : CHOIX DES INCERTITUDES/SPÉCIFICATION DES MODÈLES OPÉRATIONNELS {#sec:approach3}
+
+Les modèles opérationnels de DLMtool sont organisés en quatre composantes principales représentant un véritable système exploité :
+
+1. la dynamique des populations du stock (p. ex. croissance, recrutement, mortalité);
+2. la dynamique de la pêche (p. ex. sélectivité, ciblage spatial);
+3. les processus d’observation (p. ex. biais et précision des indices des relevés);
+4. la mise en œuvre de la gestion (p. ex. pourcentage de dépassement des limites de prises).
+
+Les paramètres de ces quatre composantes sont entrés dans des « tiroirs » [terminologie faisant référence à une caractéristique du système de programmation orienté objet « S4 » dans R; @r2019], décrits en détail dans notre annexe \@ref(app:dlmtool-om) et dans l’annexe B de @carruthers2018.
+
+L’outil DLMtool permet d’intégrer l’incertitude dans la plupart des paramètres du modèle opérationnel par la spécification optionnelle d’une distribution. 
+Une liste complète des paramètres pour lesquels une distribution peut être spécifiée est présentée dans l’annexe B de @carruthers2018.
+Pour isoler les effets de certaines sources d’incertitude sur le rendement des procédures de gestion, nous recommandons d’élaborer des modèles opérationnels de rechange qui modifient la valeur (ou la distribution) d’un ou de plusieurs paramètres ou sources de données d’intérêt [@punt2016].
+En général, nous recommandons d’élaborer plus d’un modèle opérationnel, en les divisant en un ensemble de référence de modèles opérationnels de base représentant les incertitudes plausibles du modèle les plus importantes, et un ensemble de robustesse pour tester la sensibilité à un plus large éventail d’incertitudes liées à la structure [@rademeyer2007].
+Nous n’essayons pas de pondérer les modèles opérationnels dans ce Cadre.
+Pour les stocks de poisson de fond de la Colombie-Britannique, les incertitudes de l’ensemble de référence seront probablement fondées sur les principales incertitudes relevées dans les évaluations classiques des stocks de poisson de fond, à savoir la mortalité naturelle (*M*), le taux de variation de la relation stock-recrue (*h*) et l’épuisement initial (c.-à-d. l’épuisement à partir d’un état sans exploitation au début de la période de projection).
+Lorsque des évaluations de stocks sont disponibles, il faut les consulter pour déterminer les principales sources d’incertitude.
+
+Les incertitudes possibles à inclure dans les modèles opérationnels dans l’ensemble de robustesse peuvent comprendre :
+
+* Les changements du taux de prédation (p. ex. prédation par les phoques);
+* Les changements de la disponibilité des proies;
+* L’efficacité ou les changements apportés aux zones fermées, comme les aires de conservation du sébaste (ACS);
+* D’autres représentations de la sélectivité du relevé et de la taille de la flottille commerciale;
+* D’autres historiques des prises (p. ex. pour des espèces comme les sébastes, qui étaient autrefois déclarés sous des noms d’espèces génériques);
+* L’erreur de mise en œuvre (les prises réelles sont supérieures ou inférieures au TAC).
+
+Dans les pêches commerciales du poisson de fond en Colombie-Britannique, 100 % des chalutiers ont des observateurs à bord depuis 1996 [@turris2000] et 100 % des palangriers ont des systèmes de surveillance électronique (SE) depuis 2006 [@stanley2015].
+Les données récentes sur les prises sont donc considérées comme fiables et devraient le demeurer à l’avenir, à moins de changements importants ou d’interruptions des programmes des observateurs.
+Pour certaines espèces importantes pour les pêches récréatives ou pour les Premières Nations, d’autres incertitudes peuvent être associées aux données sur les prises.
+Nous suggérons d’élaborer les scénarios d’erreur de mise en œuvre concernant la déclaration des prises en collaboration avec les gestionnaires des pêches, y compris les gestionnaires des Premières Nations, et l’industrie commerciale ou récréative, selon le cas, pour le stock.
+
+Dans certains cas, les incertitudes susmentionnées peuvent être incluses dans l’ensemble de référence.
+En général, une approche itérative peut être nécessaire pour réduire la robustesse à un ensemble de modèles opérationnels qui offrent un contraste avec les résultats obtenus avec les modèles opérationnels de l’ensemble de référence [@rademeyer2007].
+Nous discutons des recommandations de traitement et de présentation des résultats des ensembles de référence et de robustesse dans la section \@ref(sec:approach6). Dans un souci de transparence et de reproductibilité, nous recommandons que la spécification complète des paramètres du modèle opérationnel soit clairement documentée dans les annexes jointes au document de travail et que la version du code pour effectuer les simulations soit contrôlée et que le code soit archivé lors de la publication.
 
-We note that DLMtool OMs include a large number of parameters that can vary through time, or which can be set to be deliberately biased.
-To simplify the OM and focus on what are likely the most important axes of uncertainty, we suggest fixing most parameters to be time invariant and unbiased (Appendix \@ref(app:default-slots)).
-Exceptions would occur when one or more of these parameters represent axes of uncertainty for specific stocks, or when certain time-varying parameters are already accepted components of the stock assessment.
+Nous précisons que les modèles opérationnels de DLMtool comprennent un grand nombre de paramètres qui peuvent varier dans le temps ou qui peuvent être définis de manière à être délibérément biaisés.
+Pour simplifier le modèle opérationnel et nous concentrer sur les axes d’incertitude qui sont probablement les plus importants, nous suggérons de fixer la plupart des paramètres pour qu’ils ne varient pas dans le temps et ne soient pas biaisés (annexe \@ref(app:default-slots)).
+Il y aurait des exceptions lorsqu’un ou plusieurs de ces paramètres représentent des axes d’incertitude pour certains stocks ou lorsque certains paramètres variables dans le temps sont déjà des composantes acceptées de l’évaluation du stock.
+
+La pratique exemplaire recommande de conditionner les modèles opérationnels avec les données observées afin qu’ils puissent reproduire les observations historiques (p. ex. indices de l’abondance, données sur la composition selon l’âge).
+Le progiciel d’accompagnement de DLMtool, MSEtool [@huynh_msetool_2019], comprend une mise en œuvre efficace d’une analyse de la réduction des stocks (ARS) [@kimura1982; @walters2006] pour faciliter ce processus (annexe \@ref(app:sra)).
+Une analyse de la réduction des stocks est effectivement un modèle de prises selon l’âge qui estime les combinaisons du recrutement non exploité, de l’épuisement, de l’effort de pêche, des écarts du recrutement et de la sélectivité qui seraient conformes aux données observées compte tenu des hypothèses formulées pour d’autres paramètres (p. ex. croissance, mortalité naturelle).
+Elle est exécutée *n* fois, le nombre de répétitions *n* correspondant à celui des simulations en boucle fermée.
+L’analyse de la réduction des stocks s’appuie sur les plages des paramètres spécifiées dans le modèle opérationnel (par exemple, annexe \@ref(app:desc-om-rex)), estime les paramètres clés et les met à jour dans le modèle opérationnel (voir l’annexe \@ref(app:dlmtool-om) pour plus de détails).
+Les répétitions de l’analyse de la réduction des stocks qui ne convergent pas (la convergence étant définie comme une matrice de covariance positive-définie) sont rejetées.
+La mise en œuvre de l’analyse de la réduction des stocks dans MSEtool peut être conditionnée par des séries chronologiques des prises ou de l’effort (annexe \@ref(app:sra)).
+Pour la plupart des applications pour les stocks de poisson de fond de la Colombie-Britannique, nous suggérons de conditionner sur les prises, car les trajectoires historiques des prises ont tendance à être plus fiables que les séries chronologiques de l’effort, surtout compte tenu des incertitudes quant à la meilleure façon de représenter et d’interpréter l’effort dans les pêches plurispécifiques.
+De plus amples détails sur le modèle de conditionnement du modèle opérationnel par l’analyse de la réduction des stocks sont fournis à l’annexe \@ref(app:sra).
 
-Best practice recommends conditioning OMs with observed data so they can reproduce historical observations (e.g., indices of abundance, age-composition data).
-DLMtool's companion software package, MSEtool [@huynh_msetool_2019], includes an efficient implementation of a stock reduction analysis (SRA) [@kimura1982; @walters2006] to help with this process (Appendix \@ref(app:sra)).
-An SRA is effectively a catch-at-age model that estimates the combinations of unfished recruitment, depletion, fishing effort, recruitment deviations, and selectivity that would be consistent with the observed data given assumptions about other parameters (e.g., growth, natural mortality).
-The SRA is run *n* times, with the number of replicates *n* matching that for the closed-loop simulations.
-The SRA draws from parameter ranges specified in the OM (e.g., Appendix \@ref(app:desc-om-rex)), estimates key parameters and updates those parameters in the OM (see Appendix \@ref(app:dlmtool-om) for details).
-SRA replicates that do not converge (with convergence defined as a positive-definite covariance matrix) are discarded.
-The SRA implementation in MSEtool can be conditioned on catch or effort time series (Appendix \@ref(app:sra)).
-For most applications for BC groundfish stocks, we suggest conditioning on catch, as historical trajectories of catch tend to be more reliable than time series of effort, especially given uncertainties in how to best represent and interpret effort in multispecies fisheries.
-Further details on the SRA OM-conditioning model are provided in Appendix \@ref(app:sra).
+Pour certains stocks à données limitées, les indices de l’abondance peuvent être considérés comme moins fiables en raison des difficultés d’échantillonnage ou de la rareté.
+Dans ces cas, tant qu’il y a une série chronologique de données sur les prises, nous recommandons encore d’utiliser le modèle d’analyse de la réduction des stocks pour le conditionnement, sachant qu’il faudra tenir compte d’une gamme beaucoup plus vaste d’incertitudes dans l’ensemble de modèles opérationnels, y compris une grande incertitude quant à la taille, à la productivité et au niveau d’épuisement actuel du stock.
+Lorsqu’il n’y a pas d’indice de l’abondance, nous recommandons d’élaborer un large éventail de modèles opérationnels conditionnés en fonction des données disponibles sur les prises, qui diffèrent sur le plan des incertitudes majeures, particulièrement en ce qui concerne la productivité et le niveau actuel d’épuisement du stock.
 
-For some data-limited stocks, indices of abundance may be considered less reliable due to sampling difficulties or rarity.
-In these cases, as long as there is a time series of catch data, we still recommend using the SRA model for conditioning, recognizing that a much broader range of uncertainties will need to be considered in the set of OMs, including large uncertainty in stock size, productivity and current depletion level.
-Where there is no index of abundance, we recommend developing a wide range of OMs conditioned on available catch data, which differ in terms of major uncertainties, especially related to stock productivity and current depletion level.
+Nous reconnaissons que, pour certains stocks à données limitées, l’élaboration de modèles opérationnels plus génériques, exprimant les principales caractéristiques biologiques, de la flottille et de l’observation d’un ensemble de stocks semblables, pourrait offrir des gains d’efficience.
+Toutefois, nous recommandons de mettre l’accent d’abord sur les espèces pour lesquelles on peut élaborer des modèles opérationnels personnalisés, qui sont conditionnés sur des données observées.
 
-We recognize that, for some data-limited stocks, there may be some efficiency gains in developing more generic OMs that capture the major biological, fleet, and observation characteristics of a set of similar stocks.
-However, we recommend focusing first on species for which customized OMs can be developed, which are conditioned on observed data.
+## ÉTAPE 4 : DÉTERMINATION DES PROCÉDURES DE GESTION POSSIBLES {#sec:approach4}
 
-## STEP 4: IDENTIFICATION OF CANDIDATE MANAGEMENT PROCEDURES  {#sec:approach4}
+Nous avons examiné toutes les procédures de gestion disponibles dans l’outil DLMtool en date de novembre 2019, ainsi que celles qui ont été utilisées récemment dans les rapports sur le poisson de fond de la Colombie-Britannique, afin de déterminer si elles convenaient au Cadre.
+Il s’agit d’un ensemble assez complet de procédures de gestion à données limitées et disponibles dans la documentation primaire ou les rapports d’organismes à ce jour.
+Nous décrivons ici les types de procédures de gestion disponibles et le processus par lequel nous avons déterminé un ensemble provisoire de procédures de gestion, puis nous expliquons comment certaines ont été adaptées aux besoins des stocks de poisson de fond de la Colombie-Britannique.
+Nous décrivons les procédures de gestion provisoires possibles en détail à l’annexe \@ref(app:MPs).
 
-We screened all MPs available in DLMtool as of November 2019 along with recent MPs used in BC groundfish reports to consider their appropriateness for the framework.
-This represents a fairly comprehensive set of data-limited MPs available in the primary literature or agency reports to date.
-Here, we describe the types of MPs available and the process by which we identified a provisional set of MPs, then we explain how some MPs were tailored to the BC groundfish needs.
-We describe provisional candidate MPs in detail in Appendix \@ref(app:MPs).
+L’outil DLMtool comprend des procédures de gestion qui formulent de nombreux types de recommandations de gestion.
+Ces recommandations comprennent des ajustements au total autorisé des captures (TAC), à l’effort ou à la répartition spatiale des prises ou de l’effort.
+Pour ce qui est du Cadre, nous nous concentrons sur les procédures de gestion qui formulent des recommandations sur le TAC parce que le poisson de fond de la Colombie-Britannique est géré en général par des quotas.
+Par conséquent, toutes les procédures de gestion prises en considération ici utilisent un sous-ensemble des données générées par un modèle opérationnel pour fournir une recommandation de prises pour l’année suivante.
 
-DLMtool includes MPs that make many different kinds of management recommendations.
-These recommendations include adjustments to total allowable catch (TAC), effort, or spatial allocation of catch or effort.
-For the framework, we focus on MPs that make TAC recommendations because BC groundfish are managed in general by quotas.
-Therefore, all MPs considered here take some subset of the data generated by an OM and provide a recommended catch for the subsequent year.
-
-We focus on two main types of MPs: empirical and model-based MPs.
-In choosing from the available empirical and model-based MPs, we excluded MPs based on a number of requirements that would rarely be met for our stocks.
-We excluded MPs that required knowledge of absolute abundance since there are unlikely to be cases where we have such knowledge in a data-limited case.
-We excluded MPs that required recent age composition data because we intend this framework to be applied to stocks for which recent age-composition data are not available.
-We excluded MPs that required knowledge of depletion and steepness of the stock-recruit relationship since these are likely to be major axes of uncertainty for the stocks to which this framework will be applied.
-While it is necessary to explore these axes of uncertainty within the OM, implementing an MP on real data when that MP requires knowledge of depletion and steepness would require additional assumptions.
-In a few cases, we excluded MPs that we found difficult to communicate [e.g., MPs based on the value of the index relative to the time series mean and standard error, @jardim2015].
-Such MPs did not perform appreciably differently from included MPs and we felt their exclusion would not lead to a loss in overall performance of the framework.
-
-A library of provisional MPs included in this framework is described in Appendix \@ref(app:MPs).
-
-### Empirical MPs
-
-Commercial catch data are available for all BC groundfish stocks with relative certainty since 1996 for BC trawl fisheries and 2008 for BC hook-and-line fisheries.
-Fisheries-independent trawl and longline surveys have been conducted systematically since the early 2000s for BC groundfish and the population indices derived from these data likely represent some of the most informative data for many data-limited groundfish stocks in BC.
-Fish lengths are collected on both surveys and commercial fishing trips for many species.
-However, length-based MPs often require strong assumptions and require that the simulated length-composition data are sufficiently "messy" to reflect the real-world length-composition data, which often have large and inconsistent variances among years and length bins.
-Simulating realistic length-composition data is challenging and we have not sufficiently investigated best practices for simulating length-compositions within the DLMtool software.
-Furthermore, length-based empirical MPs may be less responsive to changes in indices of abundance and perform more poorly than other data-limited MPs [@sagarese2018].
-Reliable and abundant age-composition data are generally not available for the data-limited species for which this framework is designed.
-For the above reasons, we propose MPs that make use of only catch and population index data as provisional candidate MPs.
-
-We can divide MPs that make use of catch and/or population index data into four categories: constant catch, index ratio, index slope, and index target MPs:
-
-1. Constant-catch MPs set the recommended catch to some fixed level, typically based on recent or historical catches.
-Importantly, constant-catch MPs do not incorporate feedback between the management system and the population---they make the same catch recommendation regardless of trends in the population index. Nonetheless, they represent simple MPs that in many cases represent the status quo or slight modifications of the status quo.
-
-2. Index-ratio MPs base their catch recommendation on a ratio of a population index in one time period compared to another time period---generally a recent period (e.g., last year) compared to a short period before that (e.g. 2--3 years ago).
-
-3. Index-slope MPs fit a regression of population index data compared to time and make a catch recommendation based on the slope of the regression. They are closely related to index-ratio MPs.
-
-4. Index-target MPs compare recent population index values to the value of the index at a fixed, agreed-upon historical time period to make a catch recommendation that aims to maintain the population index at the fixed historical value.
-In this regard, index-target MPs differ subtly but importantly from the index-ratio and index-slope MPs,
-which compare recent index values to a moving window of index values as time progresses.
-
-We tailored many of the available empirical MPs to suit BC groundfish stocks (Appendix \@ref(app:MPs)).
-For example, most of the available survey data for BC groundfish are collected biennially in any one spatial region.
-Therefore, we modified many of the index-based MPs to reflect this reality.
-Typically, this involved adding variants of MPs that considered longer time windows when calculating averages or slopes to account for the fact that there was only half the available data compared to an annual survey.
-In other cases, we added alternative versions of MPs that encompassed a wider range of control variables.
-For example, the Islope MPs [@geromont2015] as originally described and implemented in DLMtool implicitly set the catch recommendation in the first year to 60--80% of the mean catch from the recent five years (assuming a neutral survey index). Since we do not a priori expect BC groundfish stocks to be overfished, we adjusted the relevant control parameters in our provisional MPs to explore a wider range of initial catch recommendations.
-
-### Model-based MPs
-
-In addition to the empirical MPs, we suggest a surplus production (SP) model be considered amongst candidate MPs.
-We provisionally include the SP model coded in MSEtool [@huynh_msetool_2019] and based on @fletcher1978 (Appendix \@ref(app:MPs) Section \@ref(sec:mp-sp)) paired with a number of possible harvest control rules (HCRs). We suggest consideration of both @schaefer1954 and @fox1970 production models since it is not clear, until simulation-tested, which will generate better performance statistics for a given stock.
-We suggest a weakly informative prior probability distribution be set on the intrinsic rate of population increase $r$, possibly following recommendations such as those in @mcallister2001. Alternative prior probability distributions could be considered tuning parameters in alternative MPs.
-The SP model estimates must be paired with an HCR to form a complete MP.
-We provisionally suggest a number of HCRs in Appendix \@ref(app:MPs) Section \@ref(sec:mp-model-based).
-
-### Dealing with multiple survey indices within MPs
-
-The vast majority of published data-limited MPs are based on single indices of abundance. This presents a challenge for BC groundfish stocks, since the trawl and hook-and-line fisheries-independent surveys that cover our coast do so on a biennial basis, alternating amongst areas. We suggest the following three possible solutions:
-
-1. Build and test OMs for areas associated with a single index. If these areas are considered simultaneously in a single application of the MP Framework then we suggest comparing performance of the MPs across all areas and, if possible, choosing an MP that performs reasonably well across all areas. This could be accomplished, for example, via a minimax-style solution, where an MP is selected that performs the least poorly across all areas. If MP performance across areas differs substantially, then different MPs may be needed for different areas. A potential problem with this approach is when stocks are larger than the surveyed area and the information captured in a single index does not represent the entire stock.
-
-2. Develop a single index by "stitching" multiple survey indices together, likely with the application of geostatistical spatiotemporal modeling. This is an active area of research [e.g., @shelton2014; @thorson2015; @anderson2019; @anderson2019synopsis] and will likely become more common within the fisheries literature and in stock assessments. While MPs could be developed that average or in some other way combine multiple survey indices, geostatistical modelling is likely to offer a more coherent way of combining survey data from multiple survey protocols or spatial areas.
-
-3. Develop MPs that incorporate multiple survey indices [e.g., @cox2019]. Many existing data-limited MPs, such as those described in this document (Appendix \@ref(app:MPs)), could be modified to incorporate information from multiple indices. For example, separate indices could be fed through the MP algorithms independently and the most biologically precautionary TAC recommendation could be made.
-
-### Reference MPs
-
-In addition to the candidate MPs, it is important to include reference MPs. Provisionally, we suggest the following reference MPs:
-
-* No fishing
-* Fishing at *F*~MSY~
-* Fishing at 0.75 *F*~MSY~
-* Maintaining the current TAC
-
-The purpose of reference MPs is not to explore viable management strategies but to bound the range of expected or possible performance and contextualize whether differences between performance statistics among MPs are meaningful [@punt2016]. For example, the "no fishing" reference MP provides information on maximum possible stock levels and the maximum possible rate of rebuilding under a rebuilding scenario. The "fishing at 0.75 *F*~MSY~" MP illustrates performance under an omniscient manager with perfect information. The MP that maintains the current TAC is included because it illustrates what is likely the near-term default had the framework not been implemented and illustrates the long-term performance expectations given current exploitation levels.
-
-### Including new MPs
-
-The candidate MPs proposed here are a provisional library from which to build.
-Data-limited MP development is a rich area of research, likely still in its infancy, and beyond minor adjustments to existing MPs, MP development is not the focus of this document.
-More MPs may be developed as part of the application of this framework and will certainly be developed elsewhere in the literature.
-MPs used when applying this framework may also be "tuned" to perform well for specific stocks by adjusting algorithm parameters or priors.
-The framework presented here has been designed to accommodate new MPs and we expect the library of candidate MPs to grow over time, with the framework providing a means to rigorously test new MPs through the closed-loop simulation process.
-
-## STEP 5: SIMULATION OF THE APPLICATION OF THE MANAGEMENT PROCEDURES  {#sec:approach5}
-
-Once the objectives, performance metrics, conditioned OMs and MPs are fully specified, a closed-loop simulation framework (Figures \@ref(fig:mse-chart-basic) and \@ref(fig:mse-chart)) can be applied to test relative performance of the MPs with respect to meeting the stated objectives.
-
-We recommend beginning with a satisficing step, where trial simulations are run to screen out MPs that do not meet a basic set of performance criteria [@miller2010].
-For example, in our illustrative Rex Sole case study (Appendix \@ref(app:mse-rex)), we screened out MPs that did not achieve a long-term 90% probability of keeping the stock above the LRP (LT LRP $>$ 0.9) and a short-term 80% probability of catch being above recent average catch (STC $>$ 0.8).
-We recommend an iterative approach to selecting the satisficing criteria on a stock-by-stock basis.
-The purpose is to simplify the decision-making process by focusing on a manageable number of MPs.
-If possible, criteria should not be so strict as to filter out MPs with broadly acceptable performance or to filter out almost all MPs.
-Similarly, criteria should be strict enough to filter out consistently under-performing MPs.
-We recommend selection of satisficing criteria be done iteratively with the technical committee.
-
-DLMtool is designed to follow standard MSE operating procedure (Figure \@ref(fig:mse-chart)).
-For each MP, the OM is used to simulate the various data streams required by the MP at each time step, then the population biomass is projected forward under the prescribed MP at each subsequent time step until the projection period is complete.
-Performance is then evaluated through calculation of performance statistics in the OM.
-DLMtool makes use of the C++ programming language and parallel processing, making the simulations computationally efficient [@carruthers2018].
-
-For each OM-MP combination, multiple replicate projections are run to account for observation and process errors in the data streams.
-This is achieved by adding stochastic noise to the data (e.g., indices of abundance) before passing them to the MP.
-Coefficients of variation in the data should be consistent with those in historical observations [@rademeyer2007].
-We suggest selecting a sufficient number of replicates so that the rank order of MPs across the performance metrics remains consistent regardless of additional replicates [@carruthers_user_2019].
-This can be checked by plotting the cumulative performance statistics against the number of replicates, to check that the rank order of MPs with respect to performance statistics will not change with the addition of more replicates (e.g., Figure \@ref(fig:methods-converge)).
-In our experience with BC groundfish, the number of required replicates is likely to be at least 100.
-
-(ref:fig-methods-converge) This visualization illustrates the degree to which the closed-loop simulation replicates have reached convergence in the rank order of MP performance.
-The y-axis represents the proportion of cumulative replicates that have achieved the performance metric.
-The cumulative replicates are shown along the x-axis.
-Each panel represents a different performance metric and the colours illustrate the various MPs.
-A wiggly line indicates that a given MP is still varying in its performance metric value as more replicates are added.
-Lines that are crossing indicate changes to the rank order of MP performance as more replicates are added.
-A plot is consistent with convergence when the lines are remaining roughly horizontal and parallel and are not crossing each other towards the right of the panel.
+Nous nous intéressons à deux principaux types de procédures de gestion : les procédures de gestion empiriques et les procédures de gestion fondées sur des modèles.
+En choisissant parmi les procédures de gestion empiriques et fondées sur des modèles disponibles, nous en avons exclu en fonction d’un certain nombre d’exigences qui seraient rarement respectées pour nos stocks.
+Nous avons exclu les procédures de gestion qui nécessitaient de connaître l’abondance absolue puisqu’il est peu probable que nous ayons de telles connaissances dans un cas à données limitées.
+Nous avons exclu les procédures de gestion qui exigeaient des données récentes sur la composition selon l’âge, parce que nous voulons que ce Cadre s’applique aux stocks pour lesquels des données récentes sur la composition selon l’âge ne sont pas disponibles.
+Nous avons exclu les procédures de gestion qui exigeaient de connaître l’épuisement et le taux de variation de la relation stock-recrue, car il s’agit probablement de grands axes d’incertitude pour les stocks auxquels ce Cadre sera appliqué.
+Bien qu’il soit nécessaire d’explorer ces axes d’incertitude dans le modèle opérationnel, d’autres hypothèses seraient requises pour mettre en œuvre une procédure de gestion sur des données réelles lorsque cette procédure nécessite une connaissance de l’épuisement et du taux de variation.
+Dans quelques cas, nous avons exclu les procédures de gestion que nous trouvions difficiles à communiquer [p. ex. les procédures de gestion fondées sur la valeur de l’indice par rapport à la moyenne de la série chronologique et à l’erreur type, @jardim2015].
+Le rendement de ces procédures de gestion n’était pas sensiblement différent de celui des procédures de gestion incluses, et nous étions d’avis que leur exclusion n’entraînerait pas une perte de rendement global du cadre.
+
+Une bibliothèque des procédures de gestion provisoires incluses dans ce Cadre figure à l’annexe \@ref(app:MPs)
+
+### Procédures de gestion empiriques
+
+Les données sur les prises commerciales sont disponibles pour tous les stocks de poisson de fond de la Colombie-Britannique avec une certitude relative depuis 1996 pour les pêches au chalut et depuis 2008 pour les pêches à la ligne et à l’hameçon.
+Des relevés au chalut et à la palangre indépendants des pêches sont effectués systématiquement depuis le début des années 2000 pour le poisson de fond de la Colombie-Britannique, et les indices de la population qui en sont tirés représentent probablement certaines des données les plus informatives pour de nombreux stocks de poisson de fond à données limitées en Colombie-Britannique.
+Les longueurs des poissons sont recueillies dans le cadre des relevés et des sorties de pêche commerciale pour de nombreuses espèces.
+Cependant, les procédures de gestion fondées sur la longueur nécessitent souvent des hypothèses solides et exigent que les données simulées sur la composition selon la longueur soient suffisamment « désordonnées » pour refléter les données réelles sur la composition selon la longueur, qui présentent souvent des écarts importants et incohérents entre les années et les catégories de longueur.
+Il est difficile de simuler des données réalistes sur la composition selon la longueur, et nous n’avons pas suffisamment étudié les pratiques exemplaires pour simuler les compositions selon la longueur dans le logiciel DLMtool.
+En outre, les procédures de gestion empiriques fondées sur la longueur peuvent être moins sensibles aux changements des indices de l’abondance et donner de moins bons résultats que les autres procédures de gestion à données limitées [@sagarese2018].
+Des données fiables et abondantes sur la composition selon l’âge ne sont généralement pas disponibles pour les espèces à données limitées pour lesquelles ce cadre est conçu.
+Pour les raisons susmentionnées, nous proposons de retenir les procédures de gestion qui n’utilisent que les données sur les prises et l’indice de la population comme procédures de gestion possibles provisoires.
+
+Nous pouvons répartir les procédures de gestion qui utilisent les données sur les prises ou l’indice de la population en quatre catégories : les procédures de gestion à prises constantes, les procédures de gestion indice-ratio, les procédures de gestion indice-pente et les procédures de gestion indice-cible :
+
+1. Les procédures de gestion à prises constantes établissent les prises recommandées à un niveau fixé, habituellement en fonction des prises récentes ou historiques.
+Surtout, les procédures de gestion à prises constantes ne tiennent pas compte de la réaction entre le système de gestion et la population — elles font la même recommandation, quelles que soient les tendances de l’indice de population.
+Néanmoins, elles constituent des procédures de gestion simples qui, dans bien des cas, représentent le statu quo ou de légères modifications au statu quo.
+
+2. Les procédures de gestion indice-ratio fondent leur recommandation de prises sur le ratio d’un indice de la population dans une période comparativement à une autre période – généralement une période récente (p. ex. l’année dernière) par rapport à une courte période antérieure (p. ex. les deux ou trois années précédentes).
+
+3. Les procédures de gestion indice-pente ajustent une régression des données de l’indice de la population comparées au temps et produisent une recommandation de prises fondée sur la pente de la régression.
+Elles sont étroitement liées aux procédures de gestion indice-ratio.
+
+4. Les procédures de gestion indice-cible comparent les valeurs récentes de l’indice de la population à la valeur de l’indice à une période historique fixe convenue afin de formuler une recommandation de prises qui cherche à maintenir l’indice de la population à la valeur historique fixe.
+À cet égard, les procédures de gestion indice-cible diffèrent subtilement, mais de façon importante, des procédures de gestion indice-ratio et indice-pente, qui comparent les valeurs récentes de l’indice à un créneau mobile de valeurs de l’indice dans le temps.
+
+Nous avons adapté bon nombre des procédures de gestion empiriques disponibles aux stocks de poisson de fond de la Colombie-Britannique (annexe \@ref(app:MPs)).
+Par exemple, la plupart des données de relevé disponibles pour le poisson de fond de la Colombie-Britannique sont recueillies tous les deux ans dans les différentes régions spatiales.
+Nous avons donc modifié un grand nombre de procédures de gestion fondées sur des indices pour tenir compte de cette réalité.
+Habituellement, il s’agissait d’ajouter des variantes de procédures de gestion comportant des périodes plus longues pour calculer les moyennes ou les pentes afin de tenir compte du fait que seule la moitié des données étaient disponibles comparativement à un relevé annuel.
+Dans d’autres cas, nous avons ajouté d’autres versions des procédures de gestion qui englobaient un plus large éventail de variables de contrôle.
+Par exemple, les procédures de gestion Islope [@geromont2015], telles qu’elles ont été décrites et mises en œuvre à l’origine dans DLMtool, établissaient implicitement la recommandation de prises pour la première année de 60 à 80 % des prises moyennes des cinq dernières années (en supposant un indice de relevé neutre).
+Comme nous ne nous attendons pas a priori à ce que les stocks de poisson de fond de la Colombie-Britannique soient surpêchés, nous avons ajusté les paramètres de contrôle pertinents dans nos procédures de gestion provisoires afin d’explorer un plus large éventail de recommandations de prises initiales.
+
+### Procédures de gestion fondées sur des modèles
+
+En plus des procédures de gestion empiriques, nous suggérons d’envisager un modèle de production excédentaire parmi les procédures de gestion possibles.
+Nous incluons provisoirement le modèle de production excédentaire codé dans MSEtool [@huynh_msetool_2019] et fondé sur @fletcher1978 (annexe \@ref(app:MPs), section \@ref(sec:mp-sp)), associé à un certain nombre de règles de contrôle des prises (RCP) possibles. Nous proposons d’envisager les modèles de production de @schaefer1954 et de @fox1970 puisque nous ne savons pas, tant qu’ils n’ont pas été mis à l’essai par simulation, lequel produira de meilleures statistiques de rendement pour un stock donné.
+Nous suggérons d’établir une distribution de probabilité a priori faiblement informative sur le taux intrinsèque d’augmentation de la population $r$, peut-être en suivant des recommandations comme celles de @mcallister2001. D’autres distributions de probabilité a priori pourraient être envisagées dans le réglage des paramètres d’autres procédures de gestion.
+Les estimations du modèle de production excédentaire doivent être jumelées à une règle de contrôle des prises pour former une procédure de gestion complète.
+Nous suggérons provisoirement un certain nombre de règles de contrôle des prises dans la section \@ref(sec:mp-model-based) de l’annexe \@ref(app:MPs).
+
+### Traitement de plusieurs indices de relevé dans les procédures de gestion
+
+La grande majorité des procédures de gestion à données limitées qui sont publiées sont fondées sur des indices uniques de l’abondance. Cela représente un défi pour les stocks de poisson de fond de la Colombie-Britannique, puisque les relevés au chalut et à l’hameçon et à la ligne indépendants des pêches ont lieu tous les deux ans sur notre côte, en alternant entre les zones. Nous proposons les trois solutions suivantes :
+
+1. Créer et tester des modèles opérationnels pour les zones associées à un seul indice. Si ces zones sont prises en compte simultanément dans une seule application du Cadre des procédures de gestion, nous suggérons alors de comparer le rendement des procédures de gestion entre toutes les zones et, si possible, de choisir une procédure de gestion qui donne des résultats raisonnablement bons dans toutes les zones. Cela pourrait se faire, par exemple, au moyen d’une solution de type minimax, où on choisit une procédure de gestion qui donne les résultats les moins mauvais entre toutes les zones. Si le rendement de la procédure de gestion varie considérablement d’une zone à l’autre, il peut être nécessaire d’avoir des procédures de gestion différentes pour différentes zones. Cette approche peut poser un problème lorsque les stocks sont plus grands que la zone du relevé et que l’information saisie dans un seul indice ne représente pas l’ensemble du stock.
+
+2. Élaborer un indice unique en « assemblant » plusieurs indices de relevés ensemble, probablement en recourant à la modélisation spatiotemporelle géostatistique. Il s’agit d’un domaine de recherche actif [p. ex. @shelton2014; @thorson2015; @anderson2019; @anderson2019synopsis] qui deviendra probablement plus courant dans la documentation sur les pêches et dans les évaluations des stocks. On pourrait élaborer des procédures de gestion qui calculent la moyenne de plusieurs indices de relevé ou les combinent d’une certaine façon, mais la modélisation géostatistique offrira probablement une méthode plus cohérente de combiner les données de relevé issues de différents protocoles de relevé ou zones spatiales.
+
+3. Élaborer des procédures de gestion qui intègrent plusieurs indices de relevé [p. ex. @cox2019]. De nombreuses procédures de gestion existantes à données limitées, comme celles décrites dans le présent document (annexe \@ref(app:MPs)), pourraient être modifiées pour intégrer l’information provenant de plusieurs indices. Par exemple, des indices distincts pourraient être transmis aux algorithmes de la procédure de gestion indépendamment et permettre de formuler la recommandation de TAC la plus prudente sur le plan biologique.
+
+### Procédures de gestion de référence
+
+En plus des procédures de gestion possibles, il est important d’inclure des procédures de gestion de référence. Nous suggérons provisoirement les procédures de gestion de référence suivantes :
+
+* Pas de pêche
+* Pêche à *F*~MSY~
+* Pêche à 0,75 *F*~MSY~
+* Maintien du TAC actuel
+
+Le but des procédures de gestion de référence n’est pas d’explorer des stratégies de gestion viables, mais de limiter l’éventail du rendement attendu ou possible et de contextualiser si les différences entre les statistiques de rendement entre les procédures de gestion sont significatives [@punt2016]. Par exemple, la procédure de gestion de référence « Pas de pêche » renseigne sur les niveaux maximaux du stock possibles et le taux de rétablissement maximal possible dans un scénario de rétablissement. La procédure de gestion « Pêche à 0,75 *F*~MSY~ » illustre le rendement pour un gestionnaire omniscient avec des informations parfaites. La procédure de gestion qui maintient le TAC actuel est incluse parce qu’elle illustre ce qui serait probablement la position par défaut à court terme si le Cadre n’avait pas été mis en œuvre, et les attentes de rendement à long terme compte tenu des niveaux d’exploitation actuels.
+
+### Inclusion de nouvelles procédures de gestion
+
+Les procédures de gestion possibles proposées ici sont une bibliothèque provisoire dont on peut s’inspirer.
+L’élaboration de procédures de gestion à données limitées est un riche domaine de recherche, qui en est probablement encore à ses balbutiements et, au-delà des ajustements mineurs apportés aux procédures de gestion existantes, la mise au point des procédures de gestion n’est pas le centre d’intérêt de ce document.
+L’application de ce Cadre permet d’élaborer davantage de procédures de gestion et ce sera certainement fait ailleurs dans la documentation.
+Les procédures de gestion utilisées pour appliquer ce Cadre peuvent également être « réglées » pour donner un bon rendement pour certains stocks en ajustant les paramètres de l’algorithme ou les valeurs a priori.
+Le Cadre présenté ici a été conçu pour tenir compte des nouvelles procédures de gestion et nous pensons que la bibliothèque de procédures de gestion possibles s’agrandira au fil du temps, le Cadre fournissant un moyen de mettre rigoureusement à l’essai les nouvelles procédures de gestion grâce au processus de simulation en boucle fermée.
+
+## ÉTAPE 5 : SIMULATION DE L’APPLICATION DES PROCÉDURES DE GESTION {#sec:approach5}
+
+Une fois que les objectifs, les paramètres de rendement, les modèles opérationnels conditionnés et les procédures de gestion sont entièrement spécifiés, on peut appliquer un cadre de simulation en boucle fermée (figures \@ref(fig:mse-chart-basic) et \@ref(fig:mse-chart)) pour tester le rendement relatif des procédures de gestion par rapport à l’atteinte des objectifs énoncés.
+
+Nous recommandons de commencer par une étape de satisfaction, où des simulations d’essai sont effectuées pour éliminer les procédures de gestion qui ne répondent pas à un ensemble de critères de rendement de base [@miller2010].
+Par exemple, dans notre étude de cas de la plie royale (annexe \@ref(app:mse-rex)), nous avons éliminé les procédures de gestion qui n’atteignaient pas une probabilité à long terme de 90 % de maintenir le stock au-dessus du PRL (LT LRP $>$ 0,9) et une probabilité à court terme de 80 % de prises supérieures à la moyenne récente des prises (STC $>$ 0,8).
+Nous recommandons une approche itérative pour choisir les critères de satisfaction pour chaque stock.
+Le but est de simplifier le processus décisionnel en mettant l’accent sur un nombre gérable de procédures de gestion.
+Dans la mesure du possible, les critères ne devraient pas être assez stricts pour exclure les procédures de gestion ayant un rendement généralement acceptable ou pour exclure presque toutes les procédures de gestion.
+De même, les critères devraient être suffisamment stricts pour éliminer systématiquement les procédures de gestion dont le rendement est insuffisant.
+Nous recommandons de sélectionner les critères de satisfaction de façon itérative avec le comité technique.
+
+L’outil DLMtool est conçu pour suivre la procédure opérationnelle normalisée de l’évaluation des stratégies de gestion (figure \@ref(fig:mse-chart)).
+Pour chaque procédure de gestion, on utilise le modèle opérationnel pour simuler les divers flux de données requis par la procédure de gestion à chaque pas de temps, puis on projette la biomasse de la population avec la procédure de gestion prescrite à chaque pas de temps subséquent jusqu’à ce que la fin de la période de projection.
+On évalue ensuite le rendement en calculant les statistiques de rendement dans le modèle opérationnel.
+L’outil DLMtool utilise le langage de programmation C++ et le traitement parallèle, ce qui donne des calculs efficaces des simulations [@carruthers2018].
+
+Pour chaque combinaison modèle opérationnel-procédure de gestion, on exécute plusieurs projections répétées pour tenir compte des erreurs d’observation et de processus dans les flux de données.
+Pour ce faire, on ajoute du bruit stochastique aux données (p. ex. indices de l’abondance) avant de les envoyer dans la procédure de gestion.
+Les coefficients de variation des données devraient correspondre à ceux des observations historiques [@rademeyer2007].
+Nous suggérons de choisir un nombre suffisant de répétitions pour que l’ordre de classement des procédures de gestion dans les paramètres de rendement demeure uniforme, quelles que soient les répétitions supplémentaires [@carruthers_user_2019].
+On peut le vérifier en comparant les statistiques de rendement cumulées au nombre de répétitions, afin de s’assurer que l’ordre de classement des procédures de gestion pour les statistiques de rendement ne change pas lorsqu’on ajoute des répétitions (p. ex. figure \@ref(fig:methods-converge)).
+D’après notre expérience avec le poisson de fond en Colombie-Britannique, le nombre de répétitions requises sera probablement d’au moins 100.
+
+(ref:fig-methods-converge) Cette visualisation illustre la mesure dans laquelle les répétitions de la simulation en boucle fermée ont atteint la convergence dans l’ordre de classement du rendement de la procédure de gestion.
+L’axe des ordonnées représente la proportion de répétitions cumulatives qui ont atteint le paramètre de rendement.
+Les répétitions cumulatives sont affichées sur l’axe des abscisses.
+Chaque graphique représente un paramètre de rendement différent et les couleurs illustrent les diverses procédures de gestion.
+Une ligne ondulée indique que la valeur du paramètre de rendement d’une procédure de gestion donnée varie encore lorsqu’on ajoute d’autres répétitions.
+Les lignes qui se croisent indiquent des changements dans l’ordre de classement du rendement de la procédure de gestion lorsqu’on ajoute des répétitions.
+Une courbe correspond à une convergence lorsque les lignes demeurent à peu près horizontales et parallèles et ne se croisent pas vers la droite du graphique.
 
 ```{r methods-converge, fig.cap="(ref:fig-methods-converge)"}
 knitr::include_graphics(here("report/figure/framework-convergence.png"))
 ```
 
-## STEP 6: PRESENTATION OF RESULTS AND SELECTION OF MANAGEMENT PROCEDURE  {#sec:approach6}
+## ÉTAPE 6 : PRÉSENTATION DES RÉSULTATS ET CHOIX DE LA PROCÉDURE DE GESTION {#sec:approach6}
 
-### Reference and robustness sets
+### Ensembles de référence et de robustesse
 
-In Step 3 (Section \@ref(sec:approach3)), we recommended dividing OM scenarios into a reference set, which includes a range of plausible alternative OM scenarios that impact results, and a robustness set, which includes a wider range of alternative OM scenarios, which may be less supported by available data, but still potentially impact results [@rademeyer2007].
-These authors recommended reducing the set of OM robustness scenarios down to those which yield the most contrasting results from the reference set.
-Therefore, before the final MP is selected, the role of the robustness set is to provide a check that the final MP performs well across a more diverse set of OM scenarios.
-Poor performance of an MP under one of these OM scenarios may influence a decision-maker to select another MP that performs well under both OM reference and robustness scenarios.
+À l’étape 3 (section \@ref(sec:approach3)), nous avons recommandé de répartir les scénarios des modèles opérationnels en un ensemble de référence, qui comprend une gamme de scénarios de modèles opérationnels possibles qui ont une incidence sur les résultats, et un ensemble de robustesse, qui comprend un plus large éventail d’autres scénarios de modèles opérationnels, qui peuvent être moins étayés par les données disponibles, mais peuvent avoir une incidence sur les résultats [@rademeyer2007].
+Ces auteurs ont recommandé de réduire les scénarios de l’ensemble de robustesse de modèles opérationnels à ceux qui donnent les résultats les plus contrastants par rapport à l’ensemble de référence.
+Par conséquent, avant de choisir la procédure de gestion finale, le rôle de l’ensemble de robustesse consiste à vérifier que la procédure de gestion finale fonctionne bien dans un ensemble plus diversifié de scénarios de modèles opérationnels.
+Un mauvais rendement d’une procédure de gestion dans l’un de ces scénarios de modèles opérationnels peut pousser un décideur à choisir une autre procédure de gestion qui donne de bons résultats dans les scénarios des ensembles de référence et de robustesse de modèles opérationnels.
 
-We recommend presenting performance metrics from the reference and robustness sets separately.
-For most visualizations, we recommend that the reference set performance metrics are averaged across all OM reference-set scenarios.
-An exception is the table of performance metrics (e.g., Figure \@ref(fig:methods-tigure)), which is presented in two ways: (i) minimum value of the performance metric across all OM reference-set scenarios; and (ii) average value of the performance metric across all OM reference-set scenarios.
-The first is a "worst-case scenario" approach, whereas the second case integrates across the whole reference set.
-We recommend presenting performance metrics from the individual OM robustness-set scenarios separately.
-This facilitates visualization of performance of MPs that perform well in the reference set under specific more diverse assumptions [@rademeyer2007].
+Nous recommandons de présenter séparément les paramètres de rendement des ensembles de référence et de robustesse.
+Pour la plupart des visualisations, il est recommandé de faire la moyenne des paramètres de rendement de l’ensemble de référence pour tous les scénarios de l’ensemble de référence de modèles opérationnels.
+Le tableau des paramètres de rendement, qui se présente de deux façons, constitue une exception (p. ex. figure \@ref(fig:methods-tigure)) : (i) la valeur minimale du paramètre de rendement pour tous les scénarios de l’ensemble de référence de modèles opérationnels; et (ii) la valeur moyenne du paramètre du rendement pour tous les scénarios de l’ensemble de référence de modèles opérationnels.
+La première est une approche de « scénario de la pire éventualité », tandis que la seconde est intégrée dans l’ensemble de référence complet.
+Nous recommandons de présenter séparément les paramètres de rendement des différents scénarios de l’ensemble de robustesse de modèles opérationnels.
+Cela facilite la visualisation du rendement des procédures de gestion qui donnent de bons résultats dans l’ensemble de référence sous certaines hypothèses plus diversifiées [@rademeyer2007].
 
-### Visual presentation of performance metrics
+### Présentation visuelle des paramètres de rendement
 
-Here we focus on developing a set of provisional visualizations that facilitate comparison of performance metrics across MPs and evaluation of trade-offs amongst them. We have developed an R package gfdlm [@gfdlm] (Appendix \@ref(app:gfdlm)) for generating these visualizations. We expect that some or all of the visualizations will be refined over time as users gain familiarity and specific needs arise.
+Nous cherchons ici à élaborer un ensemble de visualisations provisoires qui facilitent la comparaison des paramètres de rendement de toutes les procédures de gestion et l’évaluation des compromis entre elles. Nous avons mis au point un progiciel gfdlm en R [@gfdlm] (annexe \@ref(app:gfdlm) pour générer ces visualisations. Nous prévoyons qu’une partie ou la totalité des visualisations seront peaufinées au fil du temps à mesure que les utilisateurs se familiariseront avec le système et que des besoins particuliers se présenteront.
 
-First, we suggest a graphical representation of a probability table (Figure \@ref(fig:methods-tigure)) to visualize performance metric results.
-This visualization lends itself to a large number of MPs and so works well for displaying results for *all* MPs---not necessarily just satisficed MPs.
-By shading the cells according to their underlying performance metric value, the visualization draws the eye to similarities and differences across MPs.
-We suggest sorting the rows by performance metrics of particular interest, shading the MP name differently for reference MPs, and highlighting any satisficing criteria by outlining cells that pass satisficing thresholds.
-The default colour shading is colour-blind proof, prints accurately in grey scale, and is visually linear in its gradient [@viridis].
+Nous proposons d’abord une représentation graphique d’un tableau de probabilité (figure \@ref(fig:methods-tigure)) pour visualiser les résultats des paramètres de rendement.
+Cette visualisation se prête à un grand nombre de procédures de gestion et donne donc de bons résultats pour afficher les résultats de *toutes* les procédures de gestion --- pas forcément uniquement de celles qui sont satisfaisantes.
+En attribuant une couleur aux cellules selon la valeur sous-jacente de leur paramètre de rendement, la visualisation attire l’attention sur les similitudes et les différences entre les procédures de gestion.
+Nous suggérons de trier les rangées selon les paramètres de rendement qui présentent un intérêt particulier, d’afficher le nom de la procédure de gestion avec une couleur différente pour les procédures de gestion de référence, et de mettre en évidence tout critère de satisfaction en décrivant les cellules qui répondent aux seuils de satisfaction.
+L’ombrage de couleurs par défaut convient aux personnes daltoniennes, s’imprime avec précision sur l’échelle de gris et est linéaire visuellement dans son gradient [@viridis].
 
-Second, we suggest a visualization that lends itself to summarizing performance for a small set of satisficed MPs across OM reference-set scenarios (Figure \@ref(fig:methods-dots)).
-This figure highlights average performance across OM scenarios (dots) along with the range of performance values seen across OM scenarios (thin lines).
-This figure also illustrates the range of performance after dropping the OM scenarios with the highest and lowest of each performance metric values (thicker lines).
+Nous suggérons ensuite une visualisation qui facilite la récapitulation du rendement d’un petit ensemble de procédures de gestion satisfaisantes parmi les scénarios de l’ensemble de référence de modèles opérationnels (figure \@ref(fig:methods-dots)).
+Cette figure présente le rendement moyen dans les scénarios de modèles opérationnels (points) et la fourchette des valeurs du rendement observées dans les scénarios de modèles opérationnels (lignes fines).
+Elle illustre également la gamme de rendements après l’abandon des scénarios de modèles opérationnels ayant les valeurs de paramètre de performance les plus élevées et les plus basses (lignes plus épaisses).
 
-We suggest two possible visualizations for highlighting performance-metric trade-offs (Figures \@ref(fig:methods-tradeoff) and \@ref(fig:methods-radar)).
-The first is a bivariate dot plot, which lends itself to comparing any two performance metrics.
-The second is a "radar" plot (also known as a "kite" or "spider" plot).
-Radar plots lend themselves to comparing across many performance metrics, but become difficult to interpret as the number of performance metrics grows (e.g., above six) and one needs to be careful when interpreting these plots because the arrangement of the "spokes" can affect perception of the resulting shapes and humans have been shown to be slower and less accurate at interpreting radial displays of data compared to Cartesian displays [@diehl2010; @feldman2013; @albo2016].
+Nous suggérons deux visualisations possibles pour mettre en évidence les compromis des paramètres de rendement (figures \@ref(fig:methods-tradeoff) et \@ref(fig:methods-radar)).
+La première est un semis de points à deux variables, qui permet de comparer deux paramètres de rendement.
+La seconde est un diagramme en radar (aussi appelé « en cerf-volant » ou « en araignée »).
+Les diagrammes en radar permettent de comparer de nombreux paramètres de rendement, mais ils deviennent difficiles à interpréter lorsque le nombre de paramètres de rendement augmente (p. ex. au-dessus de six) et la prudence est de mise pour les interpréter, car la disposition des « rayons » peut influencer la perception des formes ainsi obtenues et il a été prouvé que les humains interprètent moins vite et moins précisément les représentations radiales des données que les représentations cartésiennes [@diehl2010; @feldman2013; @albo2016].
 
-To understand the processes leading to the performance metrics, we recommend that the results from the application of this framework should include visualizations of historical and projected *B*/*B*~MSY~, *F*/*F*~MSY~, and catch.
-We suggest two versions: one that lends itself to careful inspection of individual OM scenarios and an understanding of individual replicate behaviour (Figure \@ref(fig:methods-proj)) and another that lends itself to comparing the time series across OM scenarios (Figure \@ref(fig:methods-proj-sens)).
-Inspection of these time series can provide a diagnostic check that the parameter space is being adequately sampled among replicates.
-For example, a bifurcated time series could indicate that a boundary condition is being reached in some replicates and would indicate that one or more parameters may need to be sampled from a broader distribution.
-Inspection of these time series can also improve understanding of the performance of MPs, and may lead to addition of new performance metrics if the existing set fails to capture some important behaviour that becomes apparent in the time series.
-For example, if some MPs are creating variable TAC recommendations in the initial implementation years this may suggest the need to specify a short-term TAC variability objective and performance metric.
-Alternatively, if some MPs are resulting in short-term declines in *B*/*B*~MSY~ that eventually recover by the long-term window, this may suggest the need for a short-term conservation objective and performance metric or the calculation of performance metric probabilities via the minimum probability in any year [e.g., @ices2016criteria].
-These plots may also indicate MPs that are likely to cause extinction of the stock, even if this behaviour is masked by long term average performance metrics.
-For example, like many OMs, the DLMtool OM prevents negative biomass in the event that TACs are greater than the stock biomass.
-Therefore MPs which do not consider feedback from the index of abundance, such as constant catch MPs, may sometimes generate TACs greater than the available biomass, which would be buffered against by the OM.
-Inspection of Figure \@ref(fig:methods-proj) would indicate this behaviour.
+Pour comprendre les processus menant aux paramètres de rendement, nous recommandons d’inclure dans les résultats de l’application du Cadre des procédures de gestion des visualisations des valeurs historiques et projetées de *B*/*B*~MSY~, *F*/*F*~MSY~ et des prises.
+Nous suggérons deux versions : l’une qui permet une inspection minutieuse des différents scénarios de modèles opérationnels et une compréhension du comportement de répétition individuel (figure \@ref(fig:methods-proj)), et l’autre qui permet de comparer les séries chronologiques entre les scénarios de modèles opérationnels (figure \@ref(fig:methods-proj-sens)).
+L’inspection de ces séries chronologiques peut fournir une vérification diagnostique permettant de vérifier que les répétitions échantillonnent adéquatement l’espace des paramètres.
+Par exemple, une série chronologique bifurquée pourrait indiquer qu’une condition limite est atteinte dans certaines répétitions et qu’il peut être nécessaire d’échantillonner un ou plusieurs paramètres à partir d’une distribution plus vaste.
+L’inspection de ces séries chronologiques peut aussi améliorer la compréhension du rendement des procédures de gestion et mener à l’ajout de nouveaux paramètres de rendement si l’ensemble existant ne saisit pas certains comportements importants qui deviennent évidents dans les séries chronologiques.
+Par exemple, si certaines procédures de gestion créent des recommandations de TAC variables dans les premières années de mise en œuvre, il pourrait être nécessaire de définir un objectif de variabilité du TAC à court terme et un paramètre de rendement.
+Par ailleurs, si certaines procédures de gestion entraînent des baisses à court terme de *B*/*B*~MSY~ qui finissent par se rétablir dans le créneau à long terme, cela peut indiquer la nécessité d’un objectif de conservation et d’un paramètre de rendement à court terme ou le calcul des probabilités des paramètres de rendement par la probabilité minimale d’une année [p. ex. @ices2016criteria].
+Ces courbes peuvent également indiquer des procédures de gestion qui mèneront probablement à l’extinction du stock, même si ce comportement est masqué par la moyenne des paramètres de rendement à long terme.
+Par exemple, comme beaucoup de modèles opérationnels, le modèle opérationnel de l’outil DLMtool empêche une biomasse négative dans le cas où les TAC sont supérieurs à la biomasse du stock.
+Par conséquent, les procédures de gestion qui ne tiennent pas compte de la rétroaction de l’indice de l’abondance, comme les procédures de gestion à prises constantes, peuvent parfois produire des TAC plus élevés que la biomasse disponible, contre lesquels le modèle opérationnel les protégerait.
+L’examen de la figure \@ref(fig:methods-proj) dénoterait ce comportement.
 
-Visualizing the simulated population-index time series is particularly important when using MPs that rely on the population index (e.g., Figure \@ref(fig:methods-index)).
-First, for simple MPs that closely resemble recent management, future simulations of the population index can be used as a type of posterior predictive check [@gelman2014] to ask whether the future simulations look like they are plausible given historical observations of the same population index.
-Second, the range of future projected index values can be used as a trigger for re-evaluating an OM.
-For example, if a future observed survey index deviates from some quantile of simulated survey index values, the observed state of nature can be considered unlikely given the assumed OMs (sometimes called "exceptional circumstances" [@butterworth2008]).
-We note that the cumulative probability of the observed index exceeding some quantile of simulated values increases with time, so such a rule will generate more than the tail probability of false re-evaluation triggers.
-For example, even if the OM perfectly captured reality, there is approximately a `r round(pbinom(9, 10, 0.95), 1)` probability (2 in 5 chance) that the observed index will at some point exceed the 95% quantile of simulated index values after 10 years.
-Closed-loop simulation itself can be used to establish appropriate triggers with acceptable statistical power [@carruthers_hordyk_2018].
+Il est particulièrement important de visualiser les séries chronologiques simulées de l’indice de la population lorsqu’on utilise des procédures de gestion qui dépendent de l’indice de la population (p. ex. figure \@ref(fig:methods-index)).
+Tout d’abord, pour les procédures de gestion simples qui ressemblent beaucoup à la gestion récente, les simulations futures de l’indice de la population peuvent être utilisées comme un type de contrôle prédictif a posteriori [@gelman2014] pour demander si les simulations futures semblent plausibles compte tenu des observations historiques du même indice de la population.
+Ensuite, la fourchette des valeurs futures de l’indice projeté peut être utilisée comme déclencheur pour réévaluer un modèle opérationnel.
+Par exemple, si un futur indice de relevé observé s’écarte d’un certain quantile des valeurs simulées de cet indice, l’état de la nature observé peut être considéré comme improbable compte tenu des modèles opérationnels présumés (parfois appelés « circonstances exceptionnelles » [@butterworth2008]).
+Nous remarquons que la probabilité cumulative que l’indice observé dépasse un certain quantile des valeurs simulées augmente avec le temps, de sorte qu’une telle règle générera plus que la probabilité de queue des faux déclencheurs d’une réévaluation.
+Par exemple, même si le modèle opérationnel a parfaitement exprimé la réalité, il y a une probabilité approximative de `r round(pbinom(9, 10, 0,95), 1)` (2 chances sur 5) que l’indice observé dépassera à un moment donné le quantile de 95 % des valeurs de l’indice simulées après 10 ans.
+La simulation en boucle fermée elle-même peut être utilisée pour établir les déclencheurs appropriés avec une puissance statistique acceptable [@carruthers_hordyk_2018].
 
-Finally, we suggest two visualizations that illustrate the trade-off between *F*/*F*~MSY~ and *B*/*B*~MSY~ across replicates for the various MPs (Figure \@ref(fig:methods-kobe) and \@ref(fig:methods-worm)).
-One is a standard Kobe plot showing *F*/*F*~MSY~ vs. *B*/*B*~MSY~ for the final year of the projection (Figure \@ref(fig:methods-kobe)).
-This visualization highlights the parameter space with the highest probability density via quantile kernel-density-estimate contour lines.
-The other visualization shows the trajectory of *F*/*F*~MSY~ vs. *B*/*B*~MSY~ through time (Figure \@ref(fig:methods-worm)).
-The final year of Figure \@ref(fig:methods-worm) is an alternative representation of Figure \@ref(fig:methods-kobe).
-Figure \@ref(fig:methods-worm) also presents another diagnostic check of the behaviour of MPs over time, for example by indicating how often the stock falls within the critical zone.
-While some MPs may meet long-term conservation metrics, they may cause conservation problems in the shorter term, possibly indicating the need to consider aditional short-term conservation metrics.
+Enfin, nous suggérons deux visualisations qui illustrent le compromis entre *F*/*F*~MSY~ et *B*/*B*~MSY~ entre les répétitions pour les diverses procédures de gestion (figure\@ref(fig:methods-kobe) et \@ref(fig:methods-worm)).
+La première est un graphique standard de Kobe représentant *F*/*F*~MSY~ par rapport à *B*/*B*~MSY~ la dernière année de la projection (figure \@ref(fig:methods-kobe)).
+Cette visualisation met en évidence l’espace des paramètres ayant la densité de probabilité la plus élevée selon les lignes de contour de l’estimation par noyau de densité du quantile.
+L’autre visualisation illustre la trajectoire de *F*/*F*~MSY~ par rapport à *B*/*B*~MSY~ dans le temps (figure \@ref(fig:methods-worm)).
+La dernière année de la figure \@ref(fig:methods-worm) est une autre représentation de la figure \@ref(fig:methods-kobe).
+La figure \@ref(fig:methods-worm) présente également une autre vérification diagnostique du comportement des procédures de gestion dans le temps, par exemple en indiquant à quelle fréquence le stock se trouve dans la zone critique.
+Il est possible que certaines procédures de gestion puissent respecter les paramètres de conservation à long terme, mais qu’elles puissent causer des problèmes de conservation à plus court terme, ce qui pourrait indiquer la nécessité d’envisager d’autres paramètres de conservation à court terme.
 
 
-(ref:fig-methods-tigure) This probability table illustrates performance metric values across a number of MPs.
-See Section \@ref(sec:approach2) for definitions of the various  performance metrics (columns).
-The MPs are ordered by decreasing performance metric values from top to bottom starting with the left-most performance metric and using columns from left to right to break any ties.
-The colour shading reflects the underlying numbers and is included to make the differences in the values more readily apparent.
-Outlined cells represent MPs that met a given satisficing criterion.
-MP names shaded grey represent reference MPs.
+(ref:fig-methods-tigure) Ce tableau de probabilité illustre les valeurs des paramètres de rendement pour un certain nombre de procédures de gestion.
+Voir les définitions des divers paramètres de rendement (colonnes) à la section \@ref(sec:approach2).
+Les procédures de gestion sont classées par valeur décroissante du paramètre de rendement, de haut en bas, en commençant par le paramètre de rendement le plus à gauche et en utilisant les colonnes de gauche à droite pour départager les égalités.
+L’ombrage de couleur reflète les nombres sous-jacents et est inclus pour rendre les différences dans les valeurs plus facilement visibles.
+Les cellules encadrées représentent les procédures de gestion qui répondent à un critère de satisfaction donné.
+Les noms des procédures de gestion en gris représentent les procédures de gestion de référence.
 
 ```{r methods-tigure, fig.cap="(ref:fig-methods-tigure)", out.width="3.5in"}
 knitr::include_graphics(here("report/figure/framework-tigure.png"))
 ```
 
 (ref:fig-methods-dots)
-This visualization summarizes performance of a small number of MPs (e.g., satisficed MPs) across OM scenarios.
-Dots represent mean performance across OM scenarios.
-Thin lines represent the range of performance across OM scenarios.
-Thicker lines represent the range of performance across OM scenarios after dropping the highest and lowest OM scenario within each performance metric.
-This visualization can also be used without the line segments to represent performance for individual OM scenarios (e.g., OM robustness scenarios).
-Reference MPs are indicated by open circles (True).
-Non-reference MPs are indicated by closed circles (False).
+Cette visualisation résume le rendement d’un petit nombre de procédures de gestion (p. ex. des procédures de gestion satisfaisantes) dans les scénarios de modèles opérationnels.
+Les points représentent le rendement moyen des scénarios de modèles opérationnels.
+Les lignes fines représentent l’éventail des rendements dans les scénarios de modèles opérationnels.
+Les lignes plus épaisses représentent l’éventail des rendements dans les scénarios de modèles opérationnels après l’abandon des scénarios de modèles opérationnels le plus élevé et le plus bas dans chaque paramètre de rendement.
+Cette visualisation peut également être utilisée sans les segments linéaires pour représenter le rendement pour différents scénarios de modèles opérationnels (p. ex. des scénarios de robustesse de modèles opérationnels).
+Les procédures de gestion de référence sont indiquées par des cercles ouverts (vrai).
+Les procédures de gestion autres que de référence sont indiquées par des cercles fermés (faux).
 
 ```{r methods-dots, fig.cap="(ref:fig-methods-dots)", out.width="\\textwidth"}
 knitr::include_graphics(here("report/figure/framework-dot.png"))
 ```
 
 (ref:fig-methods-tradeoff)
-This visualization demonstrates bivariate trade-offs between two performance metrics for a given OM scenario or average across OM scenarios.
-The bottom and left axis correspond to two performance metrics and individual dots represent MPs.
+Cette visualisation montre les compromis à deux variables entre deux paramètres de rendement pour un scénario de modèles opérationnels donné ou une moyenne des scénarios de modèles opérationnels.
+Les axes inférieur et gauche correspondent à deux paramètres de rendement et les points individuels représentent les procédures de gestion.
 
 ```{r methods-tradeoff, fig.cap="(ref:fig-methods-tradeoff)", out.width="4.25in"}
 knitr::include_graphics(here("report/figure/framework-trade-off.png"))
 ```
 
-(ref:fig-methods-radar) This radar plot illustrates performance metric trade-offs amongst a set of MPs.
-Each spoke represents a performance metric (Section \@ref(sec:approach2)).
-Each line represents an MP.
-The position of each line on each spoke represents the probability of that MP achieving that performance metric.
-Therefore, lines closer to the outside correspond to MPs that are determined to have a higher probability of achieving that performance metric.
-Care should be taken when interpreting these plots because the arrangement of the "spokes" can affect perception of the resulting shapes [@diehl2010; @feldman2013; @albo2016].
+(ref:fig-methods-radar) Ce diagramme en radar illustre les compromis des paramètres de rendement dans un ensemble de procédures de gestion.
+Chaque rayon représente un paramètre de rendement (section \@ref(sec:approach2)).
+Chaque ligne représente une procédure de gestion.
+La position de chaque ligne sur chaque rayon représente la probabilité que cette procédure de gestion atteigne ce paramètre de rendement.
+Les lignes plus près de l’extérieur correspondent donc aux procédures de gestion dont il a été déterminé qu’elles ont une probabilité plus élevée d’atteindre ce paramètre de rendement.
+Il faut faire attention lorsqu’on interprète ces tracés, car la disposition des « rayons » peut influencer la perception des formes obtenues [@diehl2010; @feldman2013; @albo2016].
 
 ```{r methods-radar, fig.cap="(ref:fig-methods-radar)"}
 knitr::include_graphics(here("report/figure/framework-radar.png"))
 ```
 
-(ref:fig-methods-proj) This visualization illustrates historical and projected B/B~MSY~ (where B indicates spawning biomass), F/F~MSY~, and catch for various MPs for a single OM.
-Only one MP is shown here.
-In applications of the framework, all satisficed MPs would be shown as separate panels.
-Dark lines indicate the median value and the darker and lighter shaded ribbons indicate the 50% and 90% quantiles.
-Thin gray lines represent illustrative simulation replicates.
-The vertical dashed line indicates the last year of the historical period.
-The horizontal dashed lines indicate B/B~MSY~ = 0.8 and 0.4 and F/F~MSY~ = 1.
-Note that the simulations are mean-unbiased and so the median B/B~MSY~ and F/F~MSY~ are not expected to lie perfectly on the 1 line even if fishing perfectly at F~MSY~.
+(ref:fig-methods-proj) Cette visualisation illustre les valeurs historiques et projetées de B/B~MSY~ (où B représente la biomasse féconde), de F/F~MSY~ et des prises pour diverses procédures de gestion pour un seul modèle opérationnel.
+Une seule procédure de gestion est représentée ici.
+Dans les applications du Cadre, toutes les procédures de gestion satisfaisantes seraient présentées dans des graphiques distincts.
+Les lignes foncées indiquent la valeur médiane et les rubans ombrés plus foncés et plus pâles indiquent les quantiles de 50 % et 90 %.
+Les fines lignes grises représentent des répétitions de simulation à titre d'illustration.
+La ligne verticale tiretée indique la dernière année de la période historique.
+Les lignes horizontales tiretées indiquent B/B~MSY~ = 0,8 et 0,4, et F/F~MSY~ = 1.
+Il est à noter que les simulations sont sans biais moyen et que les médianes de B/B~MSY~ et de F/F~MSY~ ne devraient donc pas se superposer parfaitement à la ligne du 1, même si la pêche est parfaitement à F~MSY~.
 
 ```{r methods-proj, fig.cap="(ref:fig-methods-proj)", out.width="\\textwidth"}
 knitr::include_graphics(here("report/figure/framework-main-projections.png"))
 ```
 
 (ref:fig-methods-proj-sens)
-This visualization highlights sensitivity of the historical conditioned and projected time series across OM scenarios for two hypothetical OM scenarios.
-In applications of the framework with more than two OM scenarios, more lines would be shown.
-Only one MP is shown here.
-In applications of the framework, all satisficed MPs would be shown as separate panels.
-The solid lines correspond to median values and the shaded ribbons correspond to 50% quantiles to indicate variability across replicates.
-The vertical dashed line indicates the last year of the historical period.
-Whereas Figure \@ref(fig:methods-proj) helps compare across MPs within a given OM scenario, and highlights example replicate performance, this visualization helps compare time series within a given MP across OM scenarios.
-This visualization lends itself to multiple rows where each row represents a different MP.
-Note that sensitivity of the time series to OM scenarios does not necessarily correspond to sensitivity in terms of rank order of MPs, which is ultimately the important result in a management-oriented approach.
+Cette visualisation met en évidence la sensibilité des séries chronologiques historiques conditionnées et projetées entre les scénarios de modèles opérationnels pour deux scénarios de modèles opérationnels hypothétiques.
+Dans les applications du Cadre comportant plus de deux scénarios de modèles opérationnels, plus de lignes seraient affichées.
+Une seule procédure de gestion est représentée ici.
+Dans les applications du Cadre, toutes les procédures de gestion satisfaisantes seraient présentées dans des graphiques distincts.
+Les lignes pleines correspondent aux valeurs médianes et les rubans ombrés aux quantiles de 50 % pour indiquer la variabilité entre les répétitions.
+La ligne verticale tiretée indique la dernière année de la période historique.
+Si la figure \@ref(fig:methods-proj) permet de comparer les procédures de gestion dans un scénario de modèle opérationnel donné et met en évidence un exemple de rendement de répétition, cette visualisation permet de comparer les séries chronologiques d’une procédure de gestion donnée entre les scénarios de modèles opérationnels.
+Elle permet d’avoir plusieurs rangées représentant chacune une procédure de gestion différente.
+Il convient de noter que la sensibilité des séries chronologiques aux scénarios de modèles opérationnels ne correspond pas nécessairement à la sensibilité relative à l’ordre de classement des procédures de gestion, qui est finalement le résultat important dans une approche axée sur la gestion.
 
 ```{r methods-proj-sens, fig.cap="(ref:fig-methods-proj-sens)", out.width="\\textwidth"}
 knitr::include_graphics(here("report/figure/framework-sens-projections.png"))
 ```
 
-(ref:fig-methods-index) This visualization illustrates the historical and projected relative population index values.
-The black lines represent example replicates.
-The shaded grey region represents the 95% quantile of the simulated index values.
-The vertical dashed line represents the last historical year of the observed data (final year of the catch-time series, see Appendix \@ref(app:dlmtool-om)).
-In the historical period, the index represents the observed index (usually a survey index).
-In cases such as the one illustrated here, the survey is performed every second year.
-For index-based MPs, understanding the expected envelope of possible future survey trends is important for evaluating whether the system continues to be consistent with the OM assumptions in the future.
-For simple MPs, this visualization is also helpful for assessing whether the simulation is generating future index projections that are consistent with the observed historical trends.
+(ref:fig-methods-index) Cette visualisation illustre les valeurs historiques et projetées de l’indice de la population relatif.
+Les lignes noires représentent des exemples de répétitions.
+La zone grisée représente le quantile à 95 % des valeurs de l’indice simulées.
+La ligne verticale tiretée représente la dernière année historique des données observées (dernière année de la série des prises dans le temps, voir l’annexe \@ref(app:dlmtool-om)).
+Dans la période historique, l’indice représente l’indice observé (habituellement un indice de relevé).
+Dans des cas comme celui illustré ici, le relevé est effectué tous les deux ans.
+Pour les procédures de gestion fondées sur des indices, il est important de comprendre l’enveloppe prévue des tendances futures possibles du relevé pour évaluer si le système reste conforme aux hypothèses du modèle opérationnel à l’avenir.
+Pour les procédures de gestion simples, cette visualisation est également utile pour évaluer si la simulation produit des projections futures de l’indice qui sont conformes aux tendances historiques observées.
 
 ```{r methods-index, fig.cap="(ref:fig-methods-index)", out.width="6in",}
 knitr::include_graphics(here("report/figure/framework-index-projections.png"))
 ```
 
-(ref:fig-methods-kobe) Kobe (B/B~MSY~ vs. F/F~MSY~) plots for the final year of the projections across all replicates.
-Dots represent individual replicates.
-The contour lines indicate two-dimensional kernel-density-smoothed quantiles, calculated in log space.
-For example, the 0.50 contour lines encompass approximately 50% of the replicates.
-The vertical dashed lines show B/B~MSY~ = 0.4 (left) and 0.8 (right).
-The horizontal dashed line shows F/F~MSY~ = 1.
-Replicates with values beyond the outer axis limits are shown on the axis limit with an open circle (e.g., bottom right corner).
+(ref:fig-methods-kobe) Graphiques de Kobe (B/B~MSY~ par rapport à F/F~MSY~) pour la dernière année des projections pour toutes les répétitions.
+Les points représentent les différentes répétitions.
+Les lignes de contour indiquent des quantiles lissés par noyau de densité en deux dimensions, calculés dans l’espace logarithmique.
+Par exemple, les lignes de contour de 0,50 englobent environ 50 % des répétitions.
+Les lignes verticales tiretées représentent B/B~MSY~ = 0,4 (à gauche) et 0,8 (à droite).
+La ligne horizontale tiretée représente F/F~MSY~ = 1.
+Les répétitions dont les valeurs sortent des limites extérieures de l’axe sont indiquées sur la limite de l’axe par un cercle vide (p. ex. angle inférieur droit).
 
 ```{r methods-kobe, fig.cap="(ref:fig-methods-kobe)", out.width="5in"}
 knitr::include_graphics(here("report/figure/framework-kobe.png"))
 ```
 
-(ref:fig-methods-worm) This visualization illustrates the time trajectory of F/F~MSY~ vs. B/B~MSY~  values summarized across replicates for a single MP.
-The solid line corresponds to the median value.
-The vertical dashed lines show B/B~MSY~ = 0.4 (left) and 0.8 (right).
-The horizontal dashed line shows F/F~MSY~ = 1.
-Each diamond represents the 50% quantile of B/B~MSY~ (horizontal) and F/F~MSY~ (vertical).
-There is one diamond per year of the historical and projection period.
-The lines and diamonds change colour over time and specific points in time are illustrated with symbols (first year, last historical year, and last projected year).
-For reference, the data underlying the last time slice in this figure are the same as Figure \@ref(fig:methods-kobe).
+(ref:fig-methods-worm) Cette visualisation illustre la trajectoire temporelle des valeurs de F/F~MSY~ par rapport à B/B~MSY~ résumées entre les répétitions pour une seule procédure de gestion.
+La ligne pleine correspond à la valeur médiane.
+Les lignes verticales tiretées représentent B/B~MSY~ = 0,4 (à gauche) et 0,8 (à droite).
+La ligne horizontale tiretée représente F/F~MSY~ = 1.
+Chaque diamant représente le quantile de 50 % de B/B~MSY~ (à l’horizontale) et de F/F~MSY~ (à la verticale).
+Il y a un diamant par année de la période historique et de projection.
+Les lignes et les diamants changent de couleur dans le temps et des points précis dans le temps sont illustrés par des symboles (première année, dernière année historique et dernière année projetée).
+À titre de référence, les données sous-jacentes à la dernière tranche de temps de cette figure sont les mêmes que celles de la figure \@ref(fig:methods-kobe).
 
 ```{r methods-worm, fig.cap="(ref:fig-methods-worm)", out.width="5in"}
 knitr::include_graphics(here("report/figure/framework-worm.png"))
