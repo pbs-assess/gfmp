@@ -531,7 +531,7 @@ knitr::include_graphics(here("report-french/figure/rex-projections-index.png"))
 
 \clearpage
 
-(ref:fig-rex-Proj-ceq200) B/B~MSY~, F/F~MSY~, et les prises des périodes historique et projetée pour le modèle opérationnel « C^eq^ 200 % ». La ligne foncée indique la valeur médiane et les rubans ombrés plus foncés et plus pâles indiquent les quantiles de 50 % et 90 %. Les fines lignes grises représentent des répétitions de simulation à titre d’illustration. La ligne verticale tiretée indique la dernière année de la période historique. Les lignes horizontales tiretées indiquent B/B~MSY~ = 0,8 et 0,4, et F/F~MSY~ = 1.
+(ref:fig-rex-proj-ceq200) B/B~MSY~, F/F~MSY~, et les prises des périodes historique et projetée pour le modèle opérationnel « C^eq^ 200 % ». La ligne foncée indique la valeur médiane et les rubans ombrés plus foncés et plus pâles indiquent les quantiles de 50 % et 90 %. Les fines lignes grises représentent des répétitions de simulation à titre d’illustration. La ligne verticale tiretée indique la dernière année de la période historique. Les lignes horizontales tiretées indiquent B/B~MSY~ = 0,8 et 0,4, et F/F~MSY~ = 1.
 
 ```{r rex-proj-ceq200, fig.cap="(ref:fig-rex-proj-ceq200)", out.width="6.5in"}
 knitr::include_graphics(here("report-french/figure/rex-projections-ceq200.png"))
@@ -569,7 +569,7 @@ knitr::include_graphics(here("report-french/figure/rex-projections-no-cpue.png")
 
 \clearpage
 
-Valeurs de (ref:fig-rex-kobe) B/B~MSY~ et F/F~MSY~ pour la dernière année des projections pour toutes les répétitions.
+(ref:fig-rex-kobe) Valeurs de B/B~MSY~ et F/F~MSY~ pour la dernière année des projections pour toutes les répétitions.
 Les points représentent les différentes répétitions.
 Les lignes verticales tiretées représentent B/B~MSY~ = 0,4 (à gauche) et 0,8 (à droite).
 La ligne horizontale tiretée représente F/F~MSY~ = 1.

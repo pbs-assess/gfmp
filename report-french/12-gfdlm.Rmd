@@ -74,7 +74,7 @@ Techniquement, il place la sortie de la fonction avant la `%>%` dans le premier 
 
 # ENVIRONNEMENT INFORMATIQUE
 
-Cette version du document a été produite le `r Sys.time()` avec la version `r devtools::session_info()$platform` [@r2019] et les versions du progiciel R :
+Cette version du document a été produite le `r Sys.time()` avec la version `r devtools::session_info()$platform[["version"]]` [@r2019] et les versions du progiciel R :
 
 ```{r env, echo = FALSE, results='asis', message=FALSE, warning=FALSE, eval=TRUE, cache=FALSE}
 library(TMB, warn.conflicts = FALSE, quietly = TRUE)
