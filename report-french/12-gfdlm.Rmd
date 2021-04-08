@@ -52,7 +52,7 @@ Voici les principales fonctions de traçage :
 
 ## FONCTIONS DE MANIPULATION DES PROCÉDURES DE GESTION
 
-use_AddInd()` et `reduce_survey()` sont des usines à fonctions qui modifient les procédures de gestion pour utiliser les données « d’indice supplémentaire » de l’outil DLMtool et rejeter les années de relevé sélectionnées, respectivement. Les données d’indice supplémentaire (utilisées dans ce cadre) expriment l’indice observé au cours de la période historique et un indice qui reflète le profil de sélectivité du relevé ou de la flottille pendant la période de projection.
+`use_AddInd()` et `reduce_survey()` sont des usines à fonctions qui modifient les procédures de gestion pour utiliser les données « d’indice supplémentaire » de l’outil DLMtool et rejeter les années de relevé sélectionnées, respectivement. Les données d’indice supplémentaire (utilisées dans ce cadre) expriment l’indice observé au cours de la période historique et un indice qui reflète le profil de sélectivité du relevé ou de la flottille pendant la période de projection.
 Par exemple, la fonction qui suit crée une nouvelle procédure de gestion nommée `.Itarget_base` en prenant la procédure de gestion `Itarget_base` et en 1) la modifiant pour utiliser le premier « indice supplémentaire » et 2) omettant chaque année paire du relevé pour simuler un relevé biennal :
 
 ```{r, echo=TRUE, eval=FALSE}
