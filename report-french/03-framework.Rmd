@@ -58,7 +58,7 @@ Nous proposons les paramètres de rendement provisoires suivants, où MSY fait r
 5. LTC : Probabilité que les prises > prises de référence (sur une durée de plusieurs années)
 6. AADC : Probabilité que l’AADC (différence interannuelle absolue moyenne des prises) < AADC historique (sur l’ensemble de la projection)
 
-Tous les paramètres de rendement ci-dessus sont exprimés sous forme de probabilités d’être au-dessus ou au-dessous de certains critères, la probabilité étant calculée comme le nombre moyen de fois où les critères sont respectés dans les répétitions et les années, p. ex. $$\textrm{LT LRP}= \frac{\sum_{n = 1}^{n_{\textrm{rep}}}\sum_{t = t_1}^{t_2}B_t > 0,4B_\textrm{MSY}}{t_2 – t_1 + 1},$$ où $t_1$ et $t_2$ sont les première et dernière années sur lesquelles le paramètre est calculé, et $n_\textrm{rep}$ est le nombre de simulations répétées. Les autres paramètres de rendement sont calculés de la même façon.
+Tous les paramètres de rendement ci-dessus sont exprimés sous forme de probabilités d’être au-dessus ou au-dessous de certains critères, la probabilité étant calculée comme le nombre moyen de fois où les critères sont respectés dans les répétitions et les années, p. ex. $$\textrm{LT LRP}= \frac{\sum_{n = 1}^{n_{\textrm{rep}}}\sum_{t = t_1}^{t_2}B_t > 0,4B_\textrm{MSY}}{t_2 - t_1 + 1},$$ où $t_1$ et $t_2$ sont les première et dernière années sur lesquelles le paramètre est calculé, et $n_\textrm{rep}$ est le nombre de simulations répétées. Les autres paramètres de rendement sont calculés de la même façon.
 
 Dans la liste de paramètres de rendement ci-dessus, LT LRP et LT USR sont des paramètres de conservation mesurant les objectifs 1 et 2 à long terme.
 FMSY est un paramètre de rendement de conservation qui mesure l’objectif 3 sur toute la période de projection.
@@ -87,7 +87,7 @@ Ce niveau de référence pourrait être obtenu en consultant les intervenants ou
 
 Le paramètre de rendement AADC représente la différence interannuelle absolue moyenne des prises.
 Nous avons choisi cette représentation de la variabilité pour qu’elle soit facile à comprendre et simple à comparer aux valeurs historiques.
-Ce paramètre est calculé en soustrayant les prises de chaque année de celles de l’année précédente et en prenant la moyenne de la valeur absolue de ces nombres, c’est-à-dire : $$\textrm{AADC} = \frac{\sum_{t = t_1}^{t_2}\lvert C_t – C_{t-1} \rvert}{t_2 – t_1 + 1},$$ où $t_1$ et $t_2$ sont les première et dernière années pour lesquelles le paramètre est calculé.
+Ce paramètre est calculé en soustrayant les prises de chaque année de celles de l’année précédente et en prenant la moyenne de la valeur absolue de ces nombres, c’est-à-dire : $$\textrm{AADC} = \frac{\sum_{t = t_1}^{t_2}\lvert C_t - C_{t-1} \rvert}{t_2 - t_1 + 1},$$ où $t_1$ et $t_2$ sont les première et dernière années pour lesquelles le paramètre est calculé.
 Autrement dit, AADC représente l’écart prévu des prises d’une année à l’autre.
 Des solutions de rechange comme les écarts-types dans l’espace logarithmique ou les coefficients de variation ont une signification plus abstraite et se sont révélés difficiles à interpréter pour certains intervenants [@punt2017].
 Nous suggérons de déclarer AADC par rapport à sa valeur au cours d’une période historique pour laquelle les intervenants considèrent que la variation annuelle des prises est acceptable.
@@ -202,7 +202,7 @@ Nous pouvons répartir les procédures de gestion qui utilisent les données sur
 Surtout, les procédures de gestion à prises constantes ne tiennent pas compte de la réaction entre le système de gestion et la population — elles font la même recommandation, quelles que soient les tendances de l’indice de population.
 Néanmoins, elles constituent des procédures de gestion simples qui, dans bien des cas, représentent le statu quo ou de légères modifications au statu quo.
 
-2. Les procédures de gestion indice-ratio fondent leur recommandation de prises sur le ratio d’un indice de la population dans une période comparativement à une autre période – généralement une période récente (p. ex. l’année dernière) par rapport à une courte période antérieure (p. ex. les deux ou trois années précédentes).
+2. Les procédures de gestion indice-ratio fondent leur recommandation de prises sur le ratio d’un indice de la population dans une période comparativement à une autre période - généralement une période récente (p. ex. l’année dernière) par rapport à une courte période antérieure (p. ex. les deux ou trois années précédentes).
 
 3. Les procédures de gestion indice-pente ajustent une régression des données de l’indice de la population comparées au temps et produisent une recommandation de prises fondée sur la pente de la régression.
 Elles sont étroitement liées aux procédures de gestion indice-ratio.

@@ -114,14 +114,14 @@ La sélectivité fondée sur la longueur est convertie en sélectivité fondée 
 $$
 v_{a,f} =
 \begin{cases}
-2^{-[(L_{a} – L^{\textrm{FS}}_f)/(\sigma^{\textrm{asc}}_f)]^2} & \textrm{si } L_{a} < L^{\textrm{FS}}_f\\
+2^{-[(L_{a} - L^{\textrm{FS}}_f)/(\sigma^{\textrm{asc}}_f)]^2} & \textrm{si } L_{a} < L^{\textrm{FS}}_f\\
 1 & \textrm{si logistique et } L_{a} \ge L^{\textrm{FS}}_f\\
-2^{-[(L_{a} – L^{\textrm{FS}}_f)/(\sigma^{\textrm{des}}_f)]^2} & \textrm{si en forme de dôme et } L_{a} \ge L^{\textrm{FS}}_f,
+2^{-[(L_{a} - L^{\textrm{FS}}_f)/(\sigma^{\textrm{des}}_f)]^2} & \textrm{si en forme de dôme et } L_{a} \ge L^{\textrm{FS}}_f,
 \end{cases}
 (\#eq:sra-om-vaf)
 $$
 
-où $L_{y,a}$ est la longueur moyenne selon l’âge, et $\sigma^{\textrm{asc}}_f = (L^5_f – L^{\textrm{FS}}_f)/\sqrt{-\log_2(0.05)}$ et $\sigma^{\textrm{des}}_f = (L_{\infty} – L^{\textrm{FS}}_f)/\sqrt{-\log_2(v^{L_{\infty}})}$ contrôlent la forme des membres ascendant et descendant, respectivement, de la fonction de sélectivité. Dans ce paramétrage, la sélectivité fondée sur la longueur est constante dans le temps. La sélectivité correspondante fondée sur l’âge est constante dans le temps si la croissance ne varie pas dans le temps.
+où $L_{y,a}$ est la longueur moyenne selon l’âge, et $\sigma^{\textrm{asc}}_f = (L^5_f - L^{\textrm{FS}}_f)/\sqrt{-\log_2(0.05)}$ et $\sigma^{\textrm{des}}_f = (L_{\infty} - L^{\textrm{FS}}_f)/\sqrt{-\log_2(v^{L_{\infty}})}$ contrôlent la forme des membres ascendant et descendant, respectivement, de la fonction de sélectivité. Dans ce paramétrage, la sélectivité fondée sur la longueur est constante dans le temps. La sélectivité correspondante fondée sur l’âge est constante dans le temps si la croissance ne varie pas dans le temps.
 
 Voir la description du traitement de plusieurs flottilles dans le modèle opérationnel de DLMtool pendant la période de projection à l’annexe \@ref(app:dlmtool-om), section \@ref(sec:dlmtool-fleet-dynamics.
 
@@ -143,7 +143,7 @@ N_{1,a} =
 \begin{cases}
       R^{\textrm{eq}} & a = 1 \\
       N_{1,a-1} \exp(-Z^{\textrm{eq}}_a) & a = 2, \ldots, A-1\\
-      \dfrac{N_{1,a-1} \exp(-Z^{\textrm{eq}}_a)}{1 – \exp(-Z^{\textrm{eq}}_A)} & a = A,
+      \dfrac{N_{1,a-1} \exp(-Z^{\textrm{eq}}_a)}{1 - \exp(-Z^{\textrm{eq}}_A)} & a = A,
 \end{cases}
 (\#eq:sra-om-numinit)
 $$
@@ -171,7 +171,7 @@ Après avoir obtenu $Z^{\textrm{eq}}_a$, on calcule le recrutement à l’équil
 $$
 R^{\textrm{eq}} =
 \begin{cases}
-      \dfrac{\alpha^{\textrm{B}}\phi – 1}{\beta^{\textrm{B}}\phi} & \textrm{Beverton-Holt}\\
+      \dfrac{\alpha^{\textrm{B}}\phi - 1}{\beta^{\textrm{B}}\phi} & \textrm{Beverton-Holt}\\
       \dfrac{\log(\alpha^{\textrm{R}}\phi)}{\beta^{\textrm{R}}\phi} & \textrm{Ricker},
 \end{cases}
 (\#eq:sra-om-recinit)
@@ -208,7 +208,7 @@ $$
 N_{y,a} =
 \begin{cases}
       R_y & a = 1\\
-      N_{y-1,a-1}\ e^{-Z_{y-1,a-1}} & a = 2, \ldots, A – 1,\\
+      N_{y-1,a-1}\ e^{-Z_{y-1,a-1}} & a = 2, \ldots, A - 1,\\
       N_{y-1,a-1}\ e^{-Z_{y-1,a-1}} + N_{y-1,a}\ e^{-Z_{y-1,a}} & a = A,
 \end{cases}
 (\#eq:sra-om-nya)
@@ -221,8 +221,8 @@ Le recrutement annuel $R_y$ est modélisé comme suit :
 $$
 R_y =
 \begin{cases}
-      \dfrac{\alpha^{\textrm{B}} B_{y-1}}{1 + \beta^{\textrm{B}}B_{y-1}} \exp(\varepsilon_y – 0.5 \tau^2) & \textrm{Beverton-Holt}\\
-      \alpha^{\textrm{R}} B_{y-1} \exp(-\beta^{\textrm{R}} B_{y-1})\exp(\varepsilon_y – 0.5 \tau^2) & \textrm{Ricker},
+      \dfrac{\alpha^{\textrm{B}} B_{y-1}}{1 + \beta^{\textrm{B}}B_{y-1}} \exp(\varepsilon_y - 0.5 \tau^2) & \textrm{Beverton-Holt}\\
+      \alpha^{\textrm{R}} B_{y-1} \exp(-\beta^{\textrm{R}} B_{y-1})\exp(\varepsilon_y - 0.5 \tau^2) & \textrm{Ricker},
 \end{cases}
 (\#eq:sra-om-rya)
 $$
@@ -241,7 +241,7 @@ où $m_{y,a}$ et $w_{y,a}$ sont respectivement la maturité selon l’âge et le
 Si le modèle est ajusté aux données sur la composition selon l’âge, les prises (en nombres) $C^N$ selon l’âge pour la flottille $f$ sont
 
 $$
-C^N_{y,a,f} = \dfrac{v_{a,f} F_{y,f}}{Z_{y,a}} N_{y,a} (1 – \exp(-Z_{y,a}).
+C^N_{y,a,f} = \dfrac{v_{a,f} F_{y,f}}{Z_{y,a}} N_{y,a} (1 - \exp(-Z_{y,a}).
 (\#eq:sra-om-cyaf)
 $$
 
@@ -262,7 +262,7 @@ $$
 P(\ell \vert a) =
 \begin{cases}
       \phi^L(L'_{\ell+1}) & \ell = 1\\
-      \phi^L(L'_{\ell+1}) – \phi(L'_\ell) & \ell = 2, \ldots, L – 1,\\
+      \phi^L(L'_{\ell+1}) - \phi(L'_\ell) & \ell = 2, \ldots, L - 1,\\
       1 -\phi^L(L'_\ell) & \ell = L,
 \end{cases}
 (\#eq:sra-om-pla)
@@ -323,7 +323,7 @@ $$
 Si le modèle est conditionné en fonction des prises et que les taux de mortalité par pêche sont des paramètres estimés, alors la composante de log-vraisemblance $\Lambda_1$ des prises est
 
 $$
-\Lambda_1 = \sum_f \left[\lambda^{C}_f \sum_y \left(-\log(0.01) – \dfrac{[\log({C}^{\textrm{obs}}_{y,f}) – \log({C}^{\textrm{pred}}_{y,f})]^2}{2 \times 0,01^2}\right)\right],
+\Lambda_1 = \sum_f \left[\lambda^{C}_f \sum_y \left(-\log(0.01) - \dfrac{[\log({C}^{\textrm{obs}}_{y,f}) - \log({C}^{\textrm{pred}}_{y,f})]^2}{2 \times 0,01^2}\right)\right],
 (\#eq:sra-om-like-catch)
 $$
 
@@ -332,7 +332,7 @@ où $\textrm{obs}$ et $\textrm{pred}$ indiquent les quantités observées et pr�
 La composante de log-vraisemblance $\Lambda_2$ des données de relevé est
 
 $$
-\Lambda_2 = \sum_s \left[ \lambda^I_s \sum_y \left(-\log(\sigma_{y,s}) – \dfrac{[\log(I^{\textrm{obs}}_{y,s}) – \log(I^{\textrm{pred}}_{y,s})]^2}{2\sigma_{y,s}^2}\right) \right].
+\Lambda_2 = \sum_s \left[ \lambda^I_s \sum_y \left(-\log(\sigma_{y,s}) - \dfrac{[\log(I^{\textrm{obs}}_{y,s}) - \log(I^{\textrm{pred}}_{y,s})]^2}{2\sigma_{y,s}^2}\right) \right].
 (\#eq:sra-om-like-ind)
 $$
 
@@ -357,7 +357,7 @@ où $O^L$ est la taille des échantillons annuels pour les compositions selon la
 La composante de log-vraisemblance $\Lambda_5$ des longueurs moyennes observées dans les prises est
 
 $$
-\Lambda_5 = \sum_f \lambda^{\bar{L}}_f\left[ \sum_y \left(-\log(\omega_f) – \dfrac{[\bar{L}^{\textrm{obs}}_{y,f} – \bar{L}^{\textrm{pred}}_{y,f}]^2}{2 \omega^2_f}\right)\right],
+\Lambda_5 = \sum_f \lambda^{\bar{L}}_f\left[ \sum_y \left(-\log(\omega_f) - \dfrac{[\bar{L}^{\textrm{obs}}_{y,f} - \bar{L}^{\textrm{pred}}_{y,f}]^2}{2 \omega^2_f}\right)\right],
 (\#eq:sra-om-like-meanl)
 $$
 
@@ -366,7 +366,7 @@ où $\omega_f$ est l’écart-type des longueurs moyennes.
 La composante de log-vraisemblance $\Lambda_6$ des écarts aléatoires annuels estimés du recrutement $\varepsilon_y$ dans l’espace logarithmique est
 
 $$
-\Lambda_6 = \Sigma_y\left(-\log(\tau) – \dfrac{\varepsilon_y^2}{2 \tau^2}\right),
+\Lambda_6 = \Sigma_y\left(-\log(\tau) - \dfrac{\varepsilon_y^2}{2 \tau^2}\right),
 (\#eq:sra-om-like-recdevs)
 $$
 
@@ -375,7 +375,7 @@ où $\tau$ est l’écart-type des écarts aléatoires du recrutement.
 La composante de log-vraisemblance $\Lambda_7$ des prises à l’équilibre est
 
 $$
-\Lambda_7 = \sum_f \lambda^{C}_f \left(-\log(0.01) – \dfrac{[\log(C^{\textrm{eq,obs}}_f) – \log(C^{\textrm{eq,pred}}_f)]^2}{2 \times 0,01^2}\right).
+\Lambda_7 = \sum_f \lambda^{C}_f \left(-\log(0.01) - \dfrac{[\log(C^{\textrm{eq,obs}}_f) - \log(C^{\textrm{eq,pred}}_f)]^2}{2 \times 0,01^2}\right).
 (\#eq:sra-om-like-eqcatch)
 $$
 

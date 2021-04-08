@@ -57,7 +57,7 @@ Toutefois, il est possible d’inclure la covariance entre les paramètres si ce
 Le modèle opérationnel suppose que la croissance suit un modèle de von Bertalanffy :
 
 $$
-L_{a} = \widetilde{L}_{\infty}\left( 1 – \exp( – \widetilde{\kappa}(a – \widetilde{t}_{0} \right)),
+L_{a} = \widetilde{L}_{\infty}\left( 1 - \exp( - \widetilde{\kappa}(a - \widetilde{t}_{0} \right)),
 (\#eq:dlm-om-vonb)
 $$
 
@@ -75,14 +75,14 @@ où $\alpha_W$ et $\beta_W$ sont des coefficients longueur-poids propres à l’
 La maturité est précisée en fonction de la longueur, à l’aide d’un modèle logistique avec des paramètres décrivant la longueur à 50 % de maturité ($\widetilde{\theta}_{l50}$) et l’augmentation de la longueur de 50 % à 95 % de maturité ($\widetilde{\theta}_{l50-95}$). La maturité ($m_l$) à la longueur ($l$) est alors calculée comme suit :
 
 $$
-m_{l} = \frac{1}{1 + e^{{- \ln}19\left( \frac{l – \widetilde{\theta}_{l50}}{{\widetilde{\theta}}_{l50-95}} \right)}},
+m_{l} = \frac{1}{1 + e^{{- \ln}19\left( \frac{l - \widetilde{\theta}_{l50}}{{\widetilde{\theta}}_{l50-95}} \right)}},
 (\#eq:dlm-om-matl)
 $$
 
 où la maturité ($m_a$) selon l’âge est calculée à partir de la longueur selon l’âge :
 
 $$
-m_{a} = \frac{1}{1 + e^{{- \ln}19\left( \frac{a – \theta_{a50}}{\theta_{a95} – \theta_{a50}} \right)}},
+m_{a} = \frac{1}{1 + e^{{- \ln}19\left( \frac{a - \theta_{a50}}{\theta_{a95} - \theta_{a50}} \right)}},
 (\#eq:dlm-om-mata)
 $$
 
@@ -90,12 +90,12 @@ et \(\theta_{a50}\) and \(\theta_{a95}\) représentent l’âge à 50% et 95% de
 
 <!-- TODO: check these! -->
 $$
-\theta_{a50} = \frac{- \ln\left( 1 – \widetilde{\theta}_{l50} / \widetilde{L}_{\infty} \right)}{\widetilde{\kappa}} + \widetilde{t}_{0},
+\theta_{a50} = \frac{- \ln\left( 1 - \widetilde{\theta}_{l50} / \widetilde{L}_{\infty} \right)}{\widetilde{\kappa}} + \widetilde{t}_{0},
 (\#eq:dlm-om-invonb)
 $$
 
 $$
-\theta_{a95} = \frac{- \ln\left( 1 – \left( \widetilde{\theta}_{l50} / \widetilde{L}_{\infty} + {\widetilde{\theta}}_{l50\_ 95} / \widetilde{L}_{\infty} \right) \right)}{\widetilde{\kappa}} + \widetilde{t}_{0}.
+\theta_{a95} = \frac{- \ln\left( 1 - \left( \widetilde{\theta}_{l50} / \widetilde{L}_{\infty} + {\widetilde{\theta}}_{l50\_ 95} / \widetilde{L}_{\infty} \right) \right)}{\widetilde{\kappa}} + \widetilde{t}_{0}.
 (\#eq:dlm-om-theta95)
 $$
 
@@ -140,7 +140,7 @@ Les écarts de recrutement annuels logarithmiques ($\log \varepsilon_{R,y}$) son
 
 $$
 \log \delta_{R,y}\sim \mathrm{Normal}\left(
-\frac{-0.5 \widetilde{\sigma}_R^2 (1 – \widetilde{\theta}_\textrm{AC})}{\sqrt{1 – \widetilde{\theta}_\textrm{AC}^2}},
+\frac{-0.5 \widetilde{\sigma}_R^2 (1 - \widetilde{\theta}_\textrm{AC})}{\sqrt{1 - \widetilde{\theta}_\textrm{AC}^2}},
 \widetilde{\sigma}_R \right),
 (\#eq:dlm-om-recdev)
 $$
@@ -148,7 +148,7 @@ $$
 où le terme moyen comprend une correction de biais moyen pour les variables log-normales autocorrélées et le terme $\widetilde{\theta}_{\textrm{AC}}$ représente l’autocorrélation de premier ordre. Nous utilisons la notation Normal (moyenne, écart-type) plutôt que Normal (moyenne, variance) ici et dans tout le document. L’autocorrélation temporelle $\widetilde{\theta}_\textrm{AC}$ est ajoutée à ces tirages initiaux comme suit :
 
 $$
-\log \varepsilon_{R,y} = {\widetilde{\theta}}_{\textrm{AC}}\log \varepsilon_{R,y – 1} + \delta_{R,y}\sqrt{\left( 1 – {{\widetilde{\theta}}_{\textrm{AC}}}^{2} \right)},
+\log \varepsilon_{R,y} = {\widetilde{\theta}}_{\textrm{AC}}\log \varepsilon_{R,y - 1} + \delta_{R,y}\sqrt{\left( 1 - {{\widetilde{\theta}}_{\textrm{AC}}}^{2} \right)},
 (\#eq:dlm-om-auto)
 $$
 
@@ -197,9 +197,9 @@ où $\dot{R_a}$ représente le taux de rétention selon l’âge et la sélectiv
 $$
 v_{a} =
 \begin{cases}
-2^{-\frac{(\widetilde{L}_{a} – \widetilde{L}^{\textrm{FS}})^2}{\widetilde{\sigma}^2_{\textrm{asc}}}} & \textrm{if } L_{a} < \widetilde{L}^{\textrm{FS}},\\
+2^{-\frac{(\widetilde{L}_{a} - \widetilde{L}^{\textrm{FS}})^2}{\widetilde{\sigma}^2_{\textrm{asc}}}} & \textrm{if } L_{a} < \widetilde{L}^{\textrm{FS}},\\
 1 & \textrm{if logistic and } L_{a} \ge \widetilde{L}^{\textrm{FS}},\\
-2^{-\frac{(\widetilde{L}_{a} – \widetilde{L}^{\textrm{FS}})^2}{\widetilde{\sigma}^2_{\textrm{des}}}} & \textrm{if dome-shaped and } L_{a} \ge \widetilde{L}^{\textrm{FS}}
+2^{-\frac{(\widetilde{L}_{a} - \widetilde{L}^{\textrm{FS}})^2}{\widetilde{\sigma}^2_{\textrm{des}}}} & \textrm{if dome-shaped and } L_{a} \ge \widetilde{L}^{\textrm{FS}}
 \end{cases}
 (\#eq:dlm-om-va)
 $$
@@ -207,7 +207,7 @@ $$
 où $\widetilde{L}^\textrm{FS}$ représente la longueur à la sélectivité totale définie par l’utilisateur. L’écart-type du membre ascendant ($\widetilde{\sigma}_{\textrm{asc}}^{2}$) est donné par la formule :
 
 $$
-\sigma_{\textrm{asc}} = \frac{{\widetilde{L}}^{5} – \widetilde{L}^\textrm{FS}}{\sqrt{- \log_{2} 0.05}}
+\sigma_{\textrm{asc}} = \frac{{\widetilde{L}}^{5} - \widetilde{L}^\textrm{FS}}{\sqrt{- \log_{2} 0.05}}
 (\#eq:dlm-om-siglasc)
 $$
 
@@ -216,7 +216,7 @@ où $\widetilde{L}^5$ est la longueur à 5 % de sélectivité définie par l’u
 L’écart-type du membre descendant est donné par la formule :
 
 $$
-\sigma_{\textrm{des}} = \frac{\widetilde{L}_\infty – \widetilde{L}^\textrm{FS}}{{\sqrt{- \log_{2} {\widetilde{V}_{L_\infty}}}}},
+\sigma_{\textrm{des}} = \frac{\widetilde{L}_\infty - \widetilde{L}^\textrm{FS}}{{\sqrt{- \log_{2} {\widetilde{V}_{L_\infty}}}}},
 (\#eq:dlm-om-sigldes)
 $$
 
@@ -240,7 +240,7 @@ L’incertitude liée à la mise en œuvre ($I_\textrm{TAC}$, équation \@ref(eq
 $$
 C_{y,a} = \frac{B^V_{y,a}} {\sum_{a}^{A}B^V_{y,a}}
 \textrm{TAC}_{\mathrm{MP},y}\ I_{\mathrm{TAC},y}\
-\frac{\dot{R}_{y,a} + \left( 1 – \dot{R}_{y,a} \right)
+\frac{\dot{R}_{y,a} + \left( 1 - \dot{R}_{y,a} \right)
 {\widetilde{\theta}}_{\textrm{Mdisc}}}{\dot{R}_{y,a}}
 (\#eq:dlm-om-cata)
 $$
@@ -248,7 +248,7 @@ $$
 où ($I_\textrm{TAC}$) est définie par l’utilisateur (selon d’autres paramètres; équation \@ref(eq:dlm-om-itac)) et le taux global de rétention selon l’âge $\dot{R}_{y,a}$, est une combinaison d’une rétention propre à l’âge $r_{y,a}$ avec une valeur maximale de $1$ (équation \@ref(eq:dlm-om-ray)) et un taux constant de rejets $\widetilde{\gamma}$ :
 
 $$
-\dot{R}_{y,a} = r_{y,a}\ (1 – \widetilde{\gamma}).
+\dot{R}_{y,a} = r_{y,a}\ (1 - \widetilde{\gamma}).
 (\#eq:dlm-om-retention)
 $$
 
@@ -256,8 +256,8 @@ où la rétention propre à l’âge $r_{y,a}$ est modélisée à l’aide de la
 
 $$
 r_{y,a} = \begin{cases}
-2^{- \ \frac{{(L_{y,a} – {\widetilde{L}}_{\textrm{rmax}})}^{2}}{\sigma_{\textrm{rasc}}^{2}}} & L_{y,a} \leq {\widetilde{L}}_{\textrm{rmax}}, \\
-2^{- \ \frac{{(L_{y,a} – {\widetilde{L}}_{\textrm{rmax}})}^{2}}{\sigma_{\textrm{rdesc}}^{2}}} & L_{y,a} > {\widetilde{L}}_{\textrm{rmax}}, \\
+2^{- \ \frac{{(L_{y,a} - {\widetilde{L}}_{\textrm{rmax}})}^{2}}{\sigma_{\textrm{rasc}}^{2}}} & L_{y,a} \leq {\widetilde{L}}_{\textrm{rmax}}, \\
+2^{- \ \frac{{(L_{y,a} - {\widetilde{L}}_{\textrm{rmax}})}^{2}}{\sigma_{\textrm{rdesc}}^{2}}} & L_{y,a} > {\widetilde{L}}_{\textrm{rmax}}, \\
 \end{cases}
 (\#eq:dlm-om-ray)
 $$
@@ -265,14 +265,14 @@ $$
 où $\widetilde{L}_\textrm{rmax}$ est la longueur à la rétention maximale. Le paramètre d’écart-type du membre ascendant est donné par la longueur à 5 % de rétention $\widetilde{L}_{r5}$ :
 
 $$
-\sigma_{\textrm{rasc}} = \frac{{\widetilde{L}}_{r5} – \widetilde{L}_{\textrm{rmax}}}{\sqrt{- \log_2 {0.05}}}
+\sigma_{\textrm{rasc}} = \frac{{\widetilde{L}}_{r5} - \widetilde{L}_{\textrm{rmax}}}{\sqrt{- \log_2 {0.05}}}
 (\#eq:dlm-om-sigrasc)
 $$
 
 alors que l’écart-type du membre descendant est donné par la rétention $\widetilde{r}_{L_\infty}$ de la longueur du poisson $\widetilde{L}_\infty$ :
 
 $$
-\sigma_{\textrm{rdesc}} = \frac{\widetilde{L}_\infty – \widetilde{{L}}_{\textrm{rmax}}}{\sqrt{- \log_2 {\widetilde{{r}}_{L_\infty}}}}.
+\sigma_{\textrm{rdesc}} = \frac{\widetilde{L}_\infty - \widetilde{{L}}_{\textrm{rmax}}}{\sqrt{- \log_2 {\widetilde{{r}}_{L_\infty}}}}.
 (\#eq:dlm-om-sigrdec)
 $$
 
@@ -281,7 +281,7 @@ La courbe de rétention s’approche d’une courbe asymptotique à mesure que $
 On calcule ensuite les taux de mortalité par pêche à partir des prises réalisées $C_{y,a}$ avec la contrainte qu’elles ne dépassent pas ${F_\textrm{max}}$ :
 
 $$
-F_{y,a} = \min \left( – \ln\left( 1 – \frac{C_{y,a}}{N_{y,a}{w}_{a}} \right),\widetilde{F}_{\max} \right).
+F_{y,a} = \min \left( - \ln\left( 1 - \frac{C_{y,a}}{N_{y,a}{w}_{a}} \right),\widetilde{F}_{\max} \right).
 (\#eq:dlm-om-Fay)
 $$
 
@@ -319,7 +319,7 @@ Lorsque l’indice observé est calculé, il est normalisé pour avoir une valeu
 Le terme $\omega_{I,y}$ représente une imprécision dans les observations par $\widetilde{\sigma}_I$ :
 
 $$
-\omega_{I,y} = \exp \left( \varepsilon_{I,y} – \frac{{\widetilde{\sigma}}_{I}^2}{2} \right),
+\omega_{I,y} = \exp \left( \varepsilon_{I,y} - \frac{{\widetilde{\sigma}}_{I}^2}{2} \right),
 (\#eq:dlm-om-omegai)
 $$
 
@@ -359,7 +359,7 @@ avec le terme $\omega_{I,y,s}$ calculé comme suit :
 
 
 $$
-\omega_{I,y,s} = \exp \left( \varepsilon_{I,y,s} – \frac{{{\widetilde{\sigma}}_{I}}^2}{2} \right), (\#eq:dlm-om-omegai-addind)
+\omega_{I,y,s} = \exp \left( \varepsilon_{I,y,s} - \frac{{{\widetilde{\sigma}}_{I}}^2}{2} \right), (\#eq:dlm-om-omegai-addind)
 $$
 
 où le terme de l’erreur log-normale $\varepsilon$, est tiré d’une distribution normale dont l’écart-type $\widetilde{\sigma_I}$ est échantillonné au hasard dans chaque simulation :
@@ -407,7 +407,7 @@ L’incertitude liée à la mise en œuvre des TAC est appliquée dans l’équa
 Le terme de l’incertitude de la mise en œuvre du TAC ($I_\textrm{TAC}$) est le produit d’une fraction définie par l’utilisateur du TAC capturé $\widetilde{b}_\textrm{TAC}$ et d’un degré de variabilité interannuelle contrôlé par $\widetilde{\sigma}_\textrm{TAC}$.
 
 $$
-I_{\textrm{TAC},y} = \widetilde{b}_\textrm{TAC} \cdot \exp \left( \varepsilon_{\textrm{TAC},y} – \frac{{{\widetilde{\sigma}}}_{\textrm{TAC}}^2}{2} \right).
+I_{\textrm{TAC},y} = \widetilde{b}_\textrm{TAC} \cdot \exp \left( \varepsilon_{\textrm{TAC},y} - \frac{{{\widetilde{\sigma}}}_{\textrm{TAC}}^2}{2} \right).
 (\#eq:dlm-om-itac)
 $$
 
@@ -438,7 +438,7 @@ Dans ce Cadre, nous supposons une relation stock-recrue de Beverton-Holt [@bever
 $$
 R^e =
 \begin{cases}
-      \dfrac{\alpha^{\textrm{B}}\phi – 1}{\beta^{\textrm{B}}\phi} & \textrm{Beverton-Holt}\\
+      \dfrac{\alpha^{\textrm{B}}\phi - 1}{\beta^{\textrm{B}}\phi} & \textrm{Beverton-Holt}\\
       \dfrac{\log(\alpha^{\textrm{R}}\phi)}{\beta^{\textrm{R}}\phi} & \textrm{Ricker},
 \end{cases}
 (\#eq:dlm-om-req)
