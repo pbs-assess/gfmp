@@ -59,7 +59,7 @@ Les procédures de gestion à données limitées peuvent être représentées pa
 (ref:fig-mse-chart-basic) Illustration du processus de simulation en boucle fermée de la pêche selon @punt2016. La procédure de gestion peut être fondée sur une règle de données simple (p. ex. réduire les prises autorisées de x % si l’indice du relevé diminue de y %) ou peut être un modèle d’estimation combiné à une règle de contrôle des prises.
 
 ```{r mse-chart-basic, fig.cap="(ref:fig-mse-chart-basic)", out.width="6.3in"}
-knitr::include_graphics(here::here("images/mse-chart-simple2.png"))
+knitr::include_graphics(here::here("images/mse-chart-simple2-french.png"))
 ```
 
 La documentation scientifique fait état d’un grand nombre de procédures de gestion dont les données sont limitées.
