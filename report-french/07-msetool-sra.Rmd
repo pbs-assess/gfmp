@@ -197,7 +197,7 @@ B_{1} = \sum_a^A w_{a} m_{a} N_{1,a}.
 (\#eq:sra-om-b1)
 $$
 
-Il devrait être évident à partir des équations @ref(eq:sra-om-ceqpred), \@ref(eq:sra-om-recinit) et \@ref(eq:dlm-om-phi) que, dans les cas où les données sont limitées, les paramètres $R_0$ et $F^{\textrm{eq}}_f$ sont très confusionnels car ils informent tous deux la taille de la population par $R^{\textrm{eq}}$. Dans de tels cas, il est fortement recommandé de traiter $C^\textrm{eq}$ comme un axe majeur d’incertitude, car il déterminera fortement l’épuisement initial et la taille du stock. Nous notons également que les paramètres ($q_s$) de mise à l’échelle des observations des relevés par rapport à la biomasse vulnérable (équation \@ref(eq:sra-om-iysb)) seront également confusionnels avec $R_0$ et $F^{\textrm{eq}}_f$.
+Il devrait être évident à partir des équations \@ref(eq:sra-om-ceqpred), \@ref(eq:sra-om-recinit) et \@ref(eq:dlm-om-phi) que, dans les cas où les données sont limitées, les paramètres $R_0$ et $F^{\textrm{eq}}_f$ sont très confusionnels car ils informent tous deux la taille de la population par $R^{\textrm{eq}}$. Dans de tels cas, il est fortement recommandé de traiter $C^\textrm{eq}$ comme un axe majeur d’incertitude, car il déterminera fortement l’épuisement initial et la taille du stock. Nous notons également que les paramètres ($q_s$) de mise à l’échelle des observations des relevés par rapport à la biomasse vulnérable (équation \@ref(eq:sra-om-iysb)) seront également confusionnels avec $R_0$ et $F^{\textrm{eq}}_f$.
 
 
 ### Équations des dynamiques

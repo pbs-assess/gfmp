@@ -364,7 +364,7 @@ La mortalité apicale par pêche est la valeur maximale de $F_{a,f}$ subie par l
 Les lignes représentent les médianes, et les ombres gris foncé et gris pâle représentent les quantiles de 50 % et 95 % entre les répétitions.
 
 ```{r rex-F-om, fig.cap="(ref:fig-rex-F-om)", out.width="\\textwidth"}
-knitr::include_graphics(here::here("report/figure/rex-compare-F-panel.png"))
+knitr::include_graphics(here::here("report-french/figure/rex-compare-F-panel.png"))
 ```
 
 (ref:fig-rex-recdev-om)
@@ -372,7 +372,7 @@ knitr::include_graphics(here::here("report/figure/rex-compare-F-panel.png"))
 Les lignes représentent 100 échantillons aléatoires des répétitions.
 
 ```{r rex-recdev-om, fig.cap="(ref:fig-rex-recdev-om)", out.width="\\textwidth"}
-knitr::include_graphics(here::here("report/figure/rex-compare-recdev-panel.png"))
+knitr::include_graphics(here::here("report-french/figure/rex-compare-recdev-panel.png"))
 ```
 
 \clearpage
@@ -447,7 +447,7 @@ Bien que cela ne soit pas illustré, nous avons également vérifié que les rè
 Il convient de noter que dans le scénario « M croissante » du modèle opérationnel, les paramètres LTC et AADC n’apparaissent pas parce qu’ils sont en dessous de la limite inférieure de l’axe des ordonnées (ou parfaitement à 1 dans le cas d’AADC et de NFref).
 
 ```{r rex-converge, fig.cap="(ref:fig-rex-converge)", out.width="\\textwidth"}
-knitr::include_graphics(here("report/figure/rex-convergence.png"))
+knitr::include_graphics(here("report-french/figure/rex-convergence.png"))
 ```
 
 (ref:fig-rex-tigure-avg) Rendement moyen de toutes les procédures de gestion possibles dans l’ensemble de référence de modèles opérationnels.
@@ -457,7 +457,7 @@ Les cellules décrites représentent les procédures de gestion qui répondent a
 À l’aide de cet ensemble de critères, les procédures de gestion seraient « satisfaisantes » si les cellules *à la fois* de « LT LRP » et de « STC » étaient mises en évidence. Les procédures de gestion en gris pâle indiquent les procédures de gestion de référence.
 
 ```{r rex-tigure-avg, fig.cap="(ref:fig-rex-tigure-avg)", out.width="3.5in"}
-knitr::include_graphics(here("report/figure/rex-tigure-refset-avg.png"))
+knitr::include_graphics(here("report-french/figure/rex-tigure-refset-avg.png"))
 ```
 
 (ref:fig-rex-tigure-min) Rendement minimal de toutes les procédures de gestion possibles dans l’ensemble de référence de modèles opérationnels.
@@ -465,7 +465,7 @@ Cette figure est la même que la figure\@ref(fig:rex-tigure-avg), mais elle illu
 En d’autres termes, elle montre le pire rendement de chaque procédure de gestion dans l’ensemble de référence de modèles opérationnels.
 
 ```{r rex-tigure-min, fig.cap="(ref:fig-rex-tigure-min)", out.width="3.5in"}
-knitr::include_graphics(here("report/figure/rex-tigure-refset-min.png"))
+knitr::include_graphics(here("report-french/figure/rex-tigure-refset-min.png"))
 ```
 
 \clearpage
@@ -495,7 +495,7 @@ Les procédures de gestion sont classées par valeur décroissante du paramètre
 Il s’agit des mêmes données qui sous-tendent la figure \@ref(fig:rex-tigure-avg) et la figure \@ref(fig:rex-tigure-min), mais elles sont indiquées pour les différents scénarios de l’ensemble de référence de modèles opérationnels, et seulement pour les procédures de gestion satisfaisantes.
 
 ```{r rex-tigure-panel, fig.cap="(ref:fig-rex-tigure-panel)", out.width="0.8\\textwidth"}
-knitr::include_graphics(here("report/figure/rex-tigure-refset.png"))
+knitr::include_graphics(here("report-french/figure/rex-tigure-refset.png"))
 ```
 
 \clearpage
@@ -508,25 +508,25 @@ Les procédures de gestion de référence sont indiquées par des cercles ouvert
 Les procédures de gestion autres que de référence sont indiquées par des cercles fermés (Faux).
 
 ```{r rex-dot-lines, fig.cap="(ref:fig-rex-dot-lines)", out.width="\\textwidth"}
-knitr::include_graphics(here("report/figure/rex-dot-refset-avg.png"))
+knitr::include_graphics(here("report-french/figure/rex-dot-refset-avg.png"))
 ```
 
 \clearpage
 
 ```{r rex-tradeoff-reference, fig.cap="Compromis entre les paramètres de rendement moyen entre LT LRP et STC dans les scénarios de l’ensemble de référence de modèles opérationnels. Les procédures de gestion de référence sont indiquées par des cercles ouverts (Vrai). Les procédures de gestion autres que de référence sont indiquées par des cercles fermés (Faux).", out.width="5in"}
-knitr::include_graphics(here("report/figure/rex-tradeoff-refset-avg.png"))
+knitr::include_graphics(here("report-french/figure/rex-tradeoff-refset-avg.png"))
 ```
 
 \clearpage
 
 ```{r rex-spider-satisficed-mps-avg, fig.cap="Diagramme en radar des compromis des paramètres de rendement moyens pour les scénarios de l’ensemble de référence de modèles opérationnels. L’extérieur de l’hexagone représente une probabilité de 1,0 du paramètre de rendement et le milieu représente une valeur de 0. Les lignes tiretées représentent les procédures de gestion de référence.", out.width="5in"}
-knitr::include_graphics(here("report/figure/rex-radar-refset-avg.png"))
+knitr::include_graphics(here("report-french/figure/rex-radar-refset-avg.png"))
 ```
 
 \clearpage
 
 ```{r rex-proj-index, fig.cap="Valeurs historiques et projetées de l’indice de la biomasse du relevé synoptique sur la côte ouest de l’île de Vancouver. La ligne verticale tiretée représente 2019. La région ombrée représente le quantile de 95\\% et les lignes individuelles représentent quatre répétitions d’échantillons.", out.width="\\textwidth"}
-knitr::include_graphics(here("report/figure/rex-projections-index.png"))
+knitr::include_graphics(here("report-french/figure/rex-projections-index.png"))
 ```
 
 \clearpage
@@ -534,37 +534,37 @@ knitr::include_graphics(here("report/figure/rex-projections-index.png"))
 (ref:fig-rex-Proj-ceq200) B/B~MSY~, F/F~MSY~, et les prises des périodes historique et projetée pour le modèle opérationnel « C^eq^ 200 % ». La ligne foncée indique la valeur médiane et les rubans ombrés plus foncés et plus pâles indiquent les quantiles de 50 % et 90 %. Les fines lignes grises représentent des répétitions de simulation à titre d’illustration. La ligne verticale tiretée indique la dernière année de la période historique. Les lignes horizontales tiretées indiquent B/B~MSY~ = 0,8 et 0,4, et F/F~MSY~ = 1.
 
 ```{r rex-proj-ceq200, fig.cap="(ref:fig-rex-proj-ceq200)", out.width="6.5in"}
-knitr::include_graphics(here("report/figure/rex-projections-ceq200.png"))
+knitr::include_graphics(here("report-french/figure/rex-projections-ceq200.png"))
 ```
 
 (ref:fig-rex-proj-ceq250-cpue) Identique à la figure \@ref(fig:rex-proj-ceq200), mais pour le modèle opérationnel "C^eq^ 250%".
 
 ```{r rex-proj-ceq250-cpue, fig.cap="(ref:fig-rex-proj-ceq250-cpue)", out.width="6.5in"}
-knitr::include_graphics(here("report/figure/rex-projections-ceq250.png"))
+knitr::include_graphics(here("report-french/figure/rex-projections-ceq250.png"))
 ```
 
 (ref:fig-rex-proj-high-m) Identique à la figure \@ref(fig:rex-proj-ceq200), mais pour le modèle opérationnel « M plus élevée ».
 
 ```{r rex-proj-high-m, fig.cap="(ref:fig-rex-proj-high-m)", out.width="6.5in"}
-knitr::include_graphics(here("report/figure/rex-projections-high-m.png"))
+knitr::include_graphics(here("report-french/figure/rex-projections-high-m.png"))
 ```
 
 (ref:fig-rex-proj-high-h) Identique à la figure \@ref(fig:rex-proj-ceq200, mais pour le modèle opérationnel « Taux de variation plus élevé ».
 
 ```{r rex-proj-high-h, fig.cap="(ref:fig-rex-proj-high-h)", out.width="6.5in"}
-knitr::include_graphics(here("report/figure/rex-projections-high-h.png"))
+knitr::include_graphics(here("report-french/figure/rex-projections-high-h.png"))
 ```
 
 (ref:fig-rex-proj-low-sel) Identique à la figure \@ref(fig:rex-proj-ceq200), mais pour le modèle opérationnel « Sélectivité plus basse ».
 
 ```{r rex-proj-low-sel, fig.cap="(ref:fig-rex-proj-low-sel)", out.width="6.5in"}
-knitr::include_graphics(here("report/figure/rex-projections-sel1.png"))
+knitr::include_graphics(here("report-french/figure/rex-projections-sel1.png"))
 ```
 
 (ref:fig-rex-proj-no-cpue) Identique à la figure \@ref(fig:rex-proj-ceq200), mais pour le modèle opérationnel « Pas de CPUE C^eq^ 250 % ».
 
 ```{r rex-proj-no-cpue, fig.cap="(ref:fig-rex-proj-no-cpue)", out.width="6.5in"}
-knitr::include_graphics(here("report/figure/rex-projections-no-cpue.png"))
+knitr::include_graphics(here("report-french/figure/rex-projections-no-cpue.png"))
 ```
 
 \clearpage
@@ -576,7 +576,7 @@ La ligne horizontale tiretée représente F/F~MSY~ = 1.
 Les lignes de contour indiquent les quantiles à 0,25, 0,50 et 0,75 lissés par noyau de densité en deux dimensions, calculés dans l’espace logarithmique.
 
 ```{r rex-kobe, fig.cap="(ref:fig-rex-kobe)", out.width="\\textwidth"}
-knitr::include_graphics(here("report/figure/rex-kobe.png"))
+knitr::include_graphics(here("report-french/figure/rex-kobe.png"))
 ```
 
 \clearpage
@@ -588,7 +588,7 @@ La ligne horizontale tiretée représente F/F~MSY~ = 1.
 Chaque diamant représente le quantile de 50 % de B/B~MSY~ (à l’horizontale) et de F/F~MSY~ (à la verticale).
 
 ```{r rex-worm, fig.cap="(ref:fig-rex-worm)", out.width="\\textwidth"}
-knitr::include_graphics(here("report/figure/rex-worms-proj.png"))
+knitr::include_graphics(here("report-french/figure/rex-worms-proj.png"))
 ```
 
 \clearpage
@@ -619,31 +619,31 @@ Il est à noter que la sensibilité des projections ne correspond pas nécessair
 (ref:fig-rex-tigure-panel-rob) Rendement des procédures de gestion satisfaisantes des modèles opérationnels de l’ensemble de robustesse.
 
 ```{r rex-tigure-panel-rob, fig.cap="(ref:fig-rex-tigure-panel-rob)", out.width="5.5in"}
-knitr::include_graphics(here("report/figure/rex-tigure-robset.png"))
+knitr::include_graphics(here("report-french/figure/rex-tigure-robset.png"))
 ```
 
 ```{r rex-dots-satisficed-mps-robust, fig.cap="Rendement des procédures de gestion satisfaisantes des modèles opérationnels de l’ensemble de robustesse.", out.width="0.9\\textwidth"}
-knitr::include_graphics(here("report/figure/rex-dot-robset.png"))
+knitr::include_graphics(here("report-french/figure/rex-dot-robset.png"))
 ```
 
 ```{r rex-tradeoff-robust, fig.cap=" Compromis entre les paramètres de rendement de LT LRP et STC pour les procédures de gestion satisfaisantes des modèles opérationnels de l’ensemble de robustesse.", out.width="6in"}
-knitr::include_graphics(here("report/figure/rex-tradeoff-robset.png"))
+knitr::include_graphics(here("report-french/figure/rex-tradeoff-robset.png"))
 ```
 
 ```{r rex-spider-satisficed-mps-robust, fig.cap="Diagramme en radar des compromis des paramètres de rendement pour les procédures de gestion satisfaisantes des modèles opérationnels de l’ensemble de robustesse.", out.width="\\textwidth"}
-knitr::include_graphics(here("report/figure/rex-radar-robset.png"))
+knitr::include_graphics(here("report-french/figure/rex-radar-robset.png"))
 ```
 
 (ref:fig-rex-proj-no-cpue-light) Identique à la figure \@ref(fig:rex-proj-ceq200), mais pour le modèle opérationnel « Pas de CPUE C^eq^ 50 % » de l’ensemble de robustesse.
 
 ```{r rex-proj-no-cpue-light, fig.cap="(ref:fig-rex-proj-no-cpue-light)", out.width="6.5in"}
-knitr::include_graphics(here("report/figure/rex-projections-no-cpue-light.png"))
+knitr::include_graphics(here("report-french/figure/rex-projections-no-cpue-light.png"))
 ```
 
 (ref:fig-rex-proj-inc-m) Identique à la figure \@ref(fig:rex-proj-ceq200), mais pour le modèle opérationnel « M plus élevée » de l’ensemble de robustesse.
 
 ```{r rex-proj-inc-m, fig.cap="(ref:fig-rex-proj-inc-m)", out.width="6.5in"}
-knitr::include_graphics(here("report/figure/rex-projections-inc-m.png"))
+knitr::include_graphics(here("report-french/figure/rex-projections-inc-m.png"))
 ```
 
 (ref:fig-rex-proj-scenarios) B/B~MSY~, F/F~MSY~, et prises des périodes historique et projetée.
@@ -653,5 +653,5 @@ Les procédures de gestion satisfaisantes et de référence apparaissent de haut
 Les lignes verticales tiretées représentent 2019.
 
 ```{r rex-proj-scenarios, fig.cap="(ref:fig-rex-proj-scenarios)", out.width="\\textwidth"}
-knitr::include_graphics(here("report/figure/rex-projections-scenarios.png"))
+knitr::include_graphics(here("report-french/figure/rex-projections-scenarios.png"))
 ```
