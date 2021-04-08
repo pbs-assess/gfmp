@@ -27,7 +27,7 @@ Des cadres des procédures de gestion comme celui-ci peuvent être particulière
 Le Cadre pour la pêche durable et les dispositions relatives aux stocks de poissons de la *Loi sur les pêches* exigent que les stocks de poissons soient maintenus à des niveaux durables, et en particulier au-dessus du PRL (section \@ref(sec:intro-motivation)).
 Ce cadre préserve implicitement l’intention de ces politiques, bien que les points de référence et l’état du stock ne soient pas explicitement fournis.
 Le Cadre des procédures de gestion améliore donc la capacité de produire des avis sur les prises conformes au Cadre pour la pêche durable et aux dispositions sur les stocks de poissons pour les stocks à données limitées.
-Nous recommandons que des produits comme [l’étude sur la durabilité réalisée par le MPO] (https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/index-fr.html) soient souples pour tenir compte des rapports d’étape des processus fondés sur des procédures de gestion, qui peuvent utiliser d’autres formulations comme : « Selon la procédure de gestion actuelle, la probabilité que le stock soit inférieur au PRL moyenné sur une période de [Z]-années est inférieure à [X] ([Y] chances sur [N]). »
+Nous recommandons que des produits comme [l’étude sur la durabilité réalisée par le MPO](https://www.dfo-mpo.gc.ca/reports-rapports/regs/sff-cpd/survey-sondage/index-fr.html) soient souples pour tenir compte des rapports d’étape des processus fondés sur des procédures de gestion, qui peuvent utiliser d’autres formulations comme : « Selon la procédure de gestion actuelle, la probabilité que le stock soit inférieur au PRL moyenné sur une période de [Z]-années est inférieure à [X] ([Y] chances sur [N]). »
 Sinon, si on calcule un rendement minimal par année [@ices2016criteria] : « [...] la probabilité que le stock soit inférieur au PRL chaque année pendant une période de [Z] années est inférieure à [X] ([Y] chances sur [N]). »
 
 ## RÉGLAGE DES PROCÉDURES DE GESTION {#sec:discussion-tuning}
@@ -111,7 +111,7 @@ L’évaluation du rendement des procédures de gestion à l’aide de données 
 
 ## PLANS DE RÉTABLISSEMENT {#sec:discussion-rebuilding}
 
-La [Politique sur l’approche de précaution] (https://waves-vagues.dfo-mpo.gc.ca/Library/40584999.pdf) et les dispositions sur les stocks de poissons de la *Loi sur les pêches* (section \@ref(sec:intro-motivation)) exigent que des mesures de gestion soient mises en place si l’on évalue que les stocks de poissons se trouvent dans la zone critique (c.-à-d. sous le PRL).
+La [Politique sur l’approche de précaution](https://waves-vagues.dfo-mpo.gc.ca/Library/40584999.pdf) et les dispositions sur les stocks de poissons de la *Loi sur les pêches* (section \@ref(sec:intro-motivation)) exigent que des mesures de gestion soient mises en place si l’on évalue que les stocks de poissons se trouvent dans la zone critique (c.-à-d. sous le PRL).
 Les plans de rétablissement requièrent que les mesures de gestion fassent sortir les stocks de la zone critique dans un délai précis (p. ex. une ou deux générations), avec une probabilité déterminée.
 Le Cadre des procédures de gestion peut être facilement modifié pour tester le rendement des autres procédures de gestion en ce qui concerne l’atteinte des objectifs de rétablissement des stocks nécessitant des plans de rétablissement.
 Les seules véritables modifications nécessaires sont les objectifs et les paramètres de rendement, qui sont déjà personnalisables dans ce Cadre.

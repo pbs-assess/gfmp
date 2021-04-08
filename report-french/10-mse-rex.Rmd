@@ -437,7 +437,7 @@ L’application de ces critères a laissé `r number_to_word(length(mp_sat_b4_cu
 Nous avons également décidé d’exclure quatre procédures de gestion pour la poursuite de l'examen.
 Tout d’abord, nous avons choisi de ne retenir qu’une seule procédure de gestion satisfaisante du modèle de production excédentaire (.SP8040_0.6) puisque les procédures de gestion du modèle de production excédentaire qui différaient uniquement de par la forme de la fonction de production (.SP6040_0.6_fox) ou la règle de contrôle des prises (.SP6040_0.6 et .SP4010_0.6) affichaient des rendements presque identiques (figure \@ref(fig:rex-tigure-min)).
 Ensuite, nous avons retiré CC_hist20, car elle a été surclassée par les autres procédures de gestion à prises constantes---LT LRP et STC ont toutes deux été dépassées par toutes les autres procédures de gestion à prises constantes (figure \@ref(fig:rex-tigure-min)).
-Il restait donc r number_to_word(length(mp_sat))` procédures de gestion r gfutilities::commify(sort(mp_sat))`).
+Il restait donc `r number_to_word(length(mp_sat))` procédures de gestion `r gfutilities::commify(sort(mp_sat))`).
 
 (ref:fig-rex-converge)
 Évaluation de la convergence des simulations en boucle fermée pour la plie royale sur le classement uniforme des procédures de gestion dans les paramètres de rendement.

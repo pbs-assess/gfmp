@@ -3,6 +3,9 @@
 # - move the 50 ceq noncpue scenario to the robustness set
 # - add a scenario with 250% ceq
 
+FRENCH <- TRUE
+if (FRENCH) options(OutDec =  ",")
+
 library("dplyr")
 library("DLMtool")
 library("MSEtool")
@@ -218,6 +221,19 @@ sc <- tibble::tribble(
   "no-cpue-light", "No CPUE\nCeq. 50%", "Robustness",
   "inc-m", "M\nincreasing", "Robustness"
 )
+
+if (FRENCH) {
+  sc$scenario_human <- c(
+    "Ceq. 200%",
+    "Ceq. 250%",
+    "M plus\nélevée",
+    "Taux de variation\nplus élevé",
+    "Plus faible\nsélectivité",
+    "Pas de CPUE\nCeq. 250%",
+    "Pas de CPUE\nCeq. 50%",
+    "M\ncroissante")
+}
+
 sc <- mutate(sc, order = seq_len(n()))
 saveRDS(sc, file = here("generated-data/rex-scenarios.rds"))
 sc$scenario_human <- paste0(sc$order, " - ", sc$scenario_human)
@@ -292,6 +308,12 @@ get_Perr_y <- function(x, scenario) {
     mutate(scenario = scenario)
 }
 
+if (!FRENCH) {
+  fig_dir <- "report/figure"
+} else {
+  fig_dir <- "report-french/figure"
+}
+
 g <- purrr::map2_df(sra_rex, sc$scenario_human, get_depletion) %>%
   mutate(scenario = factor(scenario, levels = sc$scenario_human)) %>%
   ggplot(aes(year, med, ymin = lwr, ymax = upr)) +
@@ -300,9 +322,9 @@ g <- purrr::map2_df(sra_rex, sc$scenario_human, get_depletion) %>%
   geom_line() +
   facet_wrap(vars(scenario)) +
   gfplot::theme_pbs() +
-  labs(x = "Year", y = "Depletion") +
+  labs(x = en2fr("Year", FRENCH), y = en2fr("Depletion", FRENCH)) +
   coord_cartesian(ylim = c(0, 1), expand = FALSE)
-ggsave(here::here("report/figure/rex-compare-SRA-depletion-panel.png"),
+ggsave(here::here(paste0(fig_dir, "/rex-compare-SRA-depletion-panel.png")),
   width = 8, height = 6.75
 )
 g <- purrr::map2_df(sra_rex, sc$scenario_human, get_F) %>%
@@ -313,9 +335,9 @@ g <- purrr::map2_df(sra_rex, sc$scenario_human, get_F) %>%
   geom_line() +
   facet_wrap(vars(scenario)) +
   gfplot::theme_pbs() +
-  labs(x = "Year", y = "F") +
+  labs(x = en2fr("Year", FRENCH), y = "F") +
   coord_cartesian(ylim = c(0, 1.8), expand = FALSE)
-ggsave(here::here("report/figure/rex-compare-F-panel.png"),
+ggsave(here::here(fig_dir, "rex-compare-F-panel.png"),
   width = 8, height = 6.75
 )
 g <- purrr::map2_df(sra_rex, sc$scenario_human, get_Perr_y) %>%
@@ -325,19 +347,20 @@ g <- purrr::map2_df(sra_rex, sc$scenario_human, get_Perr_y) %>%
   geom_line(alpha = 0.1) +
   facet_wrap(vars(scenario)) +
   gfplot::theme_pbs() +
-  labs(x = "Year", y = "Recruitment deviation in log space") +
+  labs(x = en2fr("Year", FRENCH),
+    y = if (!FRENCH) "Recruitment deviation in log space" else "Écart de recrutement") +
   coord_cartesian(ylim = c(-1.5, 1.7), expand = FALSE) +
   geom_hline(yintercept = 0, lty = 2, alpha = 0.6)
 # g
-ggsave(here::here("report/figure/rex-compare-recdev-panel.png"),
+ggsave(here::here(fig_dir, "rex-compare-recdev-panel.png"),
   width = 8, height = 6.75
 )
 
 g <- sra_rex %>% set_names(sc$scenario_human) %>%
-  gfdlm::plot_index_fits(survey_names = c("SYN WCVI", "Commercial CPUE")) +
+  gfdlm::plot_index_fits(survey_names = c("SYN WCVI", "Commercial CPUE"), french = FRENCH) +
   coord_cartesian(ylim = c(0, 2.5), expand = FALSE) +
   scale_y_continuous(breaks = seq(0, 2, .5))
-ggsave(here::here("report/figure/rex-index-fits.png"), width = 5.5, height = 9.5)
+ggsave(here::here(fig_dir, "rex-index-fits.png"), width = 5.5, height = 9.5)
 
 # FIXME: get this into gfdlm:
 get_sra_selectivity <- function(sc_name) {
@@ -353,9 +376,9 @@ sel %>%
   ggplot(aes(Length, value, group = paste(iter))) +
   geom_line(alpha = 0.15) +
   gfplot::theme_pbs() +
-  ylab("Selectivity") + xlab("Length") +
+  ylab(if (!FRENCH) "Selectivity" else "Sélectivité") + xlab(en2fr("Length", FRENCH)) +
   coord_cartesian(expand = FALSE, ylim = c(-0.01, 1.01))
-ggsave(here::here("report/figure/rex-selectivity.png"), width = 5, height = 3)
+ggsave(here::here(fig_dir, "rex-selectivity.png"), width = 5, height = 3)
 
 # sra_rex[[1]]@Misc[[1]]$s_vul[1,,1]
 # sra_rex[[1]]@Misc[[1]]$s_vul[1,,2]
@@ -372,6 +395,19 @@ saveRDS(rex_converged, file = here("generated-data/rex-converged.rds"))
 
 sc2 <- readRDS(here("generated-data", "rex-scenarios.rds"))
 sc2$scenario_human <- paste0(sc2$order, " - ", sc2$scenario_human)
+
+if (FRENCH) {
+  sc2$scenario_human <- c(
+    "1 - Ceq. 200%",
+    "2 - Ceq. 250%",
+    "3 - M plus\nélevée",
+    "4 - Taux de variation\nplus élevé",
+    "5 - Plus faible\nsélectivité",
+    "6 - Pas de CPUE\nCeq. 250%",
+    "7 - Pas de CPUE\nCeq. 50%",
+    "8 - M\ncroissante")
+}
+
 x <- oms %>% set_names(sc2$scenario_human) %>%
   map_dfr(~tibble(
     D = .x@cpars$D,
@@ -405,11 +441,11 @@ x %>% dplyr::filter(variable %in% c("R0", "AC", "D")) %>%
   facet_grid(Scenario~variable, scales = "free_x")+
   gfdlm::theme_pbs() +
   coord_cartesian(ylim = c(0, 200), expand = FALSE) +
-  xlab("Parameter value") + ylab("Count") +
+  xlab(en2fr("Parameter value", FRENCH)) + ylab(en2fr("Count", FRENCH)) +
   # theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.y = element_blank()) +
   scale_colour_brewer(palette = "Dark2")
 
-ggsave(here::here("report/figure/rex-sra-estimated.png"),
+ggsave(here::here(fig_dir, "rex-sra-estimated.png"),
   width = 6.5, height = 8.5)
 
 x %>% dplyr::filter(variable %in% c("sigma_R", "h", "L50", "L50_95", "t0", "k", "Linf", "M")) %>%
@@ -419,11 +455,11 @@ x %>% dplyr::filter(variable %in% c("sigma_R", "h", "L50", "L50_95", "t0", "k", 
   facet_wrap(~variable, scales = "free_x")+
   gfdlm::theme_pbs() +
   coord_cartesian(ylim = c(0, 200), expand = FALSE) +
-  xlab("Parameter value") + ylab("Count") +
+  xlab(en2fr("Parameter value", FRENCH)) + ylab(en2fr("Count", FRENCH)) +
   # theme(axis.text.y = element_blank(), axis.ticks.y = element_blank(), axis.title.y = element_blank()) +
   scale_colour_brewer(palette = "Dark2")
 
-ggsave(here::here("report/figure/rex-sra-filtered.png"),
+ggsave(here::here(fig_dir, "rex-sra-filtered.png"),
   width = 6.5, height = 5.5)
 
 # Substantially speeds up LaTeX rendering on a Mac
@@ -431,7 +467,11 @@ ggsave(here::here("report/figure/rex-sra-filtered.png"),
 optimize_png <- TRUE
 if (optimize_png && !identical(.Platform$OS.type, "windows")) {
   files_per_core <- 4
-  setwd("report/figure")
+  if (!FRENCH) {
+    setwd("report/figure")
+  } else {
+    setwd("report-french/figure")
+}
   system(paste0(
     "find -X . -name 'rex-*.png' -print0 | xargs -0 -n ",
     files_per_core, " -P ", cores, " optipng -strip all"
