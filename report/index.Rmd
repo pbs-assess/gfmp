@@ -16,6 +16,7 @@ address: |
 year: 2020
 report_number: nnn
 region: Pacific Region
+citation_other_language: "Anderson, S.C., Forrest, R.E., Huynh, Q.C., Keppel, E.A. 2021. Un Cadre des procédures de gestion pour le poisson de fond en Colombie-Britannique. Secr. can. de consult. sci. du MPO. Doc. de rech. 2021/nnn. vi + 154 p."
 abstract: |
   The Pacific Region Groundfish Integrated Fisheries Management Plan lists approximately 80 species-area fish stocks for which annual total allowable catches are required, most of which are applied as individual transferable quotas within the British Columbia (BC) integrated groundfish fishery. The majority of fish stocks encountered by the integrated groundfish fishery are considered data-limited, where data-limited stocks are defined as those with insufficient data to reliably estimate stock status or estimate abundance or productivity with conventional stock assessment methods such as statistical catch-at-age models. In recent decades, Fisheries and Oceans Canada (DFO) groundfish stock assessments have focused on data-rich stocks, resulting in a subset of stocks with full stock assessments, while many stocks with less informative data remain unassessed.
 
