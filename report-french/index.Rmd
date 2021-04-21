@@ -38,7 +38,7 @@ output:
 knit: bookdown::render_book
 link-citations: true
 bibliography: refs.bib
-csl: csl/csas.csl # or csl/csas-french.csl for French
+csl: csl/csas-french.csl # or csl/csas-french.csl for French
 ---
 
 ```{r setup, echo=FALSE, cache=FALSE, message=FALSE, results='hide', warning=FALSE}
