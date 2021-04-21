@@ -33,7 +33,7 @@ Les équations pour le modèle d’analyse de la réduction des stocks sont four
 
 3. Renvoyer les valeurs des paramètres conditionnés au modèle opérationnel (maintenant le modèle opérationnel « conditionné ») pour les utiliser dans les projections de simulation en boucle fermée, à partir de l’année $t_{c}+1$.
 
-L’analyse de la réduction des stocks met à jour un ou plusieurs des paramètres suivants du modèle opérationnel, en fonction de la disponibilité des données (voir plus de détails à l’annexe \@ref(app:sra)) :
+L’analyse de la réduction des stocks met à jour un ou plusieurs des paramètres suivants du modèle opérationnel, en fonction de la disponibilité des données (voir plus de détails à l’annexe \@ref(app:sra))~:
 
 - $B_{t_c}/B_0$ (ou « D »; épuisement au cours de la dernière année historique $t_c$)
 - $R_0$ (recrutement non exploité)
@@ -566,5 +566,6 @@ p %>%
   kableExtra::column_spec(1, width = "1.75cm") %>%
   kableExtra::column_spec(2, width = "1.75cm") %>%
   kableExtra::column_spec(3, width = "1.75cm") %>%
-  kableExtra::column_spec(4, width = "9.5cm")
+  kableExtra::column_spec(4, width = "9.5cm") %>% 
+  kableExtra::kable_styling(repeat_header_continued = FALSE)
 ```
