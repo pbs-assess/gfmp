@@ -6,14 +6,14 @@ rmd_files: ["index.Rmd",
             "03-framework.Rmd",
             "04-case-study.Rmd",
             "05-discussion.Rmd",
+            "99-references.Rmd",
             "06-dlmtool-om.Rmd",
             "07-msetool-sra.Rmd",
             "08-default-slots.Rmd",
             "09-mps.Rmd",
             "10-mse-rex.Rmd",
             "11-om-rex.Rmd",
-            "12-gfdlm.Rmd",
-            "99-references.Rmd"]
+            "12-gfdlm.Rmd"]
 download: [["resdoc.pdf", "PDF"], ["resdoc.docx", "Word"]]
 delete_merged_file: true
 

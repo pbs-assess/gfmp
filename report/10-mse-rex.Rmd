@@ -615,7 +615,7 @@ Vertical dashed lines show B/B~MSY~ = 0.4 (left) and 0.8 (right).
 Horizontal dashed line shows F/F~MSY~ = 1.
 Contour lines indicate two-dimensional kernel-density-smoothed quantiles at 0.25, 0.50, and 0.75 levels, calculated in log space.
 
-```{r rex-kobe, fig.cap="(ref:fig-rex-kobe)", out.width="\\textwidth"}
+```{r rex-kobe, fig.cap="(ref:fig-rex-kobe)", out.width="0.8\\textwidth"}
 knitr::include_graphics(here("report/figure/rex-kobe.png"))
 ```
 

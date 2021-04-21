@@ -123,7 +123,7 @@ $$
 
 où $L_{y,a}$ est la longueur moyenne selon l’âge, et $\sigma^{\textrm{asc}}_f = (L^5_f - L^{\textrm{FS}}_f)/\sqrt{-\log_2(0.05)}$ et $\sigma^{\textrm{des}}_f = (L_{\infty} - L^{\textrm{FS}}_f)/\sqrt{-\log_2(v^{L_{\infty}})}$ contrôlent la forme des membres ascendant et descendant, respectivement, de la fonction de sélectivité. Dans ce paramétrage, la sélectivité fondée sur la longueur est constante dans le temps. La sélectivité correspondante fondée sur l’âge est constante dans le temps si la croissance ne varie pas dans le temps.
 
-Voir la description du traitement de plusieurs flottilles dans le modèle opérationnel de DLMtool pendant la période de projection à l’annexe \@ref(app:dlmtool-om), section \@ref(sec:dlmtool-fleet-dynamics.
+Voir la description du traitement de plusieurs flottilles dans le modèle opérationnel de DLMtool pendant la période de projection à l’annexe \@ref(app:dlmtool-om), section \@ref(sec:dlmtool-fleet-dynamics).
 
 La mortalité totale $Z$ de l’année $y$ et pour l’âge $a$ est donnée par la formule
 
@@ -300,7 +300,7 @@ p_{y,\ell,f} = \dfrac{C^N_{y,\ell,f}}{\sum_{\ell}C^N_{y,\ell,f}}.
 (\#eq:sra-om-pylf)
 $$
 
-## Relevé
+## RELEVÉ
 
 Si le $s^{\textrm{th}}$ relevé est fondé sur la biomasse, la valeur $I_{y,s}$ du relevé est calculée comme suit :
 
@@ -318,7 +318,7 @@ I_{y,s} = q_s \sum_a v_{a,s} N_{y,a}.
 (\#eq:sra-om-iysn)
 $$
 
-## Vraisemblances
+## VRAISEMBLANCES
 
 Si le modèle est conditionné en fonction des prises et que les taux de mortalité par pêche sont des paramètres estimés, alors la composante de log-vraisemblance $\Lambda_1$ des prises est
 

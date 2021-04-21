@@ -303,7 +303,7 @@ p_{y,\ell,f} = \dfrac{C^N_{y,\ell,f}}{\sum_{\ell}C^N_{y,\ell,f}}.
 (\#eq:sra-om-pylf)
 $$
 
-## Survey
+## SURVEY
 
 If the $s^{\textrm{th}}$ survey is biomass-based, then the survey value $I_{y,s}$ is calculated as
 
@@ -321,7 +321,7 @@ I_{y,s} = q_s \sum_a v_{a,s} N_{y,a}.
 (\#eq:sra-om-iysn)
 $$
 
-## Likelihoods
+## LIKELIHOODS
 
 If the model is conditioned on catch, and fishing mortality rates are estimated parameters, then the log-likelihood component $\Lambda_1$ of the catch is
 

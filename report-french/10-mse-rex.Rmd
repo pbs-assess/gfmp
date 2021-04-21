@@ -549,7 +549,7 @@ knitr::include_graphics(here("report-french/figure/rex-projections-ceq250.png"))
 knitr::include_graphics(here("report-french/figure/rex-projections-high-m.png"))
 ```
 
-(ref:fig-rex-proj-high-h) Identique à la figure \@ref(fig:rex-proj-ceq200, mais pour le modèle opérationnel « Taux de variation plus élevé ».
+(ref:fig-rex-proj-high-h) Identique à la figure \@ref(fig:rex-proj-ceq200), mais pour le modèle opérationnel « Taux de variation plus élevé ».
 
 ```{r rex-proj-high-h, fig.cap="(ref:fig-rex-proj-high-h)", out.width="6.5in"}
 knitr::include_graphics(here("report-french/figure/rex-projections-high-h.png"))
@@ -575,7 +575,7 @@ Les lignes verticales tiretées représentent B/B~MSY~ = 0,4 (à gauche) et 0,8 
 La ligne horizontale tiretée représente F/F~MSY~ = 1.
 Les lignes de contour indiquent les quantiles à 0,25, 0,50 et 0,75 lissés par noyau de densité en deux dimensions, calculés dans l’espace logarithmique.
 
-```{r rex-kobe, fig.cap="(ref:fig-rex-kobe)", out.width="\\textwidth"}
+```{r rex-kobe, fig.cap="(ref:fig-rex-kobe)", out.width="0.8\\textwidth"}
 knitr::include_graphics(here("report-french/figure/rex-kobe.png"))
 ```
 

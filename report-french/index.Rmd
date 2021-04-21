@@ -72,7 +72,7 @@ library(rstanarm)
 french <- TRUE
 
 if (french){
-  csl <- "csl/csas.csl"
+  csl <- "csl/csas-french.csl"
   options(OutDec =  ",")
   options(french = TRUE)
 } else {
