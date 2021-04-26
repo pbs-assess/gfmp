@@ -340,7 +340,7 @@ temp <- rex_converged %>%
     "7 - Pas de CPUE Ceq. 50%",
     "8 - M croissante")
 temp %>% 
-  csasdown::csas_table(col_names = c("Scénario", "Fraction"),
+  csasdown::csas_table(col_names = c("Scénario", "Fraction"),
     caption = "Fraction des répétitions conservée après le conditionnement avec le modèle d’analyse de la réduction des stocks.")
 ```
 
