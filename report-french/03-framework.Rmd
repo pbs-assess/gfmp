@@ -43,25 +43,25 @@ Les objectifs 2 et 3 sont des interprétations du paragraphe 6.1(1) de la *Loi s
 Le terme « durabilité » a de nombreuses définitions en ce qui concerne les pêches [@hilborn2015; @marentette2020a].
 La Direction des sciences du MPO évalue actuellement le libellé des dispositions sur les stocks de poisson afin de clarifier les définitions de la durabilité en ce qui a trait à la gestion des pêches canadiennes [@marentette2020b].
 Ici, nous supposons que l’objectif de maintenir le stock dans la zone saine (figure \@ref(fig:pa-illustration)) avec une probabilité non nulle est conforme à la formulation « maintenir les grands stocks de poissons au moins au niveau nécessaire pour favoriser la durabilité des stocks ».
-Nous utilisons des valeurs provisoires du PRL = 0,4*B*~MSY~ et du RSS = 0,8*B*~MSY~, suggérées dans le Cadre de l’approche de précaution [@dfo2009] (nous utilisons ici *B* pour faire référence à la biomasse féconde).
+Nous utilisons des valeurs provisoires du PRL = 0,4*B*~RMD~ et du RSS = 0,8*B*~RMD~, suggérées dans le Cadre de l’approche de précaution [@dfo2009] (nous utilisons ici *B* pour faire référence à la biomasse féconde).
 Voir @marentette2020c et @marentette2020b pour une discussion sur l’évolution actuelle de la réflexion sur le rôle de ces points de référence dans les politiques et la législation canadiennes.
 
 Il faudra probablement examiner stock par stock les probabilités précises attribuées à la réalisation de chaque objectif.
 Pour l’objectif 1, les pratiques exemplaires internationales suggèrent que la probabilité de maintenir les stocks au-dessus du PRL devrait être de 90 à 95 % [@sainsbury2008; @mcilgorm2013; @ices2018; @marentette2020a], tandis que la probabilité d’atteindre une biomasse cible (p. ex. le seuil pour la zone saine ou une cible prédéfinie au-dessus du RSS) peut être inférieure, à environ 50 % [@mcilgorm2013].
 
-Nous proposons les paramètres de rendement provisoires suivants, où MSY fait référence au rendement maximal durable, *B*~MSY~ à la biomasse féconde à l’équilibre à MSY et *F*~MSY~ à la mortalité par pêche qui produit MSY à long terme :
+Nous proposons les paramètres de rendement provisoires suivants, où RMD fait référence au rendement maximal durable, *B*~RMD~ à la biomasse féconde à l’équilibre à RMD et *F*~RMD~ à la mortalité par pêche qui produit RMD à long terme :
 
-1. LT LRP : Probabilité que *B* > 0,4*B*~MSY~ (sur une durée de plusieurs années)
-2. LT USR : Probabilité que *B* > 0,8*B*~MSY~ (sur une durée de plusieurs années)
-3. FMSY : Probabilité que *F* < *F*~MSY~ (sur l’ensemble de la projection)
+1. LT PRL : Probabilité que *B* > 0,4*B*~RMD~ (sur une durée de plusieurs années)
+2. LT RSS : Probabilité que *B* > 0,8*B*~RMD~ (sur une durée de plusieurs années)
+3. FRMD : Probabilité que *F* < *F*~RMD~ (sur l’ensemble de la projection)
 4. STC : Probabilité que les prises > prises de référence (sur les années 1 à 10)
 5. LTC : Probabilité que les prises > prises de référence (sur une durée de plusieurs années)
 6. AADC : Probabilité que l’AADC (différence interannuelle absolue moyenne des prises) < AADC historique (sur l’ensemble de la projection)
 
-Tous les paramètres de rendement ci-dessus sont exprimés sous forme de probabilités d’être au-dessus ou au-dessous de certains critères, la probabilité étant calculée comme le nombre moyen de fois où les critères sont respectés dans les répétitions et les années, p. ex. $$\textrm{LT LRP}= \frac{\sum_{n = 1}^{n_{\textrm{rep}}}\sum_{t = t_1}^{t_2}B_t > 0,4B_\textrm{MSY}}{t_2 - t_1 + 1},$$ où $t_1$ et $t_2$ sont les première et dernière années sur lesquelles le paramètre est calculé, et $n_\textrm{rep}$ est le nombre de simulations répétées. Les autres paramètres de rendement sont calculés de la même façon.
+Tous les paramètres de rendement ci-dessus sont exprimés sous forme de probabilités d’être au-dessus ou au-dessous de certains critères, la probabilité étant calculée comme le nombre moyen de fois où les critères sont respectés dans les répétitions et les années, p. ex. $$\textrm{LT PRL}= \frac{\sum_{n = 1}^{n_{\textrm{rep}}}\sum_{t = t_1}^{t_2}B_t > 0,4B_\textrm{RMD}}{t_2 - t_1 + 1},$$ où $t_1$ et $t_2$ sont les première et dernière années sur lesquelles le paramètre est calculé, et $n_\textrm{rep}$ est le nombre de simulations répétées. Les autres paramètres de rendement sont calculés de la même façon.
 
-Dans la liste de paramètres de rendement ci-dessus, LT LRP et LT USR sont des paramètres de conservation mesurant les objectifs 1 et 2 à long terme.
-FMSY est un paramètre de rendement de conservation qui mesure l’objectif 3 sur toute la période de projection.
+Dans la liste de paramètres de rendement ci-dessus, LT PRL et LT RSS sont des paramètres de conservation mesurant les objectifs 1 et 2 à long terme.
+FRMD est un paramètre de rendement de conservation qui mesure l’objectif 3 sur toute la période de projection.
 LTC et STC sont des paramètres économiques qui représentent l’objectif 4, mesuré à court et à long terme, respectivement.
 AADC est un paramètre économique représentant l’objectif 5, mesuré sur toute la période de projection (voir la description ci-après).
 
@@ -98,7 +98,7 @@ Les paramètres de rendement du Cadre des procédures de gestion sont facilement
 
 Dans les cas où les paramètres de rendement sont calculés sur plusieurs années, il faut prendre soin d’indiquer clairement la façon dont les statistiques sommaires sont calculées.
 À titre provisoire, nous suggérons de calculer les statistiques sur le rendement pour les répétitions et pour l’ensemble de la période définie pour ce paramètre de rendement.
-Par exemple, nous avons calculé le paramètre de rendement *F*~MSY~ pour toutes les répétitions et toutes les années simultanément.
+Par exemple, nous avons calculé le paramètre de rendement *F*~RMD~ pour toutes les répétitions et toutes les années simultanément.
 On pourrait aussi calculer les statistiques de rendement pour une année d’intérêt donnée, calculer la proportion d’années pendant lesquelles le paramètre de rendement est atteint [@australian_government2018], en vérifiant que le seuil du paramètre de rendement est atteint chaque année [@ices2016criteria] ou à chaque répétition.
 Les pratiques exemplaires pour ces calculs varient d’une administration à l’autre [@marentette2020a], et différentes méthodes peuvent signifier des tolérances au risque différentes.
 Par exemple, exiger qu’un seuil soit atteint chaque année [@ices2016criteria] est une exigence plus stricte que le fait d’exiger qu’un seuil soit atteint en moyenne sur les répétitions et les années.
@@ -241,11 +241,11 @@ La grande majorité des procédures de gestion à données limitées qui sont pu
 En plus des procédures de gestion possibles, il est important d’inclure des procédures de gestion de référence. Nous suggérons provisoirement les procédures de gestion de référence suivantes :
 
 * Pas de pêche
-* Pêche à *F*~MSY~
-* Pêche à 0,75 *F*~MSY~
+* Pêche à *F*~RMD~
+* Pêche à 0,75 *F*~RMD~
 * Maintien du TAC actuel
 
-Le but des procédures de gestion de référence n’est pas d’explorer des stratégies de gestion viables, mais de limiter l’éventail du rendement attendu ou possible et de contextualiser si les différences entre les statistiques de rendement entre les procédures de gestion sont significatives [@punt2016]. Par exemple, la procédure de gestion de référence « Pas de pêche » renseigne sur les niveaux maximaux du stock possibles et le taux de rétablissement maximal possible dans un scénario de rétablissement. La procédure de gestion « Pêche à 0,75 *F*~MSY~ » illustre le rendement pour un gestionnaire omniscient avec des informations parfaites. La procédure de gestion qui maintient le TAC actuel est incluse parce qu’elle illustre ce qui serait probablement la position par défaut à court terme si le Cadre n’avait pas été mis en œuvre, et les attentes de rendement à long terme compte tenu des niveaux d’exploitation actuels.
+Le but des procédures de gestion de référence n’est pas d’explorer des stratégies de gestion viables, mais de limiter l’éventail du rendement attendu ou possible et de contextualiser si les différences entre les statistiques de rendement entre les procédures de gestion sont significatives [@punt2016]. Par exemple, la procédure de gestion de référence « Pas de pêche » renseigne sur les niveaux maximaux du stock possibles et le taux de rétablissement maximal possible dans un scénario de rétablissement. La procédure de gestion « Pêche à 0,75 *F*~RMD~ » illustre le rendement pour un gestionnaire omniscient avec des informations parfaites. La procédure de gestion qui maintient le TAC actuel est incluse parce qu’elle illustre ce qui serait probablement la position par défaut à court terme si le Cadre n’avait pas été mis en œuvre, et les attentes de rendement à long terme compte tenu des niveaux d’exploitation actuels.
 
 ### Inclusion de nouvelles procédures de gestion
 
@@ -260,7 +260,7 @@ Le Cadre présenté ici a été conçu pour tenir compte des nouvelles procédur
 Une fois que les objectifs, les paramètres de rendement, les modèles opérationnels conditionnés et les procédures de gestion sont entièrement spécifiés, on peut appliquer un cadre de simulation en boucle fermée (figures \@ref(fig:mse-chart-basic) et \@ref(fig:mse-chart)) pour tester le rendement relatif des procédures de gestion par rapport à l’atteinte des objectifs énoncés.
 
 Nous recommandons de commencer par une étape de satisfaction, où des simulations d’essai sont effectuées pour éliminer les procédures de gestion qui ne répondent pas à un ensemble de critères de rendement de base [@miller2010].
-Par exemple, dans notre étude de cas de la plie royale (annexe \@ref(app:mse-rex)), nous avons éliminé les procédures de gestion qui n’atteignaient pas une probabilité à long terme de 90 % de maintenir le stock au-dessus du PRL (LT LRP $>$ 0,9) et une probabilité à court terme de 80 % de prises supérieures à la moyenne récente des prises (STC $>$ 0,8).
+Par exemple, dans notre étude de cas de la plie royale (annexe \@ref(app:mse-rex)), nous avons éliminé les procédures de gestion qui n’atteignaient pas une probabilité à long terme de 90 % de maintenir le stock au-dessus du PRL (LT PRL $>$ 0,9) et une probabilité à court terme de 80 % de prises supérieures à la moyenne récente des prises (STC $>$ 0,8).
 Nous recommandons une approche itérative pour choisir les critères de satisfaction pour chaque stock.
 Le but est de simplifier le processus décisionnel en mettant l’accent sur un nombre gérable de procédures de gestion.
 Dans la mesure du possible, les critères ne devraient pas être assez stricts pour exclure les procédures de gestion ayant un rendement généralement acceptable ou pour exclure presque toutes les procédures de gestion.
@@ -326,13 +326,13 @@ La première est un semis de points à deux variables, qui permet de comparer de
 La seconde est un diagramme en radar (aussi appelé « en cerf-volant » ou « en araignée »).
 Les diagrammes en radar permettent de comparer de nombreux paramètres de rendement, mais ils deviennent difficiles à interpréter lorsque le nombre de paramètres de rendement augmente (p. ex. au-dessus de six) et la prudence est de mise pour les interpréter, car la disposition des « rayons » peut influencer la perception des formes ainsi obtenues et il a été prouvé que les humains interprètent moins vite et moins précisément les représentations radiales des données que les représentations cartésiennes [@diehl2010; @feldman2013; @albo2016].
 
-Pour comprendre les processus menant aux paramètres de rendement, nous recommandons d’inclure dans les résultats de l’application du Cadre des procédures de gestion des visualisations des valeurs historiques et projetées de *B*/*B*~MSY~, *F*/*F*~MSY~ et des prises.
+Pour comprendre les processus menant aux paramètres de rendement, nous recommandons d’inclure dans les résultats de l’application du Cadre des procédures de gestion des visualisations des valeurs historiques et projetées de *B*/*B*~RMD~, *F*/*F*~RMD~ et des prises.
 Nous suggérons deux versions : l’une qui permet une inspection minutieuse des différents scénarios de modèles opérationnels et une compréhension du comportement de répétition individuel (figure \@ref(fig:methods-proj)), et l’autre qui permet de comparer les séries chronologiques entre les scénarios de modèles opérationnels (figure \@ref(fig:methods-proj-sens)).
 L’inspection de ces séries chronologiques peut fournir une vérification diagnostique permettant de vérifier que les répétitions échantillonnent adéquatement l’espace des paramètres.
 Par exemple, une série chronologique bifurquée pourrait indiquer qu’une condition limite est atteinte dans certaines répétitions et qu’il peut être nécessaire d’échantillonner un ou plusieurs paramètres à partir d’une distribution plus vaste.
 L’inspection de ces séries chronologiques peut aussi améliorer la compréhension du rendement des procédures de gestion et mener à l’ajout de nouveaux paramètres de rendement si l’ensemble existant ne saisit pas certains comportements importants qui deviennent évidents dans les séries chronologiques.
 Par exemple, si certaines procédures de gestion créent des recommandations de TAC variables dans les premières années de mise en œuvre, il pourrait être nécessaire de définir un objectif de variabilité du TAC à court terme et un paramètre de rendement.
-Par ailleurs, si certaines procédures de gestion entraînent des baisses à court terme de *B*/*B*~MSY~ qui finissent par se rétablir dans le créneau à long terme, cela peut indiquer la nécessité d’un objectif de conservation et d’un paramètre de rendement à court terme ou le calcul des probabilités des paramètres de rendement par la probabilité minimale d’une année [p. ex. @ices2016criteria].
+Par ailleurs, si certaines procédures de gestion entraînent des baisses à court terme de *B*/*B*~RMD~ qui finissent par se rétablir dans le créneau à long terme, cela peut indiquer la nécessité d’un objectif de conservation et d’un paramètre de rendement à court terme ou le calcul des probabilités des paramètres de rendement par la probabilité minimale d’une année [p. ex. @ices2016criteria].
 Ces courbes peuvent également indiquer des procédures de gestion qui mèneront probablement à l’extinction du stock, même si ce comportement est masqué par la moyenne des paramètres de rendement à long terme.
 Par exemple, comme beaucoup de modèles opérationnels, le modèle opérationnel de l’outil DLMtool empêche une biomasse négative dans le cas où les TAC sont supérieurs à la biomasse du stock.
 Par conséquent, les procédures de gestion qui ne tiennent pas compte de la rétroaction de l’indice de l’abondance, comme les procédures de gestion à prises constantes, peuvent parfois produire des TAC plus élevés que la biomasse disponible, contre lesquels le modèle opérationnel les protégerait.
@@ -346,10 +346,10 @@ Nous remarquons que la probabilité cumulative que l’indice observé dépasse 
 Par exemple, même si le modèle opérationnel a parfaitement exprimé la réalité, il y a une probabilité approximative de `r round(pbinom(9, 10, 0,95), 1)` (2 chances sur 5) que l’indice observé dépassera à un moment donné le quantile de 95 % des valeurs de l’indice simulées après 10 ans.
 La simulation en boucle fermée elle-même peut être utilisée pour établir les déclencheurs appropriés avec une puissance statistique acceptable [@carruthers_hordyk_2018].
 
-Enfin, nous suggérons deux visualisations qui illustrent le compromis entre *F*/*F*~MSY~ et *B*/*B*~MSY~ entre les répétitions pour les diverses procédures de gestion (figure\@ref(fig:methods-kobe) et \@ref(fig:methods-worm)).
-La première est un graphique standard de Kobe représentant *F*/*F*~MSY~ par rapport à *B*/*B*~MSY~ la dernière année de la projection (figure \@ref(fig:methods-kobe)).
+Enfin, nous suggérons deux visualisations qui illustrent le compromis entre *F*/*F*~RMD~ et *B*/*B*~RMD~ entre les répétitions pour les diverses procédures de gestion (figure\@ref(fig:methods-kobe) et \@ref(fig:methods-worm)).
+La première est un graphique standard de Kobe représentant *F*/*F*~RMD~ par rapport à *B*/*B*~RMD~ la dernière année de la projection (figure \@ref(fig:methods-kobe)).
 Cette visualisation met en évidence l’espace des paramètres ayant la densité de probabilité la plus élevée selon les lignes de contour de l’estimation par noyau de densité du quantile.
-L’autre visualisation illustre la trajectoire de *F*/*F*~MSY~ par rapport à *B*/*B*~MSY~ dans le temps (figure \@ref(fig:methods-worm)).
+L’autre visualisation illustre la trajectoire de *F*/*F*~RMD~ par rapport à *B*/*B*~RMD~ dans le temps (figure \@ref(fig:methods-worm)).
 La dernière année de la figure \@ref(fig:methods-worm) est une autre représentation de la figure \@ref(fig:methods-kobe).
 La figure \@ref(fig:methods-worm) présente également une autre vérification diagnostique du comportement des procédures de gestion dans le temps, par exemple en indiquant à quelle fréquence le stock se trouve dans la zone critique.
 Il est possible que certaines procédures de gestion puissent respecter les paramètres de conservation à long terme, mais qu’elles puissent causer des problèmes de conservation à plus court terme, ce qui pourrait indiquer la nécessité d’envisager d’autres paramètres de conservation à court terme.
@@ -398,14 +398,14 @@ Il faut faire attention lorsqu’on interprète ces tracés, car la disposition 
 knitr::include_graphics(here("report-french/figure/framework-radar.png"))
 ```
 
-(ref:fig-methods-proj) Cette visualisation illustre les valeurs historiques et projetées de B/B~MSY~ (où B représente la biomasse féconde), de F/F~MSY~ et des prises pour diverses procédures de gestion pour un seul modèle opérationnel.
+(ref:fig-methods-proj) Cette visualisation illustre les valeurs historiques et projetées de B/B~RMD~ (où B représente la biomasse féconde), de F/F~RMD~ et des prises pour diverses procédures de gestion pour un seul modèle opérationnel.
 Une seule procédure de gestion est représentée ici.
 Dans les applications du Cadre, toutes les procédures de gestion satisfaisantes seraient présentées dans des graphiques distincts.
 Les lignes foncées indiquent la valeur médiane et les rubans ombrés plus foncés et plus pâles indiquent les quantiles de 50 % et 90 %.
 Les fines lignes grises représentent des répétitions de simulation à titre d'illustration.
 La ligne verticale tiretée indique la dernière année de la période historique.
-Les lignes horizontales tiretées indiquent B/B~MSY~ = 0,8 et 0,4, et F/F~MSY~ = 1.
-Il est à noter que les simulations sont sans biais moyen et que les médianes de B/B~MSY~ et de F/F~MSY~ ne devraient donc pas se superposer parfaitement à la ligne du 1, même si la pêche est parfaitement à F~MSY~.
+Les lignes horizontales tiretées indiquent B/B~RMD~ = 0,8 et 0,4, et F/F~RMD~ = 1.
+Il est à noter que les simulations sont sans biais moyen et que les médianes de B/B~RMD~ et de F/F~RMD~ ne devraient donc pas se superposer parfaitement à la ligne du 1, même si la pêche est parfaitement à F~RMD~.
 
 ```{r methods-proj, fig.cap="(ref:fig-methods-proj)", out.width="\\textwidth"}
 knitr::include_graphics(here("report-french/figure/framework-main-projections.png"))
@@ -439,23 +439,23 @@ Pour les procédures de gestion simples, cette visualisation est également util
 knitr::include_graphics(here("report-french/figure/framework-index-projections.png"))
 ```
 
-(ref:fig-methods-kobe) Graphiques de Kobe (B/B~MSY~ par rapport à F/F~MSY~) pour la dernière année des projections pour toutes les répétitions.
+(ref:fig-methods-kobe) Graphiques de Kobe (B/B~RMD~ par rapport à F/F~RMD~) pour la dernière année des projections pour toutes les répétitions.
 Les points représentent les différentes répétitions.
 Les lignes de contour indiquent des quantiles lissés par noyau de densité en deux dimensions, calculés dans l’espace logarithmique.
 Par exemple, les lignes de contour de 0,50 englobent environ 50 % des répétitions.
-Les lignes verticales tiretées représentent B/B~MSY~ = 0,4 (à gauche) et 0,8 (à droite).
-La ligne horizontale tiretée représente F/F~MSY~ = 1.
+Les lignes verticales tiretées représentent B/B~RMD~ = 0,4 (à gauche) et 0,8 (à droite).
+La ligne horizontale tiretée représente F/F~RMD~ = 1.
 Les répétitions dont les valeurs sortent des limites extérieures de l’axe sont indiquées sur la limite de l’axe par un cercle vide (p. ex. angle inférieur droit).
 
 ```{r methods-kobe, fig.cap="(ref:fig-methods-kobe)", out.width="5in"}
 knitr::include_graphics(here("report-french/figure/framework-kobe.png"))
 ```
 
-(ref:fig-methods-worm) Cette visualisation illustre la trajectoire temporelle des valeurs de F/F~MSY~ par rapport à B/B~MSY~ résumées entre les répétitions pour une seule procédure de gestion.
+(ref:fig-methods-worm) Cette visualisation illustre la trajectoire temporelle des valeurs de F/F~RMD~ par rapport à B/B~RMD~ résumées entre les répétitions pour une seule procédure de gestion.
 La ligne pleine correspond à la valeur médiane.
-Les lignes verticales tiretées représentent B/B~MSY~ = 0,4 (à gauche) et 0,8 (à droite).
-La ligne horizontale tiretée représente F/F~MSY~ = 1.
-Chaque diamant représente le quantile de 50 % de B/B~MSY~ (à l’horizontale) et de F/F~MSY~ (à la verticale).
+Les lignes verticales tiretées représentent B/B~RMD~ = 0,4 (à gauche) et 0,8 (à droite).
+La ligne horizontale tiretée représente F/F~RMD~ = 1.
+Chaque diamant représente le quantile de 50 % de B/B~RMD~ (à l’horizontale) et de F/F~RMD~ (à la verticale).
 Il y a un diamant par année de la période historique et de projection.
 Les lignes et les diamants changent de couleur dans le temps et des points précis dans le temps sont illustrés par des symboles (première année, dernière année historique et dernière année projetée).
 À titre de référence, les données sous-jacentes à la dernière tranche de temps de cette figure sont les mêmes que celles de la figure \@ref(fig:methods-kobe).

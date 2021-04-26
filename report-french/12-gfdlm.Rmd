@@ -34,20 +34,20 @@ Voici les principales fonctions de traçage :
 
 * `plot_index()` prend une liste nommée de simulations dans DLMtool et crée un graphique montrant les valeurs historique et projetée de l’indice de la population. Par exemple, figure \@ref(fig:rex-proj-index).
 
-* `plot_main_projections()` prend une liste nommée de simulations dans DLMtool et crée un graphique de la série chronologique des valeurs historiques et projetées de *B*/*B*~MSY~, *F*/*F*~MSY~ et des prises. Par exemple, figure \@ref(fig:rex-proj-ceq200).
+* `plot_main_projections()` prend une liste nommée de simulations dans DLMtool et crée un graphique de la série chronologique des valeurs historiques et projetées de *B*/*B*~RMD~, *F*/*F*~RMD~ et des prises. Par exemple, figure \@ref(fig:rex-proj-ceq200).
 
-* `plot_kobe()` prend une liste nommée de simulations dans DLMtool et crée un graphique de Kobe (*F*/*F*~MSY~ par rapport à *B*/*B*~MSY~) pour la dernière année de projection. Par exemple, figure \@ref(fig:rex-kobe).
+* `plot_kobe()` prend une liste nommée de simulations dans DLMtool et crée un graphique de Kobe (*F*/*F*~RMD~ par rapport à *B*/*B*~RMD~) pour la dernière année de projection. Par exemple, figure \@ref(fig:rex-kobe).
 
 * `plot_worms()` prend une liste nommée de simulations dans DLMtool et crée un graphique de Kobe dans le temps. Par exemple, figure \@ref(fig:rex-worm).
 
-* `plot_scenario_projections()` prend une liste nommée de simulations dans DLMtool et crée un graphique de la série chronologique de valeurs historiques et projetées de *B*/*B*~MSY~, *F*/*F*~MSY~ et des prises en superposant tous les scénarios de modèles opérationnels sur les mêmes graphiques en utilisant différentes couleurs. Par exemple, figure \@ref(fig:rex-proj-scenarios).
+* `plot_scenario_projections()` prend une liste nommée de simulations dans DLMtool et crée un graphique de la série chronologique de valeurs historiques et projetées de *B*/*B*~RMD~, *F*/*F*~RMD~ et des prises en superposant tous les scénarios de modèles opérationnels sur les mêmes graphiques en utilisant différentes couleurs. Par exemple, figure \@ref(fig:rex-proj-scenarios).
 
 * `plot_factory()` est « la [fonction de traçage] pour les gouverner toutes ». Cette fonction prend une liste nommée de simulations dans DLMtool ainsi qu’un certain nombre d’autres arguments spécifiant des caractéristiques comme des procédures de gestion satisfaisantes et des paramètres de rendement et génère des versions communes de toutes les figures décrites ci-dessus. La sortie est une liste nommée d’éléments ggplot2 [@wickham2016] qui peuvent être visualisés, modifiés ou enregistrés pour être inclus dans un rapport. Par exemple, cette fonction a été utilisée pour créer toutes les figures principales de l’étude de cas de la plie royale dans ce document (figures \@ref(fig:rex-converge)--\@ref(fig:rex-proj-scenarios)).
 
-* `pm_factory()` est une usine à fonctions qui génère une fonction de paramètre de rendement. Par exemple, la fonction qui suit crée un paramètre de rendement `LT LRP` qui est fondé sur la biomasse féconde, un niveau de référence de 0,4 de la B~MSY~, et est calculé sur les années 36--50 de la période de projection.
+* `pm_factory()` est une usine à fonctions qui génère une fonction de paramètre de rendement. Par exemple, la fonction qui suit crée un paramètre de rendement `LT PRL` qui est fondé sur la biomasse féconde, un niveau de référence de 0,4 de la B~RMD~, et est calculé sur les années 36--50 de la période de projection.
 
 ```{r, echo=TRUE, eval=FALSE}
-`LT LRP` <- gfdlm::pm_factory("SBMSY", ref = 0.4, yrs = c(36, 50))
+`LT PRL` <- gfdlm::pm_factory("SBMSY", ref = 0.4, yrs = c(36, 50))
 ```
 
 ## FONCTIONS DE MANIPULATION DES PROCÉDURES DE GESTION

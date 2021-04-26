@@ -397,7 +397,7 @@ obs_default <- methods::new('Obs')
 <!-- slot-chunk-begin -->
 ### Crefbiascv {#app:desc-obs-crefbiascv-default}
 
-*Coefficient de variation log-normal pour le biais persistant d’échantillonnage dans MSY. Limites inférieure et supérieure de la distribution uniforme.*
+*Coefficient de variation log-normal pour le biais persistant d’échantillonnage dans RMD. Limites inférieure et supérieure de la distribution uniforme.*
 
 Les procédures de gestion provisoires n’utilisent pas ce tiroir.
 

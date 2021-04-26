@@ -168,9 +168,9 @@ Notre estimation de la longueur à 50 % de maturité (25,8 cm), associée à nos
 
 Les paramètres de rendement qui mesuraient les objectifs étaient les suivants :
 
-1. LT LRP : Probabilité que *B* > 0,8*B*~MSY~ (années 35--50).
-2. LT USR : Probabilité que *B* > 0,8*B*~MSY~ (années 35--50).
-3. FMSY : P(*F* < *F*~MSY~) (années 35--50).
+1. LT PRL : Probabilité que *B* > 0,8*B*~RMD~ (années 35--50).
+2. LT RSS : Probabilité que *B* > 0,8*B*~RMD~ (années 35--50).
+3. FRMD : P(*F* < *F*~RMD~) (années 35--50).
 4. STC : Probabilité que les prises > prises de référence (années 1--10).
 5. LTC : Probabilité que les prises > prises de référence (années 35--50).
 6. AADC : Probabilité que l’AADC (différence interannuelle absolue moyenne des prises) < AADC historique (années 1--50).
@@ -384,7 +384,7 @@ Les premières explorations avec les modèles de production excédentaire ont mo
 Il y avait aussi très peu de différence de rendement entre les modèles de production de Fox et de Schaefer.
 C’est pourquoi, pour les modèles de production excédentaire, nous nous sommes surtout intéressés au réglage de la valeur a priori sur $r$, le taux de croissance intrinsèque de la population.
 Nous avons évalué trois valeurs a priori sur $r$: $\textrm{Normal}(0,4, 0,1)$, $\textrm{Normal}(0,5, 0,1)$, et $\textrm{Normal}(0,6, 0,1)$.
-Avec la fonction de production excédentaire de Schaefer, celles-ci correspondent à $F_\textrm{MSY} = 0,2$, $F_\textrm{MSY} = 0,25$ et à $F_\textrm{MSY} = 0,3$, soit approximativement les valeurs de *M* explorées dans les modèles opérationnels.
+Avec la fonction de production excédentaire de Schaefer, celles-ci correspondent à $F_\textrm{RMD} = 0,2$, $F_\textrm{RMD} = 0,25$ et à $F_\textrm{RMD} = 0,3$, soit approximativement les valeurs de *M* explorées dans les modèles opérationnels.
 Nous avons inclus les règles provisoires de contrôle des prises « méta » décrites dans la section \@ref(sec:mp-sp) de l’annexe \@ref(app:MPs) et, étant donné que le stock n’a pas de TAC existant, nous avons fixé le TAC initial aux fins des règles « méta » aux prises moyennes des cinq dernières années de la période historique.
 Dans les applications du Cadre, on pourrait explorer d’autres réglages des modèles de production excédentaire et des procédures de gestion fondées sur des indices, au besoin.
 
@@ -403,7 +403,7 @@ pm_avg <- group_by(pm_all, MP) %>%
   summarise_if(is.numeric, mean, na.rm = TRUE)
 pm_min <- group_by(pm_all, MP) %>%
   summarise_if(is.numeric, min, na.rm = TRUE)
-reference_mp <- c("FMSYref75", "NFref", "FMSYref")
+reference_mp <- c("FRMDref75", "NFref", "FRMDref")
 
 
 satisficed_criteria <- c("LT LRP" = 0.9, "STC" = 0.8)
@@ -436,7 +436,7 @@ L’application de ces critères a laissé `r number_to_word(length(mp_sat_b4_cu
 
 Nous avons également décidé d’exclure quatre procédures de gestion pour la poursuite de l'examen.
 Tout d’abord, nous avons choisi de ne retenir qu’une seule procédure de gestion satisfaisante du modèle de production excédentaire (.SP8040_0.6) puisque les procédures de gestion du modèle de production excédentaire qui différaient uniquement de par la forme de la fonction de production (.SP6040_0.6_fox) ou la règle de contrôle des prises (.SP6040_0.6 et .SP4010_0.6) affichaient des rendements presque identiques (figure \@ref(fig:rex-tigure-min)).
-Ensuite, nous avons retiré CC_hist20, car elle a été surclassée par les autres procédures de gestion à prises constantes---LT LRP et STC ont toutes deux été dépassées par toutes les autres procédures de gestion à prises constantes (figure \@ref(fig:rex-tigure-min)).
+Ensuite, nous avons retiré CC_hist20, car elle a été surclassée par les autres procédures de gestion à prises constantes---LT PRL et STC ont toutes deux été dépassées par toutes les autres procédures de gestion à prises constantes (figure \@ref(fig:rex-tigure-min)).
 Il restait donc `r number_to_word(length(mp_sat))` procédures de gestion `r gfutilities::commify(sort(mp_sat))`).
 
 (ref:fig-rex-converge)
@@ -451,10 +451,10 @@ knitr::include_graphics(here("report-french/figure/rex-convergence.png"))
 ```
 
 (ref:fig-rex-tigure-avg) Rendement moyen de toutes les procédures de gestion possibles dans l’ensemble de référence de modèles opérationnels.
-Les procédures de gestion sont classées par valeur décroissante du paramètre de rendement, de haut en bas, en commençant par le paramètre de rendement le plus à gauche (LT LRP) et en utilisant les colonnes de gauche à droite pour départager les égalités.
+Les procédures de gestion sont classées par valeur décroissante du paramètre de rendement, de haut en bas, en commençant par le paramètre de rendement le plus à gauche (LT PRL) et en utilisant les colonnes de gauche à droite pour départager les égalités.
 L’ombrage de couleur reflète les probabilités.
 Les cellules décrites représentent les procédures de gestion qui répondent aux critères de satisfaction d’un paramètre de rendement donné.
-À l’aide de cet ensemble de critères, les procédures de gestion seraient « satisfaisantes » si les cellules *à la fois* de « LT LRP » et de « STC » étaient mises en évidence. Les procédures de gestion en gris pâle indiquent les procédures de gestion de référence.
+À l’aide de cet ensemble de critères, les procédures de gestion seraient « satisfaisantes » si les cellules *à la fois* de « LT PRL » et de « STC » étaient mises en évidence. Les procédures de gestion en gris pâle indiquent les procédures de gestion de référence.
 
 ```{r rex-tigure-avg, fig.cap="(ref:fig-rex-tigure-avg)", out.width="3.5in"}
 knitr::include_graphics(here("report-french/figure/rex-tigure-refset-avg.png"))
@@ -475,20 +475,20 @@ knitr::include_graphics(here("report-french/figure/rex-tigure-refset-min.png"))
 ### Résultats de l’ensemble de référence
 
 Le rendement dans l’ensemble de référence de modèles opérationnels variait entre les procédures de gestion et les paramètres de rendement (figures \@ref(fig:rex-tigure-avg), \@ref(fig:rex-tigure-min), \@ref(fig:rex-tigure-panel) et \@ref(fig:rex-dot-lines)).
-Le rendement variait entre les différents scénarios de l’ensemble de référence de modèles opérationnels, la plus grande variabilité étant observée dans les paramètres de rendement à long terme et pour toute la période de projection : LT USR, FMSY, LTC et AADC (figure \@ref(fig:rex-tigure-panel)).
+Le rendement variait entre les différents scénarios de l’ensemble de référence de modèles opérationnels, la plus grande variabilité étant observée dans les paramètres de rendement à long terme et pour toute la période de projection : LT RSS, FRMD, LTC et AADC (figure \@ref(fig:rex-tigure-panel)).
 Entre les deux paramètres de rendement utilisés à l’étape de la satisfaction initiale, le point de référence limite à long terme (LT PRL) *moyen* variait entre `r round2(min(pm_avg_sat$"LT LRP"))` et `r round2(max(pm_avg_sat$"LT LRP"))`, et les prises à court terme (STC) entre `r round2(min(pm_avg_sat$STC))` et `r round2(max(pm_avg_sat$STC))` parmi les procédures de gestion de l’ensemble de référence (figure \@ref(fig:rex-tigure-avg) et \@ref(fig:rex-tigure-panel)).
 Le point de référence limite à long terme *minimum* variait entre`r round2(min(pm_min_sat$"LT LRP"))` et `r round2(max(pm_min_sat$"LT LRP"))`, et les prises à court terme entre `r round2(min(pm_min_sat$STC))` et `r round2(max(pm_min_sat$STC))` parmi les procédures de gestion dans l’ensemble de référence (figure \@ref(fig:rex-tigure-min) et \@ref(fig:rex-tigure-panel)).
 
 Une représentation graphique par des points et des lignes des paramètres de rendement regroupés des scénarios de modèles opérationnels aide à comparer le rendement entre les procédures de gestion satisfaisantes (figure \@ref(fig:rex-tigure-min).
-Les prises à long terme (LTC) étaient à peu près comparables entre une stratégie de pêche à *F*/*F*~MSY~ et les procédures de gestion satisfaisantes Itarget ou .SP8040_0.6 (figure \@ref(fig:rex-dot-lines)).
+Les prises à long terme (LTC) étaient à peu près comparables entre une stratégie de pêche à *F*/*F*~RMD~ et les procédures de gestion satisfaisantes Itarget ou .SP8040_0.6 (figure \@ref(fig:rex-dot-lines)).
 Les prises à court terme (STC) de toutes les procédures de gestion satisfaisantes dépassaient ces procédures de gestion de référence (figure \@ref(fig:rex-dot-lines)).
 Les procédures de gestion à prises fixes de 1,1 ou 1,2 fois la moyenne des prises des cinq dernières années donnaient un rendement semblable à celui d’autres procédures de gestion satisfaisantes pour la plupart des paramètres de rendement dans les scénarios de l’ensemble de référence de modèles opérationnels, avec des paramètres un peu plus élevés pour les prises à long terme et la différence interannuelle absolue moyenne des prises (AADC) (figure \@ref(fig:rex-dot-lines)).
 Ces procédures de gestion à prises fixes ne tiennent pas compte de la rétroaction entre la gestion et les systèmes biologiques.
 
 Les compromis entre les paramètres de rendement pour la plupart des procédures de gestion satisfaisantes étaient relativement mineurs dans les scénarios de l’ensemble de référence de modèles opérationnels (figures \@ref(fig:rex-tradeoff-reference) et \@ref(fig:rex-spider-satisficed-mps-avg)).
 Dans le scénario du modèle opérationnel « C^eq^ 200 % » , il y avait un léger compromis entre les prises à court terme et le point de référence limite à long terme (figure \@ref(fig:rex-tradeoff-reference)).
-Les trajectoires des séries chronologiques de l’indice de relevé projeté (figure \@ref(fig:rex-proj-index)), *B*/*B*~MSY~, *F*/*F*~MSY~, et des prises (figures \@ref(fig:rex-proj-ceq200)--\@ref(fig:rex-proj-no-cpue)) illustrent en outre le rendement des diverses procédures de gestion et des modèles opérationnels de l’ensemble de référence.
-Les graphiques de Kobe montrent l’état final *B*/*B*~MSY~ par rapport à *F*/*F*~MSY~ dans les répétitions (figure \@ref(fig:rex-kobe)) ou la trajectoire de ces valeurs de l’état du stock dans le temps (figure \@ref(fig:rex-worm)).
+Les trajectoires des séries chronologiques de l’indice de relevé projeté (figure \@ref(fig:rex-proj-index)), *B*/*B*~RMD~, *F*/*F*~RMD~, et des prises (figures \@ref(fig:rex-proj-ceq200)--\@ref(fig:rex-proj-no-cpue)) illustrent en outre le rendement des diverses procédures de gestion et des modèles opérationnels de l’ensemble de référence.
+Les graphiques de Kobe montrent l’état final *B*/*B*~RMD~ par rapport à *F*/*F*~RMD~ dans les répétitions (figure \@ref(fig:rex-kobe)) ou la trajectoire de ces valeurs de l’état du stock dans le temps (figure \@ref(fig:rex-worm)).
 
 (ref:fig-rex-tigure-panel) Rendement des procédures de gestion satisfaisantes pour les modèles opérationnels de l’ensemble de référence.
 Les procédures de gestion sont classées par valeur décroissante du paramètre de rendement à partir de l’ensemble de référence moyenné (figure \@ref(fig:rex-tigure-avg)).
@@ -513,7 +513,7 @@ knitr::include_graphics(here("report-french/figure/rex-dot-refset-avg.png"))
 
 \clearpage
 
-```{r rex-tradeoff-reference, fig.cap="Compromis entre les paramètres de rendement moyen entre LT LRP et STC dans les scénarios de l’ensemble de référence de modèles opérationnels. Les procédures de gestion de référence sont indiquées par des cercles ouverts (Vrai). Les procédures de gestion autres que de référence sont indiquées par des cercles fermés (Faux).", out.width="5in"}
+```{r rex-tradeoff-reference, fig.cap="Compromis entre les paramètres de rendement moyen entre LT PRL et STC dans les scénarios de l’ensemble de référence de modèles opérationnels. Les procédures de gestion de référence sont indiquées par des cercles ouverts (Vrai). Les procédures de gestion autres que de référence sont indiquées par des cercles fermés (Faux).", out.width="5in"}
 knitr::include_graphics(here("report-french/figure/rex-tradeoff-refset-avg.png"))
 ```
 
@@ -531,7 +531,7 @@ knitr::include_graphics(here("report-french/figure/rex-projections-index.png"))
 
 \clearpage
 
-(ref:fig-rex-proj-ceq200) B/B~MSY~, F/F~MSY~, et les prises des périodes historique et projetée pour le modèle opérationnel « C^eq^ 200 % ». La ligne foncée indique la valeur médiane et les rubans ombrés plus foncés et plus pâles indiquent les quantiles de 50 % et 90 %. Les fines lignes grises représentent des répétitions de simulation à titre d’illustration. La ligne verticale tiretée indique la dernière année de la période historique. Les lignes horizontales tiretées indiquent B/B~MSY~ = 0,8 et 0,4, et F/F~MSY~ = 1.
+(ref:fig-rex-proj-ceq200) B/B~RMD~, F/F~RMD~, et les prises des périodes historique et projetée pour le modèle opérationnel « C^eq^ 200 % ». La ligne foncée indique la valeur médiane et les rubans ombrés plus foncés et plus pâles indiquent les quantiles de 50 % et 90 %. Les fines lignes grises représentent des répétitions de simulation à titre d’illustration. La ligne verticale tiretée indique la dernière année de la période historique. Les lignes horizontales tiretées indiquent B/B~RMD~ = 0,8 et 0,4, et F/F~RMD~ = 1.
 
 ```{r rex-proj-ceq200, fig.cap="(ref:fig-rex-proj-ceq200)", out.width="6.5in"}
 knitr::include_graphics(here("report-french/figure/rex-projections-ceq200.png"))
@@ -569,10 +569,10 @@ knitr::include_graphics(here("report-french/figure/rex-projections-no-cpue.png")
 
 \clearpage
 
-(ref:fig-rex-kobe) Valeurs de B/B~MSY~ et F/F~MSY~ pour la dernière année des projections pour toutes les répétitions.
+(ref:fig-rex-kobe) Valeurs de B/B~RMD~ et F/F~RMD~ pour la dernière année des projections pour toutes les répétitions.
 Les points représentent les différentes répétitions.
-Les lignes verticales tiretées représentent B/B~MSY~ = 0,4 (à gauche) et 0,8 (à droite).
-La ligne horizontale tiretée représente F/F~MSY~ = 1.
+Les lignes verticales tiretées représentent B/B~RMD~ = 0,4 (à gauche) et 0,8 (à droite).
+La ligne horizontale tiretée représente F/F~RMD~ = 1.
 Les lignes de contour indiquent les quantiles à 0,25, 0,50 et 0,75 lissés par noyau de densité en deux dimensions, calculés dans l’espace logarithmique.
 
 ```{r rex-kobe, fig.cap="(ref:fig-rex-kobe)", out.width="0.8\\textwidth"}
@@ -581,11 +581,11 @@ knitr::include_graphics(here("report-french/figure/rex-kobe.png"))
 
 \clearpage
 
-(ref:fig-rex-worm) Trajectoire des valeurs de B/B~MSY~ et de F/F~MSY~ résumées entre les répétitions.
+(ref:fig-rex-worm) Trajectoire des valeurs de B/B~RMD~ et de F/F~RMD~ résumées entre les répétitions.
 La ligne pleine correspond à la valeur médiane.
-Les lignes verticales tiretées représentent B/B~MSY~ = 0,4 (à gauche) et 0,8 (à droite).
-La ligne horizontale tiretée représente F/F~MSY~ = 1.
-Chaque diamant représente le quantile de 50 % de B/B~MSY~ (à l’horizontale) et de F/F~MSY~ (à la verticale).
+Les lignes verticales tiretées représentent B/B~RMD~ = 0,4 (à gauche) et 0,8 (à droite).
+La ligne horizontale tiretée représente F/F~RMD~ = 1.
+Chaque diamant représente le quantile de 50 % de B/B~RMD~ (à l’horizontale) et de F/F~RMD~ (à la verticale).
 
 ```{r rex-worm, fig.cap="(ref:fig-rex-worm)", out.width="\\textwidth"}
 knitr::include_graphics(here("report-french/figure/rex-worms-proj.png"))
@@ -598,7 +598,7 @@ knitr::include_graphics(here("report-french/figure/rex-worms-proj.png"))
 Le scénario de robustesse du modèle opérationnel « Pas de CPUE C^eq^ 50 % » représente des trajectoires historiques de la biomasse et de la mortalité par pêche nettement différentes de celles des scénarios de l’ensemble de référence de modèles opérationnels.
 Ce scénario du modèle opérationnel estime que le stock est plus petit (valeurs de $R_0$ plus faibles sur la figure \@ref(fig:rex-sra-conditioned-parameters)) avec des valeurs élevées de $F_y$ ($F$ apicale par année) vers 2005 (figure \@ref(fig:rex-F-om)).
 Dans ce scénario du modèle opérationnel, les procédures de gestion Itarget sont capables d’atteindre un point de référence limite à long terme $>$ 0,60 (3 fois sur 5), tandis que le modèle de production excédentaire et de prises constantes atteint un point de référence limite à long terme $<$ 0,35 (7 fois sur 20) (figures \@ref(fig:rex-tigure-panel-rob) et \@ref(fig:rex-dots-satisficed-mps-robust)).
-Les autres paramètres de rendement affichent un contraste moins grand entre les procédures de gestion, bien que le point de référence supérieur du stock à long terme (LT USR) demeure également plus élevé pour les procédures de gestion Itarget par rapport aux procédures de gestion à prises constantes ou à production excédentaire (figures \@ref(fig:rex-tigure-panel-rob) et \@ref(fig:rex-dots-satisficed-mps-robust)).
+Les autres paramètres de rendement affichent un contraste moins grand entre les procédures de gestion, bien que le point de référence supérieur du stock à long terme (LT RSS) demeure également plus élevé pour les procédures de gestion Itarget par rapport aux procédures de gestion à prises constantes ou à production excédentaire (figures \@ref(fig:rex-tigure-panel-rob) et \@ref(fig:rex-dots-satisficed-mps-robust)).
 
 Ce scénario de robustesse du modèle opérationnel démontre des compromis plus solides entre les paramètres de rendement que les scénarios de l’ensemble de référence du modèle opérationnel (figures \@ref(fig:rex-tradeoff-robust) et \@ref(fig:rex-spider-satisficed-mps-robust)).
 En particulier, il y a un compromis évident entre les prises à court terme et le point de référence limite à long terme (figures \@ref(fig:rex-tradeoff-robust)).
@@ -626,7 +626,7 @@ knitr::include_graphics(here("report-french/figure/rex-tigure-robset.png"))
 knitr::include_graphics(here("report-french/figure/rex-dot-robset.png"))
 ```
 
-```{r rex-tradeoff-robust, fig.cap=" Compromis entre les paramètres de rendement de LT LRP et STC pour les procédures de gestion satisfaisantes des modèles opérationnels de l’ensemble de robustesse.", out.width="6in"}
+```{r rex-tradeoff-robust, fig.cap=" Compromis entre les paramètres de rendement de LT PRL et STC pour les procédures de gestion satisfaisantes des modèles opérationnels de l’ensemble de robustesse.", out.width="6in"}
 knitr::include_graphics(here("report-french/figure/rex-tradeoff-robset.png"))
 ```
 
@@ -646,7 +646,7 @@ knitr::include_graphics(here("report-french/figure/rex-projections-no-cpue-light
 knitr::include_graphics(here("report-french/figure/rex-projections-inc-m.png"))
 ```
 
-(ref:fig-rex-proj-scenarios) B/B~MSY~, F/F~MSY~, et prises des périodes historique et projetée.
+(ref:fig-rex-proj-scenarios) B/B~RMD~, F/F~RMD~, et prises des périodes historique et projetée.
 Les couleurs représentent les scénarios de l’ensemble de référence et de l’ensemble de robustesse de modèles opérationnels.
 Les lignes représentent les médianes et les régions ombrées représentent les quantiles de 50 %.
 Les procédures de gestion satisfaisantes et de référence apparaissent de haut en bas.

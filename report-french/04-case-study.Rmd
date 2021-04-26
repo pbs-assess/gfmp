@@ -22,9 +22,9 @@ Nous avons défini des objectifs et des paramètres de rendement selon les sugge
 
 Nous avons défini les paramètres de rendement comme suit :
 
-1. LT LRP : Probabilité que *B* > 0,4*B*~MSY~ (années 35--50)
-2. LT USR : Probabilité que *B* > 0,8*B*~MSY~ (années 35--50)
-3. FMSY : P(*F* < *F*~MSY~) (années 1--50)
+1. LT PRL : Probabilité que *B* > 0,4*B*~RMD~ (années 35--50)
+2. LT RSS : Probabilité que *B* > 0,8*B*~RMD~ (années 35--50)
+3. FRMD : P(*F* < *F*~RMD~) (années 1--50)
 4. STC : Probabilité que les prises > prises de référence (années 1--10)
 5. LTC : Probabilité que les prises > prises de référence (années 35--50)
 6. AADC : Probabilité que l’AADC (différence interannuelle absolue moyenne des captures) < AADC historique (années 1--50)
@@ -44,7 +44,7 @@ Nous avons travaillé avec tout l’ensemble des procédures de gestion possible
 Nous avons modifié les procédures de gestion pour n’observer que les années paires de l’indice de relevé afin de refléter la nature biennale du relevé synoptique du chalut de fond sur la côte ouest de l’île de Vancouver.
 
 **Application de la simulation en boucle fermée** :
-Nous avons appliqué des critères de satisfaction fondés sur le point de référence limite à long terme (LT LRP) et les paramètres de rendement des prises à court terme (STC) (LT LRP minimum > 0,9, STC minimum > 0,8). Nous avons écarté certaines procédures de gestion qui avaient un rendement presque identique pour avoir un groupe gérable de sept procédures de gestion pour poursuivre notre examen.
+Nous avons appliqué des critères de satisfaction fondés sur le point de référence limite à long terme (LT PRL) et les paramètres de rendement des prises à court terme (STC) (LT PRL minimum > 0,9, STC minimum > 0,8). Nous avons écarté certaines procédures de gestion qui avaient un rendement presque identique pour avoir un groupe gérable de sept procédures de gestion pour poursuivre notre examen.
 Ces procédures de gestion comprenaient des procédures de gestion indice-cible, des modèles de production excédentaires jumelés à une règle de contrôle des prises, et deux procédures de gestion à prises constantes.
 
 **Présentation des résultats** :

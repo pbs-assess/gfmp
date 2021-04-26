@@ -1,3 +1,7 @@
+\setlength{\parindent}{0in}
+\setlength{\leftskip}{0in}
+\setlength{\parskip}{4pt}
+
 \clearpage
 
 `r if(knitr:::is_latex_output()) '\\Appendices'`
@@ -418,13 +422,13 @@ $$
 (\#eq:dlm-om-epsilontac)
 $$
 
-## CALCUL DES POINTS DE RÉFÉRENCE FONDÉS SUR MSY {#sec:dlmtool-msy-refpts}
+## CALCUL DES POINTS DE RÉFÉRENCE FONDÉS SUR RMD {#sec:dlmtool-msy-refpts}
 
-Les points de référence biologiques (PRB) du Cadre des procédures de gestion sont actuellement fondés sur les points de référence provisoires suggérés dans le Cadre de l’approche de précaution du Canada [@dfo2006; @dfo2009], où le point de référence limite (PRL) est défini comme la valeur dans le modèle opérationnel de $0,4B_\textrm{MSY}$ et le point de référence supérieur du stock (RSS) est défini comme la valeur dans le modèle opérationnel de $0,8B_\textrm{MSY}$. 
-$B_\textrm{MSY}$ est définie comme la biomasse féconde à l’équilibre $B^e$ qui se produirait si le stock était exploité au taux constant de la mortalité par pêche $F^e$ qui produit le rendement maximal durable $\textrm{MSY}$.
+Les points de référence biologiques (PRB) du Cadre des procédures de gestion sont actuellement fondés sur les points de référence provisoires suggérés dans le Cadre de l’approche de précaution du Canada [@dfo2006; @dfo2009], où le point de référence limite (PRL) est défini comme la valeur dans le modèle opérationnel de $0,4B_\textrm{RMD}$ et le point de référence supérieur du stock (RSS) est défini comme la valeur dans le modèle opérationnel de $0,8B_\textrm{RMD}$. 
+$B_\textrm{RMD}$ est définie comme la biomasse féconde à l’équilibre $B^e$ qui se produirait si le stock était exploité au taux constant de la mortalité par pêche $F^e$ qui produit le rendement maximal durable $\textrm{RMD}$.
 
 Le calcul des PRB est effectué à l’aide des paramètres estimés à l’étape du conditionnement, décrits dans l’annexe \@ref(app:sra).
-En l’absence de variabilité annuelle dans les paramètres du cycle biologique ou de la sélectivité, on calcule $F_\textrm{MSY}$ en résolvant numériquement la valeur à l’équilibre $F^e$ qui maximise le rendement à l’équilibre $Y^e$
+En l’absence de variabilité annuelle dans les paramètres du cycle biologique ou de la sélectivité, on calcule $F_\textrm{RMD}$ en résolvant numériquement la valeur à l’équilibre $F^e$ qui maximise le rendement à l’équilibre $Y^e$
 
 $$
 Y^e = F^e R^e \phi^b,
@@ -479,14 +483,14 @@ $$
 (\#eq:dlm-om-phib)
 $$
 
-Après avoir résolu numériquement l’équation \@ref(eq:dlm-om-yeq) pour $F_\textrm{MSY}$, $B_\textrm{MSY}$ est calculée comme suit :
+Après avoir résolu numériquement l’équation \@ref(eq:dlm-om-yeq) pour $F_\textrm{RMD}$, $B_\textrm{RMD}$ est calculée comme suit :
 
 $$
-B_{\textrm{MSY}} = \phi\textrm{MSY} R^e,
+B_{\textrm{RMD}} = \phi\textrm{RMD} R^e,
 (\#eq:dlm-om-bmsy)
 $$
 
-avec $F^e=F_\textrm{MSY}$ dans l’équation \@ref(eq:dlm-om-survivorship).
+avec $F^e=F_\textrm{RMD}$ dans l’équation \@ref(eq:dlm-om-survivorship).
 
 Il convient de noter que, comme pour l’équation \@ref(eq:dlm-om-nya), la classe d’âge maximale $A$ est traitée comme un groupe plus dans l’équation \@ref(eq:dlm-om-survivorship). Bien qu’il ne s’agisse pas du paramètre par défaut dans DLMtool, il devient le paramètre par défaut lorsqu’on utilise l’analyse de la réduction des stocks pour conditionner le modèle opérationnel (voir l’explication dans la section \@ref(sec:dlmtool-pop-dynamics)).
 
@@ -511,12 +515,12 @@ $$
 qui est la biomasse féconde moyenne non exploitée les premières années $\theta_{a50}$ (âge à la maturité) de la période historique (arrondie au nombre entier le plus proche) et $B_\textrm{unfished}^y$ est $B_0$ calculée (équation \@ref(eq:dlm-om-bo)).
 On peut aussi programmer d’autres interprétations de $B_0$ (p. ex. $B_0$ moyenne sur toute la période historique ou à la fin de la période historique), en fonction de la cible ou du point de référence désiré.
 
-Une croissance, une mortalité naturelle ou une sélectivité variables dans le temps se traduiront par des points de référence fondés sur le rendement maximal durable qui varient dans le temps, car DLMtool calcule $\textrm{MSY}$ et les paramètres connexes (comme $B_\textrm{MSY}$) à chaque pas de temps du modèle, auquel cas les paramètres de rendement annuel seront fondés sur des estimations annuelles des points de référence.
-Les analystes doivent faire preuve de prudence avec $B_\textrm{MSY}$ et $B_0$ variables dans le temps.
+Une croissance, une mortalité naturelle ou une sélectivité variables dans le temps se traduiront par des points de référence fondés sur le rendement maximal durable qui varient dans le temps, car DLMtool calcule $\textrm{RMD}$ et les paramètres connexes (comme $B_\textrm{RMD}$) à chaque pas de temps du modèle, auquel cas les paramètres de rendement annuel seront fondés sur des estimations annuelles des points de référence.
+Les analystes doivent faire preuve de prudence avec $B_\textrm{RMD}$ et $B_0$ variables dans le temps.
 La diminution des points de référence peut entraîner une amélioration de l’état du stock par rapport aux points de référence inférieurs, ce qui peut causer un effet « d’abaissement » à mesure que le stock et les points de référence diminuent.
-Sinon, il est possible de baser les paramètres du rendement sur une $B_\textrm{MSY}$ moyenne tirée de la période historique ou sur un autre point de référence souhaité [p. ex. la biomasse moyenne estimée d’une période historique productive @dfo2009; @forrest2018].
+Sinon, il est possible de baser les paramètres du rendement sur une $B_\textrm{RMD}$ moyenne tirée de la période historique ou sur un autre point de référence souhaité [p. ex. la biomasse moyenne estimée d’une période historique productive @dfo2009; @forrest2018].
 
-Il est recommandé de résoudre des cibles ou des points de référence appropriés en cas de productivité variable dans le temps en collaboration avec les gestionnaires des pêches, les intervenants et les Premières Nations, car les paramètres de rendement fondés sur des points de référence tels que $B_\textrm{MSY}$ et $B_0$ seront influencés par les méthodes utilisées pour les calculer. Ces décisions devraient être documentées pour assurer la transparence.
+Il est recommandé de résoudre des cibles ou des points de référence appropriés en cas de productivité variable dans le temps en collaboration avec les gestionnaires des pêches, les intervenants et les Premières Nations, car les paramètres de rendement fondés sur des points de référence tels que $B_\textrm{RMD}$ et $B_0$ seront influencés par les méthodes utilisées pour les calculer. Ces décisions devraient être documentées pour assurer la transparence.
 
 Le traitement des points de référence lorsque les paramètres, en particulier les paramètres de productivité comme $\widetilde{M}$ ou $\widetilde{\kappa}$, sont variables dans le temps, est un domaine de recherche actif [p. ex. @haltuch2009; @haltuch2019; @punt2014]. Nous sommes d’avis que le Cadre des procédures de gestion est un environnement approprié pour d’autres approches d’essais par simulation plus poussées pour les points de référence variables dans le temps, et qu’il s’agit d’un important domaine de recherche pour les applications futures du Cadre.
 
