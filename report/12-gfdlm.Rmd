@@ -2,7 +2,7 @@
 
 # R PACKAGE TO SUPPORT THE MP FRAMEWORK {#app:gfdlm}
 
-We developed the R package [gfdlm](https://github.com/pbs-assess/gfdlm) [@gfdlm] to provide a set of tools that facilitate applications of this framework.
+We developed the R package \link{https://github.com/pbs-assess/gfdlm}{gfdlm} to provide a set of tools that facilitate applications of this framework.
 The package includes our provisional library of MPs, a number of plotting functions for summarizing simulation output and model fits, and a variety of other utilities for manipulating DLMtool MPs and performance metrics, and creating reports based on DLMtool simulations (such as Appendix \@ref(app:desc-om-rex) in this document).
 
 ## PLOTTING FUNCTIONS
@@ -119,38 +119,11 @@ get_sha <- function(path) {
   out
 }
 sha_gfmp <- get_sha("pbs-assess/gfmp")
-sha_gfdlm <- get_sha("pbs-assess/gfdlm")
-# sha_gfdata <- get_sha("pbs-assess/gfdata")
-sha_gfdata <- "7e075bc"
-sha_gfplot <- get_sha("pbs-assess/gfplot")
-# sha_mse <- get_sha("pbs-assess/MSEtool")
-sha_mse <- "0805813"
-# sha_dlm <- get_sha("DLMtool/DLMtool")
-sha_dlm <- "feb23c76"
-sha_csasdown <- get_sha("pbs-assess/csasdown")
 ```
 
 The source code for this document is available at:\
-<`r paste0("https://github.com/pbs-assess/gfmp/tree/", sha_gfmp)`>.
+\link{`r paste0("https://github.com/pbs-assess/gfmp/tree/", sha_gfmp)`}{`r paste0("https://github.com/pbs-assess/gfmp/tree/", sha_gfmp)`}.
 
 This document was compiled with the R package csasdown [@csasdown].
-
-The specific versions of the primary packages used to generate this report can be viewed at:
-
-<`r paste0("https://github.com/DLMtool/DLMtool/tree/", sha_dlm)`>\
-<`r paste0("https://github.com/tcarruth/MSEtool/tree/", sha_mse)`>\
-<`r paste0("https://github.com/pbs-assess/gfdlm/tree/", sha_gfdlm)`>\
-<`r paste0("https://github.com/pbs-assess/gfdata/tree/", sha_gfdata)`>\
-<`r paste0("https://github.com/pbs-assess/csasdown/tree/", sha_csasdown)`>\
-
-\vspace{4mm}
-or installed via:
-
-`# install.packages('devtools')`\
-`devtools::install_github('DLMtool/DLMtool', ref = '`r sha_dlm`')`\
-`devtools::install_github('tcarruth/MSEtool', ref = '`r sha_mse`')`\
-`devtools::install_github('pbs-assess/gfdlm', ref = '`r sha_gfdlm`')`\
-`devtools::install_github('pbs-assess/gfdata', ref = '`r sha_gfdata`')`\
-`devtools::install_github('pbs-assess/csasdown', ref = '`r sha_csasdown`')`\
 
 \clearpage

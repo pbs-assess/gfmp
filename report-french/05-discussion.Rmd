@@ -111,7 +111,7 @@ L’évaluation du rendement des procédures de gestion à l’aide de données 
 
 ## PLANS DE RÉTABLISSEMENT {#sec:discussion-rebuilding}
 
-La [Politique sur l’approche de précaution](https://waves-vagues.dfo-mpo.gc.ca/Library/40584999.pdf) et les dispositions sur les stocks de poissons de la *Loi sur les pêches* (section \@ref(sec:intro-motivation)) exigent que des mesures de gestion soient mises en place si l’on évalue que les stocks de poissons se trouvent dans la zone critique (c.-à-d. sous le PRL).
+La \link{https://waves-vagues.dfo-mpo.gc.ca/Library/40584781.pdf}{Politique sur l’approche de précaution} et les dispositions sur les stocks de poissons de la *Loi sur les pêches* (section \@ref(sec:intro-motivation)) exigent que des mesures de gestion soient mises en place si l’on évalue que les stocks de poissons se trouvent dans la zone critique (c.-à-d. sous le PRL).
 Les plans de rétablissement requièrent que les mesures de gestion fassent sortir les stocks de la zone critique dans un délai précis (p. ex. une ou deux générations), avec une probabilité déterminée.
 Le Cadre des procédures de gestion peut être facilement modifié pour tester le rendement des autres procédures de gestion en ce qui concerne l’atteinte des objectifs de rétablissement des stocks nécessitant des plans de rétablissement.
 Les seules véritables modifications nécessaires sont les objectifs et les paramètres de rendement, qui sont déjà personnalisables dans ce Cadre.

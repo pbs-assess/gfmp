@@ -112,7 +112,7 @@ We suggest that expanding the framework to include VoI considerations may also r
 
 ## REBUILDING PLANS {#sec:discussion-rebuilding}
 
-The [Precautionary Approach policy](https://waves-vagues.dfo-mpo.gc.ca/Library/40584781.pdf) and the Fish Stocks provisions of the *Fisheries Act* (Section \@ref(sec:intro-motivation)) require that management measures be put in place if fish stocks are assessed to be in the critical zone (i.e., below the LRP).
+The \link{https://waves-vagues.dfo-mpo.gc.ca/Library/40584781.pdf}{Precautionary Approach policy} and the Fish Stocks provisions of the *Fisheries Act* (Section \@ref(sec:intro-motivation)) require that management measures be put in place if fish stocks are assessed to be in the critical zone (i.e., below the LRP).
 Rebuilding plans require that management measures should rebuild stocks out of the critical zone within a specified time frame (e.g., one or two generation times), with a specified probability.
 The MP Framework can be easily modified to test performance of alternative MPs with respect to meeting rebuilding objectives for stocks requiring rebuilding plans.
 The only real modifications needed are to the objectives and performance metrics, which are already customizable within this framework.

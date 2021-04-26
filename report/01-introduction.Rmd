@@ -23,7 +23,7 @@ Other key elements of the Precautionary Approach Framework include a harvest con
 knitr::include_graphics(here::here("images/pa-framework.png"))
 ```
 
-On June 21, 2019, major amendments to Canada's [*Fisheries Act*](https://laws-lois.justice.gc.ca/eng/acts/f-14/page-3.html#h-1175547) received Royal Assent, thus passing them into Canadian law. Among many other amendments, provisions in the new *Fisheries Act* require that fish stocks be managed at sustainable levels, specifically at biomass levels above the LRP. Hereafter referred to as the "Fish Stocks provisions", the provisions legislate elements of Canada's Sustainable Fisheries Framework and Precautionary Approach Framework, and state:
+On June 21, 2019, major amendments to Canada's \link{https://laws-lois.justice.gc.ca/eng/acts/f-14/page-3.html#h-1175547}{Fisheries Act} received Royal Assent, thus passing them into Canadian law. Among many other amendments, provisions in the new *Fisheries Act* require that fish stocks be managed at sustainable levels, specifically at biomass levels above the LRP. Hereafter referred to as the "Fish Stocks provisions", the provisions legislate elements of Canada's Sustainable Fisheries Framework and Precautionary Approach Framework, and state:
 
 > **Measures to maintain fish stocks**
 > 6.1(1) In the management of fisheries, the Minister shall implement measures to maintain major fish stocks at or above the level necessary to promote the sustainability of the stock, taking into account the biology of the fish and the environmental conditions affecting the stock.

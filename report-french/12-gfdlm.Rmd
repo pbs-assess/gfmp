@@ -130,26 +130,8 @@ sha_csasdown <- get_sha("pbs-assess/csasdown")
 ```
 
 Le code source pour ce document est disponible à l’adresse suivante :
-<`r paste0("https://github.com/pbs-assess/gfmp/tree/", sha_gfmp)`>.
+\link{`r paste0("https://github.com/pbs-assess/gfmp/tree/", sha_gfmp)`}{`r paste0("https://github.com/pbs-assess/gfmp/tree/", sha_gfmp)`}.
 
 Le document a été compilé avec le progiciel csasdown en R [@csasdown].
-
-Les versions particulières des progiciels de base utilisés pour générer ce rapport peuvent être consultées aux adresses :
-
-<`r paste0("https://github.com/DLMtool/DLMtool/tree/", sha_dlm)`>\
-<`r paste0("https://github.com/tcarruth/MSEtool/tree/", sha_mse)`>\
-<`r paste0("https://github.com/pbs-assess/gfdlm/tree/", sha_gfdlm)`>\
-<`r paste0("https://github.com/pbs-assess/gfdata/tree/", sha_gfdata)`>\
-<`r paste0("https://github.com/pbs-assess/csasdown/tree/", sha_csasdown)`>\
-
-\vspace{4mm}
-ou installées par l’intermédiaire de :
-
-`# install.packages('devtools')`\
-`devtools::install_github('DLMtool/DLMtool', ref = '`r sha_dlm`')`\
-`devtools::install_github('tcarruth/MSEtool', ref = '`r sha_mse`')`\
-`devtools::install_github('pbs-assess/gfdlm', ref = '`r sha_gfdlm`')`\
-`devtools::install_github('pbs-assess/gfdata', ref = '`r sha_gfdata`')`\
-`devtools::install_github('pbs-assess/csasdown', ref = '`r sha_csasdown`')`\
 
 \clearpage
