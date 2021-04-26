@@ -41,10 +41,10 @@ Nous proposons les objectifs tactiques provisoires de conservation et de pêche 
 L’objectif 1 est implicite dans le paragraphe 6.1(1) de la *Loi sur les pêches* et explicite dans le paragraphe 6.1(2) (voir la section \@ref(sec:intro-motivation) du présent document).
 Les objectifs 2 et 3 sont des interprétations du paragraphe 6.1(1) de la *Loi sur les pêches*, où il est dit que « ... le ministre met en œuvre des mesures pour maintenir les grands stocks de poissons au moins au niveau nécessaire pour favoriser la durabilité des stocks... ».
 Le terme « durabilité » a de nombreuses définitions en ce qui concerne les pêches [@hilborn2015; @marentette2020a].
-La Direction des sciences du MPO évalue actuellement le libellé des dispositions sur les stocks de poisson afin de clarifier les définitions de la durabilité en ce qui a trait à la gestion des pêches canadiennes [@marentette2020b].
+La Direction des sciences du MPO évalue actuellement le libellé des dispositions sur les stocks de poisson afin de clarifier les définitions de la durabilité en ce qui a trait à la gestion des pêches canadiennes.
 Ici, nous supposons que l’objectif de maintenir le stock dans la zone saine (figure \@ref(fig:pa-illustration)) avec une probabilité non nulle est conforme à la formulation « maintenir les grands stocks de poissons au moins au niveau nécessaire pour favoriser la durabilité des stocks ».
 Nous utilisons des valeurs provisoires du PRL = 0,4*B*~RMD~ et du RSS = 0,8*B*~RMD~, suggérées dans le Cadre de l’approche de précaution [@dfo2009] (nous utilisons ici *B* pour faire référence à la biomasse féconde).
-Voir @marentette2020c et @marentette2020b pour une discussion sur l’évolution actuelle de la réflexion sur le rôle de ces points de référence dans les politiques et la législation canadiennes.
+Voir @marentette2020c pour une discussion sur l’évolution actuelle de la réflexion sur le rôle de ces points de référence dans les politiques et la législation canadiennes.
 
 Il faudra probablement examiner stock par stock les probabilités précises attribuées à la réalisation de chaque objectif.
 Pour l’objectif 1, les pratiques exemplaires internationales suggèrent que la probabilité de maintenir les stocks au-dessus du PRL devrait être de 90 à 95 % [@sainsbury2008; @mcilgorm2013; @ices2018; @marentette2020a], tandis que la probabilité d’atteindre une biomasse cible (p. ex. le seuil pour la zone saine ou une cible prédéfinie au-dessus du RSS) peut être inférieure, à environ 50 % [@mcilgorm2013].
