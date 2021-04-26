@@ -285,7 +285,7 @@ Le paramètre $t_0$ estimé dans notre modèle est légèrement positif, bien qu
 cpars$t0 <- as.numeric(vb_post$t0[i])
 ```
 
-```{r desc-vb-parameters, fig.cap="von Bertalanffy parameter posteriors.", fig.width=6, out.width="4in", fig.asp=0.5}
+```{r desc-vb-parameters, fig.cap="Postérieurs des paramètres von Bertalanffy.", fig.width=6, out.width="4in", fig.asp=0.5}
 vbd <- data.frame(t0 = vb_post$t0, k = vb_post$k, linf = vb_post$linf) %>%
   tidyr::pivot_longer(tidyr::everything(), names_to = "variable", values_to = "value")
 ggplot(vbd, aes(value)) + geom_histogram() +
@@ -379,7 +379,7 @@ Notre longueur moyenne estimée à 50 % de maturité (`r round(mean(L50), 1)` cm
 
 *Augmentation de la longueur de 50 % à 95 % de maturité.*
 
-Nous pouvons la calculer comme un paramètre dérivé de notre modèle de maturité logistique :
+Nous pouvons la calculer comme un paramètre dérivé de notre modèle de maturité logistique~:
 
 ```{r echo=TRUE, eval=FALSE}
 L95 <- logit_perc(a = post_mat$`(Intercept)`, b = post_mat$length, perc = 0.95)

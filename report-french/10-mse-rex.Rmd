@@ -329,7 +329,7 @@ rex_converged %>%
   mutate(scenario = gsub("\\n", " ", scenario)) %>%
   mutate(scenario = gsub("Ceq.", "C^eq^", scenario))%>%
   select(-nsim) %>%
-  csasdown::csas_table(col_names = c("OM Scenario", "Fraction retained"),
+  csasdown::csas_table(col_names = c("OM Scenario", "Fraction"),
     caption = "Fraction des répétitions conservée après le conditionnement avec le modèle d’analyse de la réduction des stocks.")
 ```
 
@@ -427,7 +427,7 @@ Nous avons évalué la convergence de la simulation en boucle fermée en traçan
 Nous avons jugé que 250 répétitions étaient suffisantes puisque l’ordre de classement des procédures de gestion était cohérent pour ce nombre de répétitions (figure \@ref(fig:rex-converge)).
 
 Pour déterminer les procédures de gestion qui seraient retenues comme procédures de gestion satisfaisantes [@miller2010], nous avons commencé par évaluer le rendement moyen et minimal de toutes les procédures de gestion possibles pour l’ensemble de référence des modèles opérationnels (figures \@ref(fig:rex-tigure-avg) et \@ref(fig:rex-tigure-min)).
-Pour obtenir un nombre gérable de procédures de gestion en vue d’un examen plus poussé, nous avons établi des seuils de satisfaction de `r names(satisficed_criteria)[1]` $>$ `r satisficed_criteria[[1]]` (9 fois sur 10) et `r names(satisficed_criteria)[2]` $>$ `r satisficed_criteria[[2]]` (4 fois sur 5).
+Pour obtenir un nombre gérable de procédures de gestion en vue d’un examen plus poussé, nous avons établi des seuils de satisfaction de LT PRL $>$ `r satisficed_criteria[[1]]` (9 fois sur 10) et STC $>$ `r satisficed_criteria[[2]]` (4 fois sur 5).
 Nous pourrions appliquer ces critères à la moyenne (figures \@ref(fig:rex-tigure-avg)) ou au rendement minimal (figures \@ref(fig:rex-tigure-min)) et il est probablement préférable de laisser une telle décision à un groupe de travail technique ou aux décideurs associés à des intervenants dans un contexte appliqué.
 Dans notre étude de cas, le choix des paramètres de rendement moyens ou minimaux pour appliquer les critères de satisfaction avait peu d’importance.
 Aux fins de la présente étude de cas, nous avons choisi d’appliquer les critères de satisfaction aux paramètres de rendement minimaux.

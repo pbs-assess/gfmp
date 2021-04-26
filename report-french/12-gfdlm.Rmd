@@ -129,7 +129,8 @@ sha_dlm <- "feb23c76"
 sha_csasdown <- get_sha("pbs-assess/csasdown")
 ```
 
-Le code source pour ce document est disponible à l’adresse suivante :
+Le code source pour ce document est disponible à l’adresse suivante~:
+
 \link{`r paste0("https://github.com/pbs-assess/gfmp/tree/", sha_gfmp)`}{`r paste0("https://github.com/pbs-assess/gfmp/tree/", sha_gfmp)`}.
 
 Le document a été compilé avec le progiciel csasdown en R [@csasdown].
