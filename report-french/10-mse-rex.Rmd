@@ -206,6 +206,8 @@ sc <- sc %>%
   # mutate(scenario_human = gsub("inc\\.", "increasing", scenario_human)) %>%
   mutate(scenario_human = gsub("\\\n", " ", scenario_human)) %>%
   mutate(scenario_human = gsub("Ceq.", "C^eq^", scenario_human))
+sc$scenario_type[sc$scenario_type == "Reference"] <- "Référence"
+sc$scenario_type[sc$scenario_type == "Robustness"] <- "Robustesse"
 sc %>% select(-scenario) %>%
   csasdown::csas_table(caption = "Scénarios du modèle opérationnel de la plie royale. \"C^eq^\" fait référence à \"l’équilibre des prises\" en 1995 et sert à paramétrer le niveau d’épuisement de la biomasse au début de l’historique des prises enregistrées. Sauf indication contraire, \"C^eq^\" a été réglé à 200 % dans tous les scénarios.",
     col_names = c("Nom du scénario de modèle opérationnel", " Type d’ensemble")) %>%
@@ -324,12 +326,21 @@ Les trajectoires implicites de l’épuisement de la biomasse du stock reproduct
 
 ```{r rex-sra-fraction, results='asis'}
 rex_converged <- readRDS(here("generated-data/rex-converged.rds"))
-rex_converged %>%
+temp <- rex_converged %>%
   mutate(fraction_converged = sprintf("%.2f",round(nsim / 650, 2))) %>%
   mutate(scenario = gsub("\\n", " ", scenario)) %>%
   mutate(scenario = gsub("Ceq.", "C^eq^", scenario))%>%
-  select(-nsim) %>%
-  csasdown::csas_table(col_names = c("OM Scenario", "Fraction"),
+  select(-nsim)
+ temp$scenario <- c(
+    "1 - Ceq. 200%", "2 - Ceq. 250%",
+    "3 - M plus élevée",
+    "4 - Taux de variation plus élevé",
+    "5 - Plus faible sélectivité",
+    "6 - Pas de CPUE Ceq. 250%",
+    "7 - Pas de CPUE Ceq. 50%",
+    "8 - M croissante")
+temp %>% 
+  csasdown::csas_table(col_names = c("Scénario", "Fraction"),
     caption = "Fraction des répétitions conservée après le conditionnement avec le modèle d’analyse de la réduction des stocks.")
 ```
 
