@@ -16,6 +16,8 @@ address: |
      Vancouver, British Columbia, V6T 1Z4, Canada\
 year: 2020
 report_number: nnn
+isbn: "978-0-660-38322-4"
+cat_no: "Fs70-6/2021-012E-PDF"
 region: Pacific Region
 citation_other_language: "Anderson, S.C., Forrest, R.E., Huynh, Q.C., Keppel, E.A. 2021. Un Cadre des procédures de gestion pour le poisson de fond en Colombie-Britannique. Secr. can. de consult. sci. du MPO. Doc. de rech. 2021/nnn. vi + 154 p."
 abstract: |
