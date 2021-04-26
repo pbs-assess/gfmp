@@ -242,6 +242,15 @@ if (FRENCH) {
     "8 - M\ncroissante")
 }
 
+if (FRENCH) {
+  PM <- c("LT PRL", "LT RSS", "FRMD", "STC", "LTC", "AADC")
+  names(satisficed_criteria)[1] <- PM[1]
+}
+
+`LT PRL` <- `LT LRP`
+`LT RSS` <- `LT USR`
+FRMD <- FMSY
+
 plots <- gfdlm::plot_factory(
   mse_list = mse,
   pm = PM,
