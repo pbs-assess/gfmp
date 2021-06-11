@@ -2,7 +2,7 @@
 
 # LE PROGICIEL R EN APPUI AU CADRE DES PROCÉDURES DE GESTION {#app:gfdlm}
 
-Nous avons élaboré en R le progiciel gfdlm [@gfdlm] pour fournir un ensemble d’outils qui facilitent les applications de ce Cadre.
+Nous avons élaboré en R le progiciel ggmse [@gfdlm] pour fournir un ensemble d’outils qui facilitent les applications de ce Cadre.
 Ce progiciel comprend notre bibliothèque provisoire de procédures de gestion, un certain nombre de fonctions de traçage pour résumer les sorties des simulations et les ajustements du modèle, ainsi qu’une variété d’autres utilitaires pour la manipulation des procédures de gestion et des paramètres de rendement de DLMtool et la création de rapports fondés sur les simulations de DLMtool (comme l’annexe \@ref(app:desc-om-rex) dans ce document).
 
 ## FONCTIONS DE TRAÇAGE
@@ -11,7 +11,7 @@ Toutes les fonctions de traçage sont configurées pour utiliser l’un des él�
 
 1. une liste nommée des simulations dans DLMtool de `DLMtool::runMSE()`,
 2. une liste nommée des ajustements du modèle d’analyse de la réduction des stocks de `MSEtool::SRA_scope()`,
-3. une liste nommée des cadres de données des paramètres de rendement de `gfdlm::get_probs()`.
+3. une liste nommée des cadres de données des paramètres de rendement de `ggmse::get_probs()`.
 
 Dans tous les cas, les éléments de la liste doivent contenir différents scénarios de modèles opérationnels des ensembles de référence ou de robustesse et les noms doivent refléter ceux des scénarios de modèles opérationnels.
 
@@ -47,7 +47,7 @@ Voici les principales fonctions de traçage :
 * `pm_factory()` est une usine à fonctions qui génère une fonction de paramètre de rendement. Par exemple, la fonction qui suit crée un paramètre de rendement `LT PRL` qui est fondé sur la biomasse féconde, un niveau de référence de 0,4 de la B~RMD~, et est calculé sur les années 36--50 de la période de projection.
 
 ```{r, echo=TRUE, eval=FALSE}
-`LT PRL` <- gfdlm::pm_factory("SBMSY", ref = 0.4, yrs = c(36, 50))
+`LT PRL` <- ggmse::pm_factory("SBMSY", ref = 0.4, yrs = c(36, 50))
 ```
 
 ## FONCTIONS DE MANIPULATION DES PROCÉDURES DE GESTION
@@ -57,9 +57,9 @@ Par exemple, la fonction qui suit crée une nouvelle procédure de gestion nomm�
 
 ```{r, echo=TRUE, eval=FALSE}
 oddify <- function(x) seq(2, x, by = 2)
-.Itarget_base <- gfdlm::Itarget_base %>%
-  gfdlm::use_AddInd() %>%
-  gfdlm::reduce_survey(index = oddify)
+.Itarget_base <- ggmse::Itarget_base %>%
+  ggmse::use_AddInd() %>%
+  ggmse::reduce_survey(index = oddify)
 ```
 
 Il est à noter que le terme `%>%` fait référence à la fonction « pipe » du progiciel magrittr dans R [@magrittr].

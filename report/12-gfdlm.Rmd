@@ -2,7 +2,7 @@
 
 # R PACKAGE TO SUPPORT THE MP FRAMEWORK {#app:gfdlm}
 
-We developed the R package \link{https://github.com/pbs-assess/gfdlm}{gfdlm} to provide a set of tools that facilitate applications of this framework.
+We developed the R package \link{https://github.com/pbs-assess/ggmse}{ggmse} (originally named `gfdlm') to provide a set of tools that facilitate applications of this framework.
 The package includes our provisional library of MPs, a number of plotting functions for summarizing simulation output and model fits, and a variety of other utilities for manipulating DLMtool MPs and performance metrics, and creating reports based on DLMtool simulations (such as Appendix \@ref(app:desc-om-rex) in this document).
 
 ## PLOTTING FUNCTIONS
@@ -11,7 +11,7 @@ All plotting functions are set up to take either:
 
 1. a named list of DLMtool simulations from `DLMtool::runMSE()`,
 2. a named list of SRA model fits from `MSEtool::SRA_scope()`, or
-3. a named list of performance metric data frames from `gfdlm::get_probs()`.
+3. a named list of performance metric data frames from `ggmse::get_probs()`.
 
 In all cases, the list elements should contain different OM scenarios from the reference and/or robustness sets and the names should reflect the OM scenario names.
 
@@ -47,7 +47,7 @@ The following are the main plotting functions:
 * `pm_factory()` is a function factory that generates a performance metric function. For example, the following creates a performance metric `LT LRP` that is based on spawning biomass, a reference level of 0.4 of B~MSY~, and calculated over years 36--50 in the projection period.
 
 ```{r, echo=TRUE, eval=FALSE}
-`LT LRP` <- gfdlm::pm_factory("SBMSY", ref = 0.4, yrs = c(36, 50))
+`LT LRP` <- ggmse::pm_factory("SBMSY", ref = 0.4, yrs = c(36, 50))
 ```
 
 ## MP MANIPULATION FUNCTIONS
@@ -57,9 +57,9 @@ For example, the following creates a new MP named `.Itarget_base` by taking the 
 
 ```{r, echo=TRUE, eval=FALSE}
 oddify <- function(x) seq(2, x, by = 2)
-.Itarget_base <- gfdlm::Itarget_base %>%
-  gfdlm::use_AddInd() %>%
-  gfdlm::reduce_survey(index = oddify)
+.Itarget_base <- ggmse::Itarget_base %>%
+  ggmse::use_AddInd() %>%
+  ggmse::reduce_survey(index = oddify)
 ```
 
 Note that `%>%` refers to the "pipe" function from the magrittr R package [@magrittr].
