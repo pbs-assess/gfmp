@@ -1,5 +1,5 @@
 ---
-title: "Un Cadre des procédures de gestion pour le poisson de fond en Colombie-Britannique"
+title: "Un cadre des procédures de gestion pour le poisson de fond en Colombie-Britannique"
 author: |
   Sean C. Anderson^1^,
   Robyn E. Forrest^1^,
@@ -16,9 +16,9 @@ address: |
      Victoria (Colombie-Britannique) V6T 1Z4, Canada\
 citation_other_language: "Anderson, S.C., Forrest, R.E., Huynh, Q.C., Keppel, E.A. 2020. A management procedure framework for groundﬁsh in British Columbia. DFO Can. Sci. Advis. Sec. Res. Doc. 2021/nnn. vi + 139 p."
 year: 2021
-report_number: nnn
-isbn: "978-0-660-38322-4"
-cat_no: "Fs70-6/2021-012E-PDF"
+report_number: 007
+isbn: "978-0-660-38697-3"
+cat_no: "Fs70-5/2021-007F-PDF"
 region: Région du Pacifique
 abstract: |
   Le Plan de gestion intégrée des pêches du poisson de fond de la région du Pacifique énumère environ 80 stocks de poissons pour lesquels il faut fixer des totaux autorisés des captures annuels, dont la plupart sont appliqués sous forme de quotas individuels transférables dans la pêche intégrée du poisson de fond de la Colombie-Britannique (C.-B.). Pour la majorité des stocks rencontrés dans la pêche intégrée du poisson de fond, les données sont considérées comme limitées; les stocks définis comme étant à données limitées sont ceux pour lesquels les données sont insuffisantes pour que l’on puisse en estimer de façon fiable l’état, l’abondance ou la productivité au moyen de méthodes classiques d’évaluation des stocks comme les modèles statistiques des prises selon l’âge. Dans les dernières décennies, les évaluations des stocks de poisson de fond menées par Pêches et Océans Canada (MPO) se sont concentrées sur les stocks riches en données, ce qui a donné un sous-ensemble de stocks pour lesquels on dispose d’évaluations complètes, tandis que de nombreux stocks sur lesquels on a moins de données informatives ne sont toujours pas évalués.
