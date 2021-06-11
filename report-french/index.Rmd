@@ -14,7 +14,7 @@ address: |
   ^2^Institut des océans et des pêches\
      LRAE de l’Université de la Colombie-Britannique, 2202, Main Mall\
      Victoria (Colombie-Britannique) V6T 1Z4, Canada\
-citation_other_language: "Anderson, S.C., Forrest, R.E., Huynh, Q.C., Keppel, E.A. 2020. A management procedure framework for groundﬁsh in British Columbia. DFO Can. Sci. Advis. Sec. Res. Doc. 2021/nnn. vi + 139 p."
+citation_other_language: "Anderson, S.C., Forrest, R.E., Huynh, Q.C., Keppel, E.A. 2020. A management procedure framework for groundﬁsh in British Columbia. DFO Can. Sci. Advis. Sec. Res. Doc. 2021/007. vi + 139 p."
 year: 2021
 report_number: 007
 isbn: "978-0-660-38697-3"
