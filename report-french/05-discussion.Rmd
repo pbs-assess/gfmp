@@ -160,7 +160,7 @@ Dans ces cas, il sera particulièrement important de bien gérer le processus et
 
 Nous remercions les membres de notre groupe consultatif technique, Rob Kronlund, Adam Keizer, Chris Grandin, Ashleen Benson, Dana Haggarty, Rowan Haigh, Roger Kanno, Paul Starr, Rob Tadey et Greg Workman, pour leurs discussions et commentaires utiles sur les versions antérieures de ce document.
 
-Nous remercions Chris Grandin, qui a mis au point un certain nombre de fonctions de visualisation et de génération de rapports dans le progiciel gfdlm R, qui ont grandement amélioré ce document et qui seront d’une valeur inestimable dans les applications du Cadre.
+Nous remercions Chris Grandin, qui a mis au point un certain nombre de fonctions de visualisation et de génération de rapports dans le progiciel ggmse R, qui ont grandement amélioré ce document et qui seront d’une valeur inestimable dans les applications du Cadre.
 
 Nous remercions Tom Carruthers et Adrian Hordyk de leur travail de développement de DLMtool et MSEtool. Ce projet aurait été beaucoup plus vaste sans ces outils. Les conseils utiles de Tom et d’Adrian et leur disponibilité pour ajouter de nombreuses nouvelles fonctions sur demande ont grandement amélioré ce cadre.
 

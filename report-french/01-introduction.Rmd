@@ -84,7 +84,7 @@ Ce travail s’appuie sur des travaux récents de @anderson2019synopsis, qui con
 Bien que le cadre proposé soit indépendant du logiciel, dans la mise en œuvre actuelle, les données et les analyses empiriques des progiciels de synopsis sur le poisson de fond [@gfdata; @gfplot] sont utilisées pour élaborer des modèles opérationnels à l’aide des progiciels DLMtool [@carruthers2018] et MSEtool [@huynh_msetool_2019], mis en œuvre dans le logiciel statistique R [@r2019].
 Les modèles opérationnels sont ensuite utilisés dans la mise à l’essai par simulation d’un éventail de procédures de gestion à données limitées par rapport aux paramètres de rendement.
 Bien que le présent document porte sur les procédures de gestion à données limitées, les principales caractéristiques du Cadre pourraient être étendues à des espèces plus riches en données afin d’évaluer le rendement des procédures de gestion à données modérées ou abondantes (p. ex. différentes configurations de modèles statistiques des prises selon l’âge couplés à des règles de contrôle des prises).
-Un progiciel en R produit par les auteurs pour ce cadre, gfdlm [@gfdlm], contient de nombreux outils et des visualisations personnalisées pour faciliter le processus.
+Un progiciel en R produit par les auteurs pour ce cadre, ggmse [@gfdlm] (anciennement gfdlm), contient de nombreux outils et des visualisations personnalisées pour faciliter le processus.
 Les étapes du processus sont décrites plus en détail dans les sections suivantes du document.
 
 ## AVANTAGES ESCOMPTÉS {#sec:intro-benefits}

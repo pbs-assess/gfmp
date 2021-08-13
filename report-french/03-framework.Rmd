@@ -309,7 +309,7 @@ Cela facilite la visualisation du rendement des procédures de gestion qui donne
 
 ### Présentation visuelle des paramètres de rendement
 
-Nous cherchons ici à élaborer un ensemble de visualisations provisoires qui facilitent la comparaison des paramètres de rendement de toutes les procédures de gestion et l’évaluation des compromis entre elles. Nous avons mis au point un progiciel gfdlm en R [@gfdlm] (annexe \@ref(app:gfdlm) pour générer ces visualisations. Nous prévoyons qu’une partie ou la totalité des visualisations seront peaufinées au fil du temps à mesure que les utilisateurs se familiariseront avec le système et que des besoins particuliers se présenteront.
+Nous cherchons ici à élaborer un ensemble de visualisations provisoires qui facilitent la comparaison des paramètres de rendement de toutes les procédures de gestion et l’évaluation des compromis entre elles. Nous avons mis au point un progiciel ggmse en R [@gfdlm] (annexe \@ref(app:gfdlm) pour générer ces visualisations. Nous prévoyons qu’une partie ou la totalité des visualisations seront peaufinées au fil du temps à mesure que les utilisateurs se familiariseront avec le système et que des besoins particuliers se présenteront.
 
 Nous proposons d’abord une représentation graphique d’un tableau de probabilité (figure \@ref(fig:methods-tigure)) pour visualiser les résultats des paramètres de rendement.
 Cette visualisation se prête à un grand nombre de procédures de gestion et donne donc de bons résultats pour afficher les résultats de *toutes* les procédures de gestion --- pas forcément uniquement de celles qui sont satisfaisantes.

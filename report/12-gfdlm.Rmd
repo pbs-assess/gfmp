@@ -2,7 +2,7 @@
 
 # R PACKAGE TO SUPPORT THE MP FRAMEWORK {#app:gfdlm}
 
-We developed the R package \link{https://github.com/pbs-assess/ggmse}{ggmse} (originally named `gfdlm') to provide a set of tools that facilitate applications of this framework.
+We developed the R package \link{https://github.com/pbs-assess/ggmse}{ggmse} (originally named 'gfdlm') to provide a set of tools that facilitate applications of this framework.
 The package includes our provisional library of MPs, a number of plotting functions for summarizing simulation output and model fits, and a variety of other utilities for manipulating DLMtool MPs and performance metrics, and creating reports based on DLMtool simulations (such as Appendix \@ref(app:desc-om-rex) in this document).
 
 ## PLOTTING FUNCTIONS

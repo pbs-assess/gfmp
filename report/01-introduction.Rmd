@@ -82,10 +82,10 @@ We choose the terminology MP Framework to clearly specify the focus on selection
 
 This document presents a methodology for developing appropriate OMs, testing suites of MPs, and identifying MPs that best meet the objectives of fisheries management, First Nations and stakeholders.
 This work builds on recent work by @anderson2019synopsis, which is a comprehensive, reproducible data synopsis for nearly all Pacific groundfish species encountered by DFO surveys and commercial fisheries in BC.
-Although the proposed framework is software agnostic, in the current implementation, data and empirical analyses from the groundfish synopsis packages [@gfdata; @gfplot] are used to develop OMs using the DLMtool [@carruthers2018] and MSEtool packages [@huynh_msetool_2019], implemented in the statistical software R [@r2019].
+Although the proposed framework is software agnostic, in the current implementation, data and empirical analyses from the groundfish synopsis packages [@gfdata; @gfplot] are used to develop OMs using the DLMtool [@carruthers2018] and MSEtool packages [@huynh_msetool_2019], implemented in the statistical software R [@r2019] (now collectively named openMSE).
 The OMs are then used in simulation-testing a range of data-limited MPs against performance metrics.
 While this document focuses on data-limited MPs, the main features of the framework could be extended to more data-rich species to evaluate performance of data-moderate or data-rich MPs (e.g., different configurations of statistical catch-age models coupled with harvest control rules).
-An R package written by the authors for this framework, gfdlm [@gfdlm], houses many tools and custom visualizations to aid in the process.
+An R package written by the authors for this framework, ggmse [@gfdlm] (formerly gfdlm), houses many tools and custom visualizations to aid in the process.
 Steps of the process are described more fully in the following sections of the document.
 
 ## EXPECTED BENEFITS {#sec:intro-benefits}

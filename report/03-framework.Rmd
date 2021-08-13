@@ -314,7 +314,7 @@ This facilitates visualization of performance of MPs that perform well in the re
 
 ### Visual presentation of performance metrics
 
-Here we focus on developing a set of provisional visualizations that facilitate comparison of performance metrics across MPs and evaluation of trade-offs amongst them. We have developed an R package gfdlm [@gfdlm] (Appendix \@ref(app:gfdlm)) for generating these visualizations. We expect that some or all of the visualizations will be refined over time as users gain familiarity and specific needs arise.
+Here we focus on developing a set of provisional visualizations that facilitate comparison of performance metrics across MPs and evaluation of trade-offs amongst them. We have developed an R package ggmse [@gfdlm] (Appendix \@ref(app:gfdlm)) for generating these visualizations. We expect that some or all of the visualizations will be refined over time as users gain familiarity and specific needs arise.
 
 First, we suggest a graphical representation of a probability table (Figure \@ref(fig:methods-tigure)) to visualize performance metric results.
 This visualization lends itself to a large number of MPs and so works well for displaying results for *all* MPs---not necessarily just satisficed MPs.
